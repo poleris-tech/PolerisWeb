@@ -20,7 +20,6 @@ export function ServicesSection() {
     <section
       id="services"
       className="relative z-20 bg-white overflow-hidden"
-      //style={{ paddingTop: '1px', paddingBottom: '96px' }}
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Header Content */}
@@ -43,7 +42,7 @@ export function ServicesSection() {
             </span>
           </h2>
 
-          <div className="max-w-3xl mx-auto w-full" style={{ marginTop: '32px' }}>
+          <div className="max-w-3xl mx-auto w-full" >
             <p className="text-sm sm:text-base md:text-lg leading-8 sm:leading-9 md:leading-10 font-light text-[#001f3f]/70" style={{ marginBottom: '24px' }}>
               At Poleris Digital, we specialize in small business web design and development for clients across the US and Canada.
             </p>
