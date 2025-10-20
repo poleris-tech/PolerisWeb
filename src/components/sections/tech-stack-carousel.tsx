@@ -92,13 +92,13 @@ export function TechStackCarousel() {
 
         {/* Carousel wrapper */}
         <div className="relative py-4" style={{ marginTop: '2rem' }}>
-          {/* Enhanced gradient overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 sm:w-48 lg:w-64 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 sm:w-48 lg:w-64 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
+          {/* Enhanced gradient overlays - smaller on mobile */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 lg:w-64 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 lg:w-64 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
 
           {/* Scrolling container */}
           <div className="overflow-hidden py-4">
-            <div className="flex animate-scroll-left hover:pause-animation gap-6 sm:gap-8 lg:gap-10">
+            <div className="flex animate-scroll-left hover:pause-animation gap-4 sm:gap-6 md:gap-8 lg:gap-10">
               {duplicatedTechs.map((tech, index) => (
                 <div
                   key={`${tech.name}-${index}`}
@@ -106,20 +106,20 @@ export function TechStackCarousel() {
                 >
                   <div className="relative">
                     {/* Glow effect */}
-                    <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500`} />
+                    <div className={`absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500`} />
 
                     {/* Card */}
-                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center group-hover:scale-110 group-hover:-translate-y-2 border border-gray-200/50 overflow-hidden">
+                    <div className="relative w-16 h-16 xs:w-18 xs:h-18 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center group-hover:scale-110 group-hover:-translate-y-2 border border-gray-200/50 overflow-hidden">
                       {/* Gradient background on hover */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
                       {/* Logo */}
-                      <div className="relative z-10 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 transition-all duration-500">
+                      <div className="relative z-10 w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 transition-all duration-500">
                         <Image
                           src={tech.logo}
                           alt={`${tech.name} logo`}
                           fill
-                          className={`object-contain p-2 transition-all duration-500 ${
+                          className={`object-contain p-1.5 sm:p-2 transition-all duration-500 ${
                             tech.isDark ? 'group-hover:brightness-0 group-hover:invert' : ''
                           }`}
                         />

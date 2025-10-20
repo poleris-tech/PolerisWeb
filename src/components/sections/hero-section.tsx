@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export function HeroSection() {
   return (
-    <section className="hero-section relative w-full bg-[#001f3d] text-white overflow-hidden min-h-screen flex items-center" style={{ paddingTop: '1rem' }}>
+    <section className="hero-section relative w-full bg-[#001f3d] text-white overflow-hidden min-h-screen flex items-center pt-24 md:pt-32 lg:pt-28">
       {/* Animated star background */}
       <div className="universe universe1" aria-hidden="true">
         <span className="shooting-star"></span>
@@ -123,39 +123,39 @@ export function HeroSection() {
         />
       </svg>
 
-      <div className="container relative z-20 max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8">
-        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 lg:gap-6 xl:gap-10">
+      <div className="container relative z-20 max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 lg:py-12">
+        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-6 sm:gap-8 lg:gap-8 xl:gap-12">
 
           {/* Content */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[45%] flex-shrink-0" style={{ marginLeft: '3rem' }}>
-            <div className="space-y-8 lg:space-y-10">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[48%] xl:w-[45%] flex-shrink-0 lg:ml-0 xl:ml-8">
+            <div className="space-y-4 sm:space-y-6 lg:space-y-8">
               {/* Topper */}
-              <span className="text-xs sm:text-sm font-medium tracking-[0.25em] sm:tracking-[0.3em] text-blue-400 animate-fade-in uppercase">
+              <span className="text-[10px] xs:text-xs sm:text-sm md:text-base font-medium tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-blue-400 animate-fade-in uppercase">
                 Custom Designs, Custom Coded
               </span>
 
               {/* Main heading - Mixed typography */}
-              <div className="space-y-6 sm:space-y-7 lg:space-y-8 w-full animate-fade-in-up">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-[1.15]">
-                  <span className="block font-light italic text-white/90 mb-2">Hand-Built</span>
-                  <span className="block font-black tracking-tight uppercase bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent mb-2">
+              <div className="space-y-3 sm:space-y-4 lg:space-y-6 w-full animate-fade-in-up">
+                <h1 className="text-[28px] xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-[1.15]">
+                  <span className="block font-light italic text-white/90 mb-1 sm:mb-2 text-[24px] xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">Hand-Built</span>
+                  <span className="block font-black tracking-tight uppercase bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent mb-1 sm:mb-2">
                     Websites,
                   </span>
                   <span className="block font-black tracking-tight uppercase text-white">
                     Built to <span className="relative inline-block">
                       <span className="relative z-10">Perform</span>
-                      <span className="absolute bottom-1 sm:bottom-2 left-0 w-full h-2 sm:h-3 bg-blue-400/30 -rotate-1"></span>
+                      <span className="absolute bottom-0.5 sm:bottom-1 md:bottom-2 left-0 w-full h-1.5 sm:h-2 md:h-3 bg-blue-400/30 -rotate-1"></span>
                     </span>
                   </span>
                 </h1>
-                <p className="text-xs sm:text-sm md:text-base text-white/70 leading-relaxed font-light max-w-lg mx-auto lg:mx-0" style={{ marginTop: '1rem', marginBottom: '2rem' }}>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/70 leading-relaxed sm:leading-loose font-light max-w-md sm:max-w-lg mx-auto lg:mx-0 mt-4 sm:mt-6 lg:mt-8">
                   No templates. No shortcuts. <span className="text-white font-medium">Just custom-coded designs</span> that represent your brand with speed, security, and style.
                 </p>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in animate-delay-200 w-full sm:w-auto" style={{ marginTop: '0.2rem', marginBottom: '3rem', marginLeft: '0' }}>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in animate-delay-200 w-full sm:w-auto mt-6 sm:mt-8 lg:mt-10 mb-8 sm:mb-12 lg:mb-16">
               <CustomButton href="#contact" variant="primary" size="md">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -168,7 +168,7 @@ export function HeroSection() {
 
           {/* Laptop Image */}
           <div
-            className="w-full max-w-5xl sm:max-w-3xl md:max-w-4xl lg:max-w-5xl lg:w-[48%] relative z-10 flex-shrink-0 mt-12 sm:mt-16 lg:mt-20"
+            className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-none lg:w-[48%] xl:w-[50%] relative z-10 flex-shrink-0 mt-8 sm:mt-12 lg:mt-0"
             style={{
               animation: 'float 6s ease-in-out infinite',
               willChange: 'transform'
@@ -179,7 +179,7 @@ export function HeroSection() {
               alt="Laptop showing web design"
               width={1440}
               height={758}
-              className="w-full h-auto drop-shadow-2xl mt-12 md:mt-16"
+              className="w-full h-auto drop-shadow-2xl"
               priority
             />
           </div>
