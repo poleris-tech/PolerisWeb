@@ -19,16 +19,16 @@ export function PortfolioSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {PORTFOLIO_ITEMS.map((item) => (
-          <Card key={item.id} className="overflow-hidden group hover:shadow-lg transition-shadow">
+          <Card key={item.id} className="overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
             {/* Placeholder image area */}
-            <div className="h-48 bg-gradient-to-br from-primary/20 to-primary/5 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-primary/20">
+            <div className="h-48 bg-gradient-to-br from-primary/20 to-primary/5 relative overflow-hidden transition-all duration-300 group-hover:scale-105">
+              <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold text-primary/20 transition-all duration-300 group-hover:text-primary/40 group-hover:scale-110">
                 {item.title.substring(0, 1)}
               </div>
             </div>
 
             <CardHeader>
-              <CardTitle className="group-hover:text-primary transition-colors">
+              <CardTitle className="group-hover:text-primary transition-colors duration-300">
                 {item.title}
               </CardTitle>
               <CardDescription>{item.description}</CardDescription>
@@ -37,7 +37,7 @@ export function PortfolioSection() {
             <CardContent>
               <div className="flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
+                  <Badge key={tag} variant="secondary" className="transition-colors group-hover:bg-primary/10">
                     {tag}
                   </Badge>
                 ))}

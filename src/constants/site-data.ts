@@ -6,9 +6,9 @@ import { Service, PricingPlan, Testimonial, PortfolioItem, BlogPost } from "@/ty
  */
 
 export const SITE_CONFIG = {
-  name: "Poliris Digital",
+  name: "Poleris Digital",
   description: "100% Hand-Coded Websites. No page builders, no WordPress. Performance-focused web design.",
-  url: "https://polirisdigital.com",
+  url: "https://polerisdigital.com",
   tagline: "Web Design That Delivers Results",
 } as const;
 
@@ -22,7 +22,6 @@ export const SERVICES: Service[] = [
       "Mobile-first responsive design",
       "1-second load times",
       "SEO optimized",
-      "Clean, maintainable code",
     ],
   },
   {
@@ -143,7 +142,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Why Hand-Coded Websites Beat Page Builders",
     excerpt: "Discover the performance and security benefits of hand-coded websites over page builders like WordPress.",
     date: "2025-01-15",
-    author: "Poliris Team",
+    author: "Poleris Team",
     slug: "hand-coded-vs-page-builders",
     tags: ["Web Development", "Performance"],
   },
@@ -152,7 +151,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Mobile-First Design: Best Practices for 2025",
     excerpt: "Learn the essential mobile-first design principles that will make your website stand out in 2025.",
     date: "2025-01-10",
-    author: "Poliris Team",
+    author: "Poleris Team",
     slug: "mobile-first-design-2025",
     tags: ["Design", "Mobile"],
   },
@@ -161,7 +160,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "SEO Fundamentals Every Business Owner Should Know",
     excerpt: "Master the basics of SEO and learn how to improve your website's visibility on Google.",
     date: "2025-01-05",
-    author: "Poliris Team",
+    author: "Poleris Team",
     slug: "seo-fundamentals",
     tags: ["SEO", "Marketing"],
   },

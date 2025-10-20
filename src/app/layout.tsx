@@ -1,21 +1,43 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
-  title: "Poliris Digital - Hand-Coded Websites That Deliver Results",
+  title: "Poleris Digital - Hand-Coded Websites That Deliver Results",
   description: "100% hand-coded websites. No page builders, no WordPress. Performance-focused web design with $0 down and $175/month.",
+  keywords: ["web design", "custom websites", "hand-coded", "performance optimization", "SEO"],
+  authors: [{ name: "Poleris Digital" }],
+  creator: "Poleris Digital",
+  metadataBase: new URL("https://polerisdigital.com"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://polerisdigital.com",
+    title: "Poleris Digital - Hand-Coded Websites That Deliver Results",
+    description: "100% hand-coded websites. No page builders, no WordPress. Performance-focused web design with $0 down and $175/month.",
+    siteName: "Poleris Digital",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Poleris Digital - Hand-Coded Websites That Deliver Results",
+    description: "100% hand-coded websites. No page builders, no WordPress. Performance-focused web design with $0 down and $175/month.",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#001f3d",
 };
 
 export default function RootLayout({
@@ -25,13 +47,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.variable} antialiased bg-white dark:bg-gray-950`}
+        style={{ fontFamily: 'var(--font-poppins)' }}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}

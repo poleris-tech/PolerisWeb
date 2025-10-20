@@ -24,10 +24,10 @@ export function PricingSection() {
         {PRICING_PLANS.map((plan) => (
           <Card
             key={plan.id}
-            className="border-2 border-primary shadow-lg relative overflow-hidden"
+            className="border-2 border-primary shadow-lg relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] group"
           >
             {plan.popular && (
-              <div className="absolute top-0 right-0">
+              <div className="absolute top-0 right-0 animate-pulse">
                 <Badge className="rounded-none rounded-bl-lg">
                   Most Popular
                 </Badge>
@@ -35,13 +35,13 @@ export function PricingSection() {
             )}
 
             <CardHeader className="text-center pb-8">
-              <CardTitle className="text-2xl mb-2">{plan.name}</CardTitle>
+              <CardTitle className="text-2xl mb-2 transition-colors group-hover:text-primary">{plan.name}</CardTitle>
               <div className="space-y-1">
-                <div className="flex items-baseline justify-center gap-2">
+                <div className="flex items-baseline justify-center gap-2 transition-transform group-hover:scale-105">
                   <span className="text-5xl font-bold">${plan.downPayment}</span>
                   <span className="text-muted-foreground">down</span>
                 </div>
-                <div className="flex items-baseline justify-center gap-2">
+                <div className="flex items-baseline justify-center gap-2 transition-transform group-hover:scale-105">
                   <span className="text-3xl font-bold">${plan.monthlyPrice}</span>
                   <span className="text-muted-foreground">/month</span>
                 </div>
@@ -54,7 +54,7 @@ export function PricingSection() {
             <CardContent>
               <ul className="space-y-3">
                 {plan.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
+                  <li key={idx} className="flex items-start gap-3 transition-transform hover:translate-x-1">
                     <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
@@ -63,7 +63,7 @@ export function PricingSection() {
             </CardContent>
 
             <CardFooter className="flex flex-col gap-4 pt-6">
-              <Button size="lg" className="w-full" asChild>
+              <Button size="lg" className="w-full transition-transform hover:scale-105" asChild>
                 <Link href="#contact">Get Started Today</Link>
               </Button>
               <p className="text-xs text-center text-muted-foreground">
@@ -76,19 +76,19 @@ export function PricingSection() {
 
       {/* Value propositions */}
       <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        <div className="space-y-2">
+        <div className="space-y-2 transition-transform hover:scale-105">
           <h3 className="font-bold text-lg">No Upfront Costs</h3>
           <p className="text-sm text-muted-foreground">
             Get started with $0 down and pay monthly
           </p>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 transition-transform hover:scale-105">
           <h3 className="font-bold text-lg">All-Inclusive</h3>
           <p className="text-sm text-muted-foreground">
             Hosting, SSL, updates, and support included
           </p>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 transition-transform hover:scale-105">
           <h3 className="font-bold text-lg">Unlimited Edits</h3>
           <p className="text-sm text-muted-foreground">
             Make changes anytime with no extra charges

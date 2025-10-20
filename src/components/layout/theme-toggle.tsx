@@ -3,7 +3,6 @@
 import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Button } from "@/components/ui/button";
 
 /**
  * Theme Toggle Component
@@ -20,22 +19,28 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="icon" className="w-9 h-9">
+      <button className="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
         <span className="sr-only">Toggle theme</span>
-      </Button>
+      </button>
     );
   }
 
+  const isDark = theme === "dark";
+
+  const toggleTheme = () => {
+    const newTheme = isDark ? "light" : "dark";
+    setTheme(newTheme);
+  };
+
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="w-9 h-9"
+    <button
+      onClick={toggleTheme}
+      className="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center transition-colors relative text-[#001f3f] hover:text-[#00bfff]"
+      aria-label="Toggle theme"
     >
-      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <Sun className={`h-[1.5rem] w-[1.5rem] md:h-[1.75rem] md:w-[1.75rem] transition-all ${isDark ? 'rotate-90 scale-0' : 'rotate-0 scale-100'}`} />
+      <Moon className={`absolute h-[1.5rem] w-[1.5rem] md:h-[1.75rem] md:w-[1.75rem] transition-all ${isDark ? 'rotate-0 scale-100' : '-rotate-90 scale-0'}`} />
       <span className="sr-only">Toggle theme</span>
-    </Button>
+    </button>
   );
 }

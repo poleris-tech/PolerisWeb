@@ -4,93 +4,122 @@ import * as React from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
-import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/ui/logo";
+import { CustomButton } from "@/components/ui/custom-button";
 import { cn } from "@/lib/utils";
-import { SITE_CONFIG } from "@/constants/site-data";
 
 /**
  * Navigation Component
- * Main navigation bar with responsive mobile menu
+ * Sleek navigation bar inspired by modern web design
  */
 
 const NAV_ITEMS = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Blog", href: "#blog" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export function Navigation() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <nav className="container mx-auto px-4 flex h-16 items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="font-bold text-xl">{SITE_CONFIG.name}</span>
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex md:items-center md:gap-6">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
-              {item.label}
-            </Link>
-          ))}
-          <ThemeToggle />
-          <Button asChild>
-            <Link href="#contact">Get Started</Link>
-          </Button>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="flex md:hidden items-center gap-2">
-          <ThemeToggle />
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
-        </div>
-      </nav>
-
-      {/* Mobile Navigation */}
-      {isOpen && (
-        <div className="md:hidden border-t">
-          <div className="container mx-auto px-4 py-4 space-y-3">
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block py-2 text-sm font-medium transition-colors hover:text-primary"
-              >
-                {item.label}
+    <header
+      className="fixed z-50 left-1/2 -translate-x-1/2 transition-all duration-300"
+      style={{
+        top: scrolled ? '0' : '16px',
+        width: scrolled ? '100%' : '94%',
+        maxWidth: scrolled ? '100%' : '90rem'
+      }}
+    >
+      <nav
+        className="bg-white shadow-lg transition-all duration-300 relative"
+        style={{
+          borderRadius: scrolled ? '0' : '24px'
+        }}
+      >
+        <div className="h-20 md:h-24 flex items-center w-full px-6 md:px-8">
+          <div className="flex items-center justify-between w-full gap-6">
+              {/* Logo - Left */}
+              <Link href="/" className="hover:opacity-80 transition-opacity z-[100] relative">
+                <Logo variant="default" />
               </Link>
-            ))}
-            <Button asChild className="w-full">
-              <Link href="#contact" onClick={() => setIsOpen(false)}>
-                Get Started
-              </Link>
-            </Button>
+
+              {/* Desktop Navigation - Absolutely Centered to container */}
+              <div className="hidden lg:flex items-center h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <nav className="flex items-center gap-10">
+                  {NAV_ITEMS.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-base font-bold uppercase tracking-wide text-[#001f3f] hover:text-[#00bfff] transition-colors whitespace-nowrap"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+
+              {/* Right side buttons */}
+              <div className="flex items-center gap-6 z-[100] relative">
+                <div className="hidden md:block">
+                  <CustomButton href="#contact" variant="primary" size="md">
+                    Get Started
+                  </CustomButton>
+                </div>
+                <ThemeToggle />
+
+                {/* Mobile Menu Button */}
+                <button
+                  onClick={toggleMenu}
+                  className="lg:hidden p-3 rounded-lg bg-[#001f3f] text-white hover:bg-[#00bfff] transition-colors"
+                  aria-label="Toggle menu"
+                >
+                  {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      )}
+
+          {/* Mobile Navigation */}
+          {isOpen && (
+            <div className="lg:hidden mt-12 pt-6 border-t border-gray-200">
+              <div className="flex flex-col space-y-4">
+                {NAV_ITEMS.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-base font-bold uppercase text-[#001f3f] hover:text-[#00bfff] transition-colors text-center py-2"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                <CustomButton
+                  href="#contact"
+                  variant="primary"
+                  size="md"
+                  fullWidth
+                  onClick={() => setIsOpen(false)}
+                >
+                  Get Started
+                </CustomButton>
+              </div>
+            </div>
+          )}
+        </nav>
     </header>
   );
 }

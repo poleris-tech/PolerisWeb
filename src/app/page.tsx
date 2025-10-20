@@ -1,27 +1,21 @@
 import { Navigation } from "@/components/layout/navigation";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
+import { TechStackCarousel } from "@/components/sections/tech-stack-carousel";
 import { ServicesSection } from "@/components/sections/services-section";
-import { PortfolioSection } from "@/components/sections/portfolio-section";
-import { PricingSection } from "@/components/sections/pricing-section";
-import { TestimonialsSection } from "@/components/sections/testimonials-section";
-import { BlogSection } from "@/components/sections/blog-section";
 
 /**
  * Home Page
- * Main landing page with all sections
+ * Main landing page - focusing on hero section
  */
 export default function Home() {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden flex flex-col">
       <Navigation />
-      <main className="w-full">
+      <main className="w-full flex-1">
         <HeroSection />
+        <TechStackCarousel />
         <ServicesSection />
-        <PortfolioSection />
-        <PricingSection />
-        <TestimonialsSection />
-        <BlogSection />
       </main>
       <Footer />
     </div>

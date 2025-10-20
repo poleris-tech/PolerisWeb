@@ -19,7 +19,7 @@ export function SectionContainer({
 }: SectionContainerProps) {
   return (
     <section id={id} className={cn("py-16 md:py-24 w-full", className)}>
-      <div className="container mx-auto px-4">{children}</div>
+      <div className="container px-4">{children}</div>
     </section>
   );
 }
