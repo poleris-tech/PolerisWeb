@@ -4,7 +4,8 @@
       "Bash(npx shadcn@latest add:*)",
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
-      "Bash(timeout 10 bash -c 'until curl -s http://localhost:3000 > /dev/null; do sleep 1; done')"
+      "Bash(timeout 10 bash -c 'until curl -s http://localhost:3000 > /dev/null; do sleep 1; done')",
+      "Bash(rm -rf .next/trace)"
     ],
     "deny": [],
     "ask": []

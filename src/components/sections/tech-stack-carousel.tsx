@@ -70,7 +70,7 @@ export function TechStackCarousel() {
   const duplicatedTechs = [...technologies, ...technologies, ...technologies];
 
   return (
-    <section className="w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden relative">
+    <section className="w-full py-12 sm:py-14 lg:py-16 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden relative">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(0, 0, 0) 1px, transparent 0)',
@@ -78,7 +78,7 @@ export function TechStackCarousel() {
       }} />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-16 sm:mb-20 lg:mb-24 flex flex-col items-center gap-4 sm:gap-5">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center gap-4 sm:gap-5">
           <span className="inline-block text-sm sm:text-base font-semibold tracking-wider text-blue-600 uppercase">
             Powered By
           </span>
@@ -91,7 +91,7 @@ export function TechStackCarousel() {
         </div>
 
         {/* Carousel wrapper */}
-        <div className="relative py-4" style={{ marginTop: '4rem' }}>
+        <div className="relative py-4" style={{ marginTop: '2rem' }}>
           {/* Enhanced gradient overlays */}
           <div className="absolute left-0 top-0 bottom-0 w-32 sm:w-48 lg:w-64 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 sm:w-48 lg:w-64 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />

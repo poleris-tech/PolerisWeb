@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export function HeroSection() {
   return (
-    <section className="hero-section relative w-full bg-[#001f3d] text-white overflow-hidden min-h-screen flex items-center" style={{ paddingTop: '8rem' }}>
+    <section className="hero-section relative w-full bg-[#001f3d] text-white overflow-hidden min-h-screen flex items-center" style={{ paddingTop: '1rem' }}>
       {/* Animated star background */}
       <div className="universe universe1" aria-hidden="true">
         <span className="shooting-star"></span>
