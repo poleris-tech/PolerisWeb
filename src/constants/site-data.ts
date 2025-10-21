@@ -1,4 +1,4 @@
-import { Service, PricingPlan, Testimonial, PortfolioItem, BlogPost } from "@/types";
+import { Service, PricingPlan, Testimonial, PortfolioItem, BlogPost, AddOn, ProcessStep } from "@/types";
 
 /**
  * Site-wide data constants following MVP pattern
@@ -65,23 +65,85 @@ export const SERVICES: Service[] = [
 export const PRICING_PLANS: PricingPlan[] = [
   {
     id: "standard",
-    name: "Standard Website",
-    monthlyPrice: 175,
-    downPayment: 0,
-    minimumContract: 12,
+    name: "Custom Website Package",
+    oneTimePrice: 3200,
+    monthlyPrice: 30,
     popular: true,
     features: [
-      "5-page custom website",
-      "100% hand-coded",
-      "Mobile-first design",
-      "SEO optimized",
-      "Hosting included",
-      "SSL certificate",
-      "Unlimited edits",
-      "24/7 support",
-      "Google Analytics",
+      "Fully custom-coded website (up to 6 pages)",
+      "Mobile-first responsive design",
+      "SEO-ready structure & on-page optimization",
+      "Domain, SSL & deployment setup",
+      "1 year of priority support",
+      "Google Analytics integration",
       "Contact form setup",
+      "100% hand-coded (no page builders)",
     ],
+  },
+];
+
+export const ADD_ONS: AddOn[] = [
+  {
+    id: "blog",
+    name: "Blog Integration",
+    price: 250,
+    type: "one-time",
+    description: "Add a fully-featured blog to your website with categories, tags, and RSS feed",
+  },
+  {
+    id: "additional-pages",
+    name: "Additional Pages",
+    price: 100,
+    type: "one-time",
+    description: "Add extra pages beyond the included 6 pages (per page)",
+  },
+  {
+    id: "unlimited-edits",
+    name: "Unlimited Edits Add-On",
+    price: 40,
+    type: "monthly",
+    description: "Make unlimited content and design changes anytime without extra charges",
+  },
+  {
+    id: "seo-optimization",
+    name: "SEO Optimization",
+    price: 300,
+    type: "one-time",
+    description: "Get your site ranking faster with structured on-page SEO. Includes keyword research, title/meta optimization, and sitemap submission to Google",
+  },
+  {
+    id: "google-ads",
+    name: "Google Ads Management",
+    price: 400,
+    type: "monthly",
+    description: "Generate immediate traffic with strategic ad campaigns. We handle setup, ad copywriting, keyword targeting, and monthly performance reporting (ad spend billed separately through your Google Ads account)",
+  },
+];
+
+export const PROCESS_STEPS: ProcessStep[] = [
+  {
+    id: "plan",
+    number: 1,
+    title: "Plan",
+    description: "We understand your goals, audience, and design direction.",
+  },
+  {
+    id: "design",
+    number: 2,
+    title: "Design",
+    description: "We craft a clean, on-brand layout with intuitive UX.",
+  },
+  {
+    id: "develop",
+    number: 3,
+    title: "Develop",
+    description: "We hand-code your website for performance and SEO.",
+  },
+  {
+    id: "launch",
+    number: 4,
+    title: "Launch",
+    description: "We test, deploy, and fine-tune for flawless performance.",
   },
 ];
 

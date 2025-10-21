@@ -3,10 +3,12 @@ import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
 import { TechStackCarousel } from "@/components/sections/tech-stack-carousel";
 import { ServicesSection } from "@/components/sections/services-section";
+import { ProcessSection } from "@/components/sections/process-section";
+import { PricingSection } from "@/components/sections/pricing-section";
 
 /**
  * Home Page
- * Main landing page - focusing on hero section
+ * Main landing page with full sections
  */
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
         <HeroSection />
         <TechStackCarousel />
         <ServicesSection />
+        <PricingSection />
+        <ProcessSection />
       </main>
       <Footer />
     </div>

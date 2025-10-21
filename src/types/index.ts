@@ -33,10 +33,26 @@ export interface PricingPlan {
   id: string;
   name: string;
   monthlyPrice: number;
-  downPayment: number;
+  oneTimePrice?: number;
+  downPayment?: number;
   features: string[];
   popular?: boolean;
-  minimumContract: number;
+  minimumContract?: number;
+}
+
+export interface AddOn {
+  id: string;
+  name: string;
+  price: number;
+  type: 'one-time' | 'monthly';
+  description: string;
+}
+
+export interface ProcessStep {
+  id: string;
+  number: number;
+  title: string;
+  description: string;
 }
 
 export interface BlogPost {
