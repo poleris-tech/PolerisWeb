@@ -14,6 +14,9 @@ interface ButtonProps {
   size?: "sm" | "md" | "lg";
   className?: string;
   fullWidth?: boolean;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  icon?: ReactNode;
 }
 
 export function CustomButton({
@@ -24,6 +27,9 @@ export function CustomButton({
   size = "md",
   className = "",
   fullWidth = false,
+  type = "button",
+  disabled = false,
+  icon,
 }: ButtonProps) {
   const baseStyles =
     "cs-button-solid relative inline-flex items-center justify-center font-semibold uppercase tracking-wider text-center whitespace-nowrap overflow-hidden transition-all duration-500 ease-in-out focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-cyan-400 group";
@@ -78,11 +84,16 @@ export function CustomButton({
     <>
       <style>{styleTag}</style>
       <button
+        type={type}
         onClick={onClick}
+        disabled={disabled}
         className={combinedClassName}
         aria-label={typeof children === "string" ? children : undefined}
       >
-        <span className="flex items-center gap-2">{children}</span>
+        <span className="flex items-center justify-center gap-2">
+          {children}
+          {icon && icon}
+        </span>
       </button>
     </>
   );

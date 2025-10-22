@@ -5,6 +5,7 @@ import { TechStackCarousel } from "@/components/sections/tech-stack-carousel";
 import { ServicesSection } from "@/components/sections/services-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { PricingSection } from "@/components/sections/pricing-section";
+import ContactSection from "@/components/sections/contact-section";
 
 /**
  * Home Page
@@ -20,6 +21,7 @@ export default function Home() {
         <ServicesSection />
         <PricingSection />
         <ProcessSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>

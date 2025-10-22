@@ -12,6 +12,20 @@ export const SITE_CONFIG = {
   tagline: "Web Design That Delivers Results",
 } as const;
 
+export const CONTACT_INFO = {
+  email: "ohwdinfo@gmail.com",
+  phone: "(219) 576-2539",
+  phoneHref: "+12195762539",
+  location: "United States",
+  availability: "Available 24/7",
+  social: {
+    twitter: "",
+    linkedin: "",
+    facebook: "",
+    instagram: "",
+  }
+} as const;
+
 export const SERVICES: Service[] = [
   {
     id: "web-design",
