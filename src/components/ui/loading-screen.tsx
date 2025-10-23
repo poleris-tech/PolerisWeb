@@ -75,7 +75,7 @@ export function LoadingScreen() {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              <Logo variant="light" className="w-24 h-24" />
+              <Logo variant="white" className="w-24 h-24" />
             </motion.div>
 
             {/* Loading text */}
