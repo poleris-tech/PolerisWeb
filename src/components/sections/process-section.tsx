@@ -1,5 +1,8 @@
+"use client";
+
 import { PROCESS_STEPS } from "@/constants/site-data";
 import { ArrowRight } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 /**
  * Process Section Component
@@ -21,27 +24,33 @@ export function ProcessSection() {
       <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 md:py-24">
         {/* Header Content */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20 flex flex-col items-center w-full">
-          <div className="inline-flex items-center gap-2 mb-8 sm:mb-10">
-            <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-blue-600"></span>
-            <span className="text-xs sm:text-sm font-medium tracking-widest text-blue-600 uppercase">
-              Our Process
-            </span>
-            <span className="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-blue-600"></span>
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#001f3f] mb-6 sm:mb-8 leading-tight max-w-4xl">
-            A Proven Approach to{" "}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                Success
+          <ScrollReveal direction="down" delay={0.1}>
+            <div className="inline-flex items-center gap-2 mb-8 sm:mb-10">
+              <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-blue-600"></span>
+              <span className="text-xs sm:text-sm font-medium tracking-widest text-blue-600 uppercase">
+                Our Process
               </span>
-              <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 bg-blue-500/20 rounded-sm"></span>
-            </span>
-          </h2>
+              <span className="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-blue-600"></span>
+            </div>
+          </ScrollReveal>
 
-          <p className="text-sm sm:text-base md:text-lg leading-8 sm:leading-9 font-light text-[#001f3f]/70 max-w-3xl mx-auto">
-            From concept to launch, we follow a streamlined process designed to deliver exceptional websites on time and on budget.
-          </p>
+          <ScrollReveal direction="up" delay={0.2}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#001f3f] mb-6 sm:mb-8 leading-tight max-w-4xl">
+              A Proven Approach to{" "}
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                  Success
+                </span>
+                <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 bg-blue-500/20 rounded-sm"></span>
+              </span>
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.3}>
+            <p className="text-sm sm:text-base md:text-lg leading-8 sm:leading-9 font-light text-[#001f3f]/70 max-w-3xl mx-auto">
+              From concept to launch, we follow a streamlined process designed to deliver exceptional websites on time and on budget.
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* Process Steps Grid */}
@@ -50,7 +59,8 @@ export function ProcessSection() {
           <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-300/50 to-transparent" style={{ top: '80px' }}></div>
 
           {PROCESS_STEPS.map((step, index) => (
-            <div key={step.id} className="group relative">
+            <ScrollReveal key={step.id} direction="up" delay={0.1 * index} duration={0.7}>
+              <div className="group relative h-full">
               <div className="relative flex flex-col h-full rounded-2xl sm:rounded-3xl bg-white border-2 border-gray-100 px-6 py-8 md:px-8 md:py-10 transition-all duration-700 hover:border-blue-500/50 hover:shadow-[0_20px_70px_-15px_rgba(0,31,63,0.3)] hover:-translate-y-3 overflow-hidden">
 
                 {/* Gradient overlay on hover */}
@@ -94,13 +104,16 @@ export function ProcessSection() {
                 <div className="absolute top-6 right-6 w-2 h-2 rounded-full bg-blue-500/20 group-hover:bg-blue-500 transition-all duration-500"></div>
               </div>
             </div>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* Bottom decorative line */}
-        <div className="mt-12 flex justify-center">
-          <div className="h-1 w-24 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full" />
-        </div>
+        <ScrollReveal direction="zoom-in" delay={0.5}>
+          <div className="mt-12 flex justify-center">
+            <div className="h-1 w-24 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full" />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

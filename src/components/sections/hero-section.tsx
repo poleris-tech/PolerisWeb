@@ -1,6 +1,10 @@
+"use client";
+
 import { CustomButton } from "@/components/ui/custom-button";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 /**
  * Hero Section Component
@@ -95,32 +99,69 @@ export function HeroSection() {
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[48%] xl:w-[45%] flex-shrink-0 lg:ml-0 xl:ml-8">
             <div className="space-y-4 sm:space-y-6 lg:space-y-8">
               {/* Topper */}
-              <span className="text-[10px] xs:text-xs sm:text-sm md:text-base font-medium tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-blue-400 animate-fade-in uppercase">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[10px] xs:text-xs sm:text-sm md:text-base font-medium tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-blue-400 uppercase block"
+              >
                 Custom Designs, Custom Coded
-              </span>
+              </motion.span>
 
               {/* Main heading - Mixed typography */}
-              <div className="space-y-3 sm:space-y-4 w-full animate-fade-in-up">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="space-y-3 sm:space-y-4 w-full"
+              >
                 <h1 className="text-[32px] xs:text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl leading-[1.1] sm:leading-[1.15]">
-                  <span className="block font-light italic text-white/90 mb-1 sm:mb-2 text-[28px] xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl">Hand-Built</span>
-                  <span className="block font-black tracking-tight uppercase bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent mb-1 sm:mb-2">
+                  <motion.span
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="block font-light italic text-white/90 mb-1 sm:mb-2 text-[28px] xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl"
+                  >
+                    Hand-Built
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="block font-black tracking-tight uppercase bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent mb-1 sm:mb-2"
+                  >
                     Websites,
-                  </span>
-                  <span className="block font-black tracking-tight uppercase text-white">
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    className="block font-black tracking-tight uppercase text-white"
+                  >
                     Built to <span className="relative inline-block">
                       <span className="relative z-10">Perform</span>
                       <span className="absolute bottom-1 sm:bottom-1 left-0 w-full h-2 sm:h-2 bg-blue-400/30 -rotate-1"></span>
                     </span>
-                  </span>
+                  </motion.span>
                 </h1>
-                <p className="text-sm sm:text-sm md:text-base text-white/70 leading-relaxed font-light max-w-md sm:max-w-lg mx-auto lg:mx-0 mt-4 sm:mt-4">
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-sm sm:text-sm md:text-base text-white/70 leading-relaxed font-light max-w-md sm:max-w-lg mx-auto lg:mx-0 mt-4 sm:mt-4"
+                >
                   Custom-coded websites built for performance — with <span className="text-white font-medium">dedicated SEO and Google Ads services</span> available to scale your growth.
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in animate-delay-200 w-full sm:w-auto mt-6 sm:mt-6 lg:mt-7 mb-6 sm:mb-6 lg:mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-6 sm:mt-6 lg:mt-7 mb-6 sm:mb-6 lg:mb-8"
+            >
               <CustomButton href="#contact" variant="primary" size="md">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -128,14 +169,17 @@ export function HeroSection() {
               <CustomButton href="#about" variant="outline" size="md">
                 About Us
               </CustomButton>
-            </div>
+            </motion.div>
           </div>
 
           {/* Laptop Image */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-none lg:w-[48%] xl:w-[50%] relative z-10 flex-shrink-0 mt-8 sm:mt-8 lg:mt-0"
             style={{
-              animation: 'float 6s ease-in-out infinite',
+              animation: 'float 6s ease-in-out infinite 1s',
               willChange: 'transform'
             }}
           >
@@ -147,7 +191,7 @@ export function HeroSection() {
               className="w-full h-auto drop-shadow-2xl"
               priority
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

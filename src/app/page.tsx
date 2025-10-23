@@ -6,6 +6,9 @@ import { ServicesSection } from "@/components/sections/services-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { PricingSection } from "@/components/sections/pricing-section";
 import ContactSection from "@/components/sections/contact-section";
+import { BackToTop } from "@/components/ui/back-to-top";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { LoadingScreen } from "@/components/ui/loading-screen";
 
 /**
  * Home Page
@@ -13,17 +16,22 @@ import ContactSection from "@/components/sections/contact-section";
  */
 export default function Home() {
   return (
-    <div className="min-h-screen w-full overflow-x-hidden flex flex-col">
-      <Navigation />
-      <main className="w-full flex-1">
-        <HeroSection />
-        <TechStackCarousel />
-        <ServicesSection />
-        <PricingSection />
-        <ProcessSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <LoadingScreen />
+      <ScrollProgress />
+      <div className="min-h-screen w-full overflow-x-hidden flex flex-col">
+        <Navigation />
+        <main className="w-full flex-1">
+          <HeroSection />
+          <TechStackCarousel />
+          <ServicesSection />
+          <PricingSection />
+          <ProcessSection />
+          <ContactSection />
+        </main>
+        <Footer />
+        <BackToTop />
+      </div>
+    </>
   );
 }

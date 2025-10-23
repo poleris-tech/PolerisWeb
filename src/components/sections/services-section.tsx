@@ -1,6 +1,9 @@
+"use client";
+
 import { Code, Search, Target, Server } from "lucide-react";
 import { SERVICES } from "@/constants/site-data";
 import { CustomButton } from "@/components/ui/custom-button";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 /**
  * Services Section Component
@@ -24,42 +27,49 @@ export function ServicesSection() {
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Header Content */}
         <div className="text-center mb-8 sm:mb-10 md:mb-12 flex flex-col items-center w-full">
-          <div className="inline-flex items-center gap-2 mb-8 sm:mb-10">
-            <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-blue-600"></span>
-            <span className="text-xs sm:text-sm font-medium tracking-widest text-blue-600 uppercase">
-              What We Do
-            </span>
-            <span className="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-blue-600"></span>
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#001f3f] mb-10 sm:mb-12 leading-tight max-w-4xl">
-            Never Worry About Your Website{" "}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                Ever Again
+          <ScrollReveal direction="down" delay={0.1}>
+            <div className="inline-flex items-center gap-2 mb-8 sm:mb-10">
+              <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-blue-600"></span>
+              <span className="text-xs sm:text-sm font-medium tracking-widest text-blue-600 uppercase">
+                What We Do
               </span>
-              <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 bg-blue-500/20 rounded-sm"></span>
-            </span>
-          </h2>
+              <span className="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-blue-600"></span>
+            </div>
+          </ScrollReveal>
 
-          <div className="max-w-3xl mx-auto w-full" >
-            <p className="text-sm sm:text-base md:text-lg leading-8 sm:leading-9 md:leading-10 font-light text-[#001f3f]/70" style={{ marginBottom: '24px' }}>
-              At Poleris Digital, we specialize in small business web design and development for clients across the US and Canada.
-            </p>
-            <p className="text-sm sm:text-base leading-8 sm:leading-9 font-light text-[#001f3f]/70">
-              Every line of code is handcrafted for optimal performance, ensuring Google loves your site, driving more traffic and revenue to your business.
-            </p>
-          </div>
+          <ScrollReveal direction="up" delay={0.2}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#001f3f] mb-10 sm:mb-12 leading-tight max-w-4xl">
+              Never Worry About Your Website{" "}
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                  Ever Again
+                </span>
+                <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 bg-blue-500/20 rounded-sm"></span>
+              </span>
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.3}>
+            <div className="max-w-3xl mx-auto w-full" >
+              <p className="text-sm sm:text-base md:text-lg leading-8 sm:leading-9 md:leading-10 font-light text-[#001f3f]/70" style={{ marginBottom: '24px' }}>
+                At Poleris Digital, we specialize in small business web design and development for clients across the US and Canada.
+              </p>
+              <p className="text-sm sm:text-base leading-8 sm:leading-9 font-light text-[#001f3f]/70">
+                Every line of code is handcrafted for optimal performance, ensuring Google loves your site, driving more traffic and revenue to your business.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
 
         {/* Services Grid */}
         <div className="flex justify-center w-full mb-12 sm:mb-16" style={{ marginTop: '40px' }}>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-7xl w-full">
-          {SERVICES.map((service) => {
+          {SERVICES.map((service, index) => {
             const IconComponent = ICON_MAP[service.id as keyof typeof ICON_MAP];
 
             return (
-              <li key={service.id} className="group relative">
+              <ScrollReveal key={service.id} direction="up" delay={0.1 * index} duration={0.7}>
+                <li className="group relative h-full">
                 <div className="relative flex flex-col h-full rounded-2xl sm:rounded-3xl bg-white border-2 border-gray-100 px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 transition-all duration-700 hover:border-blue-500/50 hover:shadow-[0_20px_70px_-15px_rgba(0,31,63,0.3)] hover:-translate-y-3 overflow-hidden">
 
                   {/* Gradient overlay on hover */}
@@ -112,20 +122,23 @@ export function ServicesSection() {
                   <div className="absolute top-6 right-6 w-2 h-2 rounded-full bg-blue-500/20 group-hover:bg-blue-500 transition-all duration-500"></div>
                 </div>
               </li>
+              </ScrollReveal>
             );
           })}
           </ul>
         </div>
 
         {/* CTA Button */}
-        <div className="flex justify-center" style={{ marginTop: '48px' }}>
-          <div className="relative group/cta">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur opacity-20 group-hover/cta:opacity-40 transition-all duration-500"></div>
-            <CustomButton href="#contact" variant="primary" size="lg">
-              Get Started Today
-            </CustomButton>
+        <ScrollReveal direction="zoom-in" delay={0.4}>
+          <div className="flex justify-center" style={{ marginTop: '48px' }}>
+            <div className="relative group/cta">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur opacity-20 group-hover/cta:opacity-40 transition-all duration-500"></div>
+              <CustomButton href="#contact" variant="primary" size="lg">
+                Get Started Today
+              </CustomButton>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

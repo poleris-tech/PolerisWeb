@@ -5,6 +5,7 @@ import Image from 'next/image';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import { CustomButton } from '@/components/ui/custom-button';
+import { ScrollReveal } from '@/components/ui/scroll-reveal';
 import { Send } from 'lucide-react';
 
 interface ContactFormData {
@@ -231,46 +232,55 @@ export default function ContactSection() {
       >
       <div className="container relative max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="text-center mb-8 md:mb-12 flex flex-col items-center animate-fade-in">
-          <div className="inline-flex items-center gap-3 mb-3">
-            <div className="h-px w-8 bg-gradient-to-r from-transparent to-blue-600"></div>
-            <span className="text-blue-600 text-xs sm:text-sm font-semibold tracking-wider uppercase">
-              Get In Touch
-            </span>
-            <div className="h-px w-8 bg-gradient-to-r from-blue-600 to-transparent"></div>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#001f3d] mb-3">
-            Let&apos;s Build Something{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Amazing Together
-            </span>
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-[#001f3d]/70 max-w-2xl">
-            Have a project in mind? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
-          </p>
+        <div className="text-center mb-8 md:mb-12 flex flex-col items-center">
+          <ScrollReveal direction="down" delay={0.1}>
+            <div className="inline-flex items-center gap-3 mb-3">
+              <div className="h-px w-8 bg-gradient-to-r from-transparent to-blue-600"></div>
+              <span className="text-blue-600 text-xs sm:text-sm font-semibold tracking-wider uppercase">
+                Get In Touch
+              </span>
+              <div className="h-px w-8 bg-gradient-to-r from-blue-600 to-transparent"></div>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.2}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#001f3d] mb-3">
+              Let&apos;s Build Something{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                Amazing Together
+              </span>
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.3}>
+            <p className="text-sm sm:text-base md:text-lg text-[#001f3d]/70 max-w-2xl">
+              Have a project in mind? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
           {/* Left Column: Image & Contact Info */}
-          <div className="relative animate-fade-in-up lg:order-1 order-2">
-            {/* Contact Image/Illustration */}
-            <div className="relative">
-              <div className="relative rounded-xl overflow-hidden">
-                <Image
-                  src="/Contact_us.svg"
-                  alt="Contact Us"
-                  width={600}
-                  height={600}
-                  className="w-full h-auto"
-                  priority
-                />
+          <ScrollReveal direction="left" delay={0.4} duration={0.8}>
+            <div className="relative lg:order-1 order-2">
+              {/* Contact Image/Illustration */}
+              <div className="relative">
+                <div className="relative rounded-xl overflow-hidden">
+                  <Image
+                    src="/Contact_us.svg"
+                    alt="Contact Us"
+                    width={600}
+                    height={600}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Contact Form */}
-          <div className="relative animate-fade-in-up animate-delay-200 lg:order-2 order-1">
+          <ScrollReveal direction="right" delay={0.5} duration={0.8}>
+            <div className="relative lg:order-2 order-1">
             <div className="relative bg-white rounded-xl border-2 border-gray-100 p-6 sm:p-8 shadow-xl">
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/50 rounded-xl pointer-events-none"></div>
@@ -413,6 +423,7 @@ export default function ContactSection() {
               </form>
             </div>
           </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

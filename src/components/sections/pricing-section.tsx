@@ -1,6 +1,9 @@
+"use client";
+
 import { PRICING_PLANS, ADD_ONS } from "@/constants/site-data";
 import { Check, Plus, ArrowRight } from "lucide-react";
 import { CustomButton } from "@/components/ui/custom-button";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 /**
  * Pricing Section Component
@@ -95,27 +98,33 @@ export function PricingSection() {
       <div className="container relative z-20 mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 md:py-24">
         {/* Header Content */}
         <div className="text-center mb-12 sm:mb-16 flex flex-col items-center w-full">
-          <div className="inline-flex items-center gap-2 mb-8 sm:mb-10">
-            <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-blue-400"></span>
-            <span className="text-xs sm:text-sm font-medium tracking-widest text-blue-400 uppercase">
-              Pricing
-            </span>
-            <span className="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-blue-400"></span>
-          </div>
-
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight max-w-4xl">
-            Simple, Transparent{" "}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+          <ScrollReveal direction="down" delay={0.1}>
+            <div className="inline-flex items-center gap-2 mb-8 sm:mb-10">
+              <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-blue-400"></span>
+              <span className="text-xs sm:text-sm font-medium tracking-widest text-blue-400 uppercase">
                 Pricing
               </span>
-              <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 bg-blue-400/30 rounded-sm"></span>
-            </span>
-          </h2>
+              <span className="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-blue-400"></span>
+            </div>
+          </ScrollReveal>
 
-          <p className="text-sm sm:text-base md:text-lg leading-8 sm:leading-9 font-light text-white/80 max-w-3xl mx-auto mb-12">
-            Everything you need to succeed online, no hidden fees. Just honest pricing for exceptional work.
-          </p>
+          <ScrollReveal direction="up" delay={0.2}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight max-w-4xl">
+              Simple, Transparent{" "}
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                  Pricing
+                </span>
+                <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 bg-blue-400/30 rounded-sm"></span>
+              </span>
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.3}>
+            <p className="text-sm sm:text-base md:text-lg leading-8 sm:leading-9 font-light text-white/80 max-w-3xl mx-auto mb-12">
+              Everything you need to succeed online, no hidden fees. Just honest pricing for exceptional work.
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* Main Pricing - 2 Column Layout */}
@@ -123,8 +132,9 @@ export function PricingSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
 
             {/* Left Column - Pricing Details */}
-            {PRICING_PLANS.map((plan) => (
-              <div key={plan.id} className="group relative">
+            {PRICING_PLANS.map((plan, index) => (
+              <ScrollReveal key={plan.id} direction={index % 2 === 0 ? "left" : "right"} delay={0.2 + index * 0.1} duration={0.7}>
+                <div className="group relative h-full">
                 <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-5 sm:p-6 transition-all duration-700 hover:bg-white/15 hover:border-white/30 hover:shadow-[0_20px_50px_-15px_rgba(255,255,255,0.2)] hover:scale-[1.01] overflow-hidden">
 
                   {/* Popular Badge */}
@@ -172,6 +182,7 @@ export function PricingSection() {
                   </div>
                 </div>
               </div>
+              </ScrollReveal>
             ))}
 
             {/* Right Column - Features List */}

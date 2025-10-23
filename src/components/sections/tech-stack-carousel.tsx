@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 /**
  * Tech Stack Carousel Component
@@ -79,27 +80,34 @@ export function TechStackCarousel() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center gap-4 sm:gap-5">
-          <span className="inline-block text-sm sm:text-base font-semibold tracking-wider text-blue-600 uppercase">
-            Powered By
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900">
-            Cutting-Edge <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Technology</span>
-          </h2>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed px-4">
-            Industry-leading tools that deliver blazing-fast performance and exceptional user experiences
-          </p>
+          <ScrollReveal direction="down" delay={0.1}>
+            <span className="inline-block text-sm sm:text-base font-semibold tracking-wider text-blue-600 uppercase">
+              Powered By
+            </span>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.2}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900">
+              Cutting-Edge <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Technology</span>
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.3}>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-light leading-relaxed px-4">
+              Industry-leading tools that deliver blazing-fast performance and exceptional user experiences
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* Carousel wrapper */}
-        <div className="relative py-4" style={{ marginTop: '2rem' }}>
-          {/* Enhanced gradient overlays - smaller on mobile */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 lg:w-64 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 lg:w-64 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
+        <ScrollReveal direction="zoom-in" delay={0.4}>
+          <div className="relative py-4" style={{ marginTop: '2rem' }}>
+            {/* Enhanced gradient overlays - smaller on mobile */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 lg:w-64 bg-gradient-to-r from-white via-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 lg:w-64 bg-gradient-to-l from-white via-white to-transparent z-10 pointer-events-none" />
 
-          {/* Scrolling container */}
-          <div className="overflow-hidden py-4">
-            <div className="flex animate-scroll-left hover:pause-animation gap-4 sm:gap-6 md:gap-8 lg:gap-10">
-              {duplicatedTechs.map((tech, index) => (
+            {/* Scrolling container */}
+            <div className="overflow-hidden py-4">
+              <div className="flex animate-scroll-left hover:pause-animation gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+                {duplicatedTechs.map((tech, index) => (
                 <div
                   key={`${tech.name}-${index}`}
                   className="flex-shrink-0 group cursor-pointer"
@@ -127,15 +135,18 @@ export function TechStackCarousel() {
                     </div>
                   </div>
                 </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Bottom decorative line */}
-        <div className="mt-8 flex justify-center">
-          <div className="h-1 w-24 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />
-        </div>
+        <ScrollReveal direction="zoom-in" delay={0.5}>
+          <div className="mt-8 flex justify-center">
+            <div className="h-1 w-24 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
