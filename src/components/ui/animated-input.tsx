@@ -23,7 +23,11 @@ export function AnimatedInput({ label, error, className = "", ...props }: Animat
   const [isFocused, setIsFocused] = useState(false);
   const [hasValue, setHasValue] = useState(false);
 
-  const handleFocus = () => setIsFocused(true);
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    setIsFocused(true);
+    props.onFocus?.(e);
+  };
+
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     setIsFocused(false);
     setHasValue(e.target.value !== "");
@@ -34,19 +38,14 @@ export function AnimatedInput({ label, error, className = "", ...props }: Animat
 
   return (
     <div className="relative">
-      <motion.input
+      <input
         {...props}
-        onFocus={(e) => {
-          handleFocus();
-          props.onFocus?.(e);
-        }}
+        onFocus={handleFocus}
         onBlur={handleBlur}
         className={`w-full px-4 pt-6 pb-2 bg-gray-50 border-2 rounded-lg text-[#001f3d] placeholder-transparent focus:outline-none transition-all duration-300 peer ${
           error ? "border-red-500" : isFocused ? "border-blue-500 ring-2 ring-blue-500/20" : "border-gray-200"
         } ${className}`}
         placeholder={label}
-        whileFocus={{ scale: 1.01 }}
-        transition={{ duration: 0.2 }}
       />
 
       <motion.label
@@ -78,7 +77,11 @@ export function AnimatedTextarea({ label, error, rows = 5, className = "", ...pr
   const [isFocused, setIsFocused] = useState(false);
   const [hasValue, setHasValue] = useState(false);
 
-  const handleFocus = () => setIsFocused(true);
+  const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    setIsFocused(true);
+    props.onFocus?.(e);
+  };
+
   const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
     setIsFocused(false);
     setHasValue(e.target.value !== "");
@@ -89,13 +92,10 @@ export function AnimatedTextarea({ label, error, rows = 5, className = "", ...pr
 
   return (
     <div className="relative">
-      <motion.textarea
+      <textarea
         {...props}
         rows={rows}
-        onFocus={(e) => {
-          handleFocus();
-          props.onFocus?.(e);
-        }}
+        onFocus={handleFocus}
         onBlur={handleBlur}
         className={`w-full px-4 pt-6 pb-2 bg-gray-50 border-2 rounded-lg text-[#001f3d] placeholder-transparent focus:outline-none transition-all duration-300 resize-none ${
           error ? "border-red-500" : isFocused ? "border-blue-500 ring-2 ring-blue-500/20" : "border-gray-200"
