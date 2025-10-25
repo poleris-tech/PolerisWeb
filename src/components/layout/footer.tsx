@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <>
       {/* Wave transition - place BEFORE footer */}
-      <div className="w-full bg-white">
+      <div className="w-full bg-white dark:bg-gray-950">
         <svg
           className="w-full block"
           style={{ display: 'block', marginBottom: '-1px', transform: 'scaleY(-1) scaleX(-1)' }}
@@ -22,12 +22,12 @@ export function Footer() {
         >
           <path
             d="M1668.54 58.137c124.52 31.881 204.12 63.173 251.46 85.537V-4H0v254C356.508 169.957 717.072 91.544 986.268 43.36 1255.46-4.822 1443.9.623 1668.54 58.138Z"
-            fill="#001f3d"
+            className="fill-[#001f3d] dark:fill-[#001529]"
           />
         </svg>
       </div>
 
-      <footer className="w-full bg-[#001f3d] text-white">
+      <footer className="w-full bg-[#001f3d] dark:bg-[#001529] text-white">
         {/* Main Footer Content */}
         <div className="container relative max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pb-12" style={{ paddingTop: '10rem' }}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 px-4 sm:px-0">
@@ -55,7 +55,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-white/70 hover:text-white transition-colors duration-300 font-light">
+                <a href="#process" className="text-white/70 hover:text-white transition-colors duration-300 font-light">
                   About Us
                 </a>
               </li>

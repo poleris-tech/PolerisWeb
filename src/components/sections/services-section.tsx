@@ -25,12 +25,12 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
 
   return (
     <div className="group relative h-full">
-      <div className="relative flex flex-col h-full rounded-2xl sm:rounded-3xl bg-white border-2 border-gray-100 px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 transition-all duration-700 hover:border-blue-500/50 hover:shadow-[0_20px_70px_-15px_rgba(0,31,63,0.3)] hover:-translate-y-3 overflow-hidden">
+      <div className="relative flex flex-col h-full rounded-2xl sm:rounded-3xl bg-white dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-800 px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 transition-all duration-700 hover:border-blue-500/50 dark:hover:border-cyan-500/50 hover:shadow-[0_20px_70px_-15px_rgba(0,31,63,0.3)] dark:hover:shadow-[0_20px_70px_-15px_rgba(6,182,212,0.3)] hover:-translate-y-3 overflow-hidden">
         {/* Gradient overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-cyan-50/0 to-blue-100/0 group-hover:from-blue-50/80 group-hover:via-cyan-50/40 group-hover:to-blue-100/80 transition-all duration-700 rounded-3xl -z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-cyan-50/0 to-blue-100/0 dark:from-blue-950/0 dark:via-cyan-950/0 dark:to-blue-900/0 group-hover:from-blue-50/80 group-hover:via-cyan-50/40 group-hover:to-blue-100/80 dark:group-hover:from-blue-950/80 dark:group-hover:via-cyan-950/40 dark:group-hover:to-blue-900/80 transition-all duration-700 rounded-3xl -z-10"></div>
 
         {/* Top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500/0 to-transparent group-hover:via-blue-500 transition-all duration-700"></div>
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500/0 dark:via-cyan-500/0 to-transparent group-hover:via-blue-500 dark:group-hover:via-cyan-500 transition-all duration-700"></div>
 
         {/* Icon Container */}
         <div className="relative inline-flex self-center mb-4 sm:mb-5 md:mb-6 mt-2 sm:mt-2">
@@ -46,21 +46,21 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: n
         </div>
 
         {/* Title */}
-        <h3 className="text-xl sm:text-2xl md:text-2xl font-bold text-[#001f3f] text-center transition-colors duration-500 group-hover:text-blue-700 mb-3 sm:mb-4 leading-tight px-2 sm:px-3">
+        <h3 className="text-xl sm:text-2xl md:text-2xl font-bold text-[#001f3f] dark:text-white text-center transition-colors duration-500 group-hover:text-blue-700 dark:group-hover:text-cyan-400 mb-3 sm:mb-4 leading-tight px-2 sm:px-3">
           {service.title}
         </h3>
 
         {/* Description */}
-        <p className="text-sm sm:text-base md:text-base text-[#001f3f]/70 text-center transition-colors duration-500 group-hover:text-[#001f3f]/80 mb-5 sm:mb-6 leading-relaxed px-2 sm:px-3">
+        <p className="text-sm sm:text-base md:text-base text-[#001f3f]/70 dark:text-gray-300 text-center transition-colors duration-500 group-hover:text-[#001f3f]/80 dark:group-hover:text-gray-200 mb-5 sm:mb-6 leading-relaxed px-2 sm:px-3">
           {service.description}
         </p>
 
         {/* Features List */}
         <ul className="mt-auto flex flex-col gap-3 sm:gap-3 px-2 sm:px-3">
           {service.features.map((feature, idx) => (
-            <li key={idx} className="flex items-start text-sm sm:text-base text-[#001f3f]/80 transition-all duration-500 group-hover:text-[#001f3f] gap-2.5 sm:gap-3">
-              <span className="flex-shrink-0 w-5 h-5 sm:w-5 sm:h-5 rounded-full bg-blue-100 group-hover:bg-blue-500 flex items-center justify-center transition-all duration-500 mt-0.5">
-                <svg className="w-3 h-3 text-blue-600 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+            <li key={idx} className="flex items-start text-sm sm:text-base text-[#001f3f]/80 dark:text-gray-300 transition-all duration-500 group-hover:text-[#001f3f] dark:group-hover:text-white gap-2.5 sm:gap-3">
+              <span className="flex-shrink-0 w-5 h-5 sm:w-5 sm:h-5 rounded-full bg-blue-100 dark:bg-cyan-900 group-hover:bg-blue-500 dark:group-hover:bg-cyan-500 flex items-center justify-center transition-all duration-500 mt-0.5">
+                <svg className="w-3 h-3 text-blue-600 dark:text-cyan-300 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </span>
@@ -83,7 +83,7 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative z-20 bg-white overflow-hidden"
+      className="relative z-20 bg-white dark:bg-gray-950 overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Header Content */}
@@ -91,7 +91,7 @@ export function ServicesSection() {
           <ScrollReveal direction="down" delay={0.1}>
             <div className="inline-flex items-center gap-2 mb-8 sm:mb-10">
               <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-blue-600"></span>
-              <span className="text-xs sm:text-sm font-medium tracking-widest text-blue-600 uppercase">
+              <span className="text-xs sm:text-sm font-medium tracking-widest text-blue-600 dark:text-cyan-400 uppercase">
                 What We Do
               </span>
               <span className="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-blue-600"></span>
@@ -99,23 +99,23 @@ export function ServicesSection() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#001f3f] mb-6 sm:mb-8 md:mb-10 leading-[1.1] max-w-4xl px-4 sm:px-0">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#001f3f] dark:text-white mb-6 sm:mb-8 md:mb-10 leading-[1.1] max-w-4xl px-4 sm:px-0">
               Never Worry About Your Website{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                   Ever Again
                 </span>
-                <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 bg-blue-500/20 rounded-sm"></span>
+                <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 bg-blue-500/20 dark:bg-cyan-500/20 rounded-sm"></span>
               </span>
             </h2>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
             <div className="max-w-3xl mx-auto w-full px-4 sm:px-6" >
-              <p className="text-base sm:text-lg md:text-xl leading-relaxed sm:leading-relaxed font-light text-[#001f3f]/70 mb-4">
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed sm:leading-relaxed font-light text-[#001f3f]/70 dark:text-gray-300 mb-4">
                 At Poleris Digital, we specialize in small business web design and development for clients across the US and Canada.
               </p>
-              <p className="text-base sm:text-lg leading-relaxed sm:leading-relaxed font-light text-[#001f3f]/70">
+              <p className="text-base sm:text-lg leading-relaxed sm:leading-relaxed font-light text-[#001f3f]/70 dark:text-gray-300">
                 Every line of code is handcrafted for optimal performance, ensuring Google loves your site, driving more traffic and revenue to your business.
               </p>
             </div>

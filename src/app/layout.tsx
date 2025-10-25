@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ReCaptchaProvider } from "@/components/providers/recaptcha-provider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -55,14 +56,16 @@ export default function RootLayout({
         className={`${poppins.variable} antialiased bg-white dark:bg-gray-950`}
         style={{ fontFamily: 'var(--font-poppins)' }}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <ReCaptchaProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={false}
+            disableTransitionOnChange={false}
+          >
+            {children}
+          </ThemeProvider>
+        </ReCaptchaProvider>
       </body>
     </html>
   );

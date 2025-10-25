@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { CustomButton } from '@/components/ui/custom-button';
 import { ScrollReveal } from '@/components/ui/scroll-reveal';
 import { Send } from 'lucide-react';
@@ -25,6 +26,8 @@ interface FormErrors {
 }
 
 export default function ContactSection() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -122,16 +125,30 @@ export default function ContactSection() {
       return;
     }
 
+    if (!executeRecaptcha) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'reCAPTCHA not ready. Please try again.',
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
     try {
+      // Execute reCAPTCHA v3
+      const recaptchaToken = await executeRecaptcha('contact_form');
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken,
+        }),
       });
 
       const data = await response.json();
@@ -188,13 +205,24 @@ export default function ContactSection() {
           font-size: 0.875rem;
           transition: all 0.3s;
         }
+        .dark .phone-input-custom .PhoneInputInput {
+          background-color: #1f2937;
+          border-color: #374151;
+          color: #f3f4f6;
+        }
         .phone-input-custom .PhoneInputInput:focus {
           outline: none;
           border-color: transparent;
           box-shadow: 0 0 0 2px #3b82f6;
         }
+        .dark .phone-input-custom .PhoneInputInput:focus {
+          box-shadow: 0 0 0 2px #06b6d4;
+        }
         .phone-input-custom .PhoneInputInput::placeholder {
           color: #9ca3af;
+        }
+        .dark .phone-input-custom .PhoneInputInput::placeholder {
+          color: #6b7280;
         }
         .phone-input-custom.phone-error .PhoneInputInput {
           border-color: #ef4444;
@@ -228,7 +256,7 @@ export default function ContactSection() {
       `}</style>
       <section
         id="contact"
-        className="relative bg-white overflow-hidden py-12 md:py-16"
+        className="relative bg-white dark:bg-gray-950 overflow-hidden py-12 md:py-16"
       >
       <div className="container relative max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Section Header */}
@@ -236,14 +264,14 @@ export default function ContactSection() {
           <ScrollReveal direction="down" delay={0.1}>
             <div className="inline-flex items-center gap-3 mb-3">
               <div className="h-px w-8 bg-gradient-to-r from-transparent to-blue-600"></div>
-              <span className="text-blue-600 text-xs sm:text-sm font-semibold tracking-wider uppercase">
+              <span className="text-blue-600 dark:text-cyan-400 text-xs sm:text-sm font-semibold tracking-wider uppercase">
                 Get In Touch
               </span>
               <div className="h-px w-8 bg-gradient-to-r from-blue-600 to-transparent"></div>
             </div>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#001f3d] mb-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#001f3d] dark:text-white mb-3">
               Let&apos;s Build Something{' '}
               <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 Amazing Together
@@ -251,7 +279,7 @@ export default function ContactSection() {
             </h2>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-sm sm:text-base md:text-lg text-[#001f3d]/70 max-w-2xl">
+            <p className="text-sm sm:text-base md:text-lg text-[#001f3d]/70 dark:text-gray-300 max-w-2xl">
               Have a project in mind? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
             </p>
           </ScrollReveal>
@@ -271,7 +299,7 @@ export default function ContactSection() {
                     width={600}
                     height={600}
                     className="w-full h-auto"
-                    priority
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -281,9 +309,9 @@ export default function ContactSection() {
           {/* Right Column: Contact Form */}
           <ScrollReveal direction="right" delay={0.5} duration={0.8}>
             <div className="relative lg:order-2 order-1">
-            <div className="relative bg-white rounded-xl border-2 border-gray-100 p-6 sm:p-8 shadow-xl">
+            <div className="relative bg-white dark:bg-gray-900 rounded-xl border-2 border-gray-100 dark:border-gray-800 p-6 sm:p-8 shadow-xl dark:shadow-gray-800/50">
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/50 rounded-xl pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/50 dark:from-blue-950/50 dark:via-transparent dark:to-cyan-950/50 rounded-xl pointer-events-none"></div>
 
               <form onSubmit={handleSubmit} className="relative space-y-4">
                 {/* Status Message */}
@@ -301,7 +329,7 @@ export default function ContactSection() {
 
                 {/* Name Input */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-[#001f3d] mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-[#001f3d] dark:text-gray-200 mb-2">
                     Your Name *
                   </label>
                   <input
@@ -311,8 +339,8 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     maxLength={50}
-                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg text-[#001f3d] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 ${
-                      errors.name ? 'border-red-500' : 'border-gray-200'
+                    className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border-2 rounded-lg text-[#001f3d] dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent transition-all duration-300 ${
+                      errors.name ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
                     }`}
                     placeholder="John Doe"
                   />
@@ -323,7 +351,7 @@ export default function ContactSection() {
 
                 {/* Email Input */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-[#001f3d] mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-[#001f3d] dark:text-gray-200 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -332,8 +360,8 @@ export default function ContactSection() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg text-[#001f3d] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 ${
-                      errors.email ? 'border-red-500' : 'border-gray-200'
+                    className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border-2 rounded-lg text-[#001f3d] dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent transition-all duration-300 ${
+                      errors.email ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
                     }`}
                     placeholder="john@example.com"
                   />
@@ -344,7 +372,7 @@ export default function ContactSection() {
 
                 {/* Phone Input */}
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-[#001f3d] mb-2">
+                  <label htmlFor="phone" className="block text-sm font-medium text-[#001f3d] dark:text-gray-200 mb-2">
                     Phone Number (Optional)
                   </label>
                   <PhoneInput
@@ -362,7 +390,7 @@ export default function ContactSection() {
 
                 {/* Subject Input */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-[#001f3d] mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-[#001f3d] dark:text-gray-200 mb-2">
                     Subject *
                   </label>
                   <input
@@ -372,8 +400,8 @@ export default function ContactSection() {
                     value={formData.subject}
                     onChange={handleChange}
                     maxLength={100}
-                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg text-[#001f3d] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 ${
-                      errors.subject ? 'border-red-500' : 'border-gray-200'
+                    className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border-2 rounded-lg text-[#001f3d] dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent transition-all duration-300 ${
+                      errors.subject ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
                     }`}
                     placeholder="Web Development Project"
                   />
@@ -384,7 +412,7 @@ export default function ContactSection() {
 
                 {/* Message Textarea */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-[#001f3d] mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-[#001f3d] dark:text-gray-200 mb-2">
                     Your Message *
                   </label>
                   <textarea
@@ -394,8 +422,8 @@ export default function ContactSection() {
                     onChange={handleChange}
                     maxLength={1000}
                     rows={5}
-                    className={`w-full px-4 py-3 bg-gray-50 border-2 rounded-lg text-[#001f3d] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none ${
-                      errors.message ? 'border-red-500' : 'border-gray-200'
+                    className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border-2 rounded-lg text-[#001f3d] dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent transition-all duration-300 resize-none ${
+                      errors.message ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
                     }`}
                     placeholder="Tell us about your project..."
                   />

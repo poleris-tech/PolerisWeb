@@ -10,9 +10,10 @@ import Image from "next/image";
 interface LogoProps {
   variant?: 'default' | 'white' | 'icon-only';
   className?: string;
+  priority?: boolean;
 }
 
-export function Logo({ variant = 'default', className = '' }: LogoProps) {
+export function Logo({ variant = 'default', className = '', priority = false }: LogoProps) {
   const isWhite = variant === 'white';
   // Use dark version (blue star) for light backgrounds, white version for dark backgrounds
   const starSrc = isWhite ? '/star-logo.svg' : '/star-logo-dark.svg';
@@ -25,6 +26,8 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
           alt="Poleris Star"
           width={48}
           height={48}
+          priority={priority}
+          loading={priority ? undefined : "lazy"}
           className="transition-transform duration-300 hover:scale-110"
         />
       </div>
@@ -40,6 +43,8 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
           alt="Poleris Star"
           width={48}
           height={48}
+          priority={priority}
+          loading={priority ? undefined : "lazy"}
           className="transition-transform duration-300 hover:scale-110"
         />
       </div>

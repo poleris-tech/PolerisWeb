@@ -13,10 +13,10 @@ export function ProcessSection() {
   return (
     <section
       id="process"
-      className="relative bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden"
+      className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 overflow-hidden"
     >
       {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
+      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
         backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(0, 0, 0) 1px, transparent 0)',
         backgroundSize: '40px 40px'
       }} />
@@ -27,7 +27,7 @@ export function ProcessSection() {
           <ScrollReveal direction="down" delay={0.1}>
             <div className="inline-flex items-center gap-2 mb-8 sm:mb-10">
               <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-blue-600"></span>
-              <span className="text-xs sm:text-sm font-medium tracking-widest text-blue-600 uppercase">
+              <span className="text-xs sm:text-sm font-medium tracking-widest text-blue-600 dark:text-cyan-400 uppercase">
                 Our Process
               </span>
               <span className="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-blue-600"></span>
@@ -35,19 +35,19 @@ export function ProcessSection() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#001f3f] mb-6 sm:mb-8 leading-[1.1] max-w-4xl px-4 sm:px-0">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#001f3f] dark:text-white mb-6 sm:mb-8 leading-[1.1] max-w-4xl px-4 sm:px-0">
               A Proven Approach to{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
                   Success
                 </span>
-                <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 bg-blue-500/20 rounded-sm"></span>
+                <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 bg-blue-500/20 dark:bg-cyan-500/20 rounded-sm"></span>
               </span>
             </h2>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed font-light text-[#001f3f]/70 max-w-3xl mx-auto px-4 sm:px-6">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed font-light text-[#001f3f]/70 dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-6">
               From concept to launch, we follow a streamlined process designed to deliver exceptional websites on time and on budget.
             </p>
           </ScrollReveal>
@@ -61,13 +61,13 @@ export function ProcessSection() {
           {PROCESS_STEPS.map((step, index) => (
             <ScrollReveal key={step.id} direction="up" delay={0.1 * index} duration={0.7}>
               <div className="group relative h-full">
-              <div className="relative flex flex-col h-full rounded-2xl sm:rounded-3xl bg-white border-2 border-gray-100 px-6 py-8 md:px-8 md:py-10 transition-all duration-700 hover:border-blue-500/50 hover:shadow-[0_20px_70px_-15px_rgba(0,31,63,0.3)] hover:-translate-y-3 overflow-hidden">
+              <div className="relative flex flex-col h-full rounded-2xl sm:rounded-3xl bg-white dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-800 px-6 py-8 md:px-8 md:py-10 transition-all duration-700 hover:border-blue-500/50 dark:hover:border-cyan-500/50 hover:shadow-[0_20px_70px_-15px_rgba(0,31,63,0.3)] dark:hover:shadow-[0_20px_70px_-15px_rgba(6,182,212,0.3)] hover:-translate-y-3 overflow-hidden">
 
                 {/* Gradient overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-cyan-50/0 to-blue-100/0 group-hover:from-blue-50/80 group-hover:via-cyan-50/40 group-hover:to-blue-100/80 transition-all duration-700 rounded-3xl -z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-cyan-50/0 to-blue-100/0 dark:from-blue-950/0 dark:via-cyan-950/0 dark:to-blue-900/0 group-hover:from-blue-50/80 group-hover:via-cyan-50/40 group-hover:to-blue-100/80 dark:group-hover:from-blue-950/80 dark:group-hover:via-cyan-950/40 dark:group-hover:to-blue-900/80 transition-all duration-700 rounded-3xl -z-10"></div>
 
                 {/* Top accent line */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500/0 to-transparent group-hover:via-blue-500 transition-all duration-700"></div>
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500/0 dark:via-cyan-500/0 to-transparent group-hover:via-blue-500 dark:group-hover:via-cyan-500 transition-all duration-700"></div>
 
                 {/* Number Badge */}
                 <div className="relative inline-flex self-center mb-6">
@@ -88,12 +88,12 @@ export function ProcessSection() {
                 )}
 
                 {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-bold text-[#001f3f] text-center transition-colors duration-500 group-hover:text-blue-700 mb-4 leading-tight">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#001f3f] dark:text-white text-center transition-colors duration-500 group-hover:text-blue-700 dark:group-hover:text-cyan-400 mb-4 leading-tight">
                   {step.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm sm:text-base text-[#001f3f]/70 text-center transition-colors duration-500 group-hover:text-[#001f3f]/80 leading-relaxed">
+                <p className="text-sm sm:text-base text-[#001f3f]/70 dark:text-gray-300 text-center transition-colors duration-500 group-hover:text-[#001f3f]/80 dark:group-hover:text-gray-200 leading-relaxed">
                   {step.description}
                 </p>
 

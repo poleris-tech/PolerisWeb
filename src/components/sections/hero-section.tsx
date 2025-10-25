@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
-    <section className="hero-section relative w-full bg-gradient-to-br from-[#0a0d1a] via-[#0f1629] to-[#001f3d] text-white overflow-hidden min-h-screen flex items-center pt-24 md:pt-32 lg:pt-28">
+    <section className="hero-section relative w-full bg-gradient-to-br from-[#0a0d1a] via-[#0f1629] to-[#001f3d] dark:from-[#050711] dark:via-[#0a0d1a] dark:to-[#001529] text-white overflow-hidden min-h-screen flex items-center pt-24 md:pt-32 lg:pt-28">
       {/* Animated Gradient Blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         {/* Blob 1 - Blue/Cyan */}
@@ -74,7 +74,7 @@ export function HeroSection() {
       ></div> 
 
       {/* White background layer */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-white z-5 border-none shadow-none"></div>
+      <div className="absolute bottom-0 left-0 w-full h-24 bg-white dark:bg-gray-950 z-5 border-none shadow-none"></div>
 
       {/* Wave SVG at bottom */}
       <svg
@@ -86,7 +86,7 @@ export function HeroSection() {
       >
         <path
           d="M251.463 378.438C126.937 315.555 47.343 253.833 0 209.721V501h1920V0c-356.51 157.88-717.07 312.544-986.268 407.584-269.195 95.039-457.636 84.299-682.269-29.146Z"
-          fill="#fff"
+          className="fill-white dark:fill-gray-950"
           stroke="none"
         />
       </svg>
@@ -165,7 +165,7 @@ export function HeroSection() {
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </CustomButton>
-              <CustomButton href="#about" variant="outline" size="md" className="flex-1 sm:flex-none">
+              <CustomButton href="#process" variant="outline" size="md" className="flex-1 sm:flex-none">
                 About Us
               </CustomButton>
             </motion.div>

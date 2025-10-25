@@ -35,7 +35,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center transition-colors relative text-[#001f3f] hover:text-[#00bfff]"
+      className="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center transition-colors relative text-[#001f3f] dark:text-gray-100 hover:text-[#00bfff] dark:hover:text-cyan-400 hover:bg-gray-100 dark:hover:bg-gray-800"
       aria-label="Toggle theme"
     >
       <Sun className={`h-[1.5rem] w-[1.5rem] md:h-[1.75rem] md:w-[1.75rem] transition-all ${isDark ? 'rotate-90 scale-0' : 'rotate-0 scale-100'}`} />

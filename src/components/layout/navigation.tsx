@@ -15,7 +15,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "#about" },
+  { label: "About Us", href: "#process" },
   { label: "Services", href: "#services" },
   { label: "Pricing", href: "#pricing" },
   { label: "Contact", href: "#contact" },
@@ -48,7 +48,7 @@ export function Navigation() {
       }}
     >
       <nav
-        className="bg-white shadow-lg transition-all duration-500 relative backdrop-blur-md bg-white/95"
+        className="bg-white/95 dark:bg-gray-900/95 shadow-lg dark:shadow-gray-800/50 transition-all duration-500 relative backdrop-blur-md"
         style={{
           borderRadius: scrolled ? '0' : '24px'
         }}
@@ -57,7 +57,8 @@ export function Navigation() {
           <div className="flex items-center justify-between w-full gap-6">
               {/* Logo - Left */}
               <Link href="/" className="hover:opacity-80 transition-opacity z-[100] relative">
-                <Logo variant="default" />
+                <Logo variant="default" priority className="dark:hidden" />
+                <Logo variant="white" priority className="hidden dark:block" />
               </Link>
 
               {/* Desktop Navigation - Absolutely Centered to container */}
@@ -72,10 +73,10 @@ export function Navigation() {
                     >
                       <Link
                         href={item.href}
-                        className="text-base font-bold uppercase tracking-wide text-[#001f3f] hover:text-[#00bfff] transition-all duration-300 hover:scale-105 inline-block whitespace-nowrap relative group"
+                        className="text-base font-bold uppercase tracking-wide text-[#001f3f] dark:text-gray-100 hover:text-[#00bfff] dark:hover:text-cyan-400 transition-all duration-300 hover:scale-105 inline-block whitespace-nowrap relative group"
                       >
                         {item.label}
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00bfff] transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00bfff] dark:bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
                       </Link>
                     </motion.div>
                   ))}
@@ -107,7 +108,7 @@ export function Navigation() {
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 className="lg:hidden overflow-hidden"
               >
-                <div className="mt-12 pt-6 border-t border-gray-200">
+                <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700">
                   <div className="flex flex-col space-y-4">
                     {NAV_ITEMS.map((item, index) => (
                       <motion.div
@@ -119,7 +120,7 @@ export function Navigation() {
                         <Link
                           href={item.href}
                           onClick={() => setIsOpen(false)}
-                          className="text-base font-bold uppercase text-[#001f3f] hover:text-[#00bfff] transition-all duration-300 text-center py-2 block hover:scale-105"
+                          className="text-base font-bold uppercase text-[#001f3f] dark:text-gray-100 hover:text-[#00bfff] dark:hover:text-cyan-400 transition-all duration-300 text-center py-2 block hover:scale-105"
                         >
                           {item.label}
                         </Link>
