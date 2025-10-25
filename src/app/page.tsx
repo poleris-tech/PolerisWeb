@@ -9,6 +9,7 @@ import ContactSection from "@/components/sections/contact-section";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { LoadingScreen } from "@/components/ui/loading-screen";
+import { Starfield } from "@/components/ui/starfield";
 
 /**
  * Home Page
@@ -19,6 +20,7 @@ export default function Home() {
     <>
       <LoadingScreen />
       <ScrollProgress />
+      <Starfield />
       <div className="min-h-screen w-full overflow-x-hidden flex flex-col">
         <Navigation />
         <main className="w-full flex-1">

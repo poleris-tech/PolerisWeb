@@ -5,6 +5,7 @@ import { SERVICES } from "@/constants/site-data";
 import { CustomButton } from "@/components/ui/custom-button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SwipeableCards } from "@/components/ui/swipeable-cards";
+import { Starfield } from "@/components/ui/starfield";
 
 /**
  * Services Section Component
@@ -85,6 +86,9 @@ export function ServicesSection() {
       id="services"
       className="relative z-20 bg-white dark:bg-gray-950 overflow-hidden"
     >
+      {/* Starfield - Only visible in dark mode */}
+      <Starfield count={30} position="absolute" />
+
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Header Content */}
         <div className="text-center mb-8 sm:mb-10 md:mb-12 flex flex-col items-center w-full">

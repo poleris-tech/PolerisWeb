@@ -57,8 +57,7 @@ export function Navigation() {
           <div className="flex items-center justify-between w-full gap-6">
               {/* Logo - Left */}
               <Link href="/" className="hover:opacity-80 transition-opacity z-[100] relative">
-                <Logo variant="default" priority className="dark:hidden" />
-                <Logo variant="white" priority className="hidden dark:block" />
+                <Logo variant="default" priority />
               </Link>
 
               {/* Desktop Navigation - Absolutely Centered to container */}

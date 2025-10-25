@@ -3,6 +3,7 @@
 import { PROCESS_STEPS } from "@/constants/site-data";
 import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Starfield } from "@/components/ui/starfield";
 
 /**
  * Process Section Component
@@ -15,6 +16,9 @@ export function ProcessSection() {
       id="process"
       className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 overflow-hidden"
     >
+      {/* Starfield - Only visible in dark mode */}
+      <Starfield count={30} position="absolute" />
+
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style={{
         backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(0, 0, 0) 1px, transparent 0)',

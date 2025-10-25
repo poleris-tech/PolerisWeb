@@ -4,6 +4,7 @@ import { PRICING_PLANS, ADD_ONS } from "@/constants/site-data";
 import { Check, Plus, ArrowRight } from "lucide-react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Starfield } from "@/components/ui/starfield";
 
 /**
  * Pricing Section Component
@@ -17,6 +18,9 @@ export function PricingSection() {
       id="pricing"
       className="relative bg-[#001f3d] dark:bg-[#001529] text-white overflow-hidden"
     >
+      {/* Starfield - Only visible in dark mode */}
+      <Starfield count={50} position="absolute" />
+
       {/* Wave SVG at top - Multiple waves for shorter height */}
       <svg
         className="absolute top-[-3px] left-0 w-full h-auto z-10 pointer-events-none"

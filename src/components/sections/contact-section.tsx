@@ -8,6 +8,7 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { CustomButton } from '@/components/ui/custom-button';
 import { ScrollReveal } from '@/components/ui/scroll-reveal';
 import { Send } from 'lucide-react';
+import { Starfield } from '@/components/ui/starfield';
 
 interface ContactFormData {
   name: string;
@@ -258,6 +259,8 @@ export default function ContactSection() {
         id="contact"
         className="relative bg-white dark:bg-gray-950 overflow-hidden py-12 md:py-16"
       >
+      {/* Starfield - Only visible in dark mode */}
+      <Starfield count={30} position="absolute" />
       <div className="container relative max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12 flex flex-col items-center">

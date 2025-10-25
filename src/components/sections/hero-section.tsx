@@ -4,6 +4,7 @@ import { CustomButton } from "@/components/ui/custom-button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Starfield } from "@/components/ui/starfield";
 
 /**
  * Hero Section Component
@@ -13,6 +14,9 @@ import { motion } from "framer-motion";
 export function HeroSection() {
   return (
     <section className="hero-section relative w-full bg-gradient-to-br from-[#0a0d1a] via-[#0f1629] to-[#001f3d] dark:from-[#050711] dark:via-[#0a0d1a] dark:to-[#001529] text-white overflow-hidden min-h-screen flex items-center pt-24 md:pt-32 lg:pt-28">
+      {/* Starfield - Only visible in dark mode */}
+      <Starfield count={80} position="absolute" />
+
       {/* Animated Gradient Blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         {/* Blob 1 - Blue/Cyan */}
