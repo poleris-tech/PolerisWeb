@@ -30,7 +30,7 @@ export function Footer() {
       <footer className="w-full bg-[#001f3d] text-white">
         {/* Main Footer Content */}
         <div className="container relative max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pb-12" style={{ paddingTop: '10rem' }}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 px-4 sm:px-0">
 
           {/* Brand Section */}
           <div className="lg:col-span-5" style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'flex-start' }}>
@@ -105,7 +105,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4" style={{ marginTop: '4rem', paddingTop: '2rem', marginBottom: '2rem' }}>
+        <div className="border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 px-4 sm:px-0" style={{ marginTop: '4rem', paddingTop: '2rem', marginBottom: '2rem' }}>
           <p className="text-white/60 text-sm font-light">
             © Copyright 2025 Poleris Digital
           </p>

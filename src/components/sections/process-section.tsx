@@ -35,7 +35,7 @@ export function ProcessSection() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#001f3f] mb-6 sm:mb-8 leading-tight max-w-4xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#001f3f] mb-6 sm:mb-8 leading-[1.1] max-w-4xl px-4 sm:px-0">
               A Proven Approach to{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
@@ -47,14 +47,14 @@ export function ProcessSection() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-sm sm:text-base md:text-lg leading-8 sm:leading-9 font-light text-[#001f3f]/70 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed font-light text-[#001f3f]/70 max-w-3xl mx-auto px-4 sm:px-6">
               From concept to launch, we follow a streamlined process designed to deliver exceptional websites on time and on budget.
             </p>
           </ScrollReveal>
         </div>
 
         {/* Process Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto relative px-4 sm:px-0">
           {/* Connecting line for desktop */}
           <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-300/50 to-transparent" style={{ top: '80px' }}></div>
 

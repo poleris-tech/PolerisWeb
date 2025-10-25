@@ -74,7 +74,7 @@ export function CustomButton({
           onClick={onClick}
           aria-label={typeof children === "string" ? children : undefined}
         >
-          <span className="flex items-center gap-2">{children}</span>
+          <span className="flex items-center justify-center gap-2">{children}</span>
         </Link>
       </>
     );

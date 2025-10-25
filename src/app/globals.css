@@ -407,6 +407,38 @@ img:hover {
   will-change: opacity;
 }
 
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Better text rendering on mobile */
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Optimize touch targets - minimum 44x44px */
+  button:not(.no-min-size),
+  a:not(.no-min-size) {
+    min-height: 44px;
+  }
+
+  /* Prevent text overflow */
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Optimize images for mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Better card spacing on mobile */
+  .card, [class*="card-"] {
+    margin-bottom: 1rem;
+  }
+}
+
 /* Floating animation */
 @keyframes float {
   0%, 100% {

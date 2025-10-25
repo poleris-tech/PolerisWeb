@@ -1,7 +1,6 @@
 "use client";
 
 import { CustomButton } from "@/components/ui/custom-button";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -113,14 +112,14 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="space-y-3 sm:space-y-4 w-full"
+                className="space-y-2 sm:space-y-3 md:space-y-4 w-full"
               >
-                <h1 className="text-[32px] xs:text-4xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl leading-[1.1] sm:leading-[1.15]">
+                <h1 className="text-[36px] xs:text-[40px] sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.05] sm:leading-[1.1]">
                   <motion.span
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="block font-light italic text-white/90 mb-1 sm:mb-2 text-[28px] xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl"
+                    className="block font-light italic text-white/90 mb-1 sm:mb-2 text-[30px] xs:text-[34px] sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl"
                   >
                     Hand-Built
                   </motion.span>
@@ -148,7 +147,7 @@ export function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-sm sm:text-sm md:text-base text-white/70 leading-relaxed font-light max-w-md sm:max-w-lg mx-auto lg:mx-0 mt-4 sm:mt-4"
+                  className="text-sm sm:text-lg md:text-xl text-white/80 leading-relaxed font-light max-w-md sm:max-w-lg mx-auto lg:mx-0 mt-3 sm:mt-4 px-4 sm:px-0"
                 >
                   Custom-coded websites built for performance — with <span className="text-white font-medium">dedicated SEO and Google Ads services</span> available to scale your growth.
                 </motion.p>
@@ -160,24 +159,24 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-6 sm:mt-6 lg:mt-7 mb-6 sm:mb-6 lg:mb-8"
+              className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-6 sm:mt-6 lg:mt-7 mb-6 sm:mb-6 lg:mb-8 px-4 sm:px-0"
             >
-              <CustomButton href="#contact" variant="primary" size="md">
+              <CustomButton href="#contact" variant="primary" size="md" className="flex-1 sm:flex-none">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </CustomButton>
-              <CustomButton href="#about" variant="outline" size="md">
+              <CustomButton href="#about" variant="outline" size="md" className="flex-1 sm:flex-none">
                 About Us
               </CustomButton>
             </motion.div>
           </div>
 
-          {/* Laptop Image */}
+          {/* Laptop Image - Hidden on mobile, shown on lg+ */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-none lg:w-[48%] xl:w-[50%] relative z-10 flex-shrink-0 mt-8 sm:mt-8 lg:mt-0"
+            className="hidden lg:block lg:w-[48%] xl:w-[50%] relative z-10 flex-shrink-0"
             style={{
               animation: 'float 6s ease-in-out infinite 1s',
               willChange: 'transform'

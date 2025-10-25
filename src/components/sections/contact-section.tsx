@@ -258,10 +258,10 @@ export default function ContactSection() {
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
-          {/* Left Column: Image & Contact Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start px-4 sm:px-0">
+          {/* Left Column: Image & Contact Info - Hidden on mobile */}
           <ScrollReveal direction="left" delay={0.4} duration={0.8}>
-            <div className="relative lg:order-1 order-2">
+            <div className="relative hidden lg:block lg:order-1">
               {/* Contact Image/Illustration */}
               <div className="relative">
                 <div className="relative rounded-xl overflow-hidden">

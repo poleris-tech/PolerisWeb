@@ -2,11 +2,10 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { Logo } from "@/components/ui/logo";
 import { CustomButton } from "@/components/ui/custom-button";
-import { cn } from "@/lib/utils";
+import { HamburgerMenu } from "@/components/ui/hamburger-menu";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**
@@ -92,14 +91,8 @@ export function Navigation() {
                 </div>
                 <ThemeToggle />
 
-                {/* Mobile Menu Button */}
-                <button
-                  onClick={toggleMenu}
-                  className="lg:hidden p-3 rounded-lg bg-[#001f3f] text-white hover:bg-[#00bfff] transition-colors"
-                  aria-label="Toggle menu"
-                >
-                  {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </button>
+                {/* Mobile Menu Button - Animated Hamburger */}
+                <HamburgerMenu isOpen={isOpen} onClick={toggleMenu} />
               </div>
             </div>
           </div>

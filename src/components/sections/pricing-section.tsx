@@ -109,7 +109,7 @@ export function PricingSection() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8 leading-tight max-w-4xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 leading-[1.1] max-w-4xl px-4 sm:px-0">
               Simple, Transparent{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
@@ -121,14 +121,14 @@ export function PricingSection() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-sm sm:text-base md:text-lg leading-8 sm:leading-9 font-light text-white/80 max-w-3xl mx-auto mb-12">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed font-light text-white/80 max-w-3xl mx-auto mb-10 px-4 sm:px-6">
               Everything you need to succeed online, no hidden fees. Just honest pricing for exceptional work.
             </p>
           </ScrollReveal>
         </div>
 
         {/* Main Pricing - 2 Column Layout */}
-        <div className="max-w-5xl mx-auto mb-12 sm:mb-16">
+        <div className="max-w-5xl mx-auto mb-12 sm:mb-16 px-4 sm:px-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
 
             {/* Left Column - Pricing Details */}
@@ -186,26 +186,28 @@ export function PricingSection() {
             ))}
 
             {/* Right Column - Features List */}
-            <div className="group relative">
-              <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-5 sm:p-6 transition-all duration-700 hover:bg-white/15 hover:border-white/30 hover:shadow-[0_20px_50px_-15px_rgba(255,255,255,0.2)] overflow-hidden h-full">
+            <ScrollReveal direction="right" delay={0.4} duration={0.7}>
+              <div className="group relative">
+                <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-5 sm:p-6 transition-all duration-700 hover:bg-white/15 hover:border-white/30 hover:shadow-[0_20px_50px_-15px_rgba(255,255,255,0.2)] overflow-hidden h-full">
 
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-4">
-                  What's Included
-                </h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-4">
+                    What's Included
+                  </h3>
 
-                {/* Features List */}
-                <ul className="space-y-2.5">
-                  {PRICING_PLANS[0].features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 transition-all duration-300 hover:translate-x-1">
-                      <div className="flex-shrink-0 w-4 h-4 rounded-full bg-white/20 group-hover:bg-blue-400 flex items-center justify-center transition-all duration-500 mt-0.5">
-                        <Check className="w-2.5 h-2.5 text-white transition-colors duration-500" strokeWidth={3} />
-                      </div>
-                      <span className="text-sm text-white/90 group-hover:text-white transition-colors duration-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                  {/* Features List */}
+                  <ul className="space-y-2.5">
+                    {PRICING_PLANS[0].features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 transition-all duration-300 hover:translate-x-1">
+                        <div className="flex-shrink-0 w-4 h-4 rounded-full bg-white/20 group-hover:bg-blue-400 flex items-center justify-center transition-all duration-500 mt-0.5">
+                          <Check className="w-2.5 h-2.5 text-white transition-colors duration-500" strokeWidth={3} />
+                        </div>
+                        <span className="text-sm text-white/90 group-hover:text-white transition-colors duration-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
           </div>
         </div>
@@ -213,15 +215,20 @@ export function PricingSection() {
         {/* Add-ons Section */}
         <div className="mt-16 sm:mt-20">
           <div className="text-center mb-10 sm:mb-12">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-              Optional <span className="text-cyan-300">Add-Ons</span>
-            </h3>
-            <p className="text-sm sm:text-base text-white/80 font-light">Enhance your website with these additional services</p>
+            <ScrollReveal direction="down" delay={0.1}>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+                Optional <span className="text-cyan-300">Add-Ons</span>
+              </h3>
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={0.2}>
+              <p className="text-sm sm:text-base text-white/80 font-light">Enhance your website with these additional services</p>
+            </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
-            {ADD_ONS.map((addon) => (
-              <div key={addon.id} className="group relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4 sm:px-0">
+            {ADD_ONS.map((addon, index) => (
+              <ScrollReveal key={addon.id} direction="up" delay={0.1 * index} duration={0.7}>
+                <div className="group relative h-full">
                 <div className="relative flex flex-col h-full rounded-2xl sm:rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 px-6 py-8 transition-all duration-700 hover:bg-white/15 hover:border-white/30 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)] hover:-translate-y-2 overflow-hidden">
 
                   {/* Top accent line */}
@@ -265,39 +272,46 @@ export function PricingSection() {
                   <div className="absolute top-6 right-6 w-2 h-2 rounded-full bg-blue-400/30 group-hover:bg-blue-400 transition-all duration-500"></div>
                 </div>
               </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
 
         {/* Value propositions */}
         <div className="mt-16 sm:mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          <div className="text-center space-y-3 group">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-500 mb-4 shadow-lg">
-              <Check className="h-8 w-8 text-white transition-colors duration-500" strokeWidth={2.5} />
+          <ScrollReveal direction="up" delay={0.1} duration={0.7}>
+            <div className="text-center space-y-3 group">
+              <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-500 mb-4 shadow-lg">
+                <Check className="h-6 w-6 md:h-8 md:w-8 text-white transition-colors duration-500" strokeWidth={2.5} />
+              </div>
+              <h3 className="text-base md:text-xl font-bold text-white group-hover:text-cyan-300 transition-colors duration-300">Custom Built</h3>
+              <p className="text-xs md:text-sm text-white/80 leading-relaxed">
+                100% hand-coded, no templates or page builders
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors duration-300">Custom Built</h3>
-            <p className="text-sm text-white/80 leading-relaxed">
-              100% hand-coded, no templates or page builders
-            </p>
-          </div>
-          <div className="text-center space-y-3 group">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-500 mb-4 shadow-lg">
-              <Check className="h-8 w-8 text-white transition-colors duration-500" strokeWidth={2.5} />
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.2} duration={0.7}>
+            <div className="text-center space-y-3 group">
+              <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-500 mb-4 shadow-lg">
+                <Check className="h-6 w-6 md:h-8 md:w-8 text-white transition-colors duration-500" strokeWidth={2.5} />
+              </div>
+              <h3 className="text-base md:text-xl font-bold text-white group-hover:text-cyan-300 transition-colors duration-300">All-Inclusive</h3>
+              <p className="text-xs md:text-sm text-white/80 leading-relaxed">
+                Domain, hosting, SSL, and deployment included
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors duration-300">All-Inclusive</h3>
-            <p className="text-sm text-white/80 leading-relaxed">
-              Domain, hosting, SSL, and deployment included
-            </p>
-          </div>
-          <div className="text-center space-y-3 group">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-500 mb-4 shadow-lg">
-              <Check className="h-8 w-8 text-white transition-colors duration-500" strokeWidth={2.5} />
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.3} duration={0.7}>
+            <div className="text-center space-y-3 group">
+              <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-500 mb-4 shadow-lg">
+                <Check className="h-6 w-6 md:h-8 md:w-8 text-white transition-colors duration-500" strokeWidth={2.5} />
+              </div>
+              <h3 className="text-base md:text-xl font-bold text-white group-hover:text-cyan-300 transition-colors duration-300">1 Year Support</h3>
+              <p className="text-xs md:text-sm text-white/80 leading-relaxed">
+                Priority support for one full year included
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors duration-300">1 Year Support</h3>
-            <p className="text-sm text-white/80 leading-relaxed">
-              Priority support for one full year included
-            </p>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Bottom decorative line */}
