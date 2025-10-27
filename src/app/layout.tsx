@@ -3,6 +3,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ReCaptchaProvider } from "@/components/providers/recaptcha-provider";
+// import { LiveChat } from "@/components/ui/live-chat"; // Replaced with Tawk.to
+import Script from "next/script";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -66,6 +68,22 @@ export default function RootLayout({
             {children}
           </ThemeProvider>
         </ReCaptchaProvider>
+
+        {/* Tawk.to Live Chat Widget */}
+        <Script
+          id="tawk-to-init"
+          strategy="afterInteractive"
+        >
+          {`
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+          `}
+        </Script>
+        <Script
+          src="https://embed.tawk.to/68ff89356b37cd19503f20d2/1j8j2vv21"
+          strategy="afterInteractive"
+          charset="UTF-8"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );

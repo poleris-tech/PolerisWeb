@@ -6,7 +6,7 @@ import { ServicesSection } from "@/components/sections/services-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { PricingSection } from "@/components/sections/pricing-section";
 import ContactSection from "@/components/sections/contact-section";
-import { BackToTop } from "@/components/ui/back-to-top";
+// import { BackToTop } from "@/components/ui/back-to-top"; // Commented out - not needed with live chat
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { LoadingScreen } from "@/components/ui/loading-screen";
 import { Starfield } from "@/components/ui/starfield";
@@ -32,7 +32,7 @@ export default function Home() {
           <ContactSection />
         </main>
         <Footer />
-        <BackToTop />
+        {/* <BackToTop /> */}
       </div>
     </>
   );

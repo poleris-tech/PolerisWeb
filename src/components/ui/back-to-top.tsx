@@ -50,14 +50,14 @@ export function BackToTop() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 group"
+          className="fixed bottom-28 right-4 sm:right-6 md:right-8 z-[9998] group"
           aria-label="Back to top"
         >
           {/* Glow effect */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#001f3d] to-blue-600 dark:from-blue-600 dark:to-cyan-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
 
           {/* Button */}
-          <div className="relative flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-xl hover:shadow-2xl transition-all duration-300">
+          <div className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-[#001f3d] to-blue-600 dark:from-blue-600 dark:to-cyan-500 text-white shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-white/10">
             <motion.div
               animate={{
                 y: [0, -3, 0],
@@ -68,14 +68,14 @@ export function BackToTop() {
                 ease: "easeInOut",
               }}
             >
-              <ArrowUp className="w-6 h-6" strokeWidth={2.5} />
+              <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2.5} />
             </motion.div>
           </div>
 
           {/* Tooltip */}
-          <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-gray-900 text-white text-sm font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+          <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-gray-900 dark:bg-gray-800 text-white text-sm font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none shadow-lg">
             Back to top
-            <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900"></div>
+            <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900 dark:border-l-gray-800"></div>
           </div>
         </motion.button>
       )}

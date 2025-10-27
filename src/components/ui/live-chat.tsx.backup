@@ -1,0 +1,256 @@
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MessageCircle, X, Send, Minimize2 } from "lucide-react";
+
+/**
+ * Live Chat Widget Component
+ * Floating chat button and window for customer support
+ */
+
+interface Message {
+  id: string;
+  text: string;
+  sender: "user" | "agent";
+  timestamp: Date;
+}
+
+export function LiveChat() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: "1",
+      text: "Hi! 👋 Thanks for visiting Poleris Digital. How can we help you today?",
+      sender: "agent",
+      timestamp: new Date(),
+    },
+  ]);
+  const [inputValue, setInputValue] = useState("");
+  const [hasUnread, setHasUnread] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  // Show notification badge after 5 seconds if chat is closed
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!isOpen) {
+        setHasUnread(true);
+      }
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [isOpen]);
+
+  const handleSendMessage = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!inputValue.trim()) return;
+
+    const newMessage: Message = {
+      id: Date.now().toString(),
+      text: inputValue,
+      sender: "user",
+      timestamp: new Date(),
+    };
+
+    setMessages([...messages, newMessage]);
+    setInputValue("");
+
+    // Simulate agent response
+    setTimeout(() => {
+      const agentResponse: Message = {
+        id: (Date.now() + 1).toString(),
+        text: "Thanks for your message! Our team will respond shortly. In the meantime, feel free to explore our services or contact us at polerisllc@outlook.com",
+        sender: "agent",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, agentResponse]);
+    }, 1500);
+  };
+
+  const toggleChat = () => {
+    setIsOpen(!isOpen);
+    setHasUnread(false);
+    if (isMinimized) setIsMinimized(false);
+  };
+
+  const toggleMinimize = () => {
+    setIsMinimized(!isMinimized);
+  };
+
+  return (
+    <>
+      {/* Chat Window */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed bottom-24 right-4 sm:right-6 md:right-8 z-[9999] w-[calc(100vw-2rem)] sm:w-96 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-800"
+          >
+            {/* Header */}
+            <div className="bg-gradient-to-r from-[#001f3d] to-[#003366] dark:from-[#001529] dark:to-[#002147] p-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-blue-400 flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold text-sm">Poleris Digital</h3>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                    <p className="text-white/70 text-xs">Online</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={toggleMinimize}
+                  className="text-white/70 hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-lg"
+                  aria-label="Minimize chat"
+                >
+                  <Minimize2 className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={toggleChat}
+                  className="text-white/70 hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-lg"
+                  aria-label="Close chat"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Messages Area */}
+            {!isMinimized && (
+              <>
+                <div className="h-80 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-gray-950">
+                  {messages.map((message) => (
+                    <motion.div
+                      key={message.id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}
+                    >
+                      <div
+                        className={`max-w-[80%] rounded-2xl px-4 py-2.5 ${
+                          message.sender === "user"
+                            ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-br-md"
+                            : "bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-bl-md"
+                        }`}
+                      >
+                        <p className="text-sm leading-relaxed">{message.text}</p>
+                        <p
+                          className={`text-xs mt-1 ${
+                            message.sender === "user" ? "text-white/70" : "text-gray-500 dark:text-gray-400"
+                          }`}
+                        >
+                          {message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                  <div ref={messagesEndRef} />
+                </div>
+
+                {/* Input Area */}
+                <form onSubmit={handleSendMessage} className="p-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="text"
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      placeholder="Type your message..."
+                      className="flex-1 px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all text-sm"
+                    />
+                    <button
+                      type="submit"
+                      disabled={!inputValue.trim()}
+                      className="px-4 py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                      aria-label="Send message"
+                    >
+                      <Send className="w-4 h-4" />
+                    </button>
+                  </div>
+                </form>
+              </>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Floating Chat Button */}
+      <motion.button
+        onClick={toggleChat}
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.5, delay: 1, ease: [0.16, 1, 0.3, 1] }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-6 right-4 sm:right-6 md:right-8 z-[9999] w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 group"
+        aria-label="Open chat"
+      >
+        <AnimatePresence mode="wait">
+          {isOpen ? (
+            <motion.div
+              key="close"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <X className="w-6 h-6" />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="open"
+              initial={{ rotate: 90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: -90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <MessageCircle className="w-6 h-6" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Notification Badge */}
+        {hasUnread && !isOpen && (
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center"
+          >
+            <span className="text-white text-xs font-bold">1</span>
+          </motion.div>
+        )}
+
+        {/* Pulsing ring effect */}
+        {!isOpen && (
+          <motion.div
+            className="absolute inset-0 rounded-full bg-blue-500"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.5, 0, 0.5],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        )}
+      </motion.button>
+    </>
+  );
+}
