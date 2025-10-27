@@ -81,8 +81,6 @@ export default function RootLayout({
         <Script
           src="https://embed.tawk.to/68ff89356b37cd19503f20d2/1j8j2vv21"
           strategy="afterInteractive"
-          charset="UTF-8"
-          crossOrigin="anonymous"
         />
       </body>
     </html>
