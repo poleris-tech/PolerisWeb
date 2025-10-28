@@ -5,6 +5,7 @@ import { Check, Plus, ArrowRight } from "lucide-react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Starfield } from "@/components/ui/starfield";
+import { PriceCalculator } from "@/components/ui/price-calculator";
 
 /**
  * Pricing Section Component
@@ -214,6 +215,11 @@ export function PricingSection() {
             </ScrollReveal>
 
           </div>
+        </div>
+
+        {/* Interactive Price Calculator */}
+        <div className="my-20 sm:my-28">
+          <PriceCalculator />
         </div>
 
         {/* Add-ons Section */}
