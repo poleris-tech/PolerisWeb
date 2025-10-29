@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, Plus, Minus, Calculator, TrendingUp, ArrowRight, Sparkles } from 'lucide-react';
+import { Check, Plus, Minus, Calculator, TrendingUp, ArrowRight, Sparkles, Zap, Crown, Rocket, ChevronDown } from 'lucide-react';
 import { CustomButton } from '@/components/ui/custom-button';
-import { ADD_ONS } from '@/constants/site-data';
 
 interface CalculatorState {
   pages: number;
@@ -24,7 +23,73 @@ interface PriceBreakdown {
   monthlyAddOns: number;
   totalOneTime: number;
   totalMonthly: number;
+  totalValue: number;
+  savings: number;
 }
+
+interface PackagePreset {
+  id: string;
+  name: string;
+  icon: any;
+  description: string;
+  pages: number;
+  addOns: {
+    blog: boolean;
+    unlimitedEdits: boolean;
+    seoOptimization: boolean;
+    googleAds: boolean;
+  };
+  badge?: string;
+  badgeColor?: string;
+}
+
+const PACKAGE_PRESETS: PackagePreset[] = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    icon: Rocket,
+    description: 'Perfect for small businesses',
+    pages: 6,
+    addOns: {
+      blog: false,
+      unlimitedEdits: false,
+      seoOptimization: false,
+      googleAds: false,
+    },
+    badge: 'Most Popular',
+    badgeColor: 'bg-blue-400',
+  },
+  {
+    id: 'professional',
+    name: 'Professional',
+    icon: Zap,
+    description: 'For growing businesses',
+    pages: 10,
+    addOns: {
+      blog: true,
+      unlimitedEdits: false,
+      seoOptimization: true,
+      googleAds: false,
+    },
+    badge: 'Best Value',
+    badgeColor: 'bg-green-400',
+  },
+  {
+    id: 'enterprise',
+    name: 'Enterprise',
+    icon: Crown,
+    description: 'Complete digital solution',
+    pages: 15,
+    addOns: {
+      blog: true,
+      unlimitedEdits: true,
+      seoOptimization: true,
+      googleAds: true,
+    },
+    badge: 'Premium',
+    badgeColor: 'bg-purple-400',
+  },
+];
 
 export function PriceCalculator() {
   const [state, setState] = useState<CalculatorState>({
@@ -37,6 +102,7 @@ export function PriceCalculator() {
     },
   });
 
+  const [selectedPreset, setSelectedPreset] = useState<string | null>('starter');
   const [showBreakdown, setShowBreakdown] = useState(false);
   const [animatePrice, setAnimatePrice] = useState(false);
 
@@ -46,7 +112,7 @@ export function PriceCalculator() {
   const INCLUDED_PAGES = 6;
   const PRICE_PER_ADDITIONAL_PAGE = 100;
 
-  // Calculate price breakdown
+  // Calculate price breakdown with value proposition
   const calculatePrice = (): PriceBreakdown => {
     const additionalPages = Math.max(0, state.pages - INCLUDED_PAGES);
     const additionalPagesCost = additionalPages * PRICE_PER_ADDITIONAL_PAGE;
@@ -54,25 +120,38 @@ export function PriceCalculator() {
     let oneTimeAddOns = 0;
     let monthlyAddOns = 0;
 
-    // Add-on: Blog Integration ($250 one-time)
+    // Add-on: Blog Integration ($250 one-time, valued at $500)
     if (state.addOns.blog) {
       oneTimeAddOns += 250;
     }
 
-    // Add-on: SEO Optimization ($300 one-time)
+    // Add-on: SEO Optimization ($300 one-time, valued at $800)
     if (state.addOns.seoOptimization) {
       oneTimeAddOns += 300;
     }
 
-    // Add-on: Unlimited Edits ($40/month)
+    // Add-on: Unlimited Edits ($40/month, valued at $100/month)
     if (state.addOns.unlimitedEdits) {
       monthlyAddOns += 40;
     }
 
-    // Add-on: Google Ads Management ($400/month)
+    // Add-on: Google Ads Management ($400/month, valued at $800/month)
     if (state.addOns.googleAds) {
       monthlyAddOns += 400;
     }
+
+    const totalOneTime = BASE_ONE_TIME + additionalPagesCost + oneTimeAddOns;
+    const totalMonthly = BASE_MONTHLY + monthlyAddOns;
+
+    // Calculate value (what customer would pay elsewhere)
+    const marketValue = 5000; // Base website market value
+    const addOnsMarketValue =
+      (state.addOns.blog ? 500 : 0) +
+      (state.addOns.seoOptimization ? 800 : 0) +
+      (additionalPages * 150); // Market rate for pages
+
+    const totalValue = marketValue + addOnsMarketValue;
+    const savings = totalValue - totalOneTime;
 
     return {
       baseOneTime: BASE_ONE_TIME,
@@ -80,8 +159,10 @@ export function PriceCalculator() {
       additionalPages: additionalPagesCost,
       oneTimeAddOns,
       monthlyAddOns,
-      totalOneTime: BASE_ONE_TIME + additionalPagesCost + oneTimeAddOns,
-      totalMonthly: BASE_MONTHLY + monthlyAddOns,
+      totalOneTime,
+      totalMonthly,
+      totalValue,
+      savings,
     };
   };
 
@@ -95,13 +176,15 @@ export function PriceCalculator() {
   }, [state]);
 
   const handlePageChange = (increment: boolean) => {
+    setSelectedPreset(null); // Clear preset when manually adjusting
     setState((prev) => ({
       ...prev,
-      pages: increment ? prev.pages + 1 : Math.max(1, prev.pages - 1),
+      pages: increment ? Math.min(prev.pages + 1, 30) : Math.max(1, prev.pages - 1),
     }));
   };
 
   const toggleAddOn = (addOn: keyof typeof state.addOns) => {
+    setSelectedPreset(null); // Clear preset when manually adjusting
     setState((prev) => ({
       ...prev,
       addOns: {
@@ -111,12 +194,20 @@ export function PriceCalculator() {
     }));
   };
 
+  const applyPreset = (preset: PackagePreset) => {
+    setSelectedPreset(preset.id);
+    setState({
+      pages: preset.pages,
+      addOns: preset.addOns,
+    });
+  };
+
   const getActiveAddOnsCount = () => {
     return Object.values(state.addOns).filter(Boolean).length;
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto">
+    <div className="w-full max-w-7xl mx-auto">
       {/* Calculator Header */}
       <div className="text-center mb-8 md:mb-12">
         <motion.div
@@ -135,9 +226,79 @@ export function PriceCalculator() {
           transition={{ delay: 0.2 }}
           className="text-white/80 text-sm sm:text-base max-w-2xl mx-auto"
         >
-          Customize your package and see the price update in real-time. No surprises, just transparency.
+          Choose a preset package or customize your own. See pricing update in real-time.
         </motion.p>
       </div>
+
+      {/* Package Presets */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        className="mb-8 md:mb-12"
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+          {PACKAGE_PRESETS.map((preset, index) => {
+            const Icon = preset.icon;
+            const isSelected = selectedPreset === preset.id;
+
+            return (
+              <motion.button
+                key={preset.id}
+                onClick={() => applyPreset(preset)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index }}
+                className={`relative p-6 rounded-2xl border-2 transition-all duration-300 text-left ${
+                  isSelected
+                    ? 'bg-gradient-to-br from-cyan-500/30 to-blue-500/30 border-cyan-400 shadow-lg shadow-cyan-500/20'
+                    : 'bg-white/5 border-white/20 hover:border-white/40 hover:bg-white/10'
+                }`}
+              >
+                {/* Badge */}
+                {preset.badge && (
+                  <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white ${preset.badgeColor}`}>
+                    {preset.badge}
+                  </div>
+                )}
+
+                {/* Icon */}
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 transition-all duration-300 ${
+                  isSelected
+                    ? 'bg-gradient-to-br from-cyan-400 to-blue-500'
+                    : 'bg-white/20'
+                }`}>
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+
+                {/* Title */}
+                <h4 className="text-xl font-bold text-white mb-2">{preset.name}</h4>
+                <p className="text-white/70 text-sm mb-4">{preset.description}</p>
+
+                {/* Quick Stats */}
+                <div className="flex items-center gap-4 text-xs text-white/60">
+                  <span>{preset.pages} pages</span>
+                  <span>•</span>
+                  <span>{Object.values(preset.addOns).filter(Boolean).length} add-ons</span>
+                </div>
+
+                {/* Selected Indicator */}
+                {isSelected && (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="absolute top-3 left-3 w-6 h-6 rounded-full bg-cyan-400 flex items-center justify-center"
+                  >
+                    <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                  </motion.div>
+                )}
+              </motion.button>
+            );
+          })}
+        </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {/* Left Column: Configuration */}
@@ -149,15 +310,16 @@ export function PriceCalculator() {
         >
           {/* Number of Pages */}
           <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 hover:bg-white/15 transition-all duration-300">
-            <label className="block text-white font-semibold mb-4 flex items-center gap-2">
+            <label className="flex items-center gap-2 text-white font-semibold mb-4">
               <Sparkles className="w-5 h-5 text-cyan-400" />
               Number of Pages
+              <span className="ml-auto text-xs text-white/60 font-normal">Max 30 pages</span>
             </label>
             <div className="flex items-center gap-4">
               <button
                 onClick={() => handlePageChange(false)}
                 disabled={state.pages <= 1}
-                className="w-12 h-12 rounded-xl bg-white/20 hover:bg-white/30 disabled:bg-white/10 disabled:cursor-not-allowed flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
+                className="w-12 h-12 rounded-xl bg-white/20 hover:bg-white/30 disabled:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 <Minus className="w-5 h-5 text-white" />
               </button>
@@ -173,7 +335,10 @@ export function PriceCalculator() {
                 </motion.div>
                 <div className="text-sm text-white/70 mt-1">
                   {state.pages <= INCLUDED_PAGES ? (
-                    <span className="text-green-400">Included in base package</span>
+                    <span className="text-green-400 flex items-center justify-center gap-1">
+                      <Check className="w-4 h-4" />
+                      Included in base package
+                    </span>
                   ) : (
                     <span className="text-cyan-400">
                       +${(state.pages - INCLUDED_PAGES) * PRICE_PER_ADDITIONAL_PAGE} (${PRICE_PER_ADDITIONAL_PAGE}/page)
@@ -184,22 +349,37 @@ export function PriceCalculator() {
 
               <button
                 onClick={() => handlePageChange(true)}
-                className="w-12 h-12 rounded-xl bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
+                disabled={state.pages >= 30}
+                className="w-12 h-12 rounded-xl bg-white/20 hover:bg-white/30 disabled:bg-white/10 disabled:cursor-not-allowed disabled:opacity-50 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 <Plus className="w-5 h-5 text-white" />
               </button>
+            </div>
+
+            {/* Progress Bar */}
+            <div className="mt-4 relative h-2 bg-white/10 rounded-full overflow-hidden">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${(state.pages / 30) * 100}%` }}
+                transition={{ duration: 0.5 }}
+                className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"
+              />
             </div>
           </div>
 
           {/* Add-ons */}
           <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 hover:bg-white/15 transition-all duration-300">
-            <label className="block text-white font-semibold mb-4 flex items-center gap-2">
+            <label className="flex items-center gap-2 text-white font-semibold mb-4">
               <TrendingUp className="w-5 h-5 text-cyan-400" />
               Optional Add-Ons
               {getActiveAddOnsCount() > 0 && (
-                <span className="ml-auto px-3 py-1 rounded-full bg-cyan-400 text-white text-xs font-bold">
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="ml-auto px-3 py-1 rounded-full bg-cyan-400 text-white text-xs font-bold"
+                >
                   {getActiveAddOnsCount()} selected
-                </span>
+                </motion.span>
               )}
             </label>
 
@@ -210,6 +390,7 @@ export function PriceCalculator() {
                 price={250}
                 type="one-time"
                 description="Full-featured blog with categories"
+                marketValue={500}
                 active={state.addOns.blog}
                 onToggle={() => toggleAddOn('blog')}
               />
@@ -220,6 +401,7 @@ export function PriceCalculator() {
                 price={300}
                 type="one-time"
                 description="Keyword research & optimization"
+                marketValue={800}
                 active={state.addOns.seoOptimization}
                 onToggle={() => toggleAddOn('seoOptimization')}
               />
@@ -230,6 +412,7 @@ export function PriceCalculator() {
                 price={40}
                 type="monthly"
                 description="Make changes anytime"
+                marketValue={100}
                 active={state.addOns.unlimitedEdits}
                 onToggle={() => toggleAddOn('unlimitedEdits')}
               />
@@ -240,6 +423,7 @@ export function PriceCalculator() {
                 price={400}
                 type="monthly"
                 description="Professional ad campaign management"
+                marketValue={800}
                 active={state.addOns.googleAds}
                 onToggle={() => toggleAddOn('googleAds')}
               />
@@ -264,6 +448,23 @@ export function PriceCalculator() {
               <Calculator className="w-6 h-6 text-cyan-400" />
               Your Custom Package
             </h4>
+
+            {/* Savings Badge */}
+            {prices.savings > 0 && (
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                className="mb-6 p-4 rounded-xl bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-400/30"
+              >
+                <div className="flex items-center gap-2 text-green-400 mb-1">
+                  <Sparkles className="w-5 h-5" />
+                  <span className="font-bold text-sm">You Save ${prices.savings.toLocaleString()}</span>
+                </div>
+                <p className="text-xs text-white/70">
+                  Compared to market value of ${prices.totalValue.toLocaleString()}
+                </p>
+              </motion.div>
+            )}
 
             {/* Price Display */}
             <div className="mb-6 pb-6 border-b border-white/20">
@@ -300,10 +501,10 @@ export function PriceCalculator() {
             {/* Price Breakdown Toggle */}
             <button
               onClick={() => setShowBreakdown(!showBreakdown)}
-              className="text-cyan-400 text-sm hover:text-cyan-300 transition-colors mb-4 flex items-center gap-2"
+              className="text-cyan-400 text-sm hover:text-cyan-300 transition-colors mb-4 flex items-center gap-2 group"
             >
-              {showBreakdown ? 'Hide' : 'Show'} price breakdown
-              <ArrowRight className={`w-4 h-4 transition-transform ${showBreakdown ? 'rotate-90' : ''}`} />
+              <span>{showBreakdown ? 'Hide' : 'Show'} price breakdown</span>
+              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showBreakdown ? 'rotate-180' : ''}`} />
             </button>
 
             {/* Animated Breakdown */}
@@ -317,15 +518,15 @@ export function PriceCalculator() {
                   className="overflow-hidden mb-6 pb-6 border-b border-white/20"
                 >
                   <div className="space-y-2 text-sm">
-                    <PriceRow label="Base Package" value={`$${prices.baseOneTime}`} />
+                    <PriceRow label="Base Package" value={`$${prices.baseOneTime.toLocaleString()}`} />
                     {prices.additionalPages > 0 && (
                       <PriceRow
                         label={`Additional Pages (${state.pages - INCLUDED_PAGES})`}
-                        value={`+$${prices.additionalPages}`}
+                        value={`+$${prices.additionalPages.toLocaleString()}`}
                       />
                     )}
                     {prices.oneTimeAddOns > 0 && (
-                      <PriceRow label="One-time Add-ons" value={`+$${prices.oneTimeAddOns}`} />
+                      <PriceRow label="One-time Add-ons" value={`+$${prices.oneTimeAddOns.toLocaleString()}`} />
                     )}
                     {prices.monthlyAddOns > 0 && (
                       <PriceRow label="Monthly Add-ons" value={`+$${prices.monthlyAddOns}/mo`} />
@@ -374,11 +575,14 @@ interface AddOnToggleProps {
   price: number;
   type: 'one-time' | 'monthly';
   description: string;
+  marketValue: number;
   active: boolean;
   onToggle: () => void;
 }
 
-function AddOnToggle({ label, price, type, description, active, onToggle }: AddOnToggleProps) {
+function AddOnToggle({ label, price, type, description, marketValue, active, onToggle }: AddOnToggleProps) {
+  const savingsPercent = Math.round(((marketValue - price) / marketValue) * 100);
+
   return (
     <motion.button
       onClick={onToggle}
@@ -391,7 +595,7 @@ function AddOnToggle({ label, price, type, description, active, onToggle }: AddO
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1">
-          <div className="flex items-center gap-2 mb-1">
+          <div className="flex items-center gap-2 mb-1 flex-wrap">
             <span className="text-white font-semibold text-sm">{label}</span>
             <span
               className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
@@ -400,18 +604,40 @@ function AddOnToggle({ label, price, type, description, active, onToggle }: AddO
             >
               {type === 'monthly' ? 'Monthly' : 'One-time'}
             </span>
+            {savingsPercent > 0 && (
+              <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-400/30 text-green-200">
+                Save {savingsPercent}%
+              </span>
+            )}
           </div>
           <p className="text-white/60 text-xs mb-2">{description}</p>
-          <div className="text-cyan-400 font-bold text-sm">
-            ${price}{type === 'monthly' && '/mo'}
+          <div className="flex items-baseline gap-2">
+            <span className="text-cyan-400 font-bold text-sm">
+              ${price}{type === 'monthly' && '/mo'}
+            </span>
+            {marketValue > price && (
+              <span className="text-white/40 text-xs line-through">
+                ${marketValue}{type === 'monthly' && '/mo'}
+              </span>
+            )}
           </div>
         </div>
         <div
           className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
-            active ? 'bg-cyan-400 border-cyan-400' : 'border-white/30'
+            active ? 'bg-cyan-400 border-cyan-400 scale-110' : 'border-white/30'
           }`}
         >
-          {active && <Check className="w-4 h-4 text-white" strokeWidth={3} />}
+          <AnimatePresence>
+            {active && (
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0 }}
+              >
+                <Check className="w-4 h-4 text-white" strokeWidth={3} />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </motion.button>

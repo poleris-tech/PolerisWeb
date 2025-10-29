@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/layout/navigation";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
+import { AboutSection } from "@/components/sections/about-section";
 import { TechStackCarousel } from "@/components/sections/tech-stack-carousel";
 import { ServicesSection } from "@/components/sections/services-section";
 import { ProcessSection } from "@/components/sections/process-section";
@@ -25,10 +26,11 @@ export default function Home() {
         <Navigation />
         <main className="w-full flex-1">
           <HeroSection />
-          <TechStackCarousel />
           <ServicesSection />
-          <PricingSection />
           <ProcessSection />
+          <PricingSection />
+          <AboutSection />
+          <TechStackCarousel />
           <ContactSection />
         </main>
         <Footer />
