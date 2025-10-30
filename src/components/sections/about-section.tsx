@@ -29,10 +29,10 @@ import CountUp from './counter-animation';
 // Company Stats
 const STATS = [
   {
-    value: 50,
-    suffix: '+',
-    label: 'Projects Completed',
-    icon: Rocket,
+    value: 100,
+    suffix: '%',
+    label: 'Hand-Coded Quality',
+    icon: Code,
   },
   {
     value: 99,
@@ -41,10 +41,10 @@ const STATS = [
     icon: Shield,
   },
   {
-    value: 100,
-    suffix: '%',
-    label: 'Client Satisfaction',
-    icon: Heart,
+    value: 1,
+    suffix: 's',
+    label: 'Load Time Target',
+    icon: Zap,
   },
   {
     value: 24,
@@ -231,12 +231,12 @@ export function AboutSection() {
           </ScrollReveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto px-4 sm:px-0">
           {VALUES.map((value, index) => {
             const Icon = value.icon;
             return (
               <ScrollReveal key={index} direction={index % 2 === 0 ? 'left' : 'right'} delay={0.1 * index}>
-                <div className="group relative p-8 rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-800 hover:border-cyan-400 dark:hover:border-cyan-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="group relative p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-800 hover:border-cyan-400 dark:hover:border-cyan-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                   <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${value.color} mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className="w-7 h-7 text-white" />
                   </div>
@@ -269,12 +269,12 @@ export function AboutSection() {
             </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4 sm:px-0">
             {WHY_CHOOSE_US.map((item, index) => {
               const Icon = item.icon;
               return (
                 <ScrollReveal key={index} direction="up" delay={0.05 * index}>
-                  <div className="p-6 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-cyan-400 dark:hover:border-cyan-400 transition-all duration-300 hover:shadow-lg group">
+                  <div className="p-5 sm:p-6 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-cyan-400 dark:hover:border-cyan-400 transition-all duration-300 hover:shadow-lg group">
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <Icon className="w-6 h-6 text-white" />
