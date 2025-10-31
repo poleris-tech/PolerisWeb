@@ -11,8 +11,8 @@ export default function TermsOfService() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950">
       {/* Header */}
-      <div className="bg-gradient-to-br from-[#001f3d] via-[#002D5C] to-[#001f3d] dark:from-[#001529] dark:via-[#001f3d] dark:to-[#001529] text-white py-16 md:py-20">
-        <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12">
+      <div className="bg-gradient-to-br from-[#001f3d] via-[#002D5C] to-[#001f3d] dark:from-[#001529] dark:via-[#001f3d] dark:to-[#001529] text-white py-12 sm:py-16 md:py-20 px-6 sm:px-0">
+        <div className="container mx-auto sm:px-8 md:px-10 lg:px-12">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-6"
@@ -20,16 +20,16 @@ export default function TermsOfService() {
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">Terms of Service</h1>
-          <p className="text-lg text-white/80">Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Terms of Service</h1>
+          <p className="text-base sm:text-lg text-white/80">Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
         </div>
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 py-12 md:py-16">
-        <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 py-8 sm:py-12 md:py-16">
+        <div className="max-w-4xl mx-auto">
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Agreement to Terms</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               These Terms of Service ("Terms") govern your use of the Poleris Digital website and services.
@@ -38,7 +38,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Services Provided</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed mb-4">
               Poleris Digital provides the following services:
@@ -55,7 +55,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Use of Our Website</h2>
 
             <h3 className="text-xl font-semibold text-[#001f3d] dark:text-white mt-6 mb-3">Permitted Use</h3>
@@ -78,7 +78,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Client Responsibilities</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed mb-4">
               When engaging our services, you agree to:
@@ -93,7 +93,7 @@ export default function TermsOfService() {
             </ul>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Payment Terms</h2>
 
             <h3 className="text-xl font-semibold text-[#001f3d] dark:text-white mt-6 mb-3">Pricing</h3>
@@ -124,7 +124,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Intellectual Property</h2>
 
             <h3 className="text-xl font-semibold text-[#001f3d] dark:text-white mt-6 mb-3">Ownership</h3>
@@ -146,7 +146,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Warranties and Disclaimers</h2>
 
             <h3 className="text-xl font-semibold text-[#001f3d] dark:text-white mt-6 mb-3">Service Warranty</h3>
@@ -168,7 +168,7 @@ export default function TermsOfService() {
             </ul>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Limitation of Liability</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               TO THE MAXIMUM EXTENT PERMITTED BY LAW, POLERIS DIGITAL SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
@@ -187,7 +187,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Service Level Agreement</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed mb-4">
               For hosting services, we guarantee:
@@ -203,7 +203,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Termination</h2>
 
             <h3 className="text-xl font-semibold text-[#001f3d] dark:text-white mt-6 mb-3">By Client</h3>
@@ -225,7 +225,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Indemnification</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               You agree to indemnify and hold harmless Poleris Digital from any claims, damages, losses, liabilities,
@@ -239,7 +239,7 @@ export default function TermsOfService() {
             </ul>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Dispute Resolution</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               In the event of a dispute, we encourage you to contact us first to seek an amicable resolution.
@@ -248,7 +248,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Changes to Terms</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               We reserve the right to modify these Terms at any time. We will notify you of significant changes
@@ -257,7 +257,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Severability</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               If any provision of these Terms is found to be unenforceable or invalid, that provision will be
@@ -266,7 +266,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Entire Agreement</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               These Terms, together with any project agreements and our Privacy Policy, constitute the entire
@@ -274,7 +274,7 @@ export default function TermsOfService() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Contact Information</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed mb-4">
               For questions about these Terms or our services, please contact us:
@@ -287,7 +287,7 @@ export default function TermsOfService() {
             </div>
           </section>
 
-          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 px-4 sm:px-0">
             <p className="text-sm text-[#001f3d]/60 dark:text-gray-500 text-center">
               By using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
             </p>

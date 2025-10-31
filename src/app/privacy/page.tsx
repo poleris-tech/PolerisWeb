@@ -11,8 +11,8 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950">
       {/* Header */}
-      <div className="bg-gradient-to-br from-[#001f3d] via-[#002D5C] to-[#001f3d] dark:from-[#001529] dark:via-[#001f3d] dark:to-[#001529] text-white py-16 md:py-20">
-        <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12">
+      <div className="bg-gradient-to-br from-[#001f3d] via-[#002D5C] to-[#001f3d] dark:from-[#001529] dark:via-[#001f3d] dark:to-[#001529] text-white py-12 sm:py-16 md:py-20 px-6 sm:px-0">
+        <div className="container mx-auto sm:px-8 md:px-10 lg:px-12">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-6"
@@ -20,16 +20,16 @@ export default function PrivacyPolicy() {
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">Privacy Policy</h1>
-          <p className="text-lg text-white/80">Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Privacy Policy</h1>
+          <p className="text-base sm:text-lg text-white/80">Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
         </div>
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 py-12 md:py-16">
-        <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
+      <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 py-8 sm:py-12 md:py-16">
+        <div className="max-w-4xl mx-auto">
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Introduction</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               Poleris Digital ("we," "our," or "us") respects your privacy and is committed to protecting your personal information.
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Information We Collect</h2>
 
             <h3 className="text-xl font-semibold text-[#001f3d] dark:text-white mt-6 mb-3">Personal Information</h3>
@@ -76,7 +76,7 @@ export default function PrivacyPolicy() {
             </ul>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">How We Use Your Information</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed mb-4">
               We use the information we collect to:
@@ -92,7 +92,7 @@ export default function PrivacyPolicy() {
             </ul>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Cookies and Tracking Technologies</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed mb-4">
               We use cookies and similar tracking technologies to enhance your browsing experience. Cookies are small data files
@@ -108,7 +108,7 @@ export default function PrivacyPolicy() {
             </ul>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Third-Party Services</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed mb-4">
               We may use third-party services to help us operate our website and provide our services:
@@ -124,7 +124,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Data Security</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               We implement appropriate technical and organizational security measures to protect your personal information.
@@ -132,7 +132,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Your Rights</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed mb-4">
               Depending on your location, you may have the following rights:
@@ -149,7 +149,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Children's Privacy</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               Our services are not directed to individuals under the age of 18. We do not knowingly collect personal
@@ -158,7 +158,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Data Retention</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               We retain your personal information only for as long as necessary to fulfill the purposes outlined in this
@@ -166,7 +166,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">International Data Transfers</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               Your information may be transferred to and processed in countries other than your country of residence.
@@ -174,7 +174,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Changes to This Privacy Policy</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
               We may update this Privacy Policy from time to time. The updated version will be indicated by the
@@ -182,7 +182,7 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <section className="mb-8">
+          <section className="mb-8 px-4 sm:px-0">
             <h2 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-4">Contact Us</h2>
             <p className="text-[#001f3d]/80 dark:text-gray-300 leading-relaxed mb-4">
               If you have questions or concerns about this Privacy Policy or our data practices, please contact us:
@@ -195,7 +195,7 @@ export default function PrivacyPolicy() {
             </div>
           </section>
 
-          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 px-4 sm:px-0">
             <p className="text-sm text-[#001f3d]/60 dark:text-gray-500 text-center">
               This Privacy Policy is effective as of {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })} and will remain in effect except with respect to any changes in its provisions in the future.
             </p>
