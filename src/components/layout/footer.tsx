@@ -55,8 +55,13 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#process" className="text-white/70 hover:text-white transition-colors duration-300 font-light">
+                <a href="#about" className="text-white/70 hover:text-white transition-colors duration-300 font-light">
                   About Us
+                </a>
+              </li>
+              <li>
+                <a href="#pricing" className="text-white/70 hover:text-white transition-colors duration-300 font-light">
+                  Pricing
                 </a>
               </li>
               <li>
@@ -110,11 +115,11 @@ export function Footer() {
             © Copyright 2025 Poleris Digital
           </p>
           <div className="flex gap-6">
-            <a href="#privacy" className="text-white/60 hover:text-white text-sm transition-colors duration-300">
+            <a href="/privacy" className="text-white/60 hover:text-white text-sm transition-colors duration-300">
               Privacy Policy
             </a>
-            <a href="#terms" className="text-white/60 hover:text-white text-sm transition-colors duration-300">
-              Terms Of Use
+            <a href="/terms" className="text-white/60 hover:text-white text-sm transition-colors duration-300">
+              Terms of Service
             </a>
           </div>
         </div>
