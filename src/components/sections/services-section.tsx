@@ -127,7 +127,7 @@ export function ServicesSection() {
         </div>
 
         {/* Services Display - Swipeable on Mobile, Grid on Desktop */}
-        <div className="flex justify-center w-full mb-12 sm:mb-16" style={{ marginTop: '40px' }}>
+        <div className="flex justify-center w-full mb-20 sm:mb-16 pb-4 sm:pb-0" style={{ marginTop: '40px' }}>
           {/* Mobile Swipeable Cards - Hidden on SM and above */}
           <div className="sm:hidden w-full max-w-md mx-auto">
             <SwipeableCards showControls={false}>

@@ -50,9 +50,9 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
   };
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden pb-2">
       {/* Cards container */}
-      <div className="relative h-full">
+      <div className="relative h-full mb-4">
         <motion.div
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
@@ -82,8 +82,22 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
         </motion.div>
       </div>
 
+      {/* Swipe hint (shows on first load) - positioned above dots */}
+      {currentIndex === 0 && (
+        <motion.div
+          initial={{ opacity: 1 }}
+          animate={{ opacity: [1, 0.5, 1] }}
+          transition={{ duration: 2, repeat: 3 }}
+          className="flex items-center justify-center gap-2 mb-3 text-sm text-gray-500"
+        >
+          <ChevronLeft className="w-4 h-4" />
+          <span>Swipe to explore</span>
+          <ChevronRight className="w-4 h-4" />
+        </motion.div>
+      )}
+
       {/* Navigation dots */}
-      <div className="flex justify-center gap-2 mt-6">
+      <div className="flex justify-center gap-2 mt-2">
         {children.map((_, index) => (
           <button
             key={index}
@@ -127,20 +141,6 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
             </motion.button>
           )}
         </>
-      )}
-
-      {/* Swipe hint (shows on first load) */}
-      {currentIndex === 0 && (
-        <motion.div
-          initial={{ opacity: 1 }}
-          animate={{ opacity: [1, 0.5, 1] }}
-          transition={{ duration: 2, repeat: 3 }}
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 text-sm text-gray-500 flex items-center gap-2"
-        >
-          <ChevronLeft className="w-4 h-4" />
-          <span>Swipe to explore</span>
-          <ChevronRight className="w-4 h-4" />
-        </motion.div>
       )}
     </div>
   );

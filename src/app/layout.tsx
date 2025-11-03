@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Poleris Digital - Hand-Coded Websites That Deliver Results",
     description: "Professional web design and development services for small businesses. Custom websites, SEO optimization, and more.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
     creator: "@polerisdigital", // Add your Twitter handle
   },
   robots: {
