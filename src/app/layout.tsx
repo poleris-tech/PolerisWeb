@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ReCaptchaProvider } from "@/components/providers/recaptcha-provider";
+import { SchemaMarkup } from "@/components/seo/schema-markup";
 // import { LiveChat } from "@/components/ui/live-chat"; // Replaced with Tawk.to
 import Script from "next/script";
 
@@ -17,23 +18,64 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Poleris Digital - Hand-Coded Websites That Deliver Results",
-  description: "100% hand-coded websites. No page builders, no WordPress. Performance-focused web design with $0 down and $175/month.",
-  keywords: ["web design", "custom websites", "hand-coded", "performance optimization", "SEO"],
+  description: "Professional web design and development services for small businesses. Custom websites, SEO optimization, Google Ads management, and reliable hosting. Transform your online presence today.",
+  keywords: [
+    "web design",
+    "custom websites",
+    "hand-coded websites",
+    "performance optimization",
+    "SEO services",
+    "Google Ads",
+    "website hosting",
+    "small business websites",
+    "web development",
+    "responsive design",
+  ],
   authors: [{ name: "Poleris Digital" }],
   creator: "Poleris Digital",
+  publisher: "Poleris Digital",
   metadataBase: new URL("https://polerisdigital.com"),
+  alternates: {
+    canonical: "https://polerisdigital.com",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://polerisdigital.com",
     title: "Poleris Digital - Hand-Coded Websites That Deliver Results",
-    description: "100% hand-coded websites. No page builders, no WordPress. Performance-focused web design with $0 down and $175/month.",
+    description: "Professional web design and development services for small businesses. Custom websites, SEO optimization, Google Ads management, and reliable hosting.",
     siteName: "Poleris Digital",
+    images: [
+      {
+        url: "/og-image.jpg", // You'll need to create this image (1200x630px)
+        width: 1200,
+        height: 630,
+        alt: "Poleris Digital - Professional Web Design Services",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Poleris Digital - Hand-Coded Websites That Deliver Results",
-    description: "100% hand-coded websites. No page builders, no WordPress. Performance-focused web design with $0 down and $175/month.",
+    description: "Professional web design and development services for small businesses. Custom websites, SEO optimization, and more.",
+    images: ["/og-image.jpg"],
+    creator: "@polerisdigital", // Add your Twitter handle
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "your-google-verification-code", // Add your Google Search Console verification code
+    // yandex: "your-yandex-verification-code",
+    // bing: "your-bing-verification-code",
   },
 };
 
@@ -54,6 +96,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <SchemaMarkup />
       </head>
       <body
         className={`${poppins.variable} antialiased bg-white dark:bg-gray-950`}
@@ -67,6 +110,7 @@ export default function RootLayout({
             disableTransitionOnChange={false}
           >
             {children}
+            <SpeedInsights />
           </ThemeProvider>
         </ReCaptchaProvider>
 

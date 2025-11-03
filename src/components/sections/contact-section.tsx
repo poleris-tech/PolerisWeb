@@ -7,8 +7,9 @@ import 'react-phone-number-input/style.css';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { CustomButton } from '@/components/ui/custom-button';
 import { ScrollReveal } from '@/components/ui/scroll-reveal';
-import { Send } from 'lucide-react';
+import { Send, CheckCircle } from 'lucide-react';
 import { Starfield } from '@/components/ui/starfield';
+import confetti from 'canvas-confetti';
 
 interface ContactFormData {
   name: string;
@@ -44,20 +45,120 @@ export default function ContactSection() {
   }>({ type: null, message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
 
+  // Confetti animation function
+  const triggerConfetti = () => {
+    const count = 200;
+    const defaults = {
+      origin: { y: 0.7 },
+      zIndex: 9999,
+    };
+
+    function fire(particleRatio: number, opts: any) {
+      confetti({
+        ...defaults,
+        ...opts,
+        particleCount: Math.floor(count * particleRatio),
+      });
+    }
+
+    fire(0.25, {
+      spread: 26,
+      startVelocity: 55,
+    });
+
+    fire(0.2, {
+      spread: 60,
+    });
+
+    fire(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8,
+    });
+
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2,
+    });
+
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 45,
+    });
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
-    // Clear error for this field
-    if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
+
+    // Real-time validation
+    validateFieldRealtime(name, value);
+
     // Clear status message when user starts typing
     if (submitStatus.type) {
       setSubmitStatus({ type: null, message: '' });
     }
+  };
+
+  // Real-time field validation
+  const validateFieldRealtime = (fieldName: string, value: string) => {
+    const newErrors = { ...errors };
+
+    switch (fieldName) {
+      case 'name':
+        if (!value.trim()) {
+          newErrors.name = 'Name is required';
+        } else if (value.trim().length < 2) {
+          newErrors.name = 'Name must be at least 2 characters';
+        } else if (value.trim().length > 50) {
+          newErrors.name = 'Name must be less than 50 characters';
+        } else {
+          delete newErrors.name;
+        }
+        break;
+
+      case 'email':
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!value.trim()) {
+          newErrors.email = 'Email is required';
+        } else if (!emailRegex.test(value)) {
+          newErrors.email = 'Please enter a valid email address';
+        } else {
+          delete newErrors.email;
+        }
+        break;
+
+      case 'subject':
+        if (!value.trim()) {
+          newErrors.subject = 'Subject is required';
+        } else if (value.trim().length < 5) {
+          newErrors.subject = 'Subject must be at least 5 characters';
+        } else if (value.trim().length > 100) {
+          newErrors.subject = 'Subject must be less than 100 characters';
+        } else {
+          delete newErrors.subject;
+        }
+        break;
+
+      case 'message':
+        if (!value.trim()) {
+          newErrors.message = 'Message is required';
+        } else if (value.trim().length < 10) {
+          newErrors.message = 'Message must be at least 10 characters';
+        } else if (value.trim().length > 1000) {
+          newErrors.message = 'Message must be less than 1000 characters';
+        } else {
+          delete newErrors.message;
+        }
+        break;
+    }
+
+    setErrors(newErrors);
   };
 
   const handlePhoneChange = (value: string | undefined) => {
@@ -163,6 +264,9 @@ export default function ContactSection() {
         type: 'success',
         message: 'Thank you for your message! We will get back to you soon.',
       });
+
+      // Trigger confetti animation
+      triggerConfetti();
 
       // Reset form
       setFormData({
@@ -322,10 +426,13 @@ export default function ContactSection() {
                   <div
                     className={`p-4 rounded-lg border-2 ${
                       submitStatus.type === 'success'
-                        ? 'bg-green-50 border-green-200 text-green-800'
-                        : 'bg-red-50 border-red-200 text-red-800'
-                    } animate-fade-in`}
+                        ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-800 dark:text-green-300'
+                        : 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-800 dark:text-red-300'
+                    } animate-fade-in flex items-start gap-3`}
                   >
+                    {submitStatus.type === 'success' && (
+                      <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                    )}
                     <p className="text-sm font-medium">{submitStatus.message}</p>
                   </div>
                 )}

@@ -4,7 +4,16 @@ import { ArrowLeft } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Poleris Digital',
-  description: 'Terms of Service for Poleris Digital - Understand the terms and conditions for using our web design and development services.',
+  description: 'Terms of Service for Poleris Digital - Understand the terms and conditions, payment policies, and service agreements for our web design and development services.',
+  openGraph: {
+    title: 'Terms of Service | Poleris Digital',
+    description: 'Review our terms and conditions for web design and development services.',
+    url: 'https://polerisdigital.com/terms',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://polerisdigital.com/terms',
+  },
 };
 
 export default function TermsOfService() {

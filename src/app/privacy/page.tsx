@@ -4,7 +4,16 @@ import { ArrowLeft } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Poleris Digital',
-  description: 'Privacy Policy for Poleris Digital - Learn how we collect, use, and protect your personal information.',
+  description: 'Privacy Policy for Poleris Digital - Learn how we collect, use, and protect your personal information when you use our web design and development services.',
+  openGraph: {
+    title: 'Privacy Policy | Poleris Digital',
+    description: 'Learn how Poleris Digital protects your privacy and handles your personal information.',
+    url: 'https://polerisdigital.com/privacy',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://polerisdigital.com/privacy',
+  },
 };
 
 export default function PrivacyPolicy() {
