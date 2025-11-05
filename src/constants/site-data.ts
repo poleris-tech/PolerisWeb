@@ -130,7 +130,7 @@ export const ADD_ONS: AddOn[] = [
     name: "Google Ads Management",
     price: 400,
     type: "monthly",
-    description: "Generate immediate traffic with strategic ad campaigns. We handle setup, ad copywriting, keyword targeting, and monthly performance reporting (ad spend billed separately through your Google Ads account)",
+    description: "Generate immediate traffic with strategic campaigns. Full setup, copywriting, targeting, and monthly reporting included. Ad spend managed separately.",
   },
 ];
 

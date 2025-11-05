@@ -116,11 +116,8 @@ export function ServicesSection() {
 
           <ScrollReveal direction="up" delay={0.3}>
             <div className="max-w-3xl mx-auto w-full px-4 sm:px-6" >
-              <p className="text-base sm:text-lg md:text-xl leading-relaxed sm:leading-relaxed font-light text-[#001f3f]/70 dark:text-gray-300 mb-4">
-                At Poleris Digital, we specialize in small business web design and development for clients across the US and Canada.
-              </p>
-              <p className="text-base sm:text-lg leading-relaxed sm:leading-relaxed font-light text-[#001f3f]/70 dark:text-gray-300">
-                Every line of code is handcrafted for optimal performance, ensuring Google loves your site, driving more traffic and revenue to your business.
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed sm:leading-relaxed font-light text-[#001f3f]/70 dark:text-gray-300">
+                At Poleris Digital, we specialize in small business web design and development for clients across the US and Canada. Every line of code is handcrafted for optimal performance, ensuring Google loves your site and drives more traffic to your business.
               </p>
             </div>
           </ScrollReveal>

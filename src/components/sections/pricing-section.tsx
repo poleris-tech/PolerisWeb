@@ -133,7 +133,7 @@ export function PricingSection() {
         </div>
 
         {/* Main Pricing - 2 Column Layout */}
-        <div className="max-w-5xl mx-auto mb-12 sm:mb-16 px-4 sm:px-0">
+        <div className="max-w-5xl mx-auto mb-12 sm:mb-16 px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
 
             {/* Left Column - Pricing Details */}
@@ -235,7 +235,7 @@ export function PricingSection() {
             </ScrollReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4 sm:px-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4 sm:px-6">
             {ADD_ONS.map((addon, index) => (
               <ScrollReveal key={addon.id} direction="up" delay={0.1 * index} duration={0.7}>
                 <div className="group relative h-full">

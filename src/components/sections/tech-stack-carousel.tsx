@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Starfield } from "@/components/ui/starfield";
+import { Pause } from "lucide-react";
 
 /**
  * Tech Stack Carousel Component
@@ -50,7 +52,7 @@ const technologies = [
   {
     name: "AWS",
     gradient: "from-orange-400 to-yellow-600",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+    logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg"
   },
 
   // Tools
@@ -68,6 +70,8 @@ const technologies = [
 ];
 
 export function TechStackCarousel() {
+  const [isPaused, setIsPaused] = useState(false);
+
   // Triple the array for seamless infinite scroll
   const duplicatedTechs = [...technologies, ...technologies, ...technologies];
 
@@ -108,14 +112,38 @@ export function TechStackCarousel() {
             <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 lg:w-64 bg-gradient-to-r from-white dark:from-gray-950 via-white dark:via-gray-950 to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 lg:w-64 bg-gradient-to-l from-white dark:from-gray-950 via-white dark:via-gray-950 to-transparent z-10 pointer-events-none" />
 
+            {/* Pause indicator */}
+            {isPaused && (
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                <div className="bg-black/60 dark:bg-white/60 backdrop-blur-md rounded-full p-3 flex items-center gap-2 animate-fade-in">
+                  <Pause className="w-5 h-5 text-white dark:text-black" fill="currentColor" />
+                  <span className="text-white dark:text-black text-sm font-semibold pr-2">Paused</span>
+                </div>
+              </div>
+            )}
+
             {/* Scrolling container */}
-            <div className="overflow-hidden py-4">
-              <div className="flex animate-scroll-left hover:pause-animation gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+            <div
+              className="overflow-hidden py-4"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            >
+              <div className={`flex gap-4 sm:gap-6 md:gap-8 lg:gap-10 ${isPaused ? '' : 'animate-scroll-left'}`}>
                 {duplicatedTechs.map((tech, index) => (
                 <div
                   key={`${tech.name}-${index}`}
-                  className="flex-shrink-0 group cursor-pointer"
+                  className="flex-shrink-0 group cursor-pointer relative"
                 >
+                  {/* Tooltip */}
+                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-30 whitespace-nowrap">
+                    <div className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-3 py-1.5 rounded-lg text-sm font-semibold shadow-xl">
+                      {tech.name}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px">
+                        <div className="border-4 border-transparent border-t-gray-900 dark:border-t-white"></div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="relative">
                     {/* Glow effect */}
                     <div className={`absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500`} />

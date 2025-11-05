@@ -154,26 +154,22 @@ export function AboutSection() {
       </div>
 
       {/* Company Story */}
-      <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 py-8 md:py-12">
+      <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#001f3d] dark:text-white mb-6">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#001f3d] dark:text-white mb-8 sm:mb-10">
                 Our Story
               </h2>
-              <div className="max-w-3xl mx-auto space-y-6 text-base md:text-lg text-[#001f3d]/80 dark:text-gray-300 leading-relaxed">
-                <p>
-                  <span className="font-bold text-[#001f3d] dark:text-cyan-400">Poleris Digital</span> was born from a simple frustration:
-                  seeing small businesses struggle with slow, bloated websites built on outdated platforms.
+              <div className="max-w-3xl mx-auto space-y-8 sm:space-y-10 text-base md:text-lg text-[#001f3d]/80 dark:text-gray-300 px-4">
+                <p className="text-lg md:text-xl leading-relaxed sm:leading-loose">
+                  <span className="font-bold text-[#001f3d] dark:text-cyan-400">Poleris Digital</span> was born from a simple frustration: small businesses struggling with slow, bloated websites.
                 </p>
-                <p>
-                  We believed there was a better way. A way that prioritized <span className="font-semibold">performance</span>,
-                  <span className="font-semibold"> SEO</span>, and <span className="font-semibold">results</span> over convenience.
-                  So we started hand-coding websites from scratch—no WordPress, no page builders, no compromises.
+                <p className="text-base md:text-lg leading-relaxed sm:leading-loose">
+                  We believed there was a better way—prioritizing <span className="font-semibold">performance</span>, <span className="font-semibold">SEO</span>, and <span className="font-semibold">results</span>. So we started hand-coding from scratch.
                 </p>
-                <p>
-                  Today, we partner with small businesses across the US and Canada to deliver
-                  websites that don't just look great—they <span className="font-bold text-cyan-600 dark:text-cyan-400">perform great</span>.
+                <p className="text-base md:text-lg leading-relaxed sm:leading-loose pb-4">
+                  Today, we partner with businesses across the US and Canada to deliver websites that <span className="font-bold text-cyan-600 dark:text-cyan-400">perform great</span>.
                 </p>
               </div>
             </div>
@@ -297,9 +293,9 @@ export function AboutSection() {
       </div>
 
       {/* CTA Section */}
-      <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 py-12 sm:py-16 md:py-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-24">
         <ScrollReveal direction="up" delay={0.1}>
-          <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 rounded-3xl p-8 md:p-12 shadow-2xl">
+          <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm mb-6">
               <Rocket className="w-8 h-8 text-white" />
             </div>
