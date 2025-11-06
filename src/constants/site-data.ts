@@ -13,9 +13,9 @@ export const SITE_CONFIG = {
 } as const;
 
 export const CONTACT_INFO = {
-  email: "ohwdinfo@gmail.com",
-  phone: "(219) 576-2539",
-  phoneHref: "+12195762539",
+  email: "polerisllc@outlook.com",
+  phone: "(617) 838-3859",
+  phoneHref: "+16178383859",
   location: "United States",
   availability: "Available 24/7",
   social: {

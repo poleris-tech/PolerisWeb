@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "Poleris Digital",
     images: [
       {
-        url: "/og-image.jpg", // You'll need to create this image (1200x630px)
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Poleris Digital - Professional Web Design Services",
@@ -72,11 +72,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code", // Add your Google Search Console verification code
-    // yandex: "your-yandex-verification-code",
-    // bing: "your-bing-verification-code",
-  },
+  // verification: {
+  //   google: "your-google-verification-code", // Add your Google Search Console verification code when available
+  //   // yandex: "your-yandex-verification-code",
+  //   // bing: "your-bing-verification-code",
+  // },
 };
 
 export const viewport: Viewport = {

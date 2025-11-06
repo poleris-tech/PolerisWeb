@@ -16,7 +16,7 @@ export function HamburgerMenu({ isOpen, onClick }: HamburgerMenuProps) {
   return (
     <button
       onClick={onClick}
-      className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-[#001f3f] hover:bg-[#00bfff] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-[#001f3f] dark:bg-gray-800 hover:bg-[#00bfff] dark:hover:bg-cyan-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900"
       aria-label={isOpen ? "Close menu" : "Open menu"}
       aria-expanded={isOpen}
     >

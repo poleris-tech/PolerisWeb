@@ -7,7 +7,7 @@ import 'react-phone-number-input/style.css';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { CustomButton } from '@/components/ui/custom-button';
 import { ScrollReveal } from '@/components/ui/scroll-reveal';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, Loader2 } from 'lucide-react';
 import { Starfield } from '@/components/ui/starfield';
 import confetti from 'canvas-confetti';
 
@@ -386,7 +386,7 @@ export default function ContactSection() {
             </h2>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-sm sm:text-base md:text-lg text-[#001f3d]/70 dark:text-gray-300 max-w-2xl">
+            <p className="text-sm sm:text-base md:text-lg text-[#001f3d]/70 dark:text-gray-200 max-w-2xl">
               Have a project in mind? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
             </p>
           </ScrollReveal>
@@ -554,7 +554,7 @@ export default function ContactSection() {
                   type="submit"
                   className="w-full"
                   disabled={isSubmitting}
-                  icon={<Send className="w-5 h-5" />}
+                  icon={isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </CustomButton>
