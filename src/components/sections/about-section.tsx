@@ -295,7 +295,7 @@ export function AboutSection() {
       {/* CTA Section */}
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-24">
         <ScrollReveal direction="up" delay={0.1}>
-          <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl">
+          <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm mb-6">
               <Rocket className="w-8 h-8 text-white" />
             </div>

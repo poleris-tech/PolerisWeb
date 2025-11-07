@@ -6,7 +6,8 @@
       "Bash(npm run dev:*)",
       "Bash(timeout 10 bash -c 'until curl -s http://localhost:3000 > /dev/null; do sleep 1; done')",
       "Bash(rm -rf .next/trace)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

@@ -207,15 +207,15 @@ export function PriceCalculator() {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
       {/* Calculator Header */}
       <div className="text-center mb-8 md:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-3 mb-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-4"
         >
-          <Calculator className="w-6 h-6 text-cyan-400" />
+          <Calculator className="w-6 h-6 sm:w-7 sm:h-7 text-cyan-400" />
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
             Calculate Your <span className="text-cyan-300">Custom Price</span>
           </h3>

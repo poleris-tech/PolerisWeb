@@ -21,7 +21,7 @@ const ICON_MAP = {
 };
 
 // Service Card Component for reuse in both grid and swipeable views
-function ServiceCard({ service, index }: { service: typeof SERVICES[0], index: number }) {
+function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
   const IconComponent = ICON_MAP[service.id as keyof typeof ICON_MAP];
 
   return (
@@ -128,8 +128,8 @@ export function ServicesSection() {
           {/* Mobile Swipeable Cards - Hidden on SM and above */}
           <div className="sm:hidden w-full max-w-md mx-auto">
             <SwipeableCards showControls={false}>
-              {SERVICES.map((service, index) => (
-                <ServiceCard key={service.id} service={service} index={index} />
+              {SERVICES.map((service) => (
+                <ServiceCard key={service.id} service={service} />
               ))}
             </SwipeableCards>
           </div>
@@ -139,7 +139,7 @@ export function ServicesSection() {
             {SERVICES.map((service, index) => (
               <ScrollReveal key={service.id} direction="up" delay={0.1 * index} duration={0.7}>
                 <li className="h-full">
-                  <ServiceCard service={service} index={index} />
+                  <ServiceCard service={service} />
                 </li>
               </ScrollReveal>
             ))}
