@@ -117,7 +117,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[10px] xs:text-xs sm:text-sm md:text-base font-medium tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-blue-400 uppercase block"
+                className="text-[10px] xs:text-xs sm:text-sm md:text-base font-medium tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-cerulean-blue-400 uppercase block"
               >
                 Custom Designs, Custom Coded
               </motion.span>
@@ -142,7 +142,7 @@ export function HeroSection() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="block font-black tracking-tight uppercase bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent mb-1 sm:mb-2"
+                    className="block font-black tracking-tight uppercase bg-gradient-to-r from-white via-cerulean-blue-200 to-cerulean-blue-300 bg-clip-text text-transparent mb-1 sm:mb-2"
                   >
                     Websites,
                   </motion.span>
@@ -154,7 +154,7 @@ export function HeroSection() {
                   >
                     Built to <span className="relative inline-block">
                       <span className="relative z-10">Perform</span>
-                      <span className="absolute bottom-1 sm:bottom-1 left-0 w-full h-2 sm:h-2 bg-blue-400/30 -rotate-1"></span>
+                      <span className="absolute bottom-1 sm:bottom-1 left-0 w-full h-2 sm:h-2 bg-cerulean-blue-400/30 -rotate-1"></span>
                     </span>
                   </motion.span>
                 </h1>
@@ -176,7 +176,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-5 sm:mt-6 md:mt-7 lg:mt-8 px-4 sm:px-0"
             >
-              <CustomButton href="#contact" variant="primary" size="md" className="flex-1 sm:flex-none">
+              <CustomButton href="#contact" variant="comic" size="md" className="flex-1 sm:flex-none">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </CustomButton>

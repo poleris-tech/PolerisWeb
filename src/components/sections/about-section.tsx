@@ -60,13 +60,13 @@ const VALUES = [
     icon: Code,
     title: 'Craftsmanship',
     description: 'Every line of code is hand-written with precision and care. No shortcuts, no templates.',
-    color: 'from-blue-400 to-cyan-400',
+    color: 'from-cerulean-blue-400 to-cerulean-blue-500',
   },
   {
     icon: Zap,
     title: 'Performance',
     description: 'Speed is our obsession. We build websites that load in under 1 second.',
-    color: 'from-cyan-400 to-teal-400',
+    color: 'from-cerulean-blue-300 to-cerulean-blue-500',
   },
   {
     icon: Users,
@@ -127,18 +127,18 @@ export function AboutSection() {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal direction="down" delay={0.1}>
             <div className="inline-flex items-center gap-3 mb-6">
-              <div className="h-px w-8 bg-gradient-to-r from-transparent to-cyan-600"></div>
-              <span className="text-cyan-600 dark:text-cyan-400 text-sm font-semibold tracking-wider uppercase">
+              <div className="h-px w-8 bg-gradient-to-r from-transparent to-cerulean-blue-600"></div>
+              <span className="text-cerulean-blue-600 dark:text-cerulean-blue-400 text-sm font-semibold tracking-wider uppercase">
                 About Us
               </span>
-              <div className="h-px w-8 bg-gradient-to-r from-cyan-600 to-transparent"></div>
+              <div className="h-px w-8 bg-gradient-to-r from-cerulean-blue-600 to-transparent"></div>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight text-[#001f3d] dark:text-white">
               We Build Websites That{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cerulean-blue-600 via-cerulean-blue-400 to-cerulean-blue-700 bg-clip-text text-transparent">
                 Perform
               </span>
             </h1>
@@ -178,7 +178,7 @@ export function AboutSection() {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-12 sm:py-16 md:py-20">
+      <div className="bg-gradient-to-br from-gray-50 to-cerulean-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto">
             {STATS.map((stat, index) => {
@@ -186,7 +186,7 @@ export function AboutSection() {
               return (
                 <ScrollReveal key={index} direction="up" delay={0.1 * index}>
                   <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 mb-4 shadow-lg">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-cerulean-blue-500 to-cerulean-blue-400 mb-4 shadow-lg">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
                     <div className="text-4xl sm:text-5xl md:text-6xl font-black text-[#001f3d] dark:text-white mb-2">
@@ -250,12 +250,12 @@ export function AboutSection() {
       </div>
 
       {/* Why Choose Us */}
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-12 sm:py-16 md:py-24">
+      <div className="bg-gradient-to-br from-gray-50 to-cerulean-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-12 sm:py-16 md:py-24">
         <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12">
           <div className="text-center mb-12 md:mb-16">
             <ScrollReveal direction="down" delay={0.1}>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#001f3d] dark:text-white mb-4">
-                Why Choose <span className="text-cyan-600 dark:text-cyan-400">Poleris Digital</span>
+                Why Choose <span className="text-cerulean-blue-600 dark:text-cerulean-blue-400">Poleris Digital</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.2}>
@@ -270,13 +270,13 @@ export function AboutSection() {
               const Icon = item.icon;
               return (
                 <ScrollReveal key={index} direction="up" delay={0.05 * index}>
-                  <div className="p-5 sm:p-6 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-cyan-400 dark:hover:border-cyan-400 transition-all duration-300 hover:shadow-lg group">
+                  <div className="p-5 sm:p-6 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-cerulean-blue-400 dark:hover:border-cerulean-blue-400 transition-all duration-300 hover:shadow-lg group">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-cerulean-blue-400 to-cerulean-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <Icon className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold text-[#001f3d] dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                        <h3 className="text-lg font-bold text-[#001f3d] dark:text-white mb-2 group-hover:text-cerulean-blue-600 dark:group-hover:text-cerulean-blue-400 transition-colors">
                           {item.title}
                         </h3>
                         <p className="text-sm text-[#001f3d]/70 dark:text-gray-400 leading-relaxed">
@@ -295,7 +295,7 @@ export function AboutSection() {
       {/* CTA Section */}
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-24">
         <ScrollReveal direction="up" delay={0.1}>
-          <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-blue-600 via-cyan-600 to-blue-700 rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl">
+          <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-cerulean-blue-600 via-cerulean-blue-500 to-cerulean-blue-700 rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm mb-6">
               <Rocket className="w-8 h-8 text-white" />
             </div>
@@ -309,9 +309,9 @@ export function AboutSection() {
             <div className="flex flex-wrap gap-4 justify-center">
               <CustomButton
                 href="#contact"
-                variant="outline"
+                variant="comic"
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-white/90 border-0"
+                className="bg-white text-cerulean-blue-600 hover:bg-cerulean-blue-600 hover:text-white border-cerulean-blue-600"
               >
                 Get Started Today
               </CustomButton>

@@ -85,7 +85,7 @@ export function Navigation() {
               {/* Right side buttons */}
               <div className="flex items-center gap-6 z-[100] relative">
                 <div className="hidden md:block">
-                  <CustomButton href="#contact" variant="primary" size="md">
+                  <CustomButton href="#contact" variant="comic" size="md">
                     Get Started
                   </CustomButton>
                 </div>
@@ -132,7 +132,7 @@ export function Navigation() {
                     >
                       <CustomButton
                         href="#contact"
-                        variant="primary"
+                        variant="comic"
                         size="md"
                         fullWidth
                         onClick={() => setIsOpen(false)}

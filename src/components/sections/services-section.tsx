@@ -150,8 +150,7 @@ export function ServicesSection() {
         <ScrollReveal direction="zoom-in" delay={0.4}>
           <div className="flex justify-center" style={{ marginTop: '48px' }}>
             <div className="relative group/cta">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full blur opacity-20 group-hover/cta:opacity-40 transition-all duration-500"></div>
-              <CustomButton href="#contact" variant="primary" size="lg">
+              <CustomButton href="#contact" variant="comic" size="lg">
                 Get Started Today
               </CustomButton>
             </div>
