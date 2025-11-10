@@ -175,7 +175,7 @@ export function PricingSection() {
 
                     {/* CTA Button */}
                     <div className="mb-3">
-                      <CustomButton href="#contact" variant="outline" size="sm" className="w-full bg-white text-blue-700 hover:bg-white/90 border-0">
+                      <CustomButton href="#contact" variant="comic" size="sm" className="w-full bg-white text-blue-700 hover:bg-white/90 border-0">
                         Get Started Today
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </CustomButton>

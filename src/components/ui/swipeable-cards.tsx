@@ -19,7 +19,9 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
   const x = useMotionValue(0);
   const [isDragging, setIsDragging] = useState(false);
 
-  const SWIPE_CONFIDENCE_THRESHOLD = 10000;
+  const SWIPE_CONFIDENCE_THRESHOLD = 5000;
+  const SWIPE_OFFSET_THRESHOLD = 50; // Minimum swipe distance in pixels
+
   const swipePower = (offset: number, velocity: number) => {
     return Math.abs(offset) * velocity;
   };
@@ -28,10 +30,11 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
     setIsDragging(false);
     const swipe = swipePower(offset.x, velocity.x);
 
-    if (swipe < -SWIPE_CONFIDENCE_THRESHOLD && currentIndex < children.length - 1) {
+    // Check both swipe power and minimum offset for better responsiveness
+    if ((swipe < -SWIPE_CONFIDENCE_THRESHOLD || offset.x < -SWIPE_OFFSET_THRESHOLD) && currentIndex < children.length - 1) {
       // Swipe left - next card
       setCurrentIndex(currentIndex + 1);
-    } else if (swipe > SWIPE_CONFIDENCE_THRESHOLD && currentIndex > 0) {
+    } else if ((swipe > SWIPE_CONFIDENCE_THRESHOLD || offset.x > SWIPE_OFFSET_THRESHOLD) && currentIndex > 0) {
       // Swipe right - previous card
       setCurrentIndex(currentIndex - 1);
     }
@@ -56,7 +59,8 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
         <motion.div
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.2}
+          dragElastic={0.1}
+          dragMomentum={false}
           onDragStart={() => setIsDragging(true)}
           onDragEnd={handleDragEnd}
           animate={{
@@ -64,10 +68,11 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
           }}
           transition={{
             type: "spring",
-            stiffness: 300,
-            damping: 30,
+            stiffness: 400,
+            damping: 35,
+            mass: 0.5,
           }}
-          className="flex touch-pan-y"
+          className="flex touch-pan-y will-change-transform"
           style={{ x }}
         >
           {children.map((child, index) => (

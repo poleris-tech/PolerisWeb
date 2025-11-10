@@ -317,7 +317,7 @@ export function AboutSection() {
               </CustomButton>
               <CustomButton
                 href="#pricing"
-                variant="outline"
+                variant="comic"
                 size="lg"
                 className="border-white text-white hover:bg-white/10"
               >

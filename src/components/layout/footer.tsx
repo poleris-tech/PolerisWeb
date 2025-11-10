@@ -39,7 +39,7 @@ export function Footer() {
               We believe small businesses deserve better. Just because you're small, doesn't mean your site needs to be. Let us make you something amazing.
             </p>
             <div style={{ width: 'auto' }}>
-              <CustomButton href="#contact" variant="outline" size="lg">
+              <CustomButton href="#contact" variant="comic" size="lg">
                 GET STARTED TODAY
               </CustomButton>
             </div>

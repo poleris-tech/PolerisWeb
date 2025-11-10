@@ -180,7 +180,7 @@ export function HeroSection() {
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </CustomButton>
-              <CustomButton href="#process" variant="outline" size="md" className="flex-1 sm:flex-none">
+              <CustomButton href="#process" variant="comic" size="md" className="flex-1 sm:flex-none">
                 About Us
               </CustomButton>
             </motion.div>

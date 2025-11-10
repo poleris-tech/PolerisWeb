@@ -551,7 +551,7 @@ export function PriceCalculator() {
             {/* CTA Button */}
             <CustomButton
               href="#contact"
-              variant="primary"
+              variant="comic"
               size="lg"
               className="w-full bg-white text-blue-700 hover:bg-white/90 border-0 shadow-xl hover:shadow-2xl"
             >

@@ -549,7 +549,7 @@ export default function ContactSection() {
 
                 {/* Submit Button */}
                 <CustomButton
-                  variant="primary"
+                  variant="comic"
                   size="lg"
                   type="submit"
                   className="w-full"
