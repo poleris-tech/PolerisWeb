@@ -110,78 +110,51 @@ export function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
 
           {/* Content */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[48%] xl:w-[45%] flex-shrink-0 lg:ml-0 xl:ml-8">
-            <div className="space-y-1.5 sm:space-y-2 md:space-y-3 lg:space-y-4">
-              {/* Topper */}
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[10px] xs:text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base font-medium tracking-[0.2em] sm:tracking-[0.25em] text-cerulean-blue-400 uppercase block"
-              >
-                Custom Designs, Custom Coded
-              </motion.span>
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[52%] xl:w-[50%] flex-shrink-0">
 
-              {/* Main heading - Mixed typography */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="space-y-1.5 sm:space-y-2 md:space-y-2.5 lg:space-y-3 w-full"
-              >
-                <h1 className="text-[24px] xs:text-[28px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.05] sm:leading-[1.1]">
-                  <motion.span
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="block font-light italic text-white/95 mb-0.5 sm:mb-1 text-[19px] xs:text-[22px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl drop-shadow-sm"
-                  >
-                    Hand-Built
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="block font-black tracking-tight uppercase bg-gradient-to-r from-white via-cerulean-blue-200 to-cerulean-blue-300 bg-clip-text text-transparent mb-0.5 sm:mb-1"
-                  >
-                    Websites,
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="block font-black tracking-tight uppercase text-white"
-                  >
-                    Built to <span className="relative inline-block">
-                      <span className="relative z-10">Perform</span>
-                      <span className="absolute bottom-0.5 sm:bottom-1 left-0 w-full h-1 sm:h-1.5 bg-cerulean-blue-400/30 -rotate-1"></span>
-                    </span>
-                  </motion.span>
-                </h1>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed font-light max-w-md sm:max-w-lg mx-auto lg:mx-0 mt-1.5 sm:mt-2 md:mt-3 px-4 sm:px-0"
-                >
-                  Custom-coded websites built for performance — with <span className="text-white font-medium">dedicated SEO and Google Ads services</span> available to scale your growth.
-                </motion.p>
-              </motion.div>
-            </div>
+            {/* Topper */}
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="text-xs sm:text-sm font-semibold tracking-wider text-cerulean-blue-300 uppercase mb-4 sm:mb-5"
+            >
+              Custom Designs, Custom Coded
+            </motion.span>
+
+            {/* Main heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-5 sm:space-y-6"
+            >
+              <h1 className="text-[38px] xs:text-[44px] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] text-white">
+                 Fast Websites,
+                <br />
+                <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">
+                  Real Results.
+                </span>
+              </h1>
+
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0 px-4 sm:px-0">
+                Hand-coded for speed. Optimized for results.
+              </p>
+            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-row gap-2 sm:gap-3 md:gap-4 w-full sm:w-auto mt-2 sm:mt-3 md:mt-4 lg:mt-5 mb-4 sm:mb-6 md:mb-8 px-4 sm:px-0"
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-8 sm:mt-10 mb-6 sm:mb-8 px-4 sm:px-0"
             >
-              <CustomButton href="#contact" variant="comic" size="sm" className="flex-1 sm:flex-none md:px-8 lg:px-10 text-xs sm:text-sm md:text-base">
+              <CustomButton href="#contact" variant="comic" size="lg" className="w-full sm:w-auto">
                 Get Started
-                <ArrowRight className="ml-1.5 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </CustomButton>
-              <CustomButton href="#process" variant="comic" size="sm" className="flex-1 sm:flex-none md:px-8 lg:px-10 text-xs sm:text-sm md:text-base">
-                About Us
+              <CustomButton href="#services" variant="comic" size="lg" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 border-white/30 text-white">
+                View Services
               </CustomButton>
             </motion.div>
           </div>
