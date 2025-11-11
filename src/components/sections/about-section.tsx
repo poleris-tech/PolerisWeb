@@ -232,14 +232,14 @@ export function AboutSection() {
             const Icon = value.icon;
             return (
               <ScrollReveal key={index} direction={index % 2 === 0 ? 'left' : 'right'} delay={0.1 * index}>
-                <div className="group relative p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-100 dark:border-gray-800 hover:border-cyan-400 dark:hover:border-cyan-400 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${value.color} mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-7 h-7 text-white" />
+                <div className="group relative p-6 sm:p-8 rounded-xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 hover:border-[#5c94ff] dark:hover:border-[#5c94ff] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-blue-50 dark:hover:bg-gray-800 hover:translate-x-[-6px] hover:translate-y-[-6px] active:translate-x-[-3px] active:translate-y-[-3px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:6px_6px_0px_#5c94ff] dark:hover:[box-shadow:6px_6px_0px_#5c94ff] active:[box-shadow:3px_3px_0px_#5c94ff]">
+                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${value.color} mb-6 shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-500`}>
+                    <Icon className="w-7 h-7 text-white transition-transform duration-500 group-hover:scale-110" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-3 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-[#001f3d] dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors duration-500">
                     {value.title}
                   </h3>
-                  <p className="text-[#001f3d]/70 dark:text-gray-400 leading-relaxed">
+                  <p className="text-[#001f3d]/70 dark:text-gray-400 leading-relaxed group-hover:text-[#001f3d]/90 dark:group-hover:text-gray-300 transition-colors duration-500">
                     {value.description}
                   </p>
                 </div>
@@ -270,16 +270,16 @@ export function AboutSection() {
               const Icon = item.icon;
               return (
                 <ScrollReveal key={index} direction="up" delay={0.05 * index}>
-                  <div className="p-5 sm:p-6 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-cerulean-blue-400 dark:hover:border-cerulean-blue-400 transition-all duration-300 hover:shadow-lg group">
+                  <div className="group p-5 sm:p-6 rounded-xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 hover:border-[#5c94ff] dark:hover:border-[#5c94ff] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-blue-50 dark:hover:bg-gray-800 hover:translate-x-[-4px] hover:translate-y-[-4px] active:translate-x-[-2px] active:translate-y-[-2px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:4px_4px_0px_#5c94ff] dark:hover:[box-shadow:4px_4px_0px_#5c94ff] active:[box-shadow:2px_2px_0px_#5c94ff]">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-cerulean-blue-400 to-cerulean-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="w-6 h-6 text-white" />
+                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-cerulean-blue-400 to-cerulean-blue-500 flex items-center justify-center group-hover:scale-105 transition-all duration-500 shadow-sm group-hover:shadow-md">
+                        <Icon className="w-6 h-6 text-white transition-transform duration-500 group-hover:scale-110" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold text-[#001f3d] dark:text-white mb-2 group-hover:text-cerulean-blue-600 dark:group-hover:text-cerulean-blue-400 transition-colors">
+                        <h3 className="text-lg font-bold text-[#001f3d] dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors duration-500">
                           {item.title}
                         </h3>
-                        <p className="text-sm text-[#001f3d]/70 dark:text-gray-400 leading-relaxed">
+                        <p className="text-sm text-[#001f3d]/70 dark:text-gray-400 leading-relaxed group-hover:text-[#001f3d]/90 dark:group-hover:text-gray-300 transition-colors duration-500">
                           {item.description}
                         </p>
                       </div>

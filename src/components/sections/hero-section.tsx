@@ -14,7 +14,7 @@ import { Parallax } from "@/components/ui/parallax";
 
 export function HeroSection() {
   return (
-    <section className="hero-section relative w-full bg-gradient-to-br from-[#0a0d1a] via-[#0f1629] to-[#001f3d] dark:from-[#050711] dark:via-[#0a0d1a] dark:to-[#001529] text-white overflow-hidden min-h-[100svh] sm:min-h-screen flex items-start sm:items-center pt-24 sm:pt-28">
+    <section className="hero-section relative w-full bg-gradient-to-br from-[#0a0d1a] via-[#0f1629] to-[#001f3d] dark:from-[#050711] dark:via-[#0a0d1a] dark:to-[#001529] text-white overflow-hidden min-h-[85svh] sm:min-h-[90svh] md:min-h-[95svh] lg:min-h-screen flex items-center justify-center pt-16 sm:pt-20 md:pt-24">
       {/* Starfield with Parallax - Only visible in dark mode */}
       <Parallax speed={0.15} direction="down">
         <Starfield count={80} position="absolute" />
@@ -89,11 +89,11 @@ export function HeroSection() {
       ></div> 
 
       {/* White background layer */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-white dark:bg-gray-950 z-5 border-none shadow-none"></div>
+      <div className="absolute bottom-0 left-0 w-full h-16 sm:h-20 md:h-24 bg-white dark:bg-gray-950 z-5 border-none shadow-none"></div>
 
-      {/* Wave SVG at bottom */}
+      {/* Wave SVG at bottom - Responsive height */}
       <svg
-        className="cs-wave absolute bottom-[-3px] left-0 w-full h-auto z-10 pointer-events-none"
+        className="cs-wave absolute bottom-[-2px] sm:bottom-[-3px] left-0 w-full h-auto z-10 pointer-events-none scale-y-75 sm:scale-y-90 md:scale-y-100 origin-bottom"
         fill="none"
         preserveAspectRatio="none"
         viewBox="0 0 1920 600"
@@ -106,18 +106,18 @@ export function HeroSection() {
         />
       </svg>
 
-      <div className="container relative z-20 max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-8 md:py-12 lg:py-14 pb-16 sm:pb-20 md:pb-24 lg:pb-28">
-        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 sm:gap-10 lg:gap-12 xl:gap-16">
+      <div className="container relative z-20 max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2 sm:py-4 md:py-6 lg:py-8 pb-10 sm:pb-14 md:pb-18 lg:pb-20">
+        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
 
           {/* Content */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[48%] xl:w-[45%] flex-shrink-0 lg:ml-0 xl:ml-8">
-            <div className="space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8">
+            <div className="space-y-1.5 sm:space-y-2 md:space-y-3 lg:space-y-4">
               {/* Topper */}
               <motion.span
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[10px] xs:text-xs sm:text-sm md:text-base font-medium tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-cerulean-blue-400 uppercase block"
+                className="text-[10px] xs:text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base font-medium tracking-[0.2em] sm:tracking-[0.25em] text-cerulean-blue-400 uppercase block"
               >
                 Custom Designs, Custom Coded
               </motion.span>
@@ -127,14 +127,14 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="space-y-2 sm:space-y-3 md:space-y-4 w-full"
+                className="space-y-1.5 sm:space-y-2 md:space-y-2.5 lg:space-y-3 w-full"
               >
-                <h1 className="text-[32px] xs:text-[36px] sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl leading-[1.1] sm:leading-[1.15]">
+                <h1 className="text-[24px] xs:text-[28px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl leading-[1.05] sm:leading-[1.1]">
                   <motion.span
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="block font-light italic text-white/95 mb-1 sm:mb-2 text-[26px] xs:text-[30px] sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl drop-shadow-sm"
+                    className="block font-light italic text-white/95 mb-0.5 sm:mb-1 text-[19px] xs:text-[22px] sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl drop-shadow-sm"
                   >
                     Hand-Built
                   </motion.span>
@@ -142,7 +142,7 @@ export function HeroSection() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="block font-black tracking-tight uppercase bg-gradient-to-r from-white via-cerulean-blue-200 to-cerulean-blue-300 bg-clip-text text-transparent mb-1 sm:mb-2"
+                    className="block font-black tracking-tight uppercase bg-gradient-to-r from-white via-cerulean-blue-200 to-cerulean-blue-300 bg-clip-text text-transparent mb-0.5 sm:mb-1"
                   >
                     Websites,
                   </motion.span>
@@ -154,7 +154,7 @@ export function HeroSection() {
                   >
                     Built to <span className="relative inline-block">
                       <span className="relative z-10">Perform</span>
-                      <span className="absolute bottom-1 sm:bottom-1 left-0 w-full h-2 sm:h-2 bg-cerulean-blue-400/30 -rotate-1"></span>
+                      <span className="absolute bottom-0.5 sm:bottom-1 left-0 w-full h-1 sm:h-1.5 bg-cerulean-blue-400/30 -rotate-1"></span>
                     </span>
                   </motion.span>
                 </h1>
@@ -162,7 +162,7 @@ export function HeroSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-relaxed font-light max-w-md sm:max-w-lg mx-auto lg:mx-0 mt-3 sm:mt-4 md:mt-5 px-4 sm:px-0"
+                  className="text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed font-light max-w-md sm:max-w-lg mx-auto lg:mx-0 mt-1.5 sm:mt-2 md:mt-3 px-4 sm:px-0"
                 >
                   Custom-coded websites built for performance — with <span className="text-white font-medium">dedicated SEO and Google Ads services</span> available to scale your growth.
                 </motion.p>
@@ -174,20 +174,20 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-5 sm:mt-6 md:mt-7 lg:mt-8 px-4 sm:px-0"
+              className="flex flex-row gap-2 sm:gap-3 md:gap-4 w-full sm:w-auto mt-2 sm:mt-3 md:mt-4 lg:mt-5 mb-4 sm:mb-6 md:mb-8 px-4 sm:px-0"
             >
-              <CustomButton href="#contact" variant="comic" size="md" className="flex-1 sm:flex-none">
+              <CustomButton href="#contact" variant="comic" size="sm" className="flex-1 sm:flex-none md:px-8 lg:px-10 text-xs sm:text-sm md:text-base">
                 Get Started
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-1.5 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
               </CustomButton>
-              <CustomButton href="#process" variant="comic" size="md" className="flex-1 sm:flex-none">
+              <CustomButton href="#process" variant="comic" size="sm" className="flex-1 sm:flex-none md:px-8 lg:px-10 text-xs sm:text-sm md:text-base">
                 About Us
               </CustomButton>
             </motion.div>
           </div>
 
           {/* Laptop Image - Hidden on mobile, shown on lg+ with Parallax */}
-          <Parallax speed={0.2} direction="up" className="hidden lg:block lg:w-[48%] xl:w-[50%] relative z-10 flex-shrink-0">
+          <Parallax speed={0.2} direction="up" className="hidden lg:block lg:w-[45%] xl:w-[48%] 2xl:w-[50%] relative z-10 flex-shrink-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -196,13 +196,14 @@ export function HeroSection() {
                 animation: 'float 6s ease-in-out infinite 1s',
                 willChange: 'transform'
               }}
+              className="w-full max-w-[500px] lg:max-w-[550px] xl:max-w-[650px] 2xl:max-w-none"
             >
               <Image
                 src="/laptop.svg"
                 alt="Laptop showing web design"
                 width={1440}
                 height={758}
-                className="w-full h-auto drop-shadow-2xl"
+                className="w-full h-auto drop-shadow-2xl lg:drop-shadow-xl"
                 priority
               />
             </motion.div>

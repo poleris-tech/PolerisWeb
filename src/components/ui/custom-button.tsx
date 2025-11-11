@@ -46,16 +46,16 @@ export function CustomButton({
   };
 
   const sizeStyles = {
-    sm: "px-6 text-sm leading-[2.25rem] rounded-lg",
-    md: "px-8 md:px-10 text-base leading-[2.75rem] md:leading-[3rem] rounded-lg",
-    lg: "px-8 md:px-12 text-base md:text-lg leading-[3rem] md:leading-[3.75rem] rounded-xl",
+    sm: "px-4 sm:px-5 md:px-6 text-xs sm:text-sm leading-[2rem] sm:leading-[2.25rem] rounded-lg",
+    md: "px-6 sm:px-8 md:px-10 text-sm sm:text-base leading-[2.5rem] sm:leading-[2.75rem] md:leading-[3rem] rounded-lg",
+    lg: "px-6 sm:px-8 md:px-12 text-base md:text-lg leading-[2.75rem] sm:leading-[3rem] md:leading-[3.75rem] rounded-xl",
   };
 
-  const comicShadow = variant === "comic" ? "[box-shadow:5px_5px_0px_#5c94ff] hover:[box-shadow:5px_5px_0px_#4e85e3]" : "";
+  const comicShadow = variant === "comic" ? "[box-shadow:3px_3px_0px_#5c94ff] sm:[box-shadow:4px_4px_0px_#5c94ff] md:[box-shadow:5px_5px_0px_#5c94ff] hover:[box-shadow:3px_3px_0px_#4e85e3] hover:sm:[box-shadow:4px_4px_0px_#4e85e3] hover:md:[box-shadow:5px_5px_0px_#4e85e3]" : "";
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${
     sizeStyles[size]
-  } ${fullWidth ? "w-full" : "min-w-[12rem]"} ${comicShadow} ${className}`;
+  } ${fullWidth ? "w-full" : "min-w-[8rem] sm:min-w-[10rem] md:min-w-[12rem]"} ${comicShadow} ${className}`;
 
   // Define pulse animation for primary variant
   const styleTag = `
