@@ -130,10 +130,12 @@ export function HeroSection() {
               className="space-y-5 sm:space-y-6"
             >
               <h1 className="text-[38px] xs:text-[44px] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] text-white">
-                 Fast Websites,
+                                 Fast Websites,
+
                 <br />
                 <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">
-                  Real Results.
+                                    Real Results.
+
                 </span>
               </h1>
 

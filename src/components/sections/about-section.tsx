@@ -122,23 +122,23 @@ export function AboutSection() {
       {/* Starfield - Only visible in dark mode */}
       <Starfield count={80} position="absolute" />
 
-      {/* About Header - Light & Clean */}
-      <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 pt-12 sm:pt-16 md:pt-20 pb-8 md:pb-12">
+      {/* About Header - Standardized */}
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-8 md:pb-12">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal direction="down" delay={0.1}>
-            <div className="inline-flex items-center gap-3 mb-6">
-              <div className="h-px w-8 bg-gradient-to-r from-transparent to-cerulean-blue-600"></div>
-              <span className="text-cerulean-blue-600 dark:text-cerulean-blue-400 text-sm font-semibold tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-5 sm:mb-6">
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cerulean-blue-400"></span>
+              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cerulean-blue-400 dark:text-cerulean-blue-300 uppercase">
                 About Us
               </span>
-              <div className="h-px w-8 bg-gradient-to-r from-cerulean-blue-600 to-transparent"></div>
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cerulean-blue-400"></span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight text-[#001f3d] dark:text-white">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-5 sm:mb-6 md:mb-8 leading-[1.1] text-[#001f3d] dark:text-white">
               We Build Websites That{' '}
-              <span className="bg-gradient-to-r from-cerulean-blue-600 via-cerulean-blue-400 to-cerulean-blue-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">
                 Perform
               </span>
             </h1>
@@ -204,19 +204,19 @@ export function AboutSection() {
       </div>
 
       {/* Core Values */}
-      <div id="values" className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 py-12 sm:py-16 md:py-24">
+      <div id="values" className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-28">
         <div className="text-center mb-12 md:mb-16">
           <ScrollReveal direction="down" delay={0.1}>
-            <div className="inline-flex items-center gap-3 mb-4">
-              <Sparkles className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
-              <span className="text-cyan-600 dark:text-cyan-400 text-sm font-semibold tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-5 sm:mb-6">
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cerulean-blue-400"></span>
+              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cerulean-blue-400 dark:text-cerulean-blue-300 uppercase">
                 Our Values
               </span>
-              <Sparkles className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cerulean-blue-400"></span>
             </div>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#001f3d] dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#001f3d] dark:text-white mb-5 sm:mb-6 md:mb-8 leading-[1.1]">
               What Drives Us
             </h2>
           </ScrollReveal>
@@ -250,12 +250,12 @@ export function AboutSection() {
       </div>
 
       {/* Why Choose Us */}
-      <div className="bg-gradient-to-br from-gray-50 to-cerulean-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-12 sm:py-16 md:py-24">
-        <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12">
+      <div className="bg-gradient-to-br from-gray-50 to-cerulean-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-16 sm:py-20 md:py-24 lg:py-28">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <div className="text-center mb-12 md:mb-16">
             <ScrollReveal direction="down" delay={0.1}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#001f3d] dark:text-white mb-4">
-                Why Choose <span className="text-cerulean-blue-600 dark:text-cerulean-blue-400">Poleris Digital</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#001f3d] dark:text-white mb-5 sm:mb-6 md:mb-8 leading-[1.1]">
+                Why Choose <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">Poleris Digital</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.2}>

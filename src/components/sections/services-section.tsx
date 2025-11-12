@@ -83,26 +83,23 @@ export function ServicesSection() {
       <Starfield count={30} position="absolute" />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        {/* Header Content - Improved */}
+        {/* Header Content - Standardized */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20 flex flex-col items-center w-full">
           <ScrollReveal direction="down" delay={0.1}>
             <div className="inline-flex items-center gap-2.5 mb-5 sm:mb-6">
-              <span className="h-[2px] w-8 sm:w-12 bg-gradient-to-r from-transparent to-blue-600 dark:to-cyan-500"></span>
-              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-blue-600 dark:text-cyan-400 uppercase">
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cerulean-blue-400"></span>
+              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cerulean-blue-400 dark:text-cerulean-blue-300 uppercase">
                 Our Services
               </span>
-              <span className="h-[2px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-blue-600 dark:to-cyan-500"></span>
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cerulean-blue-400"></span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#001f3f] dark:text-white mb-5 sm:mb-6 md:mb-8 leading-[1.1] max-w-5xl px-4 sm:px-0">
               Everything You Need to{" "}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-700 bg-clip-text text-transparent">
-                  Dominate Online
-                </span>
-                <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 sm:h-3 bg-blue-500/20 dark:bg-cyan-500/20 rounded-sm -rotate-1"></span>
+              <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">
+                Dominate Online
               </span>
             </h2>
           </ScrollReveal>
