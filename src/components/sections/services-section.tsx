@@ -39,14 +39,9 @@ function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
         </div>
 
         {/* Title - Bold and clear */}
-        <h3 className="text-xl sm:text-2xl md:text-2xl font-black text-[#001f3f] dark:text-white text-center transition-colors duration-500 group-hover:text-blue-600 dark:group-hover:text-cyan-400 mb-4 leading-tight">
+        <h3 className="text-xl sm:text-2xl md:text-2xl font-black text-[#001f3f] dark:text-white text-center transition-colors duration-500 group-hover:text-blue-600 dark:group-hover:text-cyan-400 mb-6 leading-tight">
           {service.title}
         </h3>
-
-        {/* Description - Concise */}
-        <p className="text-sm sm:text-base text-[#001f3f]/70 dark:text-gray-400 text-center transition-colors duration-500 group-hover:text-[#001f3f]/90 dark:group-hover:text-gray-300 mb-6 leading-relaxed">
-          {service.description}
-        </p>
 
         {/* Divider */}
         <div className="w-12 h-[2px] bg-gray-200 dark:bg-gray-700 mx-auto mb-6 transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-cyan-500"></div>

@@ -100,34 +100,31 @@ export function PricingSection() {
         />
       </svg>
 
-      <div className="container relative z-20 mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 md:py-24">
-        {/* Header Content */}
-        <div className="text-center mb-12 sm:mb-16 flex flex-col items-center w-full">
+      <div className="container relative z-20 mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-28">
+        {/* Header Content - Standardized */}
+        <div className="text-center mb-12 sm:mb-16 md:mb-20 flex flex-col items-center w-full">
           <ScrollReveal direction="down" delay={0.1}>
-            <div className="inline-flex items-center gap-2 mb-8 sm:mb-10">
-              <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-blue-400"></span>
-              <span className="text-xs sm:text-sm font-medium tracking-widest text-blue-400 uppercase">
+            <div className="inline-flex items-center gap-2.5 mb-5 sm:mb-6">
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cerulean-blue-300"></span>
+              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cerulean-blue-300 uppercase">
                 Pricing
               </span>
-              <span className="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-blue-400"></span>
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cerulean-blue-300"></span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 leading-[1.1] max-w-4xl px-4 sm:px-0">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-5 sm:mb-6 md:mb-8 leading-[1.1] max-w-5xl px-4 sm:px-0">
               Simple, Transparent{" "}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                  Pricing
-                </span>
-                <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 bg-blue-400/30 rounded-sm"></span>
+              <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">
+                Pricing
               </span>
             </h2>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed font-light text-white/80 max-w-3xl mx-auto mb-10 px-4 sm:px-6">
-              Everything you need to succeed online, no hidden fees. Just honest pricing for exceptional work.
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-normal text-white/80 max-w-3xl mx-auto px-4 sm:px-6">
+              Everything you need to succeed online. No hidden fees, just honest pricing for exceptional work.
             </p>
           </ScrollReveal>
         </div>
@@ -138,13 +135,13 @@ export function PricingSection() {
 
             {/* Left Column - Pricing Details */}
             {PRICING_PLANS.map((plan, index) => (
-              <ScrollReveal key={plan.id} direction={index % 2 === 0 ? "left" : "right"} delay={0.2 + index * 0.1} duration={0.7}>
+              <ScrollReveal key={plan.id} direction={index % 2 === 0 ? "left" : "right"} delay={0.2 + index * 0.1} duration={0.6}>
                 <div className="group relative h-full">
-                <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-5 sm:p-6 transition-all duration-700 hover:bg-white/15 hover:border-white/30 hover:shadow-[0_20px_50px_-15px_rgba(255,255,255,0.2)] hover:scale-[1.01] overflow-hidden">
+                <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border-2 border-white/30 p-6 sm:p-7 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white/15 hover:border-cerulean-blue-300 hover:translate-x-[-6px] hover:translate-y-[-6px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:6px_6px_0px_rgba(103,232,249,0.3)] overflow-hidden">
 
                   {/* Popular Badge */}
                   {plan.popular && (
-                    <div className="absolute top-3 right-3 px-2.5 py-1 bg-gradient-to-r from-blue-400 to-cyan-400 text-white text-[10px] font-semibold rounded-full shadow-lg">
+                    <div className="absolute top-4 right-4 px-3 py-1.5 bg-gradient-to-r from-cerulean-blue-400 to-cyan-400 text-white text-xs font-bold rounded-full shadow-lg">
                       Most Popular
                     </div>
                   )}
@@ -191,22 +188,22 @@ export function PricingSection() {
             ))}
 
             {/* Right Column - Features List */}
-            <ScrollReveal direction="right" delay={0.4} duration={0.7}>
-              <div className="group relative">
-                <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-5 sm:p-6 transition-all duration-700 hover:bg-white/15 hover:border-white/30 hover:shadow-[0_20px_50px_-15px_rgba(255,255,255,0.2)] overflow-hidden h-full">
+            <ScrollReveal direction="right" delay={0.4} duration={0.6}>
+              <div className="group relative h-full">
+                <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border-2 border-white/30 p-6 sm:p-7 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white/15 hover:border-cerulean-blue-300 hover:translate-x-[-6px] hover:translate-y-[-6px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:6px_6px_0px_rgba(103,232,249,0.3)] overflow-hidden h-full">
 
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-4">
+                  <h3 className="text-lg sm:text-xl font-black text-white mb-5">
                     What's Included
                   </h3>
 
                   {/* Features List */}
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-3">
                     {PRICING_PLANS[0].features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 transition-all duration-300 hover:translate-x-1">
-                        <div className="flex-shrink-0 w-4 h-4 rounded-full bg-white/20 group-hover:bg-blue-400 flex items-center justify-center transition-all duration-500 mt-0.5">
-                          <Check className="w-2.5 h-2.5 text-white transition-colors duration-500" strokeWidth={3} />
+                      <li key={idx} className="flex items-start gap-3 transition-all duration-500 hover:translate-x-1">
+                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-cerulean-blue-400/30 group-hover:bg-cerulean-blue-400 flex items-center justify-center transition-all duration-500 mt-0.5">
+                          <Check className="w-3 h-3 text-white transition-colors duration-500" strokeWidth={3} />
                         </div>
-                        <span className="text-sm text-white/90 group-hover:text-white transition-colors duration-300">{feature}</span>
+                        <span className="text-sm text-white/90 group-hover:text-white transition-colors duration-500 font-medium">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -224,34 +221,31 @@ export function PricingSection() {
 
         {/* Add-ons Section */}
         <div className="mt-16 sm:mt-20">
-          <div className="text-center mb-10 sm:mb-12">
+          <div className="text-center mb-12 sm:mb-16">
             <ScrollReveal direction="down" delay={0.1}>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-                Optional <span className="text-cyan-300">Add-Ons</span>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-5 sm:mb-6 leading-[1.1]">
+                Optional <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">Add-Ons</span>
               </h3>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.2}>
-              <p className="text-sm sm:text-base text-white/80 font-light">Enhance your website with these additional services</p>
+              <p className="text-sm sm:text-base md:text-lg text-white/80 font-normal">Enhance your website with these additional services</p>
             </ScrollReveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4 sm:px-6">
             {ADD_ONS.map((addon, index) => (
-              <ScrollReveal key={addon.id} direction="up" delay={0.1 * index} duration={0.7}>
+              <ScrollReveal key={addon.id} direction="up" delay={0.1 * index} duration={0.6}>
                 <div className="group relative h-full">
-                <div className="relative flex flex-col h-full rounded-2xl sm:rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 px-6 py-8 transition-all duration-700 hover:bg-white/15 hover:border-white/30 hover:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.2)] hover:-translate-y-2 overflow-hidden">
-
-                  {/* Top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-400/0 to-transparent group-hover:via-blue-400 transition-all duration-700"></div>
+                <div className="relative flex flex-col h-full rounded-2xl bg-white/10 backdrop-blur-md border-2 border-white/30 px-6 py-8 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white/15 hover:border-cerulean-blue-300 hover:translate-x-[-4px] hover:translate-y-[-4px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:4px_4px_0px_rgba(103,232,249,0.3)] overflow-hidden">
 
                   {/* Header with icon and badge */}
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/20 group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-500 shadow-lg">
-                      <Plus className="h-6 w-6 text-white" strokeWidth={2.5} />
+                  <div className="flex items-start justify-between mb-5">
+                    <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-cerulean-blue-400 to-cyan-400 shadow-lg transition-all duration-500 group-hover:scale-110">
+                      <Plus className="h-7 w-7 text-white" strokeWidth={2.5} />
                     </div>
-                    <div className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                    <div className={`px-3 py-1.5 rounded-full text-xs font-bold ${
                       addon.type === 'monthly'
-                        ? 'bg-blue-400/20 text-blue-200 group-hover:bg-blue-400 group-hover:text-white'
+                        ? 'bg-cerulean-blue-400/30 text-cerulean-blue-200 group-hover:bg-cerulean-blue-400 group-hover:text-white'
                         : 'bg-white/20 text-white/80 group-hover:bg-white/30'
                     } transition-all duration-500`}>
                       {addon.type === 'monthly' ? 'Monthly' : 'One-time'}
@@ -259,27 +253,24 @@ export function PricingSection() {
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors duration-500">
+                  <h4 className="text-xl sm:text-2xl font-black text-white mb-3 group-hover:text-cerulean-blue-300 transition-colors duration-500">
                     {addon.name}
                   </h4>
 
                   {/* Description */}
-                  <p className="text-sm text-white/80 mb-6 leading-relaxed flex-grow group-hover:text-white/90 transition-colors duration-300">
+                  <p className="text-sm text-white/80 mb-6 leading-relaxed flex-grow group-hover:text-white/90 transition-colors duration-500">
                     {addon.description}
                   </p>
 
                   {/* Price */}
                   <div className="flex items-baseline gap-1 mt-auto">
-                    <span className="text-3xl font-black text-white group-hover:text-cyan-300 transition-all duration-500">
+                    <span className="text-4xl font-black text-white group-hover:text-cerulean-blue-300 transition-all duration-500">
                       ${addon.price}
                     </span>
-                    <span className="text-sm text-white/70">
+                    <span className="text-sm text-white/70 font-medium">
                       {addon.type === 'monthly' ? '/month' : ''}
                     </span>
                   </div>
-
-                  {/* Corner dot accent */}
-                  <div className="absolute top-6 right-6 w-2 h-2 rounded-full bg-blue-400/30 group-hover:bg-blue-400 transition-all duration-500"></div>
                 </div>
               </div>
               </ScrollReveal>
