@@ -86,11 +86,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // verification: {
-  //   google: "your-google-verification-code", // Add your Google Search Console verification code when available
-  //   // yandex: "your-yandex-verification-code",
-  //   // bing: "your-bing-verification-code",
-  // },
+  verification: {
+    google: "a46d4135e36a280d", // Google Search Console verification
+    // yandex: "your-yandex-verification-code",
+    // bing: "your-bing-verification-code",
+  },
 };
 
 export const viewport: Viewport = {
