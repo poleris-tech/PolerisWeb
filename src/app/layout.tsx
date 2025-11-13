@@ -38,6 +38,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://polerisdigital.com",
   },
+  icons: {
+    icon: [
+      { url: "/star-logo.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/star-logo.svg", type: "image/svg+xml" },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -46,6 +54,12 @@ export const metadata: Metadata = {
     description: "Professional web design and development services for small businesses. Custom websites, SEO optimization, Google Ads management, and reliable hosting.",
     siteName: "Poleris Digital",
     images: [
+      {
+        url: "/star-logo.svg",
+        width: 512,
+        height: 512,
+        alt: "Poleris Digital Logo",
+      },
       {
         url: "/og-image.png",
         width: 1200,
@@ -83,7 +97,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#001f3d",
+  themeColor: "#1e1b4b", // indigo-950
 };
 
 export default function RootLayout({

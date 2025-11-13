@@ -22,12 +22,12 @@ export function HeroSection() {
 
       {/* Animated Gradient Blobs with Parallax */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        {/* Blob 1 - Blue/Cyan - Slow parallax */}
+        {/* Blob 1 - Deep Blue - Slow parallax */}
         <Parallax speed={0.3} direction="down">
           <div
             className="absolute w-[500px] h-[500px] md:w-[700px] md:h-[700px] rounded-full opacity-30 blur-[100px]"
             style={{
-              background: 'radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, rgba(6, 182, 212, 0.3) 50%, transparent 100%)',
+              background: 'radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, rgba(37, 99, 235, 0.3) 50%, transparent 100%)',
               top: '10%',
               left: '10%',
               animation: 'float-blob-1 20s ease-in-out infinite',
@@ -35,12 +35,12 @@ export function HeroSection() {
           ></div>
         </Parallax>
 
-        {/* Blob 2 - Purple/Blue - Medium parallax */}
+        {/* Blob 2 - Cyan - Medium parallax */}
         <Parallax speed={0.5} direction="up">
           <div
             className="absolute w-[600px] h-[600px] md:w-[800px] md:h-[800px] rounded-full opacity-25 blur-[120px]"
             style={{
-              background: 'radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%)',
+              background: 'radial-gradient(circle, rgba(34, 211, 238, 0.4) 0%, rgba(103, 232, 249, 0.3) 50%, transparent 100%)',
               top: '50%',
               right: '5%',
               animation: 'float-blob-2 25s ease-in-out infinite',
@@ -48,12 +48,12 @@ export function HeroSection() {
           ></div>
         </Parallax>
 
-        {/* Blob 3 - Cyan/Teal - Fast parallax */}
+        {/* Blob 3 - Indigo accent - Fast parallax */}
         <Parallax speed={0.7} direction="down">
           <div
             className="absolute w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full opacity-20 blur-[80px]"
             style={{
-              background: 'radial-gradient(circle, rgba(6, 182, 212, 0.5) 0%, rgba(20, 184, 166, 0.3) 50%, transparent 100%)',
+              background: 'radial-gradient(circle, rgba(129, 140, 248, 0.5) 0%, rgba(99, 102, 241, 0.3) 50%, transparent 100%)',
               bottom: '20%',
               left: '30%',
               animation: 'float-blob-3 30s ease-in-out infinite',
@@ -61,12 +61,12 @@ export function HeroSection() {
           ></div>
         </Parallax>
 
-        {/* Blob 4 - Blue accent - Medium parallax */}
+        {/* Blob 4 - Cyan accent - Medium parallax */}
         <Parallax speed={0.4} direction="up">
           <div
             className="absolute w-[350px] h-[350px] md:w-[500px] md:h-[500px] rounded-full opacity-15 blur-[90px]"
             style={{
-              background: 'radial-gradient(circle, rgba(96, 165, 250, 0.4) 0%, rgba(59, 130, 246, 0.2) 50%, transparent 100%)',
+              background: 'radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, rgba(34, 211, 238, 0.2) 50%, transparent 100%)',
               top: '60%',
               right: '40%',
               animation: 'float-blob-4 22s ease-in-out infinite',
@@ -106,7 +106,7 @@ export function HeroSection() {
         />
       </svg>
 
-      <div className="container relative z-20 max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2 sm:py-4 md:py-6 lg:py-8 pb-10 sm:pb-14 md:pb-18 lg:pb-20">
+      <div className="container relative z-20 max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-4 sm:py-6 md:py-8 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
 
           {/* Content */}
@@ -117,7 +117,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-xs sm:text-sm font-semibold tracking-wider text-cerulean-blue-300 uppercase mb-4 sm:mb-5"
+              className="text-[10px] xs:text-xs sm:text-xs md:text-sm font-semibold tracking-wider text-cyan-400 uppercase mb-1 sm:mb-2 md:mb-3"
             >
               Custom Designs, Custom Coded
             </motion.span>
@@ -127,19 +127,17 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="space-y-5 sm:space-y-6"
+              className="space-y-1 sm:space-y-2 md:space-y-3 lg:space-y-4"
             >
-              <h1 className="text-[38px] xs:text-[44px] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] text-white">
-                                 Fast Websites,
-
+              <h1 className="text-[26px] leading-[1.15] xs:text-[30px] sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black sm:leading-[1.1] text-white">
+                Fast Websites,
                 <br />
-                <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">
-                                    Real Results.
-
+                <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">
+                  Real Results.
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0 px-4 sm:px-0">
+              <p className="text-[11px] xs:text-xs sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-white/80 leading-snug sm:leading-snug md:leading-normal font-light max-w-2xl mx-auto lg:mx-0 px-2 sm:px-0">
                 Hand-coded for speed. Optimized for results.
               </p>
             </motion.div>
@@ -149,13 +147,13 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mt-8 sm:mt-10 mb-6 sm:mb-8 px-4 sm:px-0"
+              className="flex flex-col sm:flex-row gap-2 sm:gap-2 md:gap-3 lg:gap-4 w-full sm:w-auto mt-2 sm:mt-3 md:mt-4 lg:mt-6 mb-0 px-4 sm:px-0"
             >
-              <CustomButton href="#contact" variant="comic" size="lg" className="w-full sm:w-auto">
+              <CustomButton href="#contact" variant="comic" size="lg" className="w-full sm:w-auto text-xs sm:text-sm md:text-base py-2 sm:py-2.5 md:py-3">
                 Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
               </CustomButton>
-              <CustomButton href="#services" variant="comic" size="lg" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 border-white/30 text-white">
+              <CustomButton href="#services" variant="comic" size="lg" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 border-white/30 text-white text-xs sm:text-sm md:text-base py-2 sm:py-2.5 md:py-3">
                 View Services
               </CustomButton>
             </motion.div>

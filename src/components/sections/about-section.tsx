@@ -60,13 +60,13 @@ const VALUES = [
     icon: Code,
     title: 'Craftsmanship',
     description: 'Every line of code is hand-written with precision and care. No shortcuts, no templates.',
-    color: 'from-cerulean-blue-400 to-cerulean-blue-500',
+    color: 'from-indigo-400 to-blue-500',
   },
   {
     icon: Zap,
     title: 'Performance',
     description: 'Speed is our obsession. We build websites that load in under 1 second.',
-    color: 'from-cerulean-blue-300 to-cerulean-blue-500',
+    color: 'from-cerulean-blue-300 to-blue-500',
   },
   {
     icon: Users,
@@ -78,7 +78,7 @@ const VALUES = [
     icon: Target,
     title: 'Results-Driven',
     description: 'Beautiful design means nothing without measurable business results.',
-    color: 'from-orange-400 to-red-400',
+    color: 'from-indigo-400 to-red-400',
   },
 ];
 
@@ -127,18 +127,18 @@ export function AboutSection() {
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal direction="down" delay={0.1}>
             <div className="inline-flex items-center gap-2.5 mb-5 sm:mb-6">
-              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cerulean-blue-400"></span>
-              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cerulean-blue-400 dark:text-cerulean-blue-300 uppercase">
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cyan-500"></span>
+              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cyan-500 dark:text-cyan-400 uppercase">
                 About Us
               </span>
-              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cerulean-blue-400"></span>
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cyan-500"></span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-5 sm:mb-6 md:mb-8 leading-[1.1] text-[#001f3d] dark:text-white">
               We Build Websites That{' '}
-              <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">
                 Perform
               </span>
             </h1>
@@ -154,7 +154,7 @@ export function AboutSection() {
       </div>
 
       {/* Company Story */}
-      <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20">
+      <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 py-10 sm:py-12 md:py-14 lg:py-16">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal direction="up" delay={0.1}>
             <div className="text-center mb-12 sm:mb-16">
@@ -178,7 +178,7 @@ export function AboutSection() {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-gradient-to-br from-gray-50 to-cerulean-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-12 sm:py-16 md:py-20">
+      <div className="bg-gradient-to-br from-gray-50 to-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-10 sm:py-12 md:py-14 lg:py-16">
         <div className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto">
             {STATS.map((stat, index) => {
@@ -186,7 +186,7 @@ export function AboutSection() {
               return (
                 <ScrollReveal key={index} direction="up" delay={0.1 * index}>
                   <div className="text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-cerulean-blue-500 to-cerulean-blue-400 mb-4 shadow-lg">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-500 mb-4 shadow-lg">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
                     <div className="text-4xl sm:text-5xl md:text-6xl font-black text-[#001f3d] dark:text-white mb-2">
@@ -204,15 +204,15 @@ export function AboutSection() {
       </div>
 
       {/* Core Values */}
-      <div id="values" className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-28">
+      <div id="values" className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-14 md:py-16 lg:py-20">
         <div className="text-center mb-12 md:mb-16">
           <ScrollReveal direction="down" delay={0.1}>
             <div className="inline-flex items-center gap-2.5 mb-5 sm:mb-6">
-              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cerulean-blue-400"></span>
-              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cerulean-blue-400 dark:text-cerulean-blue-300 uppercase">
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cyan-500"></span>
+              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cyan-500 dark:text-cyan-400 uppercase">
                 Our Values
               </span>
-              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cerulean-blue-400"></span>
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cyan-500"></span>
             </div>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.2}>
@@ -250,12 +250,12 @@ export function AboutSection() {
       </div>
 
       {/* Why Choose Us */}
-      <div className="bg-gradient-to-br from-gray-50 to-cerulean-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-16 sm:py-20 md:py-24 lg:py-28">
+      <div className="bg-gradient-to-br from-gray-50 to-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-12 sm:py-14 md:py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <div className="text-center mb-12 md:mb-16">
             <ScrollReveal direction="down" delay={0.1}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#001f3d] dark:text-white mb-5 sm:mb-6 md:mb-8 leading-[1.1]">
-                Why Choose <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">Poleris Digital</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black text-[#001f3d] dark:text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[1.1]">
+                Why Choose <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">Poleris Digital</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.2}>
@@ -272,7 +272,7 @@ export function AboutSection() {
                 <ScrollReveal key={index} direction="up" delay={0.05 * index}>
                   <div className="group p-5 sm:p-6 rounded-xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 hover:border-[#5c94ff] dark:hover:border-[#5c94ff] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-blue-50 dark:hover:bg-gray-800 hover:translate-x-[-4px] hover:translate-y-[-4px] active:translate-x-[-2px] active:translate-y-[-2px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:4px_4px_0px_#5c94ff] dark:hover:[box-shadow:4px_4px_0px_#5c94ff] active:[box-shadow:2px_2px_0px_#5c94ff]">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-cerulean-blue-400 to-cerulean-blue-500 flex items-center justify-center group-hover:scale-105 transition-all duration-500 shadow-sm group-hover:shadow-md">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-400 to-blue-500 flex items-center justify-center group-hover:scale-105 transition-all duration-500 shadow-sm group-hover:shadow-md">
                         <Icon className="w-6 h-6 text-white transition-transform duration-500 group-hover:scale-110" />
                       </div>
                       <div className="flex-1">
@@ -293,9 +293,9 @@ export function AboutSection() {
       </div>
 
       {/* CTA Section */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-10 sm:py-12 md:py-14 lg:py-16">
         <ScrollReveal direction="up" delay={0.1}>
-          <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-cerulean-blue-600 via-cerulean-blue-500 to-cerulean-blue-700 rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl">
+          <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-indigo-600 via-cyan-500 to-cyan-700 rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 shadow-2xl">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm mb-6">
               <Rocket className="w-8 h-8 text-white" />
             </div>

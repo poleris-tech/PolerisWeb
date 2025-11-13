@@ -72,7 +72,7 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative z-20 bg-white dark:bg-gray-950 overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28"
+      className="relative z-20 bg-white dark:bg-gray-950 overflow-hidden py-12 sm:py-14 md:py-16 lg:py-20"
     >
       {/* Starfield - Only visible in dark mode */}
       <Starfield count={30} position="absolute" />
@@ -82,18 +82,18 @@ export function ServicesSection() {
         <div className="text-center mb-12 sm:mb-16 md:mb-20 flex flex-col items-center w-full">
           <ScrollReveal direction="down" delay={0.1}>
             <div className="inline-flex items-center gap-2.5 mb-5 sm:mb-6">
-              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cerulean-blue-400"></span>
-              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cerulean-blue-400 dark:text-cerulean-blue-300 uppercase">
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cyan-500"></span>
+              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cyan-500 dark:text-cyan-400 uppercase">
                 Our Services
               </span>
-              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cerulean-blue-400"></span>
+              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cyan-500"></span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#001f3f] dark:text-white mb-5 sm:mb-6 md:mb-8 leading-[1.1] max-w-5xl px-4 sm:px-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black text-[#001f3f] dark:text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[1.1] max-w-5xl px-4 sm:px-0">
               Everything You Need to{" "}
-              <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">
                 Dominate Online
               </span>
             </h2>
@@ -101,7 +101,7 @@ export function ServicesSection() {
 
           <ScrollReveal direction="up" delay={0.3}>
             <div className="max-w-3xl mx-auto w-full px-4 sm:px-6" >
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-normal text-[#001f3f]/70 dark:text-gray-300">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed font-normal text-[#001f3f]/70 dark:text-gray-300">
                 Hand-coded websites designed for <span className="font-semibold text-[#001f3f] dark:text-white">speed</span>, <span className="font-semibold text-[#001f3f] dark:text-white">SEO</span>, and <span className="font-semibold text-[#001f3f] dark:text-white">conversions</span>. No WordPress, no page builders—just pure performance.
               </p>
             </div>

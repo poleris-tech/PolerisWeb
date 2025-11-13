@@ -100,13 +100,13 @@ export function PricingSection() {
         />
       </svg>
 
-      <div className="container relative z-20 mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-24 lg:py-28">
+      <div className="container relative z-20 mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-14 md:py-16 lg:py-20">
         {/* Header Content - Standardized */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20 flex flex-col items-center w-full">
           <ScrollReveal direction="down" delay={0.1}>
             <div className="inline-flex items-center gap-2.5 mb-5 sm:mb-6">
               <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cerulean-blue-300"></span>
-              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cerulean-blue-300 uppercase">
+              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cyan-400 uppercase">
                 Pricing
               </span>
               <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cerulean-blue-300"></span>
@@ -114,16 +114,16 @@ export function PricingSection() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-5 sm:mb-6 md:mb-8 leading-[1.1] max-w-5xl px-4 sm:px-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[1.1] max-w-5xl px-4 sm:px-0">
               Simple, Transparent{" "}
-              <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">
                 Pricing
               </span>
             </h2>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-normal text-white/80 max-w-3xl mx-auto px-4 sm:px-6">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed font-normal text-white/80 max-w-3xl mx-auto px-4 sm:px-6">
               Everything you need to succeed online. No hidden fees, just honest pricing for exceptional work.
             </p>
           </ScrollReveal>
@@ -224,7 +224,7 @@ export function PricingSection() {
           <div className="text-center mb-12 sm:mb-16">
             <ScrollReveal direction="down" delay={0.1}>
               <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-5 sm:mb-6 leading-[1.1]">
-                Optional <span className="bg-gradient-to-r from-cerulean-blue-300 via-cyan-300 to-cerulean-blue-400 bg-clip-text text-transparent">Add-Ons</span>
+                Optional <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">Add-Ons</span>
               </h3>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.2}>
@@ -253,7 +253,7 @@ export function PricingSection() {
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-xl sm:text-2xl font-black text-white mb-3 group-hover:text-cerulean-blue-300 transition-colors duration-500">
+                  <h4 className="text-xl sm:text-2xl font-black text-white mb-3 group-hover:text-cyan-400 transition-colors duration-500">
                     {addon.name}
                   </h4>
 
@@ -264,7 +264,7 @@ export function PricingSection() {
 
                   {/* Price */}
                   <div className="flex items-baseline gap-1 mt-auto">
-                    <span className="text-4xl font-black text-white group-hover:text-cerulean-blue-300 transition-all duration-500">
+                    <span className="text-4xl font-black text-white group-hover:text-cyan-400 transition-all duration-500">
                       ${addon.price}
                     </span>
                     <span className="text-sm text-white/70 font-medium">
