@@ -17,7 +17,7 @@ export function HeroSection() {
     <section className="hero-section relative w-full bg-gradient-to-br from-[#0a0d1a] via-[#0f1629] to-[#001f3d] dark:from-[#050711] dark:via-[#0a0d1a] dark:to-[#001529] text-white overflow-hidden min-h-[85svh] sm:min-h-[90svh] md:min-h-[95svh] lg:min-h-screen flex items-center justify-center pt-16 sm:pt-20 md:pt-24">
       {/* Starfield with Parallax - Only visible in dark mode */}
       <Parallax speed={0.15} direction="down">
-        <Starfield count={80} position="absolute" />
+        <Starfield count={150} position="absolute" />
       </Parallax>
 
       {/* Animated Gradient Blobs with Parallax */}
@@ -117,7 +117,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[10px] xs:text-xs sm:text-xs md:text-sm font-semibold tracking-wider text-cyan-400 uppercase mb-1 sm:mb-2 md:mb-3"
+              className="text-sm xs:text-sm sm:text-xs md:text-sm font-semibold tracking-wider text-cyan-400 uppercase mb-2 sm:mb-2 md:mb-3"
             >
               Custom Designs, Custom Coded
             </motion.span>
@@ -127,9 +127,9 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="space-y-1 sm:space-y-2 md:space-y-3 lg:space-y-4"
+              className="space-y-2 sm:space-y-2 md:space-y-3 lg:space-y-4"
             >
-              <h1 className="text-[26px] leading-[1.15] xs:text-[30px] sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black sm:leading-[1.1] text-white">
+              <h1 className="text-[48px] leading-[1.15] xs:text-[52px] sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black sm:leading-[1.1] text-white">
                 Fast Websites,
                 <br />
                 <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">
@@ -137,7 +137,7 @@ export function HeroSection() {
                 </span>
               </h1>
 
-              <p className="text-[11px] xs:text-xs sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-white/80 leading-snug sm:leading-snug md:leading-normal font-light max-w-2xl mx-auto lg:mx-0 px-2 sm:px-0">
+              <p className="text-base xs:text-base sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-white/80 leading-relaxed sm:leading-snug md:leading-normal font-light max-w-2xl mx-auto lg:mx-0 px-2 sm:px-0">
                 Hand-coded for speed. Optimized for results.
               </p>
             </motion.div>
@@ -147,13 +147,13 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row gap-2 sm:gap-2 md:gap-3 lg:gap-4 w-full sm:w-auto mt-2 sm:mt-3 md:mt-4 lg:mt-6 mb-0 px-4 sm:px-0"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-2 md:gap-3 lg:gap-4 w-full sm:w-auto mt-5 sm:mt-3 md:mt-4 lg:mt-6 mb-0 px-4 sm:px-0"
             >
-              <CustomButton href="#contact" variant="comic" size="lg" className="w-full sm:w-auto text-xs sm:text-sm md:text-base py-2 sm:py-2.5 md:py-3">
+              <CustomButton href="#contact" variant="comic" size="lg" className="w-full sm:w-auto text-base sm:text-sm md:text-base py-3.5 sm:py-2.5 md:py-3">
                 Get Started
-                <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+                <ArrowRight className="ml-2 h-5 w-5 sm:h-4 sm:w-4 md:h-5 md:w-5" />
               </CustomButton>
-              <CustomButton href="#services" variant="comic" size="lg" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 border-white/30 text-white text-xs sm:text-sm md:text-base py-2 sm:py-2.5 md:py-3">
+              <CustomButton href="#services" variant="comic" size="lg" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 border-white/30 text-white text-base sm:text-sm md:text-base py-3.5 sm:py-2.5 md:py-3">
                 View Services
               </CustomButton>
             </motion.div>

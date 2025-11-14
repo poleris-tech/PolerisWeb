@@ -40,10 +40,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/star-logo.svg", type: "image/svg+xml" },
+      { url: "/poleris_logo.png", type: "image/png" },
     ],
     apple: [
-      { url: "/star-logo.svg", type: "image/svg+xml" },
+      { url: "/poleris_logo.png", type: "image/png" },
     ],
   },
   openGraph: {
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "Poleris Digital",
     images: [
       {
-        url: "/star-logo.svg",
+        url: "/poleris_logo.png",
         width: 512,
         height: 512,
         alt: "Poleris Digital Logo",

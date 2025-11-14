@@ -50,7 +50,7 @@ export function Starfield({ count = 100, position = 'fixed' }: StarfieldProps) {
   const positionClass = position === 'fixed' ? 'fixed' : 'absolute';
 
   return (
-    <div className={`${positionClass} inset-0 pointer-events-none overflow-hidden hidden dark:block`} style={{ zIndex: 0 }}>
+    <div className={`${positionClass} inset-0 pointer-events-none hidden dark:block`} style={{ zIndex: 5 }}>
       {stars.map((star) => (
         <div
           key={star.id}

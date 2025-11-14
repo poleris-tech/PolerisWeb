@@ -15,17 +15,15 @@ interface LogoProps {
 
 export function Logo({ variant = 'default', className = '', priority = false }: LogoProps) {
   const isWhite = variant === 'white';
-  // Use dark version (blue star) for light backgrounds, white version for dark backgrounds
-  const starSrc = isWhite ? '/star-logo.svg' : '/star-logo-dark.svg';
 
   if (variant === 'icon-only') {
     return (
       <div className={`relative ${className}`}>
         <Image
-          src={starSrc}
-          alt="Poleris Star"
-          width={48}
-          height={48}
+          src="/poleris_logo.png"
+          alt="Poleris Logo Icon"
+          width={52}
+          height={52}
           priority={priority}
           loading={priority ? undefined : "lazy"}
           className="transition-transform duration-300 hover:scale-110"
@@ -36,13 +34,13 @@ export function Logo({ variant = 'default', className = '', priority = false }: 
 
   return (
     <div className={`flex items-center gap-3 md:gap-4 ${className}`}>
-      {/* Star Icon */}
-      <div className="relative w-12 h-12">
+      {/* Logo Icon */}
+      <div className="relative w-14 h-14 md:w-16 md:h-16">
         <Image
-          src={starSrc}
-          alt="Poleris Star"
-          width={48}
-          height={48}
+          src="/poleris_logo.png"
+          alt="Poleris Logo"
+          width={64}
+          height={64}
           priority={priority}
           loading={priority ? undefined : "lazy"}
           className="transition-transform duration-300 hover:scale-110"

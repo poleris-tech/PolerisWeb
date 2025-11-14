@@ -762,6 +762,21 @@ img:hover {
   animation: twinkle 3s ease-in-out infinite;
 }
 
+/* Falling star animation */
+@keyframes falling-star {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
 /* Shooting star animation */
 @keyframes shooting-star {
   0% {
