@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
@@ -10,6 +10,7 @@ import { ScrollReveal } from '@/components/ui/scroll-reveal';
 import { Send, CheckCircle, Loader2 } from 'lucide-react';
 import { Starfield } from '@/components/ui/starfield';
 import confetti from 'canvas-confetti';
+import { useSearchParams } from 'next/navigation';
 
 interface ContactFormData {
   name: string;
@@ -44,6 +45,35 @@ export default function ContactSection() {
     message: string;
   }>({ type: null, message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
+
+  // Auto-fill form from URL parameters
+  useEffect(() => {
+    const handleUrlParams = () => {
+      // Get URL parameters from window.location
+      const urlParams = new URLSearchParams(window.location.search);
+      const subject = urlParams.get('subject');
+      const message = urlParams.get('message');
+
+      if (subject || message) {
+        setFormData((prev) => ({
+          ...prev,
+          ...(subject && { subject }),
+          ...(message && { message }),
+        }));
+      }
+    };
+
+    // Run on mount
+    handleUrlParams();
+
+    // Listen for URL changes
+    const interval = setInterval(handleUrlParams, 100);
+
+    return () => {
+      clearInterval(interval);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Confetti animation function
   const triggerConfetti = () => {

@@ -42,7 +42,7 @@ export function CustomButton({
     outline:
       "bg-transparent border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 backdrop-blur-md hover:backdrop-blur-lg hover:shadow-white/30 hover:scale-105",
     comic:
-      "bg-cerulean-blue-500 text-white border-2 border-[#5c94ff] dark:border-[#5c94ff] hover:bg-white hover:text-cerulean-blue-500 hover:border-cerulean-blue-500 active:bg-cerulean-blue-300 active:shadow-none active:translate-y-1 transition-all duration-300",
+      "bg-cyan-500 text-white border-2 border-cyan-400 dark:border-cyan-400 hover:bg-cyan-600 hover:text-white hover:border-cyan-500 active:bg-cyan-700 active:shadow-none active:translate-y-1 transition-all duration-300",
   };
 
   const sizeStyles = {
@@ -51,7 +51,7 @@ export function CustomButton({
     lg: "px-6 sm:px-8 md:px-12 text-base md:text-lg leading-[2.75rem] sm:leading-[3rem] md:leading-[3.75rem] rounded-xl",
   };
 
-  const comicShadow = variant === "comic" ? "[box-shadow:3px_3px_0px_#5c94ff] sm:[box-shadow:4px_4px_0px_#5c94ff] md:[box-shadow:5px_5px_0px_#5c94ff] hover:[box-shadow:3px_3px_0px_#4e85e3] hover:sm:[box-shadow:4px_4px_0px_#4e85e3] hover:md:[box-shadow:5px_5px_0px_#4e85e3]" : "";
+  const comicShadow = variant === "comic" ? "[box-shadow:3px_3px_0px_#22d3ee] sm:[box-shadow:4px_4px_0px_#22d3ee] md:[box-shadow:5px_5px_0px_#22d3ee] hover:[box-shadow:3px_3px_0px_#06b6d4] hover:sm:[box-shadow:4px_4px_0px_#06b6d4] hover:md:[box-shadow:5px_5px_0px_#06b6d4]" : "";
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${
     sizeStyles[size]

@@ -129,89 +129,100 @@ export function PricingSection() {
           </ScrollReveal>
         </div>
 
-        {/* Main Pricing - 2 Column Layout */}
-        <div className="max-w-5xl mx-auto mb-12 sm:mb-16 px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6">
+        {/* Main Pricing Card - Single Centered Card */}
+        <div className="max-w-4xl mx-auto mb-12 sm:mb-16 px-4 sm:px-6">
+          <ScrollReveal direction="up" delay={0.2} duration={0.6}>
+            <div className="group relative">
+              <div className="relative rounded-3xl bg-white/10 backdrop-blur-md border-2 border-white/30 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white/15 hover:border-cerulean-blue-300 hover:translate-y-[-8px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:0px_12px_0px_rgba(103,232,249,0.3)]">
 
-            {/* Left Column - Pricing Details */}
-            {PRICING_PLANS.map((plan, index) => (
-              <ScrollReveal key={plan.id} direction={index % 2 === 0 ? "left" : "right"} delay={0.2 + index * 0.1} duration={0.6}>
-                <div className="group relative h-full">
-                <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border-2 border-white/30 p-6 sm:p-7 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white/15 hover:border-cerulean-blue-300 hover:translate-x-[-6px] hover:translate-y-[-6px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:6px_6px_0px_rgba(103,232,249,0.3)] overflow-hidden">
+                {/* Popular Badge */}
+                {PRICING_PLANS[0].popular && (
+                  <div className="absolute top-0 right-0 px-6 py-2 bg-gradient-to-r from-cerulean-blue-400 to-cyan-400 text-white text-sm font-bold rounded-bl-2xl shadow-lg z-10">
+                    ⭐ Most Popular
+                  </div>
+                )}
 
-                  {/* Popular Badge */}
-                  {plan.popular && (
-                    <div className="absolute top-4 right-4 px-3 py-1.5 bg-gradient-to-r from-cerulean-blue-400 to-cyan-400 text-white text-xs font-bold rounded-full shadow-lg">
-                      Most Popular
-                    </div>
-                  )}
-
-                  <div className="relative z-10">
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-4">
-                      {plan.name}
+                {/* Top Section - Pricing */}
+                <div className="bg-gradient-to-br from-white/5 to-white/10 p-8 sm:p-10 border-b border-white/20">
+                  <div className="text-center">
+                    <h3 className="text-2xl sm:text-3xl font-black text-white mb-6">
+                      {PRICING_PLANS[0].name}
                     </h3>
 
-                    {/* Pricing */}
-                    {plan.oneTimePrice && (
-                      <div className="mb-3">
-                        <div className="flex items-baseline gap-2 mb-1">
-                          <span className="text-3xl sm:text-4xl md:text-5xl font-black text-white">
-                            ${plan.oneTimePrice.toLocaleString()}
+                    {/* Pricing Display */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 mb-8">
+                      {/* One-time Price */}
+                      <div>
+                        <div className="flex items-baseline justify-center gap-2 mb-2">
+                          <span className="text-5xl sm:text-6xl md:text-7xl font-black bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
+                            ${PRICING_PLANS[0].oneTimePrice?.toLocaleString()}
                           </span>
                         </div>
-                        <p className="text-white/80 text-sm">One-time payment</p>
+                        <p className="text-white/90 text-base sm:text-lg font-semibold">One-Time Build</p>
+                        <p className="text-white/60 text-sm">Complete website delivery</p>
                       </div>
-                    )}
 
-                    <div className="flex items-baseline gap-2 mb-4 pb-4 border-b border-white/20">
-                      <span className="text-xl sm:text-2xl font-bold text-white">
-                        ${plan.monthlyPrice}
-                      </span>
-                      <span className="text-white/80 text-sm">/month hosting</span>
+                      {/* Plus Symbol */}
+                      <div className="hidden sm:block text-4xl font-bold text-cyan-400">+</div>
+
+                      {/* Monthly Price */}
+                      <div>
+                        <div className="flex items-baseline justify-center gap-2 mb-2">
+                          <span className="text-4xl sm:text-5xl md:text-6xl font-black text-white">
+                            ${PRICING_PLANS[0].monthlyPrice}
+                          </span>
+                          <span className="text-xl text-white/70">/mo</span>
+                        </div>
+                        <p className="text-white/90 text-base sm:text-lg font-semibold">Hosting & Support</p>
+                        <p className="text-white/60 text-sm">Includes everything</p>
+                      </div>
                     </div>
 
                     {/* CTA Button */}
-                    <div className="mb-3">
-                      <CustomButton href="#contact" variant="comic" size="sm" className="w-full bg-white text-blue-700 hover:bg-white/90 border-0">
+                    <div className="flex justify-center">
+                      <CustomButton
+                        href="?subject=Custom Website Package - Get Started&message=Hi! I'm interested in the Custom Website Package ($3,200 one-time + $30/month). I'd like to discuss my project and get started.#contact"
+                        variant="comic"
+                        size="lg"
+                        className="bg-gradient-to-r from-cyan-400 to-cyan-600 text-white hover:from-cyan-500 hover:to-cyan-700 border-0 px-8 sm:px-12 py-4 text-base sm:text-lg font-bold shadow-2xl"
+                      >
                         Get Started Today
-                        <ArrowRight className="ml-2 h-4 w-4" />
+                        <ArrowRight className="ml-2 h-5 w-5" />
                       </CustomButton>
                     </div>
+                  </div>
+                </div>
 
-                    <p className="text-white/70 text-[11px] text-center">
-                      Everything included • No hidden fees
+                {/* Bottom Section - Features */}
+                <div className="p-8 sm:p-10">
+                  <h4 className="text-xl sm:text-2xl font-black text-white mb-6 text-center">
+                    Everything You Need Included
+                  </h4>
+
+                  {/* Features Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                    {PRICING_PLANS[0].features.map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-3 transition-all duration-300 hover:translate-x-1 group/item">
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-cerulean-blue-400 to-cyan-400 flex items-center justify-center transition-all duration-300 mt-0.5 group-hover/item:scale-110 shadow-lg">
+                          <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                        </div>
+                        <span className="text-sm sm:text-base text-white/90 group-hover/item:text-white transition-colors duration-300 font-medium leading-relaxed">
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Trust Badge */}
+                  <div className="mt-8 pt-6 border-t border-white/20 text-center">
+                    <p className="text-white/70 text-sm">
+                      <span className="font-semibold text-cyan-400">No hidden fees</span> • <span className="font-semibold text-cyan-400">No surprises</span> • <span className="font-semibold text-cyan-400">Cancel anytime</span>
                     </p>
                   </div>
                 </div>
               </div>
-              </ScrollReveal>
-            ))}
-
-            {/* Right Column - Features List */}
-            <ScrollReveal direction="right" delay={0.4} duration={0.6}>
-              <div className="group relative h-full">
-                <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border-2 border-white/30 p-6 sm:p-7 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white/15 hover:border-cerulean-blue-300 hover:translate-x-[-6px] hover:translate-y-[-6px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:6px_6px_0px_rgba(103,232,249,0.3)] overflow-hidden h-full">
-
-                  <h3 className="text-lg sm:text-xl font-black text-white mb-5">
-                    What's Included
-                  </h3>
-
-                  {/* Features List */}
-                  <ul className="space-y-3">
-                    {PRICING_PLANS[0].features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3 transition-all duration-500 hover:translate-x-1">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-cerulean-blue-400/30 group-hover:bg-cerulean-blue-400 flex items-center justify-center transition-all duration-500 mt-0.5">
-                          <Check className="w-3 h-3 text-white transition-colors duration-500" strokeWidth={3} />
-                        </div>
-                        <span className="text-sm text-white/90 group-hover:text-white transition-colors duration-500 font-medium">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
-
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
 
         {/* Interactive Price Calculator */}
