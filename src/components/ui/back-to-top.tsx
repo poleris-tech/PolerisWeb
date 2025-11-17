@@ -11,6 +11,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -20,6 +22,11 @@ export function BackToTop() {
       } else {
         setIsVisible(false);
       }
+
+      // Calculate scroll progress
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (window.scrollY / windowHeight) * 100;
+      setScrollProgress(scrolled);
     };
 
     window.addEventListener("scroll", toggleVisibility);
@@ -30,10 +37,16 @@ export function BackToTop() {
   }, []);
 
   const scrollToTop = () => {
+    setIsScrolling(true);
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
+
+    // Reset scrolling state after animation completes
+    setTimeout(() => {
+      setIsScrolling(false);
+    }, 1000);
   };
 
   return (
@@ -54,22 +67,62 @@ export function BackToTop() {
           aria-label="Back to top"
         >
           {/* Glow effect */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#001f3d] to-blue-600 dark:from-blue-600 dark:to-cyan-500 blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-cyan-600 blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-300"></div>
 
           {/* Button */}
-          <div className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-[#001f3d] to-blue-600 dark:from-blue-600 dark:to-cyan-500 text-white shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-white/10">
+          <div className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-cyan-500 via-cyan-600 to-cyan-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-cyan-400/50 hover:border-cyan-300">
+            {/* Scroll progress ring */}
+            <svg className="absolute inset-0 w-full h-full -rotate-90">
+              <circle
+                cx="50%"
+                cy="50%"
+                r="45%"
+                fill="none"
+                stroke="rgba(255, 255, 255, 0.2)"
+                strokeWidth="2"
+              />
+              <motion.circle
+                cx="50%"
+                cy="50%"
+                r="45%"
+                fill="none"
+                stroke="rgba(255, 255, 255, 0.8)"
+                strokeWidth="2"
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: scrollProgress / 100 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                style={{
+                  strokeDasharray: "1 1",
+                }}
+              />
+            </svg>
+
             <motion.div
               animate={{
-                y: [0, -3, 0],
+                y: isScrolling ? [-4, 0] : [0, -4, 0],
               }}
               transition={{
-                duration: 1.5,
-                repeat: Infinity,
+                duration: isScrolling ? 0.3 : 2,
+                repeat: isScrolling ? 0 : Infinity,
                 ease: "easeInOut",
               }}
             >
-              <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2.5} />
+              <ArrowUp className="w-6 h-6 sm:w-7 sm:h-7" strokeWidth={3} />
             </motion.div>
+
+            {/* Inner glow */}
+            <div className="absolute inset-2 rounded-full bg-white/10" />
+
+            {/* Ripple effect when scrolling */}
+            {isScrolling && (
+              <motion.div
+                className="absolute inset-0 rounded-full border-2 border-white"
+                initial={{ scale: 1, opacity: 0.5 }}
+                animate={{ scale: 1.5, opacity: 0 }}
+                transition={{ duration: 0.6 }}
+              />
+            )}
           </div>
 
           {/* Tooltip */}

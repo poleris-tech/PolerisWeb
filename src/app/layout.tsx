@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ReCaptchaProvider } from "@/components/providers/recaptcha-provider";
 import { SchemaMarkup } from "@/components/seo/schema-markup";
 import { NavigationLoader } from "@/components/ui/navigation-loader";
+import { BackToTop } from "@/components/ui/back-to-top";
 // import { LiveChat } from "@/components/ui/live-chat"; // Replaced with Tawk.to
 import Script from "next/script";
 
@@ -125,6 +126,7 @@ export default function RootLayout({
             disableTransitionOnChange={false}
           >
             <NavigationLoader />
+            <BackToTop />
             {children}
             <SpeedInsights />
           </ThemeProvider>

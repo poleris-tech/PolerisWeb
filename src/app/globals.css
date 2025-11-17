@@ -986,3 +986,37 @@ img:hover {
 .cs-button-solid.cs-white:before {
   background-color: #fff;
 }
+
+/* =========================
+   ACCESSIBILITY - REDUCED MOTION
+   ========================= */
+
+/* Respect user's motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable specific animations that can cause motion sickness */
+  .animate-twinkle,
+  .animate-ping,
+  .animate-pulse,
+  .animate-spin,
+  .animate-bounce,
+  .animate-fade-in,
+  .animate-progress {
+    animation: none !important;
+  }
+
+  /* Disable blob animations */
+  .blob-container::before,
+  .blob-container::after {
+    animation: none !important;
+    opacity: 0.3 !important;
+  }
+}

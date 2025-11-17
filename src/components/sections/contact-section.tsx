@@ -66,11 +66,15 @@ export default function ContactSection() {
     // Run on mount
     handleUrlParams();
 
-    // Listen for URL changes
-    const interval = setInterval(handleUrlParams, 100);
+    // Listen for hash changes (when navigating with #contact)
+    const handleHashChange = () => {
+      handleUrlParams();
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
 
     return () => {
-      clearInterval(interval);
+      window.removeEventListener('hashchange', handleHashChange);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -272,18 +276,25 @@ export default function ContactSection() {
       // Execute reCAPTCHA v3
       const recaptchaToken = await executeRecaptcha('contact_form');
 
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          recaptchaToken,
-        }),
-      });
+      // Create AbortController for timeout handling
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
 
-      const data = await response.json();
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...formData,
+            recaptchaToken,
+          }),
+          signal: controller.signal,
+        });
+
+        clearTimeout(timeoutId);
+        const data = await response.json();
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to send message');
@@ -311,6 +322,17 @@ export default function ContactSection() {
       setTimeout(() => {
         setSubmitStatus({ type: null, message: '' });
       }, 5000);
+
+      } catch (fetchError: any) {
+        clearTimeout(timeoutId);
+
+        // Handle timeout specifically
+        if (fetchError.name === 'AbortError') {
+          throw new Error('Request timed out. Please check your connection and try again.');
+        }
+
+        throw fetchError;
+      }
 
     } catch (error: any) {
       setSubmitStatus({

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import DOMPurify from 'isomorphic-dompurify';
 
 // Initialize Resend with API key
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -17,6 +18,13 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+
+    // Sanitize all user inputs to prevent XSS attacks
+    const sanitizedName = DOMPurify.sanitize(name, { ALLOWED_TAGS: [] });
+    const sanitizedEmail = DOMPurify.sanitize(email, { ALLOWED_TAGS: [] });
+    const sanitizedPhone = phone ? DOMPurify.sanitize(phone, { ALLOWED_TAGS: [] }) : '';
+    const sanitizedSubject = DOMPurify.sanitize(subject, { ALLOWED_TAGS: [] });
+    const sanitizedMessage = DOMPurify.sanitize(message, { ALLOWED_TAGS: ['br'] });
 
     // Validate reCAPTCHA token
     if (!recaptchaToken) {
@@ -49,7 +57,7 @@ export async function POST(request: NextRequest) {
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(sanitizedEmail)) {
       return NextResponse.json(
         { error: 'Invalid email format' },
         { status: 400 }
@@ -60,8 +68,8 @@ export async function POST(request: NextRequest) {
     const data = await resend.emails.send({
       from: 'Poleris Digital <onboarding@resend.dev>', // You'll update this with your verified domain
       to: process.env.CONTACT_EMAIL || 'polerisllc@outlook.com', // Your email
-      replyTo: email, // User's email for easy reply
-      subject: `${subject}`,
+      replyTo: sanitizedEmail, // User's email for easy reply
+      subject: `${sanitizedSubject}`,
       html: `
         <!DOCTYPE html>
         <html lang="en">
@@ -241,7 +249,7 @@ export async function POST(request: NextRequest) {
 
                 <!-- Message Content -->
                 <div class="message-content">
-                  ${message.replace(/\n/g, '<br>')}
+                  ${sanitizedMessage.replace(/\n/g, '<br>')}
                 </div>
 
                 <!-- Sender Information -->
@@ -250,21 +258,21 @@ export async function POST(request: NextRequest) {
 
                   <div class="info-row">
                     <div class="info-label">Name:</div>
-                    <div class="info-value">${name}</div>
+                    <div class="info-value">${sanitizedName}</div>
                   </div>
 
                   <div class="info-row">
                     <div class="info-label">Email:</div>
                     <div class="info-value">
-                      <a href="mailto:${email}">${email}</a>
+                      <a href="mailto:${sanitizedEmail}">${sanitizedEmail}</a>
                     </div>
                   </div>
 
-                  ${phone ? `
+                  ${sanitizedPhone ? `
                   <div class="info-row">
                     <div class="info-label">Phone:</div>
                     <div class="info-value">
-                      <a href="tel:${phone}">${phone}</a>
+                      <a href="tel:${sanitizedPhone}">${sanitizedPhone}</a>
                     </div>
                   </div>
                   ` : ''}
