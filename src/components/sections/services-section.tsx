@@ -27,42 +27,42 @@ function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
   return (
     <div className="group relative h-full">
       {/* Clean card with hover-reveal shadow */}
-      <div className="relative flex flex-col h-full rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-6 sm:p-7 md:p-8 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-gradient-to-br hover:from-blue-50 hover:to-cyan-50/30 dark:hover:from-gray-800 dark:hover:to-gray-800 hover:border-[#5c94ff] dark:hover:border-[#5c94ff] hover:translate-x-[-8px] hover:translate-y-[-8px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:8px_8px_0px_#5c94ff] dark:hover:[box-shadow:8px_8px_0px_#5c94ff]">
+      <div className="relative flex flex-col h-full rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-6 sm:p-7 md:p-8 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white dark:hover:from-gray-800 dark:hover:to-gray-800 hover:border-indigo-500 dark:hover:border-cyan-400 hover:translate-x-[-8px] hover:translate-y-[-8px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:8px_8px_0px_rgb(99,102,241)] dark:hover:[box-shadow:8px_8px_0px_rgb(34,211,238)]">
 
         {/* Icon Container - Clean and modern */}
         <div className="relative inline-flex self-center mb-6">
-          <div className="relative flex justify-center items-center rounded-2xl bg-gradient-to-br from-blue-500 via-cyan-500 to-blue-600 dark:from-blue-600 dark:via-cyan-600 dark:to-blue-700 h-16 w-16 sm:h-18 sm:w-18 md:h-20 md:w-20 shadow-lg shadow-blue-500/20 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-2xl group-hover:shadow-blue-500/30">
+          <div className="relative flex justify-center items-center rounded-2xl bg-indigo-500 dark:bg-cyan-500 h-16 w-16 sm:h-18 sm:w-18 md:h-20 md:w-20 shadow-lg shadow-indigo-500/20 dark:shadow-cyan-500/20 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-2xl group-hover:shadow-indigo-500/40 dark:group-hover:shadow-cyan-500/40">
             {IconComponent && (
               <IconComponent className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 text-white relative z-10 transition-transform duration-500 group-hover:scale-110" strokeWidth={2.5} />
             )}
           </div>
         </div>
 
-        {/* Title - Bold and clear */}
-        <h3 className="text-xl sm:text-2xl md:text-2xl font-black text-[#001f3f] dark:text-white text-center transition-colors duration-500 group-hover:text-blue-600 dark:group-hover:text-cyan-400 mb-6 leading-tight">
+        {/* Title - H3 Section: 18-20px mobile, 24-28px desktop */}
+        <h3 className="text-[18px] md:text-[24px] font-black text-[#001f3f] dark:text-white text-center transition-colors duration-500 group-hover:text-indigo-600 dark:group-hover:text-cyan-400 mb-5 leading-[1.4] md:leading-[1.3]">
           {service.title}
         </h3>
 
         {/* Divider */}
-        <div className="w-12 h-[2px] bg-gray-200 dark:bg-gray-700 mx-auto mb-6 transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-cyan-500"></div>
+        <div className="w-12 h-[2px] bg-gray-200 dark:bg-gray-700 mx-auto mb-5 transition-all duration-500 group-hover:w-full group-hover:bg-indigo-500 dark:group-hover:bg-cyan-400"></div>
 
-        {/* Features List - Clean minimal checkmarks */}
+        {/* Features List - Body Text: 16px mobile, 18px desktop */}
         <ul className="mt-auto flex flex-col gap-3">
           {service.features.map((feature, idx) => (
-            <li key={idx} className="flex items-start text-sm sm:text-base text-[#001f3f]/80 dark:text-gray-300 transition-all duration-500 group-hover:text-[#001f3f] dark:group-hover:text-white gap-3">
-              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-blue-100 dark:bg-blue-900/30 group-hover:bg-blue-500 dark:group-hover:bg-cyan-500 flex items-center justify-center transition-all duration-500 mt-0.5">
-                <svg className="w-3 h-3 text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+            <li key={idx} className="flex items-start text-base md:text-lg text-[#001f3f]/80 dark:text-gray-300 transition-all duration-500 group-hover:text-[#001f3f] dark:group-hover:text-white gap-3">
+              <span className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-cyan-500/10 group-hover:bg-indigo-500 dark:group-hover:bg-cyan-500 flex items-center justify-center transition-all duration-500 mt-0.5">
+                <svg className="w-3 h-3 text-indigo-500 dark:text-cyan-400 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </span>
-              <span className="leading-relaxed flex-1 font-medium">{feature}</span>
+              <span className="leading-[1.5] md:leading-[1.6] flex-1 font-medium">{feature}</span>
             </li>
           ))}
         </ul>
 
         {/* Floating accent elements */}
-        <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-blue-200 dark:bg-blue-800/40 opacity-50 group-hover:opacity-100 group-hover:bg-blue-500 dark:group-hover:bg-cyan-500 group-hover:scale-150 transition-all duration-500"></div>
-        <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-cyan-200 dark:bg-cyan-800/40 opacity-50 group-hover:opacity-100 group-hover:bg-cyan-500 dark:group-hover:bg-blue-500 group-hover:scale-150 transition-all duration-500"></div>
+        <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-indigo-300/40 dark:bg-cyan-400/20 opacity-50 group-hover:opacity-100 group-hover:bg-indigo-500 dark:group-hover:bg-cyan-400 group-hover:scale-150 transition-all duration-500"></div>
+        <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-indigo-300/40 dark:bg-cyan-400/20 opacity-50 group-hover:opacity-100 group-hover:bg-indigo-500 dark:group-hover:bg-cyan-400 group-hover:scale-150 transition-all duration-500"></div>
       </div>
     </div>
   );
@@ -78,30 +78,33 @@ export function ServicesSection() {
       <Starfield count={30} position="absolute" />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        {/* Header Content - Standardized */}
-        <div className="text-center mb-12 sm:mb-16 md:mb-20 flex flex-col items-center w-full">
+        {/* Header Content - Typography Standards */}
+        <div className="text-center mb-12 md:mb-16 flex flex-col items-center w-full">
           <ScrollReveal direction="down" delay={0.1}>
-            <div className="inline-flex items-center gap-2.5 mb-5 sm:mb-6">
-              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cyan-500"></span>
-              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cyan-500 dark:text-cyan-400 uppercase">
+            {/* Caption Text: 14px mobile, 16px desktop */}
+            <div className="inline-flex items-center gap-2.5 mb-4 md:mb-5">
+              <span className="h-px w-10 md:w-12 bg-gradient-to-r from-transparent to-cyan-500 dark:to-cyan-400"></span>
+              <span className="text-sm md:text-base font-semibold tracking-wider text-cyan-500 dark:text-cyan-400 uppercase">
                 Our Services
               </span>
-              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cyan-500"></span>
+              <span className="h-px w-10 md:w-12 bg-gradient-to-l from-transparent to-cyan-500 dark:to-cyan-400"></span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black text-[#001f3f] dark:text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[1.1] max-w-5xl px-4 sm:px-0">
+            {/* H2 Heading: 22-24px mobile, 32-36px desktop */}
+            <h2 className="text-[22px] md:text-[32px] lg:text-[36px] font-black text-[#001f3f] dark:text-white mb-4 md:mb-6 leading-[1.3] md:leading-[1.25] max-w-4xl">
               Everything You Need to{" "}
-              <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">
+              <span className="text-cyan-500 dark:text-cyan-400">
                 Dominate Online
               </span>
             </h2>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <div className="max-w-3xl mx-auto w-full px-4 sm:px-6" >
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed font-normal text-[#001f3f]/70 dark:text-gray-300">
+            {/* Body Text: 16px mobile, 18-20px desktop */}
+            <div className="max-w-3xl mx-auto w-full">
+              <p className="text-base md:text-lg leading-[1.5] md:leading-[1.6] font-normal text-[#001f3f]/70 dark:text-gray-300">
                 Hand-coded websites designed for <span className="font-semibold text-[#001f3f] dark:text-white">speed</span>, <span className="font-semibold text-[#001f3f] dark:text-white">SEO</span>, and <span className="font-semibold text-[#001f3f] dark:text-white">conversions</span>. No WordPress, no page builders—just pure performance.
               </p>
             </div>
@@ -133,8 +136,13 @@ export function ServicesSection() {
 
         {/* CTA Button */}
         <ScrollReveal direction="up" delay={0.5}>
-          <div className="flex justify-center mt-8 sm:mt-12">
-            <CustomButton href="#contact" variant="comic" size="lg">
+          <div className="flex justify-center mt-12 md:mt-16">
+            <CustomButton
+              href="#contact"
+              variant="comic"
+              size="lg"
+              className="text-base md:text-lg px-8 md:px-10 py-4"
+            >
               Get Started Today
             </CustomButton>
           </div>

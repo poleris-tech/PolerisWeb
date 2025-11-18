@@ -106,39 +106,44 @@ export function HeroSection() {
         />
       </svg>
 
-      <div className="container relative z-20 max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-4 sm:py-6 md:py-8 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
+      <div className="container relative z-20 max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 py-4 sm:py-6 md:py-8 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
 
           {/* Content */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[52%] xl:w-[50%] flex-shrink-0">
 
-            {/* Topper */}
-            <motion.span
+            {/* Topper - Caption Text */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-sm xs:text-sm sm:text-xs md:text-sm font-semibold tracking-wider text-cyan-400 uppercase mb-2 sm:mb-2 md:mb-3"
+              className="inline-flex items-center gap-2.5 mb-4 md:mb-5"
             >
-              Custom Designs, Custom Coded
-            </motion.span>
+              <span className="h-px w-10 md:w-12 bg-gradient-to-r from-transparent to-cyan-400"></span>
+              <span className="text-sm md:text-base font-semibold tracking-wider text-cyan-400 uppercase">
+                Custom Designs, Custom Coded
+              </span>
+              <span className="h-px w-10 md:w-12 bg-gradient-to-l from-transparent to-cyan-400"></span>
+            </motion.div>
 
-            {/* Main heading */}
+            {/* Main heading - H1 Standards: Mobile 28-32px, Desktop 42-48px */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="space-y-2 sm:space-y-2 md:space-y-3 lg:space-y-4"
+              className="space-y-4 md:space-y-6"
             >
-              <h1 className="text-[48px] leading-[1.15] xs:text-[52px] sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black sm:leading-[1.1] text-white">
+              <h1 className="text-[32px] leading-[1.25] md:text-[42px] lg:text-[48px] md:leading-[1.1] font-black text-white">
                 Fast Websites,
                 <br />
-                <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">
+                <span className="text-cyan-400">
                   Real Results.
                 </span>
               </h1>
 
-              <p className="text-base xs:text-base sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-white/80 leading-relaxed sm:leading-snug md:leading-normal font-light max-w-2xl mx-auto lg:mx-0 px-2 sm:px-0">
-                Hand-coded for speed. Optimized for results.
+              {/* Body Text - Mobile 16px, Desktop 18-20px */}
+              <p className="text-base md:text-lg leading-[1.5] md:leading-[1.6] text-white/80 font-light max-w-xl mx-auto lg:mx-0">
+                Hand-coded for speed. Optimized for results. Build your perfect website with cutting-edge technology and expert craftsmanship.
               </p>
             </motion.div>
 
@@ -147,20 +152,45 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-2 md:gap-3 lg:gap-4 w-full sm:w-auto mt-5 sm:mt-3 md:mt-4 lg:mt-6 mb-0 px-4 sm:px-0"
+              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-8 md:mt-10 px-4 sm:px-0"
             >
-              <CustomButton href="#contact" variant="comic" size="lg" className="w-full sm:w-auto text-base sm:text-sm md:text-base py-3.5 sm:py-2.5 md:py-3">
+              <CustomButton
+                href="#contact"
+                variant="comic"
+                size="lg"
+                className="w-full sm:w-auto text-base md:text-lg px-8 md:px-10 py-4"
+              >
                 Get Started
-                <ArrowRight className="ml-2 h-5 w-5 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </CustomButton>
-              <CustomButton href="#services" variant="comic" size="lg" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 border-white/30 text-white text-base sm:text-sm md:text-base py-3.5 sm:py-2.5 md:py-3">
+              <CustomButton
+                href="#services"
+                variant="comic"
+                size="lg"
+                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 border-white/30 text-white text-base md:text-lg px-8 md:px-10 py-4"
+              >
                 View Services
               </CustomButton>
             </motion.div>
+
+            {/* Trust Badge */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-8 md:mt-10 flex items-center gap-2 text-sm text-white/60"
+            >
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-cyan-400 border-2 border-[#0a0d1a]"></div>
+                <div className="w-8 h-8 rounded-full bg-indigo-500 border-2 border-[#0a0d1a]"></div>
+                <div className="w-8 h-8 rounded-full bg-cyan-300 border-2 border-[#0a0d1a]"></div>
+              </div>
+              <span className="font-medium">Join our growing community</span>
+            </motion.div>
           </div>
 
-          {/* Laptop Image - Hidden on mobile, shown on lg+ with Parallax */}
-          <Parallax speed={0.2} direction="up" className="hidden lg:block lg:w-[45%] xl:w-[48%] 2xl:w-[50%] relative z-10 flex-shrink-0">
+          {/* Laptop Image - Shown on tablet+ with Parallax */}
+          <Parallax speed={0.2} direction="up" className="hidden md:block md:w-[45%] lg:w-[45%] xl:w-[48%] 2xl:w-[50%] relative z-10 flex-shrink-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -169,14 +199,14 @@ export function HeroSection() {
                 animation: 'float 6s ease-in-out infinite 1s',
                 willChange: 'transform'
               }}
-              className="w-full max-w-[500px] lg:max-w-[550px] xl:max-w-[650px] 2xl:max-w-none"
+              className="w-full max-w-[300px] md:max-w-[350px] lg:max-w-[600px] xl:max-w-[650px] 2xl:max-w-none mx-auto"
             >
               <Image
                 src="/laptop.svg"
-                alt="Laptop showing web design"
+                alt="Professional website design displayed on laptop - Poleris Digital web development services"
                 width={1440}
                 height={758}
-                className="w-full h-auto drop-shadow-2xl lg:drop-shadow-xl"
+                className="w-full h-auto drop-shadow-2xl"
                 priority
               />
             </motion.div>

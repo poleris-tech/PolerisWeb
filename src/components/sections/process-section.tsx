@@ -26,20 +26,22 @@ export function ProcessSection() {
       }} />
 
       <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-14 md:py-16 lg:py-20">
-        {/* Header Content - Standardized */}
-        <div className="text-center mb-12 sm:mb-16 md:mb-20 flex flex-col items-center w-full">
+        {/* Header Content - Typography Standards */}
+        <div className="text-center mb-12 md:mb-16 flex flex-col items-center w-full">
           <ScrollReveal direction="down" delay={0.1}>
-            <div className="inline-flex items-center gap-2.5 mb-5 sm:mb-6">
-              <span className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-cyan-500"></span>
-              <span className="text-xs sm:text-sm font-semibold tracking-wider text-cyan-500 dark:text-cyan-400 uppercase">
+            {/* Caption Text: 14px mobile, 16px desktop */}
+            <div className="inline-flex items-center gap-2.5 mb-4 md:mb-5">
+              <span className="h-px w-10 md:w-12 bg-gradient-to-r from-transparent to-cyan-500"></span>
+              <span className="text-sm md:text-base font-semibold tracking-wider text-cyan-500 dark:text-cyan-400 uppercase">
                 Our Process
               </span>
-              <span className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-cyan-500"></span>
+              <span className="h-px w-10 md:w-12 bg-gradient-to-l from-transparent to-cyan-500"></span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black text-[#001f3f] dark:text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8 leading-[1.1] max-w-5xl px-4 sm:px-0">
+            {/* H2 Heading: 22-24px mobile, 32-36px desktop */}
+            <h2 className="text-[22px] md:text-[32px] lg:text-[36px] font-black text-[#001f3f] dark:text-white mb-4 md:mb-6 leading-[1.3] md:leading-[1.25] max-w-4xl">
               A Proven Approach to{" "}
               <span className="bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 bg-clip-text text-transparent">
                 Success
@@ -48,7 +50,8 @@ export function ProcessSection() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-relaxed font-normal text-[#001f3f]/70 dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-6">
+            {/* Body Text: 16px mobile, 18-20px desktop */}
+            <p className="text-base md:text-lg leading-[1.5] md:leading-[1.6] font-normal text-[#001f3f]/70 dark:text-gray-300 max-w-3xl mx-auto">
               From concept to launch, we follow a streamlined process designed to deliver exceptional websites on time and on budget.
             </p>
           </ScrollReveal>
@@ -79,13 +82,13 @@ export function ProcessSection() {
                   </div>
                 )}
 
-                {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-bold text-[#001f3f] dark:text-white text-center transition-colors duration-500 group-hover:text-cerulean-blue-600 dark:group-hover:text-cyan-400 mb-4 leading-tight">
+                {/* Title - H3 Section: 18-20px mobile, 24-28px desktop */}
+                <h3 className="text-[18px] md:text-[24px] font-bold text-[#001f3f] dark:text-white text-center transition-colors duration-500 group-hover:text-cerulean-blue-600 dark:group-hover:text-cyan-400 mb-4 leading-[1.4] md:leading-[1.3]">
                   {step.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-sm sm:text-base text-[#001f3f]/70 dark:text-gray-300 text-center transition-colors duration-500 leading-relaxed">
+                {/* Description - Body Text: 16px mobile, 18px desktop */}
+                <p className="text-base md:text-lg text-[#001f3f]/70 dark:text-gray-300 text-center transition-colors duration-500 leading-[1.5] md:leading-[1.6]">
                   {step.description}
                 </p>
               </div>

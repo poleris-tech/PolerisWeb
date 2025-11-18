@@ -6,81 +6,77 @@
   --font-sans: var(--font-poppins);
   --font-mono: var(--font-poppins);
 
-  /* Indigo Primary Color Palette */
-  --color-cerulean-blue-50: #eef2ff;
-  --color-cerulean-blue-100: #e0e7ff;
-  --color-cerulean-blue-200: #c7d2fe;
-  --color-cerulean-blue-300: #a5b4fc;
-  --color-cerulean-blue-400: #818cf8;
-  --color-cerulean-blue-500: #6366f1;
-  --color-cerulean-blue-600: #4f46e5;
-  --color-cerulean-blue-700: #4338ca;
-  --color-cerulean-blue-800: #3730a3;
-  --color-cerulean-blue-900: #312e81;
-  --color-cerulean-blue-950: #1e1b4b;
+  /* Modern Cyan-Dark-Pink Palette - Bold & Tech-Forward */
+  --color-cerulean-blue-50: #E6FFFE;   /* Very light cyan tint */
+  --color-cerulean-blue-100: #B3FFFD;  /* Light cyan */
+  --color-cerulean-blue-200: #80FFF9;  /* Soft cyan */
+  --color-cerulean-blue-300: #4DEFF5;  /* Bright cyan */
+  --color-cerulean-blue-400: #1AE4E1;  /* Vibrant cyan */
+  --color-cerulean-blue-500: #08D9D6;  /* Primary cyan */
+  --color-cerulean-blue-600: #07ADAB;  /* Medium cyan */
+  --color-cerulean-blue-700: #058280;  /* Deep cyan */
+  --color-cerulean-blue-800: #045655;  /* Dark cyan */
+  --color-cerulean-blue-900: #022B2A;  /* Very dark cyan */
+  --color-cerulean-blue-950: #011515;  /* Darkest cyan */
 
-  /* Cyan Accent Palette */
-  --color-orange-50: #ecfeff;
-  --color-orange-100: #cffafe;
-  --color-orange-200: #a5f3fc;
-  --color-orange-300: #67e8f9;
-  --color-orange-400: #22d3ee;
-  --color-orange-500: #06b6d4;
-  --color-orange-600: #0891b2;
-  --color-orange-700: #0e7490;
-  --color-orange-800: #155e75;
-  --color-orange-900: #164e63;
-  --color-orange-950: #083344;
+  /* Dark slate palette - #252A34 */
+  --color-slate: #252A34;
 
-  /* Theme colors using Indigo & Cyan palette */
-  --color-background: oklch(100% 0 0);
-  --color-foreground: #1e1b4b; /* indigo-950 */
-  --color-card: oklch(100% 0 0);
-  --color-card-foreground: #1e1b4b;
-  --color-popover: oklch(100% 0 0);
-  --color-popover-foreground: #1e1b4b;
-  --color-primary: #6366f1; /* indigo-500 */
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #eef2ff; /* indigo-50 */
-  --color-secondary-foreground: #1e1b4b;
-  --color-muted: #eef2ff;
-  --color-muted-foreground: #312e81; /* indigo-900 */
-  --color-accent: #22d3ee; /* cyan-400 */
-  --color-accent-foreground: #1e1b4b;
-  --color-destructive: oklch(60.2% 0.177 29);
-  --color-destructive-foreground: oklch(98% 0 0);
-  --color-border: #e0e7ff; /* indigo-100 */
-  --color-input: #e0e7ff;
-  --color-ring: #6366f1;
+  /* Hot pink accent - #FF2E63 */
+  --color-pink: #FF2E63;
+
+  /* Light gray - #EAEAEA */
+  --color-gray-light: #EAEAEA;
+
+  /* Theme colors using Modern Cyan-Dark-Pink palette */
+  --color-background: #FFFFFF;
+  --color-foreground: #252A34; /* dark slate */
+  --color-card: #FFFFFF;
+  --color-card-foreground: #252A34;
+  --color-popover: #FFFFFF;
+  --color-popover-foreground: #252A34;
+  --color-primary: #08D9D6; /* bright cyan */
+  --color-primary-foreground: #252A34;
+  --color-secondary: #EAEAEA; /* light gray */
+  --color-secondary-foreground: #252A34;
+  --color-muted: #F5F6F7;
+  --color-muted-foreground: #545C6E;
+  --color-accent: #FF2E63; /* hot pink */
+  --color-accent-foreground: #FFFFFF;
+  --color-destructive: #FF2E63; /* hot pink for emphasis */
+  --color-destructive-foreground: #FFFFFF;
+  --color-border: #EAEAEA;
+  --color-input: #F5F6F7;
+  --color-ring: #08D9D6;
   --radius: 0.5rem;
 
   --default-border-color: var(--color-border);
 
-  /* Custom colors for theme */
-  --color-navy: #1e1b4b; /* indigo-950 */
-  --color-light-blue: #818cf8; /* indigo-400 */
+  /* Custom colors for Modern theme */
+  --color-navy: #252A34; /* dark slate */
+  --color-light-blue: #08D9D6; /* bright cyan */
 }
 
 .dark {
-  --color-background: oklch(9% 0 0);
-  --color-foreground: oklch(98% 0 0);
-  --color-card: oklch(9% 0 0);
-  --color-card-foreground: oklch(98% 0 0);
-  --color-popover: oklch(9% 0 0);
-  --color-popover-foreground: oklch(98% 0 0);
-  --color-primary: #818cf8; /* indigo-400 for dark mode */
-  --color-primary-foreground: #1e1b4b;
-  --color-secondary: #1e1b4b; /* indigo-950 */
-  --color-secondary-foreground: #818cf8;
-  --color-muted: #1e1b4b;
-  --color-muted-foreground: #a5b4fc; /* indigo-300 */
-  --color-accent: #22d3ee; /* cyan-400 */
-  --color-accent-foreground: oklch(98% 0 0);
-  --color-destructive: oklch(30.6% 0.132 29);
-  --color-destructive-foreground: oklch(98% 0 0);
-  --color-border: #312e81; /* indigo-900 */
-  --color-input: #312e81;
-  --color-ring: #818cf8;
+  --color-background: #252A34; /* dark slate */
+  --color-foreground: #EAEAEA; /* light gray */
+  --color-card: #252A34;
+  --color-card-foreground: #EAEAEA;
+  --color-popover: #252A34;
+  --color-popover-foreground: #EAEAEA;
+  --color-primary: #08D9D6; /* bright cyan */
+  --color-primary-foreground: #252A34;
+  --color-secondary: #3D4350; /* darker gray */
+  --color-secondary-foreground: #EAEAEA;
+  --color-muted: #3D4350;
+  --color-muted-foreground: #D1D3D8;
+  --color-accent: #FF2E63; /* hot pink */
+  --color-accent-foreground: #FFFFFF;
+  --color-destructive: #FF2E63;
+  --color-destructive-foreground: #FFFFFF;
+  --color-border: #3D4350;
+  --color-input: #3D4350;
+  --color-ring: #08D9D6;
 
   --default-border-color: var(--color-border);
 }
