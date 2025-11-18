@@ -30,6 +30,7 @@ interface FormErrors {
 
 export default function ContactSection() {
   const { executeRecaptcha } = useGoogleReCaptcha();
+  const searchParams = useSearchParams();
 
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
@@ -46,38 +47,19 @@ export default function ContactSection() {
   }>({ type: null, message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
 
-  // Auto-fill form from URL parameters
+  // Auto-fill form from URL parameters using Next.js searchParams
   useEffect(() => {
-    const handleUrlParams = () => {
-      // Get URL parameters from window.location
-      const urlParams = new URLSearchParams(window.location.search);
-      const subject = urlParams.get('subject');
-      const message = urlParams.get('message');
+    const subject = searchParams.get('subject');
+    const message = searchParams.get('message');
 
-      if (subject || message) {
-        setFormData((prev) => ({
-          ...prev,
-          ...(subject && { subject }),
-          ...(message && { message }),
-        }));
-      }
-    };
-
-    // Run on mount
-    handleUrlParams();
-
-    // Listen for hash changes (when navigating with #contact)
-    const handleHashChange = () => {
-      handleUrlParams();
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-
-    return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (subject || message) {
+      setFormData((prev) => ({
+        ...prev,
+        ...(subject && { subject }),
+        ...(message && { message }),
+      }));
+    }
+  }, [searchParams]);
 
   // Confetti animation function
   const triggerConfetti = () => {
