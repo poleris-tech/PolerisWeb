@@ -140,24 +140,28 @@ export const PROCESS_STEPS: ProcessStep[] = [
     number: 1,
     title: "Plan",
     description: "We understand your goals, audience, and design direction.",
+    icon: "Lightbulb",
   },
   {
     id: "design",
     number: 2,
     title: "Design",
     description: "We craft a clean, on-brand layout with intuitive UX.",
+    icon: "Palette",
   },
   {
     id: "develop",
     number: 3,
     title: "Develop",
     description: "We hand-code your website for performance and SEO.",
+    icon: "Code",
   },
   {
     id: "launch",
     number: 4,
     title: "Launch",
     description: "We test, deploy, and fine-tune for flawless performance.",
+    icon: "Rocket",
   },
 ];
 

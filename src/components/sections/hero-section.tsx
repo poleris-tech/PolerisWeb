@@ -14,7 +14,7 @@ import { Parallax } from "@/components/ui/parallax";
 
 export function HeroSection() {
   return (
-    <section className="hero-section relative w-full bg-gradient-to-br from-[#0a0d1a] via-[#0f1629] to-[#001f3d] dark:from-[#050711] dark:via-[#0a0d1a] dark:to-[#001529] text-white overflow-hidden min-h-[85svh] sm:min-h-[90svh] md:min-h-[95svh] lg:min-h-screen flex items-center justify-center pt-16 sm:pt-20 md:pt-24">
+    <section className="hero-section relative w-full max-w-full bg-gradient-to-br from-[#0a0d1a] via-[#0f1629] to-[#001f3d] dark:from-[#050711] dark:via-[#0a0d1a] dark:to-[#001529] text-white overflow-x-hidden overflow-y-visible min-h-[85svh] sm:min-h-[90svh] md:min-h-[95svh] lg:min-h-screen flex items-center justify-center pt-16 sm:pt-20 md:pt-24">
       {/* Starfield with Parallax - Only visible in dark mode */}
       <Parallax speed={0.15} direction="down">
         <Starfield count={150} position="absolute" />
@@ -86,14 +86,14 @@ export function HeroSection() {
           `,
           backgroundSize: '50px 50px',
         }}
-      ></div> 
+      ></div>
 
-      {/* White background layer */}
-      <div className="absolute bottom-0 left-0 w-full h-16 sm:h-20 md:h-24 bg-white dark:bg-gray-950 z-5 border-none shadow-none"></div>
+      {/* White background layer to ensure clean wave transition */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-white dark:bg-gray-950 z-5"></div>
 
       {/* Wave SVG at bottom - Responsive height */}
       <svg
-        className="cs-wave absolute bottom-[-2px] sm:bottom-[-3px] left-0 w-full h-auto z-10 pointer-events-none scale-y-75 sm:scale-y-90 md:scale-y-100 origin-bottom"
+        className="cs-wave absolute bottom-0 left-0 w-full h-auto z-10 pointer-events-none origin-bottom scale-y-75 sm:scale-y-90 md:scale-y-100"
         fill="none"
         preserveAspectRatio="none"
         viewBox="0 0 1920 600"
@@ -106,8 +106,8 @@ export function HeroSection() {
         />
       </svg>
 
-      <div className="container relative z-20 max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20 py-4 sm:py-6 md:py-8 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
-        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 sm:gap-6 lg:gap-8 xl:gap-12">
+      <div className="container relative z-20 max-w-7xl w-full mx-auto px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 py-4 sm:py-6 md:py-8 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
+        <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 sm:gap-6 lg:gap-8 xl:gap-12 w-full">
 
           {/* Content */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[52%] xl:w-[50%] flex-shrink-0">
@@ -152,7 +152,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-8 md:mt-10 px-4 sm:px-0"
+              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-8 md:mt-10"
             >
               <CustomButton
                 href="#contact"

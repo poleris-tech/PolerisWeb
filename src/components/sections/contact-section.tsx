@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Image from 'next/image';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
@@ -28,7 +28,7 @@ interface FormErrors {
   message?: string;
 }
 
-export default function ContactSection() {
+function ContactSectionInner() {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const searchParams = useSearchParams();
 
@@ -600,5 +600,13 @@ export default function ContactSection() {
       </div>
     </section>
     </>
+  );
+}
+
+export default function ContactSection() {
+  return (
+    <Suspense fallback={<div className="relative bg-white dark:bg-gray-950 overflow-hidden py-12 md:py-16"><div className="container relative max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">Loading...</div></div>}>
+      <ContactSectionInner />
+    </Suspense>
   );
 }
