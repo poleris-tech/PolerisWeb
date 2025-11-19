@@ -27,7 +27,7 @@ function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
   return (
     <div className="group relative h-full">
       {/* Clean card with hover-reveal shadow */}
-      <div className="relative flex flex-col h-full rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-6 sm:p-7 md:p-8 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white dark:hover:from-gray-800 dark:hover:to-gray-800 hover:border-indigo-500 dark:hover:border-cyan-400 hover:translate-x-[-8px] hover:translate-y-[-8px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:8px_8px_0px_rgb(99,102,241)] dark:hover:[box-shadow:8px_8px_0px_rgb(34,211,238)]">
+      <div className="relative flex flex-col h-full rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-6 sm:p-7 md:p-8 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white dark:hover:bg-gray-800 hover:border-indigo-500 dark:hover:border-cyan-400 hover:translate-x-[-8px] hover:translate-y-[-8px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:8px_8px_0px_rgb(99,102,241)] dark:hover:[box-shadow:8px_8px_0px_rgb(34,211,238)]">
 
         {/* Icon Container - Clean and modern */}
         <div className="relative inline-flex self-center mb-6">
