@@ -137,13 +137,13 @@ export function AboutSection() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            {/* H1 Heading: 28-32px mobile, 42-48px desktop */}
-            <h1 className="text-[32px] md:text-[42px] lg:text-[48px] font-black mb-6 md:mb-8 leading-[1.25] md:leading-[1.1] text-[#001f3d] dark:text-white">
+            {/* H2 Heading: 28-32px mobile, 42-48px desktop */}
+            <h2 className="text-[32px] md:text-[42px] lg:text-[48px] font-black mb-6 md:mb-8 leading-[1.25] md:leading-[1.1] text-[#001f3d] dark:text-white">
               We Build Websites That{' '}
               <span className="text-cyan-500 dark:text-cyan-400">
                 Perform
               </span>
-            </h1>
+            </h2>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>

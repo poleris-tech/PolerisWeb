@@ -192,7 +192,7 @@ export function PricingSection() {
                         href="?subject=Custom Website Package - Get Started&message=Hi! I'm interested in the Custom Website Package ($3,200 one-time + $30/month). I'd like to discuss my project and get started.#contact"
                         variant="comic"
                         size="lg"
-                        className="bg-gradient-to-r from-cyan-400 to-cyan-600 text-white hover:from-cyan-500 hover:to-cyan-700 border-0 px-8 sm:px-12 py-4 text-base sm:text-lg font-bold shadow-2xl"
+                        className="px-8 sm:px-12"
                       >
                         Get Started Today
                         <ArrowRight className="ml-2 h-5 w-5" />
@@ -203,10 +203,10 @@ export function PricingSection() {
 
                 {/* Bottom Section - Features */}
                 <div className="p-8 sm:p-10 bg-white dark:bg-gray-900">
-                  {/* H4 Section: 18px mobile, 20-22px desktop */}
-                  <h4 className="text-[18px] md:text-[20px] font-black text-[#001f3f] dark:text-white mb-6 text-center leading-[1.4] md:leading-[1.3]">
+                  {/* H3 Section: 18px mobile, 20-22px desktop */}
+                  <h3 className="text-[18px] md:text-[20px] font-black text-[#001f3f] dark:text-white mb-6 text-center leading-[1.4] md:leading-[1.3]">
                     Everything You Need Included
-                  </h4>
+                  </h3>
 
                   {/* Features Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">

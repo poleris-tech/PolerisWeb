@@ -553,7 +553,7 @@ export function PriceCalculator() {
               href={`?subject=Custom Package Request - ${state.pages} Pages&message=Hi! I'm interested in a custom package with the following:%0A%0A- ${state.pages} pages%0A- Base price: $${prices.baseOneTime.toLocaleString()} one-time + $${prices.baseMonthly}/month${prices.additionalPages > 0 ? `%0A- Additional pages: $${prices.additionalPages.toLocaleString()}` : ''}${state.addOns.blog ? '%0A- Blog integration: $250' : ''}${state.addOns.unlimitedEdits ? '%0A- Unlimited edits: $40/month' : ''}${state.addOns.seoOptimization ? '%0A- SEO optimization: $300' : ''}${state.addOns.googleAds ? '%0A- Google Ads management: $400/month' : ''}%0A%0ATotal: $${prices.totalOneTime.toLocaleString()} one-time + $${prices.totalMonthly}/month%0A%0AI'd like to discuss this package and get started!#contact`}
               variant="comic"
               size="lg"
-              className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 text-white hover:from-cyan-500 hover:to-blue-600 border-0 shadow-xl hover:shadow-2xl"
+              className="w-full"
             >
               Request This Package
               <ArrowRight className="ml-2 w-5 h-5" />
