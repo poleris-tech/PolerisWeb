@@ -118,6 +118,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="inline-flex items-center gap-2.5 mb-4 md:mb-5"
+              style={{ willChange: 'opacity, transform' }}
             >
               <span className="h-px w-10 md:w-12 bg-gradient-to-r from-transparent to-cyan-400"></span>
               <span className="text-sm md:text-base font-semibold tracking-wider text-cyan-400 uppercase">
@@ -132,6 +133,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="space-y-4 md:space-y-6"
+              style={{ willChange: 'opacity, transform' }}
             >
               <h1 className="text-[32px] leading-[1.25] md:text-[42px] lg:text-[48px] md:leading-[1.1] font-black text-white">
                 Fast Websites,
@@ -153,6 +155,7 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-8 md:mt-10"
+              style={{ willChange: 'opacity, transform' }}
             >
               <CustomButton
                 href="#contact"
@@ -179,6 +182,7 @@ export function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mt-8 md:mt-10 flex items-center gap-2 text-sm text-white/60"
+              style={{ willChange: 'opacity' }}
             >
               <div className="flex -space-x-2">
                 <div className="w-8 h-8 rounded-full bg-cyan-400 border-2 border-[#0a0d1a]"></div>

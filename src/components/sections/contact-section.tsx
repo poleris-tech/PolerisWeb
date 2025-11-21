@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
@@ -11,6 +11,32 @@ import { Send, CheckCircle, Loader2 } from 'lucide-react';
 import { Starfield } from '@/components/ui/starfield';
 import confetti from 'canvas-confetti';
 import { useSearchParams } from 'next/navigation';
+
+/**
+ * Custom hook for debounced validation
+ */
+function useDebouncedValidation(callback: (fieldName: string, value: string) => void, delay = 300) {
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const debouncedValidate = useCallback((fieldName: string, value: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      callback(fieldName, value);
+    }, delay);
+  }, [callback, delay]);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  return debouncedValidate;
+}
 
 interface ContactFormData {
   name: string;
@@ -60,66 +86,6 @@ function ContactSectionInner() {
       }));
     }
   }, [searchParams]);
-
-  // Confetti animation function
-  const triggerConfetti = () => {
-    const count = 200;
-    const defaults = {
-      origin: { y: 0.7 },
-      zIndex: 9999,
-    };
-
-    function fire(particleRatio: number, opts: any) {
-      confetti({
-        ...defaults,
-        ...opts,
-        particleCount: Math.floor(count * particleRatio),
-      });
-    }
-
-    fire(0.25, {
-      spread: 26,
-      startVelocity: 55,
-    });
-
-    fire(0.2, {
-      spread: 60,
-    });
-
-    fire(0.35, {
-      spread: 100,
-      decay: 0.91,
-      scalar: 0.8,
-    });
-
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 25,
-      decay: 0.92,
-      scalar: 1.2,
-    });
-
-    fire(0.1, {
-      spread: 120,
-      startVelocity: 45,
-    });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    // Real-time validation
-    validateFieldRealtime(name, value);
-
-    // Clear status message when user starts typing
-    if (submitStatus.type) {
-      setSubmitStatus({ type: null, message: '' });
-    }
-  };
 
   // Real-time field validation
   const validateFieldRealtime = (fieldName: string, value: string) => {
@@ -175,6 +141,69 @@ function ContactSectionInner() {
     }
 
     setErrors(newErrors);
+  };
+
+  // Confetti animation function
+  const triggerConfetti = () => {
+    const count = 200;
+    const defaults = {
+      origin: { y: 0.7 },
+      zIndex: 9999,
+    };
+
+    function fire(particleRatio: number, opts: any) {
+      confetti({
+        ...defaults,
+        ...opts,
+        particleCount: Math.floor(count * particleRatio),
+      });
+    }
+
+    fire(0.25, {
+      spread: 26,
+      startVelocity: 55,
+    });
+
+    fire(0.2, {
+      spread: 60,
+    });
+
+    fire(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8,
+    });
+
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2,
+    });
+
+    fire(0.1, {
+      spread: 120,
+      startVelocity: 45,
+    });
+  };
+
+  // Use debounced validation hook
+  const debouncedValidate = useDebouncedValidation(validateFieldRealtime, 300);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    // Debounced real-time validation (fires after 300ms of inactivity)
+    debouncedValidate(name, value);
+
+    // Clear status message when user starts typing
+    if (submitStatus.type) {
+      setSubmitStatus({ type: null, message: '' });
+    }
   };
 
   const handlePhoneChange = (value: string | undefined) => {
@@ -489,7 +518,7 @@ function ContactSectionInner() {
                     placeholder="John Doe"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                    <p role="alert" className="mt-1 text-sm text-red-600">{errors.name}</p>
                   )}
                 </div>
 
@@ -510,7 +539,7 @@ function ContactSectionInner() {
                     placeholder="john@example.com"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                    <p role="alert" className="mt-1 text-sm text-red-600">{errors.email}</p>
                   )}
                 </div>
 
@@ -528,7 +557,7 @@ function ContactSectionInner() {
                     placeholder="Enter phone number"
                   />
                   {errors.phone && (
-                    <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
+                    <p role="alert" className="mt-1 text-sm text-red-600">{errors.phone}</p>
                   )}
                 </div>
 
@@ -550,7 +579,7 @@ function ContactSectionInner() {
                     placeholder="Web Development Project"
                   />
                   {errors.subject && (
-                    <p className="mt-1 text-sm text-red-600">{errors.subject}</p>
+                    <p role="alert" className="mt-1 text-sm text-red-600">{errors.subject}</p>
                   )}
                 </div>
 
@@ -573,7 +602,7 @@ function ContactSectionInner() {
                   />
                   <div className="flex justify-between items-center mt-1">
                     {errors.message && (
-                      <p className="text-sm text-red-600">{errors.message}</p>
+                      <p role="alert" className="text-sm text-red-600">{errors.message}</p>
                     )}
                     <p className={`text-xs ${errors.message ? 'ml-auto' : ''} ${formData.message.length > 1000 ? 'text-red-600' : 'text-gray-500'}`}>
                       {formData.message.length}/1000

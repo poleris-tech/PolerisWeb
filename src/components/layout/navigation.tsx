@@ -24,6 +24,7 @@ const NAV_ITEMS = [
 export function Navigation() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  const [activeSection, setActiveSection] = React.useState<string>("/");
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +32,42 @@ export function Navigation() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Track active section using scroll position
+  React.useEffect(() => {
+    const handleSectionTracking = () => {
+      const scrollPos = window.scrollY + 150; // Offset for navbar height
+
+      // If at top, show home as active
+      if (window.scrollY < 150) {
+        setActiveSection("/");
+        return;
+      }
+
+      // Find which section is currently in view
+      const sections = ["services", "pricing", "about", "contact"];
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (!element) continue;
+
+        const { top, bottom } = element.getBoundingClientRect();
+        const elementTop = top + window.scrollY;
+        const elementBottom = bottom + window.scrollY;
+
+        // Check if scroll position is within section bounds
+        if (scrollPos >= elementTop && scrollPos < elementBottom) {
+          setActiveSection(`#${sectionId}`);
+          return;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleSectionTracking);
+    // Call once on mount to set initial state
+    handleSectionTracking();
+
+    return () => window.removeEventListener("scroll", handleSectionTracking);
   }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -52,6 +89,7 @@ export function Navigation() {
         style={{
           borderRadius: scrolled ? '0' : '24px'
         }}
+        aria-label="Primary navigation"
       >
         <div className="h-20 md:h-24 flex items-center w-full px-6 md:px-8">
           <div className="flex items-center justify-between w-full gap-6">
@@ -62,23 +100,32 @@ export function Navigation() {
 
               {/* Desktop Navigation - Absolutely Centered to container */}
               <div className="hidden lg:flex items-center h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <nav className="flex items-center gap-10">
-                  {NAV_ITEMS.map((item, index) => (
-                    <motion.div
-                      key={item.href}
-                      initial={{ opacity: 0, y: -20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.1 + index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                    >
-                      <Link
-                        href={item.href}
-                        className="text-base font-bold uppercase tracking-wide text-[#001f3f] dark:text-gray-100 hover:text-[#00bfff] dark:hover:text-cyan-400 transition-all duration-300 hover:scale-105 inline-block whitespace-nowrap relative group"
+                <nav className="flex items-center gap-10" aria-label="Main navigation links">
+                  {NAV_ITEMS.map((item, index) => {
+                    const isActive = activeSection === item.href;
+                    return (
+                      <motion.div
+                        key={item.href}
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: 0.1 + index * 0.05, ease: [0.16, 1, 0.3, 1] }}
                       >
-                        {item.label}
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00bfff] dark:bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
-                      </Link>
-                    </motion.div>
-                  ))}
+                        <Link
+                          href={item.href}
+                          className={`text-base font-bold uppercase tracking-wide transition-all duration-300 hover:scale-105 inline-block whitespace-nowrap relative pb-2 ${
+                            isActive
+                              ? 'text-[#00bfff] dark:text-cyan-400'
+                              : 'text-[#001f3f] dark:text-gray-100 hover:text-[#00bfff] dark:hover:text-cyan-400'
+                          }`}
+                        >
+                          {item.label}
+                          {isActive && (
+                            <span className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-cyan-500 dark:from-cyan-400 dark:to-cyan-300 rounded-full"></span>
+                          )}
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
                 </nav>
               </div>
 
@@ -109,22 +156,29 @@ export function Navigation() {
               >
                 <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700">
                   <div className="flex flex-col space-y-4">
-                    {NAV_ITEMS.map((item, index) => (
-                      <motion.div
-                        key={item.href}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.05 }}
-                      >
-                        <Link
-                          href={item.href}
-                          onClick={() => setIsOpen(false)}
-                          className="text-base font-bold uppercase text-[#001f3f] dark:text-gray-100 hover:text-[#00bfff] dark:hover:text-cyan-400 transition-all duration-300 text-center py-2 block hover:scale-105"
+                    {NAV_ITEMS.map((item, index) => {
+                      const isActive = activeSection === item.href;
+                      return (
+                        <motion.div
+                          key={item.href}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.05 }}
                         >
-                          {item.label}
-                        </Link>
-                      </motion.div>
-                    ))}
+                          <Link
+                            href={item.href}
+                            onClick={() => setIsOpen(false)}
+                            className={`text-base font-bold uppercase transition-all duration-300 text-center py-2 block hover:scale-105 rounded-lg ${
+                              isActive
+                                ? 'text-[#00bfff] dark:text-cyan-400 bg-blue-50 dark:bg-cyan-500/10'
+                                : 'text-[#001f3f] dark:text-gray-100 hover:text-[#00bfff] dark:hover:text-cyan-400'
+                            }`}
+                          >
+                            {item.label}
+                          </Link>
+                        </motion.div>
+                      );
+                    })}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}

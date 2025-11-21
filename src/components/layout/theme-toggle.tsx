@@ -39,7 +39,9 @@ export function ThemeToggle() {
           type="checkbox"
           checked={isDark}
           onChange={toggleTheme}
-          aria-label="Toggle theme"
+          aria-label="Toggle dark mode"
+          aria-pressed={isDark}
+          role="switch"
         />
         <div className="slider round">
           <div className="sun-moon">

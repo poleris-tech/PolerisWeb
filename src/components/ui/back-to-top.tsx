@@ -55,6 +55,7 @@ export function BackToTop() {
           onClick={scrollToTop}
           className="fixed bottom-28 right-4 sm:right-6 md:right-8 z-[9998] group"
           aria-label="Back to top"
+          style={{ willChange: 'opacity, transform' }}
         >
           {/* Main button */}
           <div className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-cyan-500 dark:bg-cyan-600 text-white shadow-lg shadow-cyan-500/30 dark:shadow-cyan-600/30 hover:shadow-xl hover:shadow-cyan-500/50 dark:hover:shadow-cyan-600/50 transition-all duration-300">
@@ -82,6 +83,7 @@ export function BackToTop() {
                 transition={{ duration: 0.2, ease: "easeOut" }}
                 style={{
                   strokeDasharray: "1 1",
+                  willChange: 'stroke-dashoffset',
                 }}
               />
             </svg>
