@@ -239,50 +239,6 @@ export function PricingSection() {
         <div className="my-20 sm:my-28">
           <PriceCalculator />
         </div>
-
-        {/* Value propositions */}
-        <div className="mt-16 sm:mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-          <ScrollReveal direction="up" delay={0.1} duration={0.7}>
-            <div className="text-center space-y-3 group">
-              <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-500 mb-4 shadow-lg">
-                <Check className="h-6 w-6 md:h-8 md:w-8 text-white transition-colors duration-500" strokeWidth={2.5} />
-              </div>
-              {/* H3 Section: 18px mobile, 20px desktop */}
-              <h3 className="text-[18px] md:text-[20px] font-bold text-white group-hover:text-cyan-300 transition-colors duration-300 leading-[1.4] md:leading-[1.3]">Custom Built</h3>
-              {/* Caption Text: 14px mobile, 16px desktop */}
-              <p className="text-sm md:text-base text-white/80 leading-[1.4] md:leading-[1.5]">
-                100% hand-coded, no templates or page builders
-              </p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.2} duration={0.7}>
-            <div className="text-center space-y-3 group">
-              <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-500 mb-4 shadow-lg">
-                <Check className="h-6 w-6 md:h-8 md:w-8 text-white transition-colors duration-500" strokeWidth={2.5} />
-              </div>
-              <h3 className="text-[18px] md:text-[20px] font-bold text-white group-hover:text-cyan-300 transition-colors duration-300 leading-[1.4] md:leading-[1.3]">All-Inclusive</h3>
-              <p className="text-sm md:text-base text-white/80 leading-[1.4] md:leading-[1.5]">
-                Domain, hosting, SSL, and deployment included
-              </p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.3} duration={0.7}>
-            <div className="text-center space-y-3 group">
-              <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/20 backdrop-blur-sm group-hover:bg-gradient-to-br group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-500 mb-4 shadow-lg">
-                <Check className="h-6 w-6 md:h-8 md:w-8 text-white transition-colors duration-500" strokeWidth={2.5} />
-              </div>
-              <h3 className="text-[18px] md:text-[20px] font-bold text-white group-hover:text-cyan-300 transition-colors duration-300 leading-[1.4] md:leading-[1.3]">1 Year Support</h3>
-              <p className="text-sm md:text-base text-white/80 leading-[1.4] md:leading-[1.5]">
-                Priority support for one full year included
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
-
-        {/* Bottom decorative line */}
-        <div className="mt-12 flex justify-center">
-          <div className="h-1 w-24 bg-gradient-to-r from-transparent via-blue-400 to-transparent rounded-full" />
-        </div>
       </div>
     </section>
   );
