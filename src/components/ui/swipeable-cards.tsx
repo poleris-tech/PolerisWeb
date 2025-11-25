@@ -16,7 +16,6 @@ interface SwipeableCardsProps {
 
 export function SwipeableCards({ children, showControls = true }: SwipeableCardsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const x = useMotionValue(0);
   const [isDragging, setIsDragging] = useState(false);
 
   const SWIPE_CONFIDENCE_THRESHOLD = 5000;
@@ -31,36 +30,32 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
     const swipe = swipePower(offset.x, velocity.x);
 
     // Check both swipe power and minimum offset for better responsiveness
-    if ((swipe < -SWIPE_CONFIDENCE_THRESHOLD || offset.x < -SWIPE_OFFSET_THRESHOLD) && currentIndex < children.length - 1) {
-      // Swipe left - next card
-      setCurrentIndex(currentIndex + 1);
-    } else if ((swipe > SWIPE_CONFIDENCE_THRESHOLD || offset.x > SWIPE_OFFSET_THRESHOLD) && currentIndex > 0) {
-      // Swipe right - previous card
-      setCurrentIndex(currentIndex - 1);
+    if (swipe < -SWIPE_CONFIDENCE_THRESHOLD || offset.x < -SWIPE_OFFSET_THRESHOLD) {
+      // Swipe left - next card (infinite loop)
+      setCurrentIndex((currentIndex + 1) % children.length);
+    } else if (swipe > SWIPE_CONFIDENCE_THRESHOLD || offset.x > SWIPE_OFFSET_THRESHOLD) {
+      // Swipe right - previous card (infinite loop)
+      setCurrentIndex((currentIndex - 1 + children.length) % children.length);
     }
   };
 
   const goToNext = () => {
-    if (currentIndex < children.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
+    setCurrentIndex((currentIndex + 1) % children.length);
   };
 
   const goToPrevious = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
+    setCurrentIndex((currentIndex - 1 + children.length) % children.length);
   };
 
   return (
     <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw] overflow-hidden pb-2">
       {/* Cards container */}
-      <div className="relative h-full mb-4">
+      <div className="relative h-full mb-4 px-4 sm:px-0">
         <motion.div
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.1}
-          dragMomentum={false}
+          dragElastic={0.2}
+          dragMomentum={true}
           onDragStart={() => setIsDragging(true)}
           onDragEnd={handleDragEnd}
           animate={{
@@ -68,17 +63,16 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
           }}
           transition={{
             type: "spring",
-            stiffness: 400,
-            damping: 35,
-            mass: 0.5,
+            stiffness: 300,
+            damping: 30,
+            mass: 1,
           }}
           className="flex touch-pan-y will-change-transform"
-          style={{ x }}
         >
           {children.map((child, index) => (
             <div
               key={index}
-              className="min-w-full"
+              className="min-w-full px-4 sm:px-0"
               style={{ pointerEvents: isDragging ? "none" : "auto" }}
             >
               {child}

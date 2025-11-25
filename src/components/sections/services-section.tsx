@@ -162,8 +162,8 @@ export function ServicesSection() {
           </ScrollReveal>
         </div>
 
-        {/* Key Benefits Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16 sm:mb-20 max-w-4xl mx-auto">
+        {/* Key Benefits Overview - Hidden on mobile */}
+        <div className="hidden md:grid grid-cols-3 gap-6 md:gap-8 mb-16 sm:mb-20 max-w-4xl mx-auto">
           <ScrollReveal direction="up" delay={0.1} duration={0.6}>
             <div className="text-center p-6 rounded-xl bg-indigo-50/50 dark:bg-cyan-500/5 border border-indigo-200 dark:border-cyan-500/20 hover:border-indigo-500 dark:hover:border-cyan-400 transition-all duration-300">
               <div className="text-3xl md:text-4xl font-black text-indigo-600 dark:text-cyan-400 mb-2">100%</div>
