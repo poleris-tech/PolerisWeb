@@ -487,6 +487,9 @@ function ContactSectionInner() {
                 {/* Status Message */}
                 {submitStatus.type && (
                   <div
+                    aria-live="polite"
+                    aria-atomic="true"
+                    role="status"
                     className={`p-4 rounded-lg border-2 ${
                       submitStatus.type === 'success'
                         ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-800 dark:text-green-300'
@@ -512,13 +515,14 @@ function ContactSectionInner() {
                     value={formData.name}
                     onChange={handleChange}
                     maxLength={50}
+                    aria-describedby={errors.name ? 'name-error' : undefined}
                     className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border-2 rounded-lg text-[#001f3d] dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent transition-all duration-300 ${
                       errors.name ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
                     }`}
                     placeholder="John Doe"
                   />
                   {errors.name && (
-                    <p role="alert" className="mt-1 text-sm text-red-600">{errors.name}</p>
+                    <p id="name-error" role="alert" className="mt-1 text-sm text-red-600">{errors.name}</p>
                   )}
                 </div>
 
@@ -533,13 +537,14 @@ function ContactSectionInner() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
                     className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border-2 rounded-lg text-[#001f3d] dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent transition-all duration-300 ${
                       errors.email ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
                     }`}
                     placeholder="john@example.com"
                   />
                   {errors.email && (
-                    <p role="alert" className="mt-1 text-sm text-red-600">{errors.email}</p>
+                    <p id="email-error" role="alert" className="mt-1 text-sm text-red-600">{errors.email}</p>
                   )}
                 </div>
 
@@ -553,11 +558,12 @@ function ContactSectionInner() {
                     defaultCountry="US"
                     value={formData.phone}
                     onChange={handlePhoneChange}
+                    aria-describedby={errors.phone ? 'phone-error' : undefined}
                     className={`phone-input-custom ${errors.phone ? 'phone-error' : ''}`}
                     placeholder="Enter phone number"
                   />
                   {errors.phone && (
-                    <p role="alert" className="mt-1 text-sm text-red-600">{errors.phone}</p>
+                    <p id="phone-error" role="alert" className="mt-1 text-sm text-red-600">{errors.phone}</p>
                   )}
                 </div>
 
@@ -573,13 +579,14 @@ function ContactSectionInner() {
                     value={formData.subject}
                     onChange={handleChange}
                     maxLength={100}
+                    aria-describedby={errors.subject ? 'subject-error' : undefined}
                     className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border-2 rounded-lg text-[#001f3d] dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent transition-all duration-300 ${
                       errors.subject ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
                     }`}
                     placeholder="Web Development Project"
                   />
                   {errors.subject && (
-                    <p role="alert" className="mt-1 text-sm text-red-600">{errors.subject}</p>
+                    <p id="subject-error" role="alert" className="mt-1 text-sm text-red-600">{errors.subject}</p>
                   )}
                 </div>
 
@@ -595,6 +602,7 @@ function ContactSectionInner() {
                     onChange={handleChange}
                     maxLength={1000}
                     rows={5}
+                    aria-describedby={errors.message ? 'message-error' : undefined}
                     className={`w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border-2 rounded-lg text-[#001f3d] dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-cyan-500 focus:border-transparent transition-all duration-300 resize-none ${
                       errors.message ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'
                     }`}
@@ -602,7 +610,7 @@ function ContactSectionInner() {
                   />
                   <div className="flex justify-between items-center mt-1">
                     {errors.message && (
-                      <p role="alert" className="text-sm text-red-600">{errors.message}</p>
+                      <p id="message-error" role="alert" className="text-sm text-red-600">{errors.message}</p>
                     )}
                     <p className={`text-xs ${errors.message ? 'ml-auto' : ''} ${formData.message.length > 1000 ? 'text-red-600' : 'text-gray-500'}`}>
                       {formData.message.length}/1000

@@ -26,7 +26,7 @@ const ICON_MAP = {
 function ServiceIllustration({ serviceId }: { serviceId: string }): React.ReactNode {
   const illustrations: Record<string, React.ReactNode> = {
     "web-design": (
-      <svg viewBox="0 0 120 120" className="w-full h-full">
+      <svg viewBox="0 0 120 120" className="w-full h-full" aria-label="Web design service icon">
         <motion.rect x="20" y="25" width="80" height="70" rx="4" fill="none" stroke="currentColor" strokeWidth="2.5" />
         <motion.line x1="20" y1="40" x2="100" y2="40" stroke="currentColor" strokeWidth="2.5" />
         <motion.circle cx="35" cy="32" r="3" fill="currentColor" />
@@ -38,7 +38,7 @@ function ServiceIllustration({ serviceId }: { serviceId: string }): React.ReactN
       </svg>
     ),
     "seo": (
-      <svg viewBox="0 0 120 120" className="w-full h-full">
+      <svg viewBox="0 0 120 120" className="w-full h-full" aria-label="SEO service icon">
         <motion.circle cx="60" cy="60" r="35" fill="none" stroke="currentColor" strokeWidth="2.5" />
         <motion.circle cx="60" cy="60" r="25" fill="none" stroke="currentColor" strokeWidth="2.5" opacity="0.5" />
         <motion.text x="60" y="68" textAnchor="middle" fontSize="24" fontWeight="bold" fill="currentColor">SEO</motion.text>
@@ -46,7 +46,7 @@ function ServiceIllustration({ serviceId }: { serviceId: string }): React.ReactN
       </svg>
     ),
     "ppc": (
-      <svg viewBox="0 0 120 120" className="w-full h-full">
+      <svg viewBox="0 0 120 120" className="w-full h-full" aria-label="PPC advertising service icon">
         <motion.path d="M 30 80 Q 60 30, 90 80" fill="none" stroke="currentColor" strokeWidth="2.5" />
         <motion.circle cx="30" cy="80" r="4" fill="currentColor" />
         <motion.circle cx="60" cy="30" r="4" fill="currentColor" />
@@ -56,7 +56,7 @@ function ServiceIllustration({ serviceId }: { serviceId: string }): React.ReactN
       </svg>
     ),
     "hosting": (
-      <svg viewBox="0 0 120 120" className="w-full h-full">
+      <svg viewBox="0 0 120 120" className="w-full h-full" aria-label="Hosting service icon">
         <motion.rect x="25" y="30" width="70" height="60" rx="3" fill="none" stroke="currentColor" strokeWidth="2.5" />
         <motion.line x1="25" y1="50" x2="95" y2="50" stroke="currentColor" strokeWidth="1.5" />
         <motion.line x1="25" y1="65" x2="95" y2="65" stroke="currentColor" strokeWidth="1.5" />
@@ -102,7 +102,7 @@ function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
           {service.features.map((feature, idx) => (
             <li key={idx} className="flex items-start text-base md:text-lg text-[#001f3f]/80 dark:text-gray-300 transition-all duration-500 group-hover:text-[#001f3f] dark:group-hover:text-white gap-3">
               <span className="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-cyan-500/10 group-hover:bg-indigo-500 dark:group-hover:bg-cyan-500 flex items-center justify-center transition-all duration-500 mt-0.5">
-                <svg className="w-3 h-3 text-indigo-500 dark:text-cyan-400 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <svg className="w-3 h-3 text-indigo-500 dark:text-cyan-400 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3} aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </span>

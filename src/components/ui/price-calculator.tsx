@@ -251,6 +251,8 @@ export function PriceCalculator() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
+                aria-selected={isSelected}
+                aria-label={`${preset.name} package: ${preset.description}`}
                 className={`relative p-6 rounded-2xl border-2 transition-all duration-300 text-left ${
                   isSelected
                     ? 'bg-white dark:bg-gray-900 border-cyan-400 shadow-lg shadow-cyan-500/20'
@@ -319,6 +321,7 @@ export function PriceCalculator() {
               <button
                 onClick={() => handlePageChange(false)}
                 disabled={state.pages <= 1}
+                aria-label="Decrease number of pages"
                 className="w-12 h-12 rounded-xl bg-cyan-400/20 hover:bg-cyan-400/30 disabled:bg-gray-200 dark:disabled:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 <Minus className="w-5 h-5 text-cyan-500" />
@@ -350,6 +353,7 @@ export function PriceCalculator() {
               <button
                 onClick={() => handlePageChange(true)}
                 disabled={state.pages >= 30}
+                aria-label="Increase number of pages"
                 className="w-12 h-12 rounded-xl bg-cyan-400/20 hover:bg-cyan-400/30 disabled:bg-gray-200 dark:disabled:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 <Plus className="w-5 h-5 text-cyan-500" />
@@ -467,7 +471,7 @@ export function PriceCalculator() {
             )}
 
             {/* Price Display */}
-            <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700" aria-live="polite" aria-label="Price summary">
               {/* One-time Cost */}
               <div className="mb-4">
                 <div className="text-[#001f3d]/70 dark:text-white/70 text-sm mb-2">One-time Investment</div>
@@ -501,6 +505,8 @@ export function PriceCalculator() {
             {/* Price Breakdown Toggle */}
             <button
               onClick={() => setShowBreakdown(!showBreakdown)}
+              aria-label={`${showBreakdown ? 'Hide' : 'Show'} price breakdown details`}
+              aria-expanded={showBreakdown}
               className="text-cyan-500 dark:text-cyan-400 text-sm hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors mb-4 flex items-center gap-2 group"
             >
               <span>{showBreakdown ? 'Hide' : 'Show'} price breakdown</span>
@@ -587,6 +593,8 @@ function AddOnToggle({ label, price, type, description, marketValue, active, onT
     <motion.button
       onClick={onToggle}
       whileTap={{ scale: 0.98 }}
+      aria-pressed={active}
+      aria-label={`${active ? 'Remove' : 'Add'} ${label} add-on: $${price}${type === 'monthly' ? ' per month' : ''}`}
       className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-300 ${
         active
           ? 'bg-cyan-50 dark:bg-cyan-900/20 border-cyan-400'

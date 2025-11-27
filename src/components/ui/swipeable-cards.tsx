@@ -100,7 +100,7 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
       )}
 
       {/* Navigation dots */}
-      <div className="flex justify-center gap-3 mt-4">
+      <div className="flex justify-center gap-3 mt-4" role="tablist">
         {children.map((_, index) => (
           <motion.button
             key={index}
@@ -113,6 +113,9 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
                 : "w-2 h-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"
             }`}
             aria-label={`Go to card ${index + 1}`}
+            aria-current={index === currentIndex ? "page" : undefined}
+            role="tab"
+            aria-selected={index === currentIndex}
           />
         ))}
       </div>

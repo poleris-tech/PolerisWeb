@@ -55,13 +55,16 @@ export function NewsletterSignup() {
     <div className="w-full">
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
-          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" />
+          <label htmlFor="newsletter-email" className="sr-only">Enter your email address</label>
+          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/50" aria-hidden="true" />
           <input
+            id="newsletter-email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
             disabled={status === 'loading' || status === 'success'}
+            aria-describedby={message ? 'newsletter-message' : undefined}
             className="w-full pl-11 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           />
         </div>
@@ -89,6 +92,10 @@ export function NewsletterSignup() {
       {/* Status Messages */}
       {message && (
         <div
+          id="newsletter-message"
+          aria-live="polite"
+          aria-atomic="true"
+          role={status === 'success' ? 'status' : 'alert'}
           className={`mt-3 p-3 rounded-lg flex items-start gap-2 ${
             status === 'success'
               ? 'bg-green-500/20 border border-green-500/30 text-green-100'

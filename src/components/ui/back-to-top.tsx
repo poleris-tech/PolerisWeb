@@ -61,7 +61,7 @@ export function BackToTop() {
           <div className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-cyan-500 dark:bg-cyan-600 text-white shadow-lg shadow-cyan-500/30 dark:shadow-cyan-600/30 hover:shadow-xl hover:shadow-cyan-500/50 dark:hover:shadow-cyan-600/50 transition-all duration-300">
 
             {/* Scroll progress ring */}
-            <svg className="absolute inset-0 w-full h-full -rotate-90">
+            <svg className="absolute inset-0 w-full h-full -rotate-90" aria-hidden="true">
               <circle
                 cx="50%"
                 cy="50%"

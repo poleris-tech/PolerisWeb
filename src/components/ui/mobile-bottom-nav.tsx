@@ -88,6 +88,7 @@ export function MobileBottomNav() {
                     }
                   }}
                   className="flex flex-col items-center justify-center min-w-[60px] py-2 px-3 rounded-lg transition-all duration-300 active:scale-95"
+                  aria-current={isActive ? "page" : undefined}
                 >
                   <motion.div
                     animate={{
