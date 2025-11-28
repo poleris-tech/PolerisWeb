@@ -110,8 +110,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Preconnect to external resources for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://assets.vercel.com" />
+        {/* Preload critical fonts */}
+        <link rel="preload" as="font" href="https://fonts.gstatic.com/s/poppins/v21/pxiGyqcV2IG0H86g.woff2" type="font/woff2" crossOrigin="anonymous" />
         <SchemaMarkup />
       </head>
       <body

@@ -25,13 +25,21 @@ const nextConfig: NextConfig = {
         hostname: 'upload.wikimedia.org',
       },
     ],
-    // Image optimization settings
+    // Image optimization settings for performance
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60,
+    minimumCacheTTL: 60 * 60 * 24 * 365, // Cache for 1 year
     dangerouslyAllowSVG: true,
     contentDispositionType: 'inline',
+  },
+  // Optimize production builds
+  swcMinify: true,
+  compress: true,
+  // Enable SWR (stale-while-revalidate) for ISR
+  onDemandEntries: {
+    maxInactiveAge: 60 * 60 * 1000,
+    pagesBufferLength: 5,
   },
 };
 

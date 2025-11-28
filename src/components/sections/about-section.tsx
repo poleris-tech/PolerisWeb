@@ -41,9 +41,9 @@ const STATS = [
     icon: Shield,
   },
   {
-    value: 1,
+    value: 0.9,
     suffix: 's',
-    label: 'Load Time Target',
+    label: 'Avg Load Time',
     icon: Zap,
   },
   {
@@ -188,6 +188,7 @@ export function AboutSection() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto">
             {STATS.map((stat, index) => {
               const Icon = stat.icon;
+              const decimals = stat.value === 0.9 ? 1 : 0;
               return (
                 <ScrollReveal key={index} direction="up" delay={0.1 * index}>
                   <div className="text-center">
@@ -195,7 +196,7 @@ export function AboutSection() {
                       <Icon className="w-8 h-8 text-white" />
                     </div>
                     <div className="text-4xl sm:text-5xl md:text-6xl font-black text-[#001f3d] dark:text-white mb-2">
-                      <CountUp end={stat.value} suffix={stat.suffix} />
+                      <CountUp end={stat.value} suffix={stat.suffix} decimals={decimals} />
                     </div>
                     <div className="text-sm sm:text-base text-[#001f3d]/70 dark:text-gray-400 font-medium">
                       {stat.label}
