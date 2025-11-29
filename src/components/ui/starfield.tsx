@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useState, useMemo, memo } from "react";
+import { useEffect, useState, useMemo, memo, HTMLAttributes } from "react";
 
 /**
  * Starfield Component
- * Animated stars that appear only in dark mode
- * Can be used as fixed (full page) or absolute (within sections)
- * Optimized with memoization to prevent unnecessary re-renders
+ * Animated stars visible only in dark mode
+ * Fully supports className, style, and all native div props
  */
 
 interface Star {
@@ -18,12 +17,13 @@ interface Star {
   delay: number;
 }
 
-interface StarfieldProps {
+// Extend HTMLAttributes<HTMLDivElement> to inherit className, style, etc.
+interface StarfieldProps extends HTMLAttributes<HTMLDivElement> {
   count?: number;
-  position?: 'fixed' | 'absolute';
+  position?: "fixed" | "absolute";
 }
 
-// Memoized star renderer to prevent re-renders of individual stars
+// Memoized single star
 const StarRenderer = memo(({ star }: { star: Star }) => (
   <div
     className="absolute rounded-full bg-white animate-twinkle"
@@ -35,17 +35,21 @@ const StarRenderer = memo(({ star }: { star: Star }) => (
       animationDuration: `${star.duration}s`,
       animationDelay: `${star.delay}s`,
       boxShadow: `0 0 ${star.size * 2}px rgba(255, 255, 255, 0.5)`,
-      willChange: 'opacity',
+      willChange: "opacity",
     }}
   />
 ));
+StarRenderer.displayName = "StarRenderer";
 
-StarRenderer.displayName = 'StarRenderer';
-
-export const Starfield = memo(function Starfield({ count = 100, position = 'fixed' }: StarfieldProps) {
+// Main component
+export const Starfield = memo(function Starfield({
+  count = 100,
+  position = "fixed",
+  className = "",
+  ...rest // captures style, onClick, etc.
+}: StarfieldProps) {
   const [stars, setStars] = useState<Star[]>([]);
 
-  // Memoize star generation to prevent recreation on every render
   const generatedStars = useMemo(() => {
     const newStars: Star[] = [];
     for (let i = 0; i < count; i++) {
@@ -53,8 +57,8 @@ export const Starfield = memo(function Starfield({ count = 100, position = 'fixe
         id: i,
         x: Math.random() * 100,
         y: Math.random() * 100,
-        size: Math.random() * 2 + 1,
-        duration: Math.random() * 3 + 2,
+        size: Math.random() * 2 + 1, // 1–3px
+        duration: Math.random() * 3 + 2, // 2–5s
         delay: Math.random() * 5,
       });
     }
@@ -65,13 +69,23 @@ export const Starfield = memo(function Starfield({ count = 100, position = 'fixe
     setStars(generatedStars);
   }, [generatedStars]);
 
-  const positionClass = position === 'fixed' ? 'fixed' : 'absolute';
+  const positionClass = position === "fixed" ? "fixed" : "absolute";
 
   return (
-    <div className={`${positionClass} inset-0 pointer-events-none hidden dark:block`} style={{ zIndex: 5 }}>
+    <div
+      className={`
+        ${positionClass} inset-0 pointer-events-none
+        hidden dark:block
+        ${className}
+      `.trim()}
+      style={{ zIndex: 5 }}
+      {...rest}
+    >
       {stars.map((star) => (
         <StarRenderer key={star.id} star={star} />
       ))}
     </div>
   );
 });
+
+Starfield.displayName = "Starfield";

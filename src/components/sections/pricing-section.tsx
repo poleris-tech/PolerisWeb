@@ -135,24 +135,24 @@ export function PricingSection() {
         </div>
 
         {/* Main Pricing Card - Single Centered Card */}
-        <div className="max-w-4xl mx-auto mb-12 sm:mb-16 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24 px-4 sm:px-6">
           <ScrollReveal direction="up" delay={0.2} duration={0.6}>
             <div className="group relative">
               {/* Subtle blue blur background */}
-              <div className="absolute inset-0 bg-cyan-500/5 blur-3xl rounded-3xl"></div>
+              <div className="absolute inset-0 bg-cyan-500/5 blur-3xl rounded-2xl"></div>
 
-              <div className="relative rounded-3xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-cyan-400 hover:translate-y-[-8px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:0px_12px_0px_rgba(34,211,238,0.2)] shadow-lg"
+              <div className="relative rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-indigo-500 dark:hover:border-cyan-400 hover:translate-y-[-6px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:0px_10px_0px_rgba(99,102,241,0.15)] dark:hover:[box-shadow:0px_10px_0px_rgba(34,211,238,0.15)] shadow-md"
               >
 
                 {/* Popular Badge */}
                 {PRICING_PLANS[0].popular && (
-                  <div className="absolute top-0 right-0 px-6 py-2 bg-gradient-to-r from-cerulean-blue-400 to-cyan-400 text-white text-sm font-bold rounded-bl-2xl shadow-lg z-10">
+                  <div className="absolute top-0 right-0 px-5 py-1.5 bg-gradient-to-r from-indigo-500 to-cyan-400 text-white text-xs font-bold rounded-bl-xl shadow-lg z-10">
                     ⭐ Most Popular
                   </div>
                 )}
 
                 {/* Top Section - Pricing */}
-                <div className="bg-gradient-to-br from-cyan-50/50 to-blue-50/30 dark:from-gray-800/50 dark:to-gray-800/30 p-8 sm:p-10 border-b border-gray-200 dark:border-gray-700">
+                <div className="bg-gradient-to-br from-indigo-50/30 to-cyan-50/20 dark:from-gray-800/40 dark:to-gray-800/20 p-6 sm:p-8 md:p-9 border-b border-gray-200 dark:border-gray-700">
                   <div className="text-center">
                     {/* H3 Section: 18-20px mobile, 24-28px desktop */}
                     <h3 className="text-[20px] md:text-[24px] font-black text-[#001f3f] dark:text-white mb-6 leading-[1.4] md:leading-[1.3]">
@@ -204,9 +204,9 @@ export function PricingSection() {
                 </div>
 
                 {/* Bottom Section - Features */}
-                <div className="p-8 sm:p-10 bg-white dark:bg-gray-900">
-                  {/* H3 Section: 18px mobile, 20-22px desktop */}
-                  <h3 className="text-[18px] md:text-[20px] font-black text-[#001f3f] dark:text-white mb-6 text-center leading-[1.4] md:leading-[1.3]">
+                <div className="p-6 sm:p-8 md:p-9 bg-white dark:bg-gray-900">
+                  {/* H3 Section: 16px mobile, 20px desktop */}
+                  <h3 className="text-[16px] md:text-[20px] font-bold text-[#001f3f] dark:text-white mb-5 md:mb-6 text-center leading-[1.4] md:leading-[1.3]">
                     Everything You Need Included
                   </h3>
 

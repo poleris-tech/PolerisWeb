@@ -6,77 +6,115 @@
   --font-sans: var(--font-poppins);
   --font-mono: var(--font-poppins);
 
-  /* Modern Cyan-Dark-Pink Palette - Bold & Tech-Forward */
+  /* ═══════════════════════════════════════════════════════════════
+     60-30-10 COLOR RULE
+     ═══════════════════════════════════════════════════════════════
+     60% - DOMINANT: Navy & Light Gray (backgrounds, large surfaces)
+     30% - SECONDARY: Cerulean Blue (interactive elements)
+     10% - ACCENT: Hot Pink (CTAs, emphasis, critical actions)
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* ─────────────────────────────────────────────────────────────
+     DOMINANT COLORS (60%) - Backgrounds & Neutral Surfaces
+     ───────────────────────────────────────────────────────────── */
+  /* Cerulean Blue Scale (30% SECONDARY color for interactive) */
   --color-cerulean-blue-50: #E6FFFE;   /* Very light cyan tint */
   --color-cerulean-blue-100: #B3FFFD;  /* Light cyan */
   --color-cerulean-blue-200: #80FFF9;  /* Soft cyan */
-  --color-cerulean-blue-300: #4DEFF5;  /* Bright cyan */
-  --color-cerulean-blue-400: #1AE4E1;  /* Vibrant cyan */
-  --color-cerulean-blue-500: #08D9D6;  /* Primary cyan */
+  --color-cerulean-blue-300: #4DEFF5;  /* Bright cyan - dark mode accent */
+  --color-cerulean-blue-400: #1AE4E1;  /* Vibrant cyan - hover states */
+  --color-cerulean-blue-500: #08D9D6;  /* Primary cyan - 30% SECONDARY */
   --color-cerulean-blue-600: #07ADAB;  /* Medium cyan */
   --color-cerulean-blue-700: #058280;  /* Deep cyan */
   --color-cerulean-blue-800: #045655;  /* Dark cyan */
   --color-cerulean-blue-900: #022B2A;  /* Very dark cyan */
   --color-cerulean-blue-950: #011515;  /* Darkest cyan */
 
-  /* Dark slate palette - #252A34 */
-  --color-slate: #252A34;
+  /* Dark Navy - 60% DOMINANT */
+  --color-slate: #252A34;              /* Primary dark base - 60% DOMINANT */
 
-  /* Hot pink accent - #FF2E63 */
-  --color-pink: #FF2E63;
+  /* Hot Pink Accent - 10% ACCENT */
+  --color-pink: #FF2E63;               /* Primary accent - 10% ACCENT */
 
-  /* Light gray - #EAEAEA */
-  --color-gray-light: #EAEAEA;
+  /* Light Gray - 60% DOMINANT */
+  --color-gray-light: #EAEAEA;         /* Primary light - 60% DOMINANT */
 
-  /* Theme colors using Modern Cyan-Dark-Pink palette */
-  --color-background: #FFFFFF;
-  --color-foreground: #252A34; /* dark slate */
-  --color-card: #FFFFFF;
-  --color-card-foreground: #252A34;
-  --color-popover: #FFFFFF;
-  --color-popover-foreground: #252A34;
-  --color-primary: #08D9D6; /* bright cyan */
-  --color-primary-foreground: #252A34;
-  --color-secondary: #EAEAEA; /* light gray */
-  --color-secondary-foreground: #252A34;
-  --color-muted: #F5F6F7;
-  --color-muted-foreground: #545C6E;
-  --color-accent: #FF2E63; /* hot pink */
-  --color-accent-foreground: #FFFFFF;
-  --color-destructive: #FF2E63; /* hot pink for emphasis */
-  --color-destructive-foreground: #FFFFFF;
-  --color-border: #EAEAEA;
-  --color-input: #F5F6F7;
-  --color-ring: #08D9D6;
+  /* ─────────────────────────────────────────────────────────────
+     THEME SEMANTIC COLORS (Ordered by 60-30-10 rule)
+     ───────────────────────────────────────────────────────────── */
+  /* Backgrounds: Navy/Gray (60%) + Text: Navy/Gray (60%) */
+  --color-background: #FFFFFF;         /* 60% DOMINANT - light background */
+  --color-foreground: #252A34;         /* 60% DOMINANT - navy text */
+  --color-card: #FFFFFF;               /* 60% DOMINANT - card background */
+  --color-card-foreground: #252A34;    /* 60% DOMINANT - card text */
+  --color-popover: #FFFFFF;            /* 60% DOMINANT - popover background */
+  --color-popover-foreground: #252A34; /* 60% DOMINANT - popover text */
+
+  /* Interactive: Cyan (30%) */
+  --color-primary: #08D9D6;            /* 30% SECONDARY - interactive elements */
+  --color-primary-foreground: #252A34; /* 60% DOMINANT - text on primary */
+
+  /* Secondary/Neutral: Gray (60%) */
+  --color-secondary: #EAEAEA;          /* 60% DOMINANT - secondary background */
+  --color-secondary-foreground: #252A34; /* 60% DOMINANT - secondary text */
+  --color-muted: #F5F6F7;              /* 60% DOMINANT - muted backgrounds */
+  --color-muted-foreground: #545C6E;   /* 60% DOMINANT - muted text */
+
+  /* Accent & Emphasis: Pink (10%) */
+  --color-accent: #FF2E63;             /* 10% ACCENT - emphasis & CTAs */
+  --color-accent-foreground: #FFFFFF;  /* 60% DOMINANT - text on accent */
+  --color-destructive: #FF2E63;        /* 10% ACCENT - warning/destructive */
+  --color-destructive-foreground: #FFFFFF; /* 60% DOMINANT - text on destructive */
+
+  /* Borders: Gray (60%) */
+  --color-border: #EAEAEA;             /* 60% DOMINANT - border color */
+  --color-input: #F5F6F7;              /* 60% DOMINANT - input background */
+
+  /* Focus/Ring: Cyan (30%) */
+  --color-ring: #08D9D6;               /* 30% SECONDARY - focus rings */
   --radius: 0.5rem;
 
   --default-border-color: var(--color-border);
 
-  /* Custom colors for Modern theme */
-  --color-navy: #252A34; /* dark slate */
-  --color-light-blue: #08D9D6; /* bright cyan */
+  /* ─────────────────────────────────────────────────────────────
+     CUSTOM COLORS FOR THEME
+     ───────────────────────────────────────────────────────────── */
+  --color-navy: #252A34;               /* 60% DOMINANT - navy accent */
+  --color-light-blue: #08D9D6;         /* 30% SECONDARY - light blue accent */
 }
 
+/* DARK MODE (60-30-10 rule maintained) */
 .dark {
-  --color-background: #252A34; /* dark slate */
-  --color-foreground: #EAEAEA; /* light gray */
-  --color-card: #252A34;
-  --color-card-foreground: #EAEAEA;
-  --color-popover: #252A34;
-  --color-popover-foreground: #EAEAEA;
-  --color-primary: #08D9D6; /* bright cyan */
-  --color-primary-foreground: #252A34;
-  --color-secondary: #3D4350; /* darker gray */
-  --color-secondary-foreground: #EAEAEA;
-  --color-muted: #3D4350;
-  --color-muted-foreground: #D1D3D8;
-  --color-accent: #FF2E63; /* hot pink */
-  --color-accent-foreground: #FFFFFF;
-  --color-destructive: #FF2E63;
-  --color-destructive-foreground: #FFFFFF;
-  --color-border: #3D4350;
-  --color-input: #3D4350;
-  --color-ring: #08D9D6;
+  /* Backgrounds: Navy/Gray (60%) */
+  --color-background: #252A34;         /* 60% DOMINANT - navy background */
+  --color-foreground: #EAEAEA;         /* 60% DOMINANT - light text */
+  --color-card: #252A34;               /* 60% DOMINANT - card background */
+  --color-card-foreground: #EAEAEA;    /* 60% DOMINANT - card text */
+  --color-popover: #252A34;            /* 60% DOMINANT - popover background */
+  --color-popover-foreground: #EAEAEA; /* 60% DOMINANT - popover text */
+
+  /* Interactive: Cyan (30%) */
+  --color-primary: #08D9D6;            /* 30% SECONDARY - interactive elements */
+  --color-primary-foreground: #252A34; /* 60% DOMINANT - text on primary */
+
+  /* Secondary/Neutral: Gray (60%) */
+  --color-secondary: #3D4350;          /* 60% DOMINANT - secondary background */
+  --color-secondary-foreground: #EAEAEA; /* 60% DOMINANT - secondary text */
+  --color-muted: #3D4350;              /* 60% DOMINANT - muted backgrounds */
+  --color-muted-foreground: #D1D3D8;   /* 60% DOMINANT - muted text */
+
+  /* Accent & Emphasis: Pink (10%) */
+  --color-accent: #FF2E63;             /* 10% ACCENT - emphasis & CTAs */
+  --color-accent-foreground: #FFFFFF;  /* High contrast text on accent */
+  --color-destructive: #FF2E63;        /* 10% ACCENT - warning/destructive */
+  --color-destructive-foreground: #FFFFFF; /* High contrast text */
+
+  /* Borders: Gray (60%) */
+  --color-border: #3D4350;             /* 60% DOMINANT - border color */
+  --color-input: #3D4350;              /* 60% DOMINANT - input background */
+
+  /* Focus/Ring: Cyan (30%) */
+  --color-ring: #08D9D6;               /* 30% SECONDARY - focus rings */
 
   --default-border-color: var(--color-border);
 }

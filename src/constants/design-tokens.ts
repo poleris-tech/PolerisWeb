@@ -7,32 +7,29 @@
 // ============================================================================
 // COLOR PALETTE
 // ============================================================================
+// 60-30-10 COLOR RULE APPLICATION:
+// - 60% Dominant: Navy/Slate + Light Gray (backgrounds, large surfaces)
+// - 30% Secondary: Cerulean Blue (interactive elements, secondary actions)
+// - 10% Accent: Hot Pink (CTAs, emphasis, critical actions)
+// ============================================================================
 
 export const COLORS = {
-  // Cerulean Blue - Primary interactive color
-  cerulean: {
-    50: '#E6FFFE',
-    100: '#B3FFFD',
-    200: '#80FFF9',
-    300: '#4DEFF5',
-    400: '#1AE4E1',
-    500: '#08D9D6', // Primary
-    600: '#07ADAB',
-    700: '#058280',
-    800: '#045655',
-    900: '#022B2A',
-    950: '#011515',
+  // ─────────────────────────────────────────────────────────────────────────
+  // 60% DOMINANT COLORS
+  // ─────────────────────────────────────────────────────────────────────────
+  // Navy - Dark background, text in light mode, primary base
+  slate: '#252A34', // Dark slate base - PRIMARY DOMINANT
+
+  // Navy variants for different contexts
+  navy: {
+    light: '#3D4350',  // Secondary dark for accents
+    dark: '#001f3d',   // Extra dark for sections
+    darker: '#001529', // Deepest navy for high contrast
   },
 
-  // Neutral palette
-  slate: '#252A34', // Dark slate base
-  pink: '#FF2E63', // Hot pink accent
-  white: '#FFFFFF',
-  black: '#000000',
-
-  // Gray scale
+  // Light Gray - Neutral backgrounds, secondary surfaces
   gray: {
-    light: '#EAEAEA',
+    light: '#EAEAEA',  // PRIMARY DOMINANT (light mode background)
     50: '#F9FAFB',
     100: '#F3F4F6',
     200: '#E5E7EB',
@@ -46,6 +43,34 @@ export const COLORS = {
     950: '#030712',
   },
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // 30% SECONDARY COLORS
+  // ─────────────────────────────────────────────────────────────────────────
+  // Cerulean Blue - Primary interactive color for secondary actions
+  cerulean: {
+    50: '#E6FFFE',
+    100: '#B3FFFD',
+    200: '#80FFF9',
+    300: '#4DEFF5',    // Light variant (accents in dark mode)
+    400: '#1AE4E1',    // Medium variant (hover states)
+    500: '#08D9D6',    // PRIMARY SECONDARY (interactive elements)
+    600: '#07ADAB',
+    700: '#058280',
+    800: '#045655',
+    900: '#022B2A',
+    950: '#011515',
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // 10% ACCENT COLOR
+  // ─────────────────────────────────────────────────────────────────────────
+  // Hot Pink - Primary CTA, emphasis, critical actions
+  pink: '#FF2E63', // PRIMARY ACCENT (CTAs, warnings, emphasis)
+
+  // Neutral palette
+  white: '#FFFFFF',
+  black: '#000000',
+
   // Semantic colors
   semantic: {
     success: '#10B981',
@@ -56,7 +81,7 @@ export const COLORS = {
 
   // Dark mode backgrounds
   dark: {
-    bg: '#252A34', // Primary dark background
+    bg: '#252A34', // Primary dark background (60%)
     bgSecondary: '#3D4350',
     textPrimary: '#EAEAEA',
     textSecondary: '#D1D3D8',

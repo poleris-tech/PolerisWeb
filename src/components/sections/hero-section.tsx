@@ -107,7 +107,7 @@ export function HeroSection() {
         />
       </svg>
 
-      <div className="container relative z-20 max-w-7xl w-full mx-auto px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 py-4 sm:py-6 md:py-8 pb-20 sm:pb-24 md:pb-28 lg:pb-32">
+      <div className="relative z-20 w-full px-6 md:px-8 py-4 sm:py-6 md:py-8 pb-20 sm:pb-24 md:pb-28 lg:pb-32 flex justify-center"><div className="max-w-7xl w-full">
         <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 sm:gap-6 lg:gap-8 xl:gap-12 w-full">
 
           {/* Content */}
@@ -216,6 +216,7 @@ export function HeroSection() {
             </motion.div>
           </Parallax>
         </div>
+      </div>
       </div>
     </section>
   );
