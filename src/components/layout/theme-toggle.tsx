@@ -24,7 +24,20 @@ export function ThemeToggle() {
     );
   }
 
-  const isDark = theme === "dark";
+  // Resolve the actual current theme (accounts for "system" preference)
+  const getResolvedTheme = () => {
+    if (theme === "dark") return "dark";
+    if (theme === "light") return "light";
+    // For "system" or undefined, check system preference
+    if (typeof window !== "undefined") {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+    return "light";
+  };
+
+  const isDark = getResolvedTheme() === "dark";
 
   const toggleTheme = () => {
     const newTheme = isDark ? "light" : "dark";

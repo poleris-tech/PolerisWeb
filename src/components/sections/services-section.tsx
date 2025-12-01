@@ -93,7 +93,7 @@ function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
         <div className="w-12 h-[1.5px] bg-gray-200 dark:bg-gray-700 mx-auto mb-4 md:mb-5 transition-all duration-500 group-hover:w-full group-hover:bg-indigo-500 dark:group-hover:bg-cyan-400"></div>
 
         {/* Benefits Description - improved typography */}
-        <p className="text-[13px] md:text-[14px] text-[#001f3f]/70 dark:text-gray-350 text-center mb-4 md:mb-5 leading-[1.5] md:leading-[1.6] transition-colors duration-500 group-hover:text-[#001f3f] dark:group-hover:text-gray-200 font-medium">
+        <p className="text-[13px] md:text-[14px] text-[#001f3f]/70 dark:text-gray-300 text-center mb-4 md:mb-5 leading-[1.5] md:leading-[1.6] transition-colors duration-500 group-hover:text-[#001f3f] dark:group-hover:text-gray-100 font-medium">
           Build authority, increase conversions, and grow your business faster.
         </p>
 

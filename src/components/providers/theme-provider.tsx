@@ -9,5 +9,12 @@ import { type ThemeProviderProps } from "next-themes";
  * Wraps the application with next-themes for dark/light mode support
  */
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+  return (
+    <NextThemesProvider
+      storageKey="theme-preference"
+      {...props}
+    >
+      {children}
+    </NextThemesProvider>
+  );
 }

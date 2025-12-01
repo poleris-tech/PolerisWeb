@@ -126,8 +126,8 @@ export default function RootLayout({
         <ReCaptchaProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
-            enableSystem={false}
+            defaultTheme="system"
+            enableSystem={true}
             disableTransitionOnChange={false}
           >
             <NavigationLoader />
