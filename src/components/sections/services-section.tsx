@@ -1,13 +1,12 @@
 "use client";
 
 import React from "react";
-import { Code, Search, Target, Server } from "lucide-react";
+import Image from "next/image";
 import { SERVICES } from "@/constants/site-data";
 import { CustomButton } from "@/components/ui/custom-button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SwipeableCards } from "@/components/ui/swipeable-cards";
 import { Starfield } from "@/components/ui/starfield";
-import { motion } from "framer-motion";
 
 /**
  * Services Section Component
@@ -15,59 +14,32 @@ import { motion } from "framer-motion";
  * Optimized vertical spacing for better text alignment and readability
  */
 
-const ICON_MAP = {
-  "web-design": Code,
-  "seo": Search,
-  "ppc": Target,
-  "hosting": Server,
+// Custom Icon paths mapping for each service
+// Using Fluent UI icons from Microsoft
+const ICON_PATHS: Record<string, string> = {
+  "web-design": "https://api.iconify.design/fluent/code-24-filled.svg?color=%23ffffff",
+  "seo": "https://api.iconify.design/fluent/search-24-filled.svg?color=%23ffffff",
+  "ppc": "https://api.iconify.design/fluent/target-arrow-24-filled.svg?color=%23ffffff",
+  "hosting": "https://api.iconify.design/fluent/server-24-filled.svg?color=%23ffffff",
 };
 
-// Service Illustrations - Custom SVG for each service
-function ServiceIllustration({ serviceId }: { serviceId: string }): React.ReactNode {
-  const illustrations: Record<string, React.ReactNode> = {
-    "web-design": (
-      <svg viewBox="0 0 120 120" className="w-full h-full" aria-label="Web design service icon">
-        <motion.rect x="20" y="25" width="80" height="70" rx="4" fill="none" stroke="currentColor" strokeWidth="2.5" />
-        <motion.line x1="20" y1="40" x2="100" y2="40" stroke="currentColor" strokeWidth="2.5" />
-        <motion.circle cx="35" cy="32" r="3" fill="currentColor" />
-        <motion.circle cx="45" cy="32" r="3" fill="currentColor" />
-        <motion.circle cx="55" cy="32" r="3" fill="currentColor" />
-        <motion.rect x="30" y="50" width="60" height="35" rx="2" fill="currentColor" opacity="0.15" animate={{ opacity: [0.15, 0.35, 0.15] }} transition={{ duration: 2, repeat: Infinity }} />
-        <motion.line x1="30" y1="62" x2="90" y2="62" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
-        <motion.line x1="30" y1="72" x2="90" y2="72" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
-      </svg>
-    ),
-    "seo": (
-      <svg viewBox="0 0 120 120" className="w-full h-full" aria-label="SEO service icon">
-        <motion.circle cx="60" cy="60" r="35" fill="none" stroke="currentColor" strokeWidth="2.5" />
-        <motion.circle cx="60" cy="60" r="25" fill="none" stroke="currentColor" strokeWidth="2.5" opacity="0.5" />
-        <motion.text x="60" y="68" textAnchor="middle" fontSize="24" fontWeight="bold" fill="currentColor">SEO</motion.text>
-        <motion.circle cx="60" cy="60" r="45" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.3" animate={{ r: [45, 55, 45] }} transition={{ duration: 2, repeat: Infinity }} />
-      </svg>
-    ),
-    "ppc": (
-      <svg viewBox="0 0 120 120" className="w-full h-full" aria-label="PPC advertising service icon">
-        <motion.path d="M 30 80 Q 60 30, 90 80" fill="none" stroke="currentColor" strokeWidth="2.5" />
-        <motion.circle cx="30" cy="80" r="4" fill="currentColor" />
-        <motion.circle cx="60" cy="30" r="4" fill="currentColor" />
-        <motion.circle cx="90" cy="80" r="4" fill="currentColor" />
-        <motion.circle cx="60" cy="30" r="8" fill="none" stroke="currentColor" strokeWidth="1.5" animate={{ r: [8, 12, 8] }} transition={{ duration: 1.5, repeat: Infinity }} />
-        <motion.rect x="35" y="85" width="50" height="15" rx="2" fill="currentColor" opacity="0.15" />
-      </svg>
-    ),
-    "hosting": (
-      <svg viewBox="0 0 120 120" className="w-full h-full" aria-label="Hosting service icon">
-        <motion.rect x="25" y="30" width="70" height="60" rx="3" fill="none" stroke="currentColor" strokeWidth="2.5" />
-        <motion.line x1="25" y1="50" x2="95" y2="50" stroke="currentColor" strokeWidth="1.5" />
-        <motion.line x1="25" y1="65" x2="95" y2="65" stroke="currentColor" strokeWidth="1.5" />
-        <motion.circle cx="40" cy="42" r="2.5" fill="currentColor" animate={{ fill: ["currentColor", "none", "currentColor"] }} transition={{ duration: 1, repeat: Infinity }} />
-        <motion.circle cx="55" cy="42" r="2.5" fill="currentColor" animate={{ fill: ["currentColor", "currentColor", "none"] }} transition={{ duration: 1, repeat: Infinity }} />
-        <motion.circle cx="70" cy="42" r="2.5" fill="currentColor" animate={{ fill: ["none", "currentColor", "currentColor"] }} transition={{ duration: 1, repeat: Infinity }} />
-      </svg>
-    ),
-  };
+// Service Icon Component - Displays custom uploaded icons
+function ServiceIcon({ serviceId }: { serviceId: string }): React.ReactNode {
+  const iconPath = ICON_PATHS[serviceId];
 
-  return illustrations[serviceId] || null;
+  if (!iconPath) return null;
+
+  return (
+    <Image
+      src={iconPath}
+      alt={`${serviceId} service icon`}
+      width={96}
+      height={96}
+      className="w-full h-full object-contain"
+      priority
+      unoptimized
+    />
+  );
 }
 
 // Service Card Component for reuse in both grid and swipeable views
@@ -77,10 +49,10 @@ function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
       {/* Clean card with hover-reveal shadow */}
       <div className="relative flex flex-col h-full rounded-xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-5 sm:p-6 md:p-7 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white dark:hover:bg-gray-800 hover:border-indigo-500 dark:hover:border-cyan-400 hover:translate-x-[-6px] hover:translate-y-[-6px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:6px_6px_0px_rgb(99,102,241)] dark:hover:[box-shadow:6px_6px_0px_rgb(34,211,238)]">
 
-        {/* Custom SVG Illustration Container */}
+        {/* Custom Icon Container */}
         <div className="relative inline-flex self-center mb-4 md:mb-5">
-          <div className="relative flex justify-center items-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 dark:from-cyan-500 dark:to-cyan-600 h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 shadow-md shadow-indigo-500/20 dark:shadow-cyan-500/20 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:rotate-2 group-hover:shadow-lg group-hover:shadow-indigo-500/30 dark:group-hover:shadow-cyan-500/30 text-white">
-            <ServiceIllustration serviceId={service.id} />
+          <div className="relative flex justify-center items-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 dark:from-cyan-500 dark:to-cyan-600 h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 shadow-md shadow-indigo-500/20 dark:shadow-cyan-500/20 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:rotate-2 group-hover:shadow-lg group-hover:shadow-indigo-500/30 dark:group-hover:shadow-cyan-500/30 p-4">
+            <ServiceIcon serviceId={service.id} />
           </div>
         </div>
 
