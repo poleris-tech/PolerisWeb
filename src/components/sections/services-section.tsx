@@ -45,48 +45,30 @@ function ServiceIcon({ serviceId }: { serviceId: string }): React.ReactNode {
 // Service Card Component for reuse in both grid and swipeable views
 function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
   return (
-    <div className="group relative h-full">
-      {/* Clean card with hover-reveal shadow */}
-      <div className="relative flex flex-col h-full rounded-xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-5 sm:p-6 md:p-7 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white dark:hover:bg-gray-800 hover:border-indigo-500 dark:hover:border-cyan-400 hover:translate-x-[-6px] hover:translate-y-[-6px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:6px_6px_0px_rgb(99,102,241)] dark:hover:[box-shadow:6px_6px_0px_rgb(34,211,238)]">
-
-        {/* Custom Icon Container */}
-        <div className="relative inline-flex self-center mb-4 md:mb-5">
-          <div className="relative flex justify-center items-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 dark:from-cyan-500 dark:to-cyan-600 h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 shadow-md shadow-indigo-500/20 dark:shadow-cyan-500/20 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:rotate-2 group-hover:shadow-lg group-hover:shadow-indigo-500/30 dark:group-hover:shadow-cyan-500/30 p-4">
-            <ServiceIcon serviceId={service.id} />
-          </div>
+    <div className="group relative h-full flex flex-col p-6 rounded-2xl transition-all duration-500 bg-indigo-500/3 dark:bg-cyan-500/3 backdrop-blur-sm hover:bg-indigo-500/5 dark:hover:bg-cyan-500/5 overflow-hidden">
+      {/* Icon Container - Centered, Visible */}
+      <div className="flex justify-center mb-4 md:mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+        <div className="flex justify-center items-center rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 dark:from-cyan-500 dark:to-cyan-600 h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 p-4">
+          <ServiceIcon serviceId={service.id} />
         </div>
-
-        {/* Title - H3 Section with improved typography balance */}
-        <h3 className="text-[16px] md:text-[20px] font-bold text-[#001f3f] dark:text-white text-center transition-colors duration-500 group-hover:text-indigo-600 dark:group-hover:text-cyan-400 mb-3 md:mb-4 leading-[1.3] md:leading-[1.25] tracking-[-0.3px]">
-          {service.title}
-        </h3>
-
-        {/* Divider - adjusted spacing */}
-        <div className="w-12 h-[1.5px] bg-gray-200 dark:bg-gray-700 mx-auto mb-4 md:mb-5 transition-all duration-500 group-hover:w-full group-hover:bg-indigo-500 dark:group-hover:bg-cyan-400"></div>
-
-        {/* Benefits Description - improved typography */}
-        <p className="text-[13px] md:text-[14px] text-[#001f3f]/70 dark:text-gray-300 text-center mb-4 md:mb-5 leading-[1.5] md:leading-[1.6] transition-colors duration-500 group-hover:text-[#001f3f] dark:group-hover:text-gray-100 font-medium">
-          Build authority, increase conversions, and grow your business faster.
-        </p>
-
-        {/* Features List - improved typography and spacing */}
-        <ul className="mt-auto flex flex-col gap-2.5 md:gap-3">
-          {service.features.map((feature, idx) => (
-            <li key={idx} className="flex items-start text-[12px] md:text-[13px] text-[#001f3f]/75 dark:text-gray-300 transition-all duration-500 group-hover:text-[#001f3f] dark:group-hover:text-white gap-2.5 md:gap-3 font-medium leading-[1.4] md:leading-[1.5]">
-              <span className="flex-shrink-0 w-4 h-4 rounded-full bg-indigo-500/10 dark:bg-cyan-500/10 group-hover:bg-indigo-500 dark:group-hover:bg-cyan-500 flex items-center justify-center transition-all duration-500 mt-0.5">
-                <svg className="w-2.5 h-2.5 text-indigo-600 dark:text-cyan-400 group-hover:text-white transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </span>
-              <span className="flex-1">{feature}</span>
-            </li>
-          ))}
-        </ul>
-
-        {/* Floating accent elements */}
-        <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-[#576CBC]/40 dark:bg-[#A5D7E8]/20 opacity-50 group-hover:opacity-100 group-hover:bg-[#576CBC] dark:group-hover:bg-[#A5D7E8] group-hover:scale-150 transition-all duration-500"></div>
-        <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-[#576CBC]/40 dark:bg-[#A5D7E8]/20 opacity-50 group-hover:opacity-100 group-hover:bg-[#576CBC] dark:group-hover:bg-[#A5D7E8] group-hover:scale-150 transition-all duration-500"></div>
       </div>
+
+      {/* Title - Centered */}
+      <h3 className="text-[16px] md:text-[18px] font-bold text-[#001f3f] dark:text-white mb-3 md:mb-4 text-center">
+        {service.title}
+      </h3>
+
+      {/* Features List - Left Aligned */}
+      <ul className="flex flex-col gap-2 md:gap-2.5 text-[12px] md:text-[13px] text-[#001f3f]/75 dark:text-gray-300">
+        {service.features.map((feature, idx) => (
+          <li key={idx} className="flex items-start gap-2">
+            <svg className="w-3 h-3 text-indigo-600 dark:text-cyan-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+            </svg>
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -135,7 +117,7 @@ export function ServicesSection() {
         </div>
 
         {/* Key Benefits Overview - Simplified and compact */}
-        <div className="hidden md:flex justify-center gap-8 md:gap-12 mb-16 md:mb-20 max-w-4xl mx-auto px-4">
+        {/* <div className="hidden md:flex justify-center gap-8 md:gap-12 mb-16 md:mb-20 max-w-4xl mx-auto px-4">
           <ScrollReveal direction="up" delay={0.1} duration={0.5}>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-black text-indigo-600 dark:text-cyan-400 mb-1">100%</div>
@@ -156,7 +138,7 @@ export function ServicesSection() {
               <p className="text-sm md:text-base font-semibold text-[#001f3f] dark:text-white">SEO Ready</p>
             </div>
           </ScrollReveal>
-        </div>
+        </div> */}
 
         {/* Services Display - Swipeable on Mobile, Grid on Desktop */}
         <div className="flex justify-center w-full mb-16 sm:mb-20">
