@@ -20,18 +20,24 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Poleris Digital - Hand-Coded Websites That Deliver Results",
-  description: "Professional web design and development services for small businesses. Custom websites, SEO optimization, Google Ads management, and reliable hosting. Transform your online presence today.",
+  description: "Poleris Digital provides professional hand-coded custom websites, SEO services, Google Ads management, and web hosting for small businesses. Get a fast, secure website that ranks.",
   keywords: [
+    "Poleris Digital",
+    "polerisdigital",
     "web design",
     "custom websites",
     "hand-coded websites",
+    "web design agency",
+    "small business websites",
+    "web development services",
     "performance optimization",
     "SEO services",
-    "Google Ads",
+    "search engine optimization",
+    "Google Ads management",
     "website hosting",
-    "small business websites",
-    "web development",
     "responsive design",
+    "custom web design",
+    "professional web design",
   ],
   authors: [{ name: "Poleris Digital" }],
   creator: "Poleris Digital",
@@ -52,8 +58,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://polerisdigital.com",
-    title: "Poleris Digital - Hand-Coded Websites That Deliver Results",
-    description: "Professional web design and development services for small businesses. Custom websites, SEO optimization, Google Ads management, and reliable hosting.",
+    title: "Poleris Digital - Custom Hand-Coded Websites for Small Businesses",
+    description: "Poleris Digital creates fast, SEO-optimized custom websites for small businesses. Professional web design, SEO services, Google Ads management, and hosting included.",
     siteName: "Poleris Digital",
     images: [
       {
@@ -72,10 +78,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Poleris Digital - Hand-Coded Websites That Deliver Results",
-    description: "Professional web design and development services for small businesses. Custom websites, SEO optimization, and more.",
+    title: "Poleris Digital - Custom Hand-Coded Websites",
+    description: "Fast, SEO-optimized custom websites for small businesses. Web design, SEO services, Google Ads, and hosting by Poleris Digital.",
     images: ["/og-image.png"],
-    creator: "@polerisdigital", // Add your Twitter handle
+    creator: "@polerisdigital",
   },
   robots: {
     index: true,

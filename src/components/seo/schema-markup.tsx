@@ -2,68 +2,76 @@ export function SchemaMarkup() {
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': 'https://polerisdigital.com',
     name: 'Poleris Digital',
-    alternateName: 'Poleris',
+    alternateName: ['Poleris', 'Poleris Digital LLC'],
     url: 'https://polerisdigital.com',
     logo: {
       '@type': 'ImageObject',
       url: 'https://polerisdigital.com/poleris_logo.png',
-      width: '512',
-      height: '512',
+      width: 512,
+      height: 512,
     },
     image: 'https://polerisdigital.com/poleris_logo.png',
-    description: 'Professional web design and development services for small businesses. Custom websites, SEO, and Google Ads management.',
+    description: 'Poleris Digital creates hand-coded custom websites for small businesses. We specialize in web design, SEO optimization, Google Ads management, and website hosting.',
     email: 'polerisllc@outlook.com',
     telephone: '+1-617-838-3859',
+    foundingDate: '2024',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'US',
-      addressRegion: 'United States',
+      addressRegion: 'Massachusetts',
     },
     sameAs: [
-      // Add your social media profiles here
-      // 'https://www.facebook.com/polerisdigital',
-      // 'https://www.linkedin.com/company/polerisdigital',
-      // 'https://twitter.com/polerisdigital',
+      'https://www.facebook.com/polerisdigital',
+      'https://www.linkedin.com/company/polerisdigital',
+      'https://twitter.com/polerisdigital',
+      'https://www.instagram.com/polerisdigital',
     ],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+1-617-838-3859',
-      contactType: 'customer service',
-      email: 'polerisllc@outlook.com',
-      availableLanguage: ['en'],
-    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: '+1-617-838-3859',
+        contactType: 'customer service',
+        email: 'polerisllc@outlook.com',
+        availableLanguage: ['en'],
+        areaServed: ['US', 'CA'],
+      },
+    ],
   };
 
   const localBusinessSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'ProfessionalService',
     '@id': 'https://polerisdigital.com',
     name: 'Poleris Digital',
     image: 'https://polerisdigital.com/poleris_logo.png',
-    description: 'We believe small businesses deserve better. Just because you\'re small, doesn\'t mean your site needs to be. Let us make you something amazing.',
+    description: 'Poleris Digital is a web design and development agency specializing in hand-coded custom websites for small businesses. We provide web design, SEO services, Google Ads management, and website hosting.',
     url: 'https://polerisdigital.com',
     telephone: '+1-617-838-3859',
     email: 'polerisllc@outlook.com',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'Boston, MA',
+      addressRegion: 'MA',
+      postalCode: '02101',
       addressCountry: 'US',
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      // Add your actual coordinates if you have a physical location
-      // latitude: 40.7128,
-      // longitude: -74.0060,
+    areaServed: {
+      '@type': 'Country',
+      name: ['US', 'Canada'],
     },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '17:00',
-      },
-    ],
     priceRange: '$$',
+    knowsAbout: [
+      'Web Design',
+      'Web Development',
+      'Custom Websites',
+      'SEO Optimization',
+      'Google Ads',
+      'Website Hosting',
+      'Performance Optimization',
+      'Responsive Design',
+    ],
   };
 
   const serviceSchema = {
@@ -122,18 +130,35 @@ export function SchemaMarkup() {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': 'https://polerisdigital.com',
     name: 'Poleris Digital',
     url: 'https://polerisdigital.com',
-    description: 'Professional web design and development services for small businesses',
+    description: 'Hand-coded custom websites and web design services for small businesses by Poleris Digital',
+    inLanguage: 'en-US',
     publisher: {
       '@type': 'Organization',
       name: 'Poleris Digital',
+      url: 'https://polerisdigital.com',
     },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://polerisdigital.com/?s={search_term_string}',
-      'query-input': 'required name=search_term_string',
-    },
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://polerisdigital.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Services',
+        item: 'https://polerisdigital.com/#services',
+      },
+    ],
   };
 
   const faqSchema = {
@@ -193,7 +218,7 @@ export function SchemaMarkup() {
         }}
       />
 
-      {/* Local Business Schema */}
+      {/* Professional Service Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -214,6 +239,14 @@ export function SchemaMarkup() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(websiteSchema),
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
         }}
       />
 
