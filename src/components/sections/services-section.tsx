@@ -45,7 +45,10 @@ function ServiceIcon({ serviceId }: { serviceId: string }): React.ReactNode {
 // Service Card Component for reuse in both grid and swipeable views
 function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
   return (
-    <div className="group relative h-full flex flex-col p-6 rounded-2xl transition-all duration-500 bg-indigo-500/3 dark:bg-cyan-500/3 backdrop-blur-sm hover:bg-indigo-500/5 dark:hover:bg-cyan-500/5 overflow-hidden">
+    <a
+      href={`/${service.id}`}
+      className="group relative h-full flex flex-col p-6 rounded-2xl transition-all duration-500 bg-indigo-500/3 dark:bg-cyan-500/3 backdrop-blur-sm hover:bg-indigo-500/5 dark:hover:bg-cyan-500/5 overflow-hidden block"
+    >
       {/* Icon Container - Centered, Visible */}
       <div className="flex justify-center mb-4 md:mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
         <div className="flex justify-center items-center rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 dark:from-cyan-500 dark:to-cyan-600 h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 p-4">
@@ -71,13 +74,10 @@ function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
       </ul>
 
       {/* Learn More Link */}
-      <a
-        href={`/${service.id}`}
-        className="mt-6 inline-block text-sm font-semibold text-indigo-600 dark:text-cyan-400 hover:text-indigo-700 dark:hover:text-cyan-300 transition-colors duration-300"
-      >
+      <span className="mt-6 inline-block text-sm font-semibold text-indigo-600 dark:text-cyan-400 group-hover:text-indigo-700 dark:group-hover:text-cyan-300 transition-colors duration-300">
         Learn More →
-      </a>
-    </div>
+      </span>
+    </a>
   );
 }
 
