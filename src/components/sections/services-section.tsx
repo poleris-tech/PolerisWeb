@@ -59,7 +59,7 @@ function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
       </h3>
 
       {/* Features List - Left Aligned */}
-      <ul className="flex flex-col gap-2 md:gap-2.5 text-[12px] md:text-[13px] text-[#001f3f]/75 dark:text-gray-300">
+      <ul className="flex flex-col gap-2 md:gap-2.5 text-[12px] md:text-[13px] text-[#001f3f]/75 dark:text-gray-300 flex-grow">
         {service.features.map((feature, idx) => (
           <li key={idx} className="flex items-start gap-2">
             <svg className="w-3 h-3 text-indigo-600 dark:text-cyan-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -69,6 +69,14 @@ function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
           </li>
         ))}
       </ul>
+
+      {/* Learn More Link */}
+      <a
+        href={`/${service.id}`}
+        className="mt-6 inline-block text-sm font-semibold text-indigo-600 dark:text-cyan-400 hover:text-indigo-700 dark:hover:text-cyan-300 transition-colors duration-300"
+      >
+        Learn More →
+      </a>
     </div>
   );
 }
