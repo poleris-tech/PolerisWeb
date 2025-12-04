@@ -43,11 +43,16 @@ function ServiceIcon({ serviceId }: { serviceId: string }): React.ReactNode {
 }
 
 // Service Card Component for reuse in both grid and swipeable views
-function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
+function ServiceCard({ service, index = 0 }: { service: typeof SERVICES[0]; index?: number }) {
   return (
     <a
       href={`/${service.id}`}
-      className="group relative h-full flex flex-col p-6 rounded-2xl transition-all duration-500 bg-indigo-500/3 dark:bg-cyan-500/3 backdrop-blur-sm hover:bg-indigo-500/5 dark:hover:bg-cyan-500/5 overflow-hidden block"
+      className="group relative h-full flex flex-col p-8 md:p-10 rounded-2xl transition-all duration-500 bg-indigo-500/3 dark:bg-cyan-500/3 backdrop-blur-sm hover:bg-indigo-500/8 dark:hover:bg-cyan-500/8 overflow-hidden block border border-indigo-500/10 dark:border-cyan-500/10 hover:border-indigo-500/30 dark:hover:border-cyan-500/30 hover:shadow-lg hover:-translate-y-1"
+      style={{
+        animation: `reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+        opacity: 0,
+        animationDelay: `${index * 0.1}s`,
+      }}
     >
       {/* Icon Container - Centered, Visible */}
       <div className="flex justify-center mb-4 md:mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
@@ -85,7 +90,7 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      className="relative z-20 bg-white dark:bg-gray-950 overflow-hidden py-12 sm:py-14 md:py-16 lg:py-20"
+      className="relative z-20 bg-white dark:bg-gray-950 overflow-hidden py-16 sm:py-20 md:py-32 lg:py-40"
     >
       {/* Starfield - Only visible in dark mode */}
       <Starfield count={30} position="absolute" />
@@ -153,8 +158,8 @@ export function ServicesSection() {
           {/* Mobile Swipeable Cards - Hidden on SM and above */}
           <div className="sm:hidden w-full max-w-md mx-auto">
             <SwipeableCards showControls={false}>
-              {SERVICES.map((service) => (
-                <ServiceCard key={service.id} service={service} />
+              {SERVICES.map((service, index) => (
+                <ServiceCard key={service.id} service={service} index={index} />
               ))}
             </SwipeableCards>
           </div>
@@ -164,7 +169,7 @@ export function ServicesSection() {
             {SERVICES.map((service, index) => (
               <ScrollReveal key={service.id} direction="up" delay={0.1 * index} duration={0.6}>
                 <li className="h-full">
-                  <ServiceCard service={service} />
+                  <ServiceCard service={service} index={index} />
                 </li>
               </ScrollReveal>
             ))}

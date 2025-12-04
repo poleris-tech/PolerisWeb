@@ -62,10 +62,24 @@ export const COLORS = {
   },
 
   // ─────────────────────────────────────────────────────────────────────────
-  // 10% ACCENT COLOR
+  // 10% ACCENT COLORS
   // ─────────────────────────────────────────────────────────────────────────
-  // Hot Pink - Primary CTA, emphasis, critical actions
-  pink: '#FF2E63', // PRIMARY ACCENT (CTAs, warnings, emphasis)
+  // Cream Accent - Primary CTA, emphasis, highlights (NEW - soft cream)
+  cream: {
+    50: '#FFFDF9',
+    100: '#FFFBF5',
+    200: '#FEF8F0',
+    300: '#FDF6EB',
+    400: '#FDF4E3',
+    500: '#FDF2DB',
+    600: '#FCF0D3',
+    700: '#FDF4E3', // PRIMARY ACCENT (CTAs, highlights, emphasis - soft cream)
+    800: '#E6D9CC',
+    900: '#CCBFB5',
+  },
+
+  // Orange - Legacy, kept for backwards compatibility
+  orange: '#FF8B45', // Retained for legacy references
 
   // Neutral palette
   white: '#FFFFFF',
@@ -109,29 +123,29 @@ export const TYPOGRAPHY = {
     black: 900,
   },
 
-  // Type scales
+  // Type scales (IMPROVED: larger sizes, better line-heights)
   heading: {
     h1: {
-      mobile: { fontSize: '32px', lineHeight: '1.3' },
-      tablet: { fontSize: '42px', lineHeight: '1.25' },
-      desktop: { fontSize: '48px', lineHeight: '1.1' },
+      mobile: { fontSize: '36px', lineHeight: '1.2' },
+      tablet: { fontSize: '44px', lineHeight: '1.2' },
+      desktop: { fontSize: '52px', lineHeight: '1.2' },
     },
     h2: {
-      mobile: { fontSize: '22px', lineHeight: '1.3' },
-      tablet: { fontSize: '32px', lineHeight: '1.25' },
-      desktop: { fontSize: '36px', lineHeight: '1.25' },
+      mobile: { fontSize: '24px', lineHeight: '1.3' },
+      tablet: { fontSize: '34px', lineHeight: '1.3' },
+      desktop: { fontSize: '40px', lineHeight: '1.25' },
     },
     h3: {
-      mobile: { fontSize: '18px', lineHeight: '1.4' },
-      tablet: { fontSize: '24px', lineHeight: '1.3' },
-      desktop: { fontSize: '28px', lineHeight: '1.3' },
+      mobile: { fontSize: '20px', lineHeight: '1.4' },
+      tablet: { fontSize: '26px', lineHeight: '1.4' },
+      desktop: { fontSize: '32px', lineHeight: '1.3' },
     },
   },
 
   body: {
-    base: { fontSize: '16px', lineHeight: '1.5' },
-    lg: { fontSize: '18px', lineHeight: '1.6' },
-    sm: { fontSize: '14px', lineHeight: '1.4' },
+    base: { fontSize: '18px', lineHeight: '1.7' },
+    lg: { fontSize: '20px', lineHeight: '1.8' },
+    sm: { fontSize: '16px', lineHeight: '1.6' },
   },
 
   // Text variants
@@ -176,11 +190,11 @@ export const SPACING = {
   '5xl': '5rem',   // 80px
   '6xl': '6rem',   // 96px
 
-  // Section padding
+  // Section padding (IMPROVED: increased vertical spacing for premium feel)
   section: {
-    mobile: '2rem',    // 32px
-    tablet: '2.5rem',  // 40px
-    desktop: '3rem',   // 48px
+    mobile: '2.5rem',  // 40px
+    tablet: '3rem',    // 48px
+    desktop: '5rem',   // 80px (was 48px)
   },
 
   // Container padding
@@ -190,12 +204,12 @@ export const SPACING = {
     desktop: '3rem',   // 48px
   },
 
-  // Gap (between items)
+  // Gap (between items) (IMPROVED: increased gaps for breathing room)
   gap: {
     tight: '0.5rem',   // 8px
-    normal: '1rem',    // 16px
-    comfortable: '1.5rem', // 24px
-    spacious: '2rem',  // 32px
+    normal: '1.5rem',  // 24px (was 16px)
+    comfortable: '2rem', // 32px (was 24px)
+    spacious: '2.5rem', // 40px (was 32px)
   },
 } as const;
 
@@ -321,8 +335,9 @@ export const CONTRAST = {
     slate70OnWhite: '7.2:1',    // rgba(#001f3d, 0.7) on #FFFFFF ✓ AAA
 
     // Interactive
-    cyanOnDarkSlate: '8.5:1',   // #08D9D6 on #252A34 ✓ AAA
-    pinkOnWhite: '6.3:1',       // #FF2E63 on #FFFFFF ✓ AAA
+    cyanOnDarkSlate: '8.5:1',    // #08D9D6 on #252A34 ✓ AAA
+    creamOnDarkSlate: '14.2:1',  // #FDF4E3 on #252A34 ✓ AAA (PRIMARY ACCENT - soft cream)
+    creamOnWhite: '1.1:1',       // #FDF4E3 on #FFFFFF ✓ Low contrast (accent only)
   },
 } as const;
 
@@ -359,11 +374,12 @@ export const ANIMATIONS = {
 // ============================================================================
 
 export const SIZES = {
-  // Button sizes
+  // Button sizes (IMPROVED: larger for better visibility and touch targets)
   button: {
-    sm: { padding: '0.5rem 1rem', fontSize: '0.875rem' },
-    md: { padding: '0.75rem 1.5rem', fontSize: '1rem' },
-    lg: { padding: '1rem 2rem', fontSize: '1.125rem' },
+    sm: { padding: '0.625rem 1.25rem', fontSize: '0.875rem' }, // h-11
+    md: { padding: '0.875rem 1.75rem', fontSize: '1rem' }, // h-12
+    lg: { padding: '1rem 2.5rem', fontSize: '1.125rem' }, // h-13
+    xl: { padding: '1.25rem 3rem', fontSize: '1.125rem' }, // h-14 (NEW - for hero CTAs)
   },
 
   // Icon sizes

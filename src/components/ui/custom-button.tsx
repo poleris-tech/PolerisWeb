@@ -10,7 +10,7 @@ interface ButtonProps {
   children: ReactNode;
   href?: string;
   onClick?: () => void;
-  variant?: "primary" | "secondary" | "outline" | "comic";
+  variant?: "primary" | "secondary" | "outline" | "comic" | "orange";
   size?: "sm" | "md" | "lg";
   className?: string;
   fullWidth?: boolean;
@@ -36,13 +36,15 @@ export function CustomButton({
 
   const variantStyles = {
     primary:
-      "bg-gradient-to-r from-cerulean-blue-500 to-cerulean-blue-400 text-white hover:from-cerulean-blue-600 hover:to-cerulean-blue-500 shadow-lg shadow-cerulean-blue-500/30 hover:shadow-cerulean-blue-500/50 hover:scale-105 group-hover:animate-pulse",
+      "bg-gradient-to-r from-[#FDF4E3] to-[#FDF2DB] text-slate-900 hover:from-[#E6D9CC] hover:to-[#FDF4E3] shadow-lg shadow-[#FDF4E3]/25 hover:shadow-[#FDF4E3]/40 hover:scale-105 hover:-translate-y-1 group-hover:animate-pulse transition-all duration-300",
     secondary:
       "bg-gradient-to-r from-cerulean-blue-400 to-cerulean-blue-500 text-cerulean-blue-950 hover:from-cerulean-blue-300 hover:to-cerulean-blue-400 shadow-lg shadow-cerulean-blue-400/30 hover:shadow-cerulean-blue-400/50 hover:scale-105",
     outline:
-      "bg-transparent border-2 border-white/40 text-white hover:bg-white/20 hover:border-white/60 backdrop-blur-md hover:backdrop-blur-lg hover:shadow-white/30 hover:scale-105",
+      "!bg-transparent border-2 border-[#FDF4E3]/60 !text-white hover:border-[#FDF4E3]/80 hover:!bg-transparent hover:!text-[#252A34] backdrop-blur-xl hover:backdrop-blur-2xl hover:shadow-[0_4px_12px_rgba(253,244,227,0.15)] hover:scale-105",
     comic:
-      "bg-cyan-500 text-white border-2 border-cyan-400 dark:border-cyan-400 hover:bg-cyan-600 hover:text-white hover:border-cyan-500 active:bg-cyan-700 active:shadow-none active:translate-y-1 transition-all duration-300",
+      "bg-[#4A90E2] text-white border-2 border-[#3B82F6] dark:border-[#3B82F6] hover:bg-[#3B82F6] hover:text-white hover:border-[#3B82F6] active:bg-[#2563EB] active:shadow-none active:translate-y-1 transition-all duration-300 shadow-lg shadow-[#4A90E2]/30 hover:shadow-[#3B82F6]/40 hover:-translate-y-0.5",
+    orange:
+      "bg-[#FDF4E3]/40 text-white border-2 border-[#FDF2DB]/35 hover:bg-[#FDF4E3]/55 hover:border-[#FDF2DB]/50 hover:shadow-[0_4px_12px_rgba(253,244,227,0.15)] transition-all duration-300 backdrop-blur-md hover:backdrop-blur-lg",
   };
 
   const sizeStyles = {
@@ -51,7 +53,7 @@ export function CustomButton({
     lg: "px-6 sm:px-8 md:px-12 text-base md:text-lg leading-[2.75rem] sm:leading-[3rem] md:leading-[3.75rem] rounded-xl",
   };
 
-  const comicShadow = variant === "comic" ? "[box-shadow:3px_3px_0px_#22d3ee] sm:[box-shadow:4px_4px_0px_#22d3ee] md:[box-shadow:5px_5px_0px_#22d3ee] hover:[box-shadow:3px_3px_0px_#06b6d4] hover:sm:[box-shadow:4px_4px_0px_#06b6d4] hover:md:[box-shadow:5px_5px_0px_#06b6d4]" : "";
+  const comicShadow = variant === "comic" ? "[box-shadow:3px_3px_0px_#3B82F6] sm:[box-shadow:4px_4px_0px_#3B82F6] md:[box-shadow:5px_5px_0px_#3B82F6] hover:[box-shadow:3px_3px_0px_#2563EB] hover:sm:[box-shadow:4px_4px_0px_#2563EB] hover:md:[box-shadow:5px_5px_0px_#2563EB]" : "";
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${
     sizeStyles[size]

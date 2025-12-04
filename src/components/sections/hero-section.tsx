@@ -159,9 +159,9 @@ export function HeroSection() {
             >
               <CustomButton
                 href="#contact"
-                variant="comic"
+                variant="outline"
                 size="lg"
-                className="w-full sm:w-auto text-base md:text-lg px-8 md:px-10 py-4"
+                className="w-full sm:w-auto text-white text-base md:text-lg px-8 md:px-10 py-4"
               >
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />

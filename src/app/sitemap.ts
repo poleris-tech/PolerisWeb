@@ -1,7 +1,16 @@
 import { MetadataRoute } from 'next';
+import { SERVICES } from '@/constants/site-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://polerisdigital.com'; // Change this to your actual domain
+
+  // Generate service URLs
+  const serviceUrls = SERVICES.map((service) => ({
+    url: `${baseUrl}/${service.id}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
 
   return [
     {
@@ -16,30 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-    {
-      url: `${baseUrl}/web-design`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/seo-services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/google-ads`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/web-hosting`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
+    ...serviceUrls,
     {
       url: `${baseUrl}/case-studies`,
       lastModified: new Date(),

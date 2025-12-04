@@ -11,7 +11,7 @@
      ═══════════════════════════════════════════════════════════════
      60% - DOMINANT: Navy & Light Gray (backgrounds, large surfaces)
      30% - SECONDARY: Cerulean Blue (interactive elements)
-     10% - ACCENT: Hot Pink (CTAs, emphasis, critical actions)
+     10% - ACCENT: Soft Cream (CTAs, emphasis, highlights)
      ═══════════════════════════════════════════════════════════════ */
 
   /* ─────────────────────────────────────────────────────────────
@@ -33,8 +33,11 @@
   /* Dark Navy - 60% DOMINANT */
   --color-slate: #252A34;              /* Primary dark base - 60% DOMINANT */
 
-  /* Hot Pink Accent - 10% ACCENT */
-  --color-pink: #FF2E63;               /* Primary accent - 10% ACCENT */
+  /* Soft Cream Accent - 10% ACCENT (NEW) */
+  --color-cream: #FDF4E3;              /* Primary accent - 10% ACCENT (soft cream) */
+
+  /* Orange - Legacy */
+  --color-orange: #FF8B45;             /* Legacy orange accent */
 
   /* Light Gray - 60% DOMINANT */
   --color-gray-light: #EAEAEA;         /* Primary light - 60% DOMINANT */
@@ -60,11 +63,11 @@
   --color-muted: #F5F6F7;              /* 60% DOMINANT - muted backgrounds */
   --color-muted-foreground: #545C6E;   /* 60% DOMINANT - muted text */
 
-  /* Accent & Emphasis: Pink (10%) */
-  --color-accent: #FF2E63;             /* 10% ACCENT - emphasis & CTAs */
-  --color-accent-foreground: #FFFFFF;  /* 60% DOMINANT - text on accent */
-  --color-destructive: #FF2E63;        /* 10% ACCENT - warning/destructive */
-  --color-destructive-foreground: #FFFFFF; /* 60% DOMINANT - text on destructive */
+  /* Accent & Emphasis: Cream (10%) - NEW PRIMARY ACCENT */
+  --color-accent: #FDF4E3;             /* 10% ACCENT - emphasis & CTAs (SOFT CREAM) */
+  --color-accent-foreground: #252A34;  /* 60% DOMINANT - text on accent */
+  --color-destructive: #E6D9CC;        /* Warning/destructive (uses darker cream) */
+  --color-destructive-foreground: #252A34; /* 60% DOMINANT - text on destructive */
 
   /* Borders: Gray (60%) */
   --color-border: #EAEAEA;             /* 60% DOMINANT - border color */
@@ -103,11 +106,11 @@
   --color-muted: #3D4350;              /* 60% DOMINANT - muted backgrounds */
   --color-muted-foreground: #D1D3D8;   /* 60% DOMINANT - muted text */
 
-  /* Accent & Emphasis: Pink (10%) */
-  --color-accent: #FF2E63;             /* 10% ACCENT - emphasis & CTAs */
-  --color-accent-foreground: #FFFFFF;  /* High contrast text on accent */
-  --color-destructive: #FF2E63;        /* 10% ACCENT - warning/destructive */
-  --color-destructive-foreground: #FFFFFF; /* High contrast text */
+  /* Accent & Emphasis: Cream (10%) - NEW PRIMARY ACCENT */
+  --color-accent: #FDF4E3;             /* 10% ACCENT - emphasis & CTAs (SOFT CREAM) */
+  --color-accent-foreground: #252A34;  /* High contrast text on accent */
+  --color-destructive: #E6D9CC;        /* Warning/destructive (uses darker cream) */
+  --color-destructive-foreground: #252A34; /* High contrast text */
 
   /* Borders: Gray (60%) */
   --color-border: #3D4350;             /* 60% DOMINANT - border color */
@@ -945,6 +948,95 @@ img:hover {
 }
 
 /* =========================
+   ENHANCED BUTTON ANIMATIONS
+   ========================= */
+
+/* Primary button with elevated hover effect */
+@keyframes button-lift {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Glow effect for accent buttons */
+@keyframes button-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0);
+  }
+}
+
+/* CTA button scale effect on hover */
+.btn-cta,
+button[class*="cta"],
+a[class*="cta-button"] {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.btn-cta:hover,
+button[class*="cta"]:hover,
+a[class*="cta-button"]:hover {
+  transform: scale(1.05);
+}
+
+/* Orange accent button styles */
+.btn-orange,
+.bg-orange-600,
+[class*="bg-orange"] {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-orange:hover,
+.bg-orange-600:hover,
+[class*="bg-orange"]:hover {
+  background-color: #E67E35;
+  box-shadow: 0 10px 20px rgba(255, 139, 69, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Link hover underline effect */
+a:not([class*="button"]):not([class*="btn"]) {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a:not([class*="button"]):not([class*="btn"]):hover {
+  color: #FDF4E3;
+}
+
+/* Card hover elevation */
+.card, [class*="card-"] {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover,
+[class*="card-"]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Input focus with cream ring */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #FDF4E3;
+  outline-offset: 2px;
+  transition: outline 0.2s ease;
+}
+
+/* =========================
    BUTTON STYLES (Oak Harbor Inspired)
    ========================= */
 
@@ -954,7 +1046,7 @@ img:hover {
   display: inline-block;
   border-radius: 3.75rem;
   margin: 0;
-  background-color: #1e1b4b; /* indigo-950 */
+  background-color: #FDF4E3; /* Soft cream - NEW PRIMARY */
   min-width: 11.25rem;
   box-sizing: border-box;
   overflow: hidden;
@@ -964,10 +1056,11 @@ img:hover {
   font-size: 1rem;
   line-height: clamp(2.875rem, 5.5vw, 3.5rem);
   font-weight: 700;
-  color: #fff;
+  color: #252A34;
   transition: box-shadow 0.3s, color 0.3s, background-color 0.3s;
   text-align: center;
   white-space: nowrap;
+  animation: button-lift 0.3s ease;
 }
 
 .cs-button-solid:before {
@@ -978,15 +1071,17 @@ img:hover {
   content: "";
   opacity: 1;
   border-radius: 0.25rem;
-  background: #6366f1; /* indigo-500 */
+  background: #E6D9CC; /* Darker cream for hover */
   height: 100%;
   width: 0%;
   transition: width 0.3s;
 }
 
 .cs-button-solid:hover {
-  background-color: #6366f1; /* indigo-500 */
-  color: #1e1b4b; /* indigo-950 */
+  background-color: #E6D9CC; /* Darker cream on hover */
+  color: #252A34;
+  box-shadow: 0 10px 20px rgba(253, 244, 227, 0.35);
+  transform: translateY(-2px);
 }
 
 .cs-button-solid:hover:before {
