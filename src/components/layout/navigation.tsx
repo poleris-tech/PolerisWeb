@@ -2,11 +2,13 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./theme-toggle";
 import { Logo } from "@/components/ui/logo";
 import { CustomButton } from "@/components/ui/custom-button";
 import { HamburgerMenu } from "@/components/ui/hamburger-menu";
 import { motion, AnimatePresence } from "framer-motion";
+import { SERVICES } from "@/constants/site-data";
 
 /**
  * Navigation Component
@@ -25,6 +27,14 @@ export function Navigation() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
   const [activeSection, setActiveSection] = React.useState<string>("/");
+  const pathname = usePathname();
+
+  // Check if current page is a service page
+  const isServicePage = React.useMemo(() => {
+    if (!pathname) return false;
+    const pathSegments = pathname.split('/').filter(Boolean);
+    return pathSegments.length === 1 && SERVICES.some(s => s.id === pathSegments[0]);
+  }, [pathname]);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +47,12 @@ export function Navigation() {
   // Track active section using scroll position
   React.useEffect(() => {
     const handleSectionTracking = () => {
+      // If on a service page, always mark services as active
+      if (isServicePage) {
+        setActiveSection("#services");
+        return;
+      }
+
       const scrollPos = window.scrollY + 150; // Offset for navbar height
 
       // If at top, show home as active
@@ -68,7 +84,7 @@ export function Navigation() {
     handleSectionTracking();
 
     return () => window.removeEventListener("scroll", handleSectionTracking);
-  }, []);
+  }, [isServicePage]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -112,15 +128,15 @@ export function Navigation() {
                       >
                         <Link
                           href={item.href}
-                          className={`text-base font-bold uppercase tracking-wide transition-all duration-300 hover:scale-105 inline-block whitespace-nowrap relative pb-2 ${
+                          className={`text-base font-bold uppercase tracking-wide transition-all duration-300 hover:scale-105 inline-block whitespace-nowrap relative px-4 py-2 rounded-lg ${
                             isActive
-                              ? 'text-[#00bfff] dark:text-cyan-400'
-                              : 'text-[#001f3f] dark:text-gray-100 hover:text-[#00bfff] dark:hover:text-cyan-400'
+                              ? 'text-[#4A90E2] dark:text-cyan-400'
+                              : 'text-[#001f3f] dark:text-gray-100 hover:text-white dark:hover:text-white hover:bg-[#4A90E2] dark:hover:bg-cyan-500'
                           }`}
                         >
                           {item.label}
                           {isActive && (
-                            <span className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-cyan-500 dark:from-cyan-400 dark:to-cyan-300 rounded-full"></span>
+                            <span className="absolute bottom-1 left-2 right-2 h-0.5 bg-gradient-to-r from-[#4A90E2] to-[#3B82F6] dark:from-cyan-400 dark:to-cyan-300 rounded-full"></span>
                           )}
                         </Link>
                       </motion.div>
@@ -170,8 +186,8 @@ export function Navigation() {
                             onClick={() => setIsOpen(false)}
                             className={`text-base font-bold uppercase transition-all duration-300 text-center py-2 block hover:scale-105 rounded-lg ${
                               isActive
-                                ? 'text-[#00bfff] dark:text-cyan-400 bg-blue-50 dark:bg-cyan-500/10'
-                                : 'text-[#001f3f] dark:text-gray-100 hover:text-[#00bfff] dark:hover:text-cyan-400'
+                                ? 'text-[#4A90E2] dark:text-cyan-400 bg-blue-50 dark:bg-cyan-500/10'
+                                : 'text-[#001f3f] dark:text-gray-100 hover:text-[#4A90E2] dark:hover:text-cyan-400 hover:bg-blue-50/50 dark:hover:bg-cyan-500/5'
                             }`}
                           >
                             {item.label}

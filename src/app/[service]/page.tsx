@@ -1,10 +1,12 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import { SERVICES, ADD_ONS, PRICING_PLANS } from "@/constants/site-data";
 import { CustomButton } from "@/components/ui/custom-button";
 import { Navigation } from "@/components/layout/navigation";
 import { Footer } from "@/components/layout/footer";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -167,8 +169,20 @@ export default function ServicePage() {
     <main className="min-h-screen bg-white dark:bg-gray-950">
       <Navigation />
 
+      {/* Breadcrumb Navigation */}
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 pt-28 md:pt-32 lg:pt-36">
+        <Breadcrumb
+          items={[
+            {
+              label: service.title,
+              href: `/${service.id}`,
+            },
+          ]}
+        />
+      </div>
+
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 lg:pt-48 lg:pb-32 bg-gradient-to-br from-white dark:from-gray-950 to-gray-50 dark:to-gray-900 overflow-hidden">
+      <section className="relative pt-8 pb-16 md:pt-12 md:pb-24 lg:pt-16 lg:pb-32 bg-gradient-to-br from-white dark:from-gray-950 to-gray-50 dark:to-gray-900 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -267,12 +281,12 @@ export default function ServicePage() {
             </p>
           </ScrollReveal>
 
-          <div className="space-y-8 max-w-3xl mx-auto">
+          <div className="space-y-6 max-w-3xl mx-auto">
             {details.process.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={0.1 * (index + 1)}>
-                <div className="flex gap-6">
+                <div className="flex gap-6 p-6 rounded-xl bg-[#FDF4E3]/10 dark:bg-[#FDF4E3]/5 border border-[#FDF4E3]/20 dark:border-[#FDF4E3]/10 hover:bg-[#FDF4E3]/15 dark:hover:bg-[#FDF4E3]/10 transition-colors">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-14 w-14 rounded-full bg-[#4A90E2] text-white font-bold text-xl">
+                    <div className="flex items-center justify-center h-14 w-14 rounded-full bg-gradient-to-r from-[#FDF4E3] to-[#FDF2DB] text-slate-900 font-bold text-xl shadow-md">
                       {index + 1}
                     </div>
                   </div>
@@ -346,8 +360,8 @@ export default function ServicePage() {
               Let's discuss how {service.title.toLowerCase()} can help your business grow.
             </p>
             <CustomButton
-              href="#contact"
-              variant="outline"
+              href="/#contact"
+              variant="primary"
               size="lg"
               className="text-base md:text-lg px-8 md:px-10 py-4"
             >
@@ -355,6 +369,55 @@ export default function ServicePage() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </CustomButton>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Related Services Section */}
+      <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+          <ScrollReveal direction="up" delay={0.1}>
+            <h2 className="text-3xl md:text-4xl font-black text-[#001f3f] dark:text-white mb-4 text-center">
+              Other Services
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={0.2}>
+            <p className="text-lg text-[#001f3f]/75 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
+              Discover what else we can do for your business
+            </p>
+          </ScrollReveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {SERVICES.filter(s => s.id !== serviceId).map((relatedService, index) => (
+              <ScrollReveal key={relatedService.id} direction="up" delay={0.1 * (index + 1)}>
+                <Link
+                  href={`/${relatedService.id}`}
+                  className="group block p-6 rounded-xl bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 hover:border-[#4A90E2] dark:hover:border-[#4A90E2] transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                >
+                  <h3 className="text-xl font-bold text-[#001f3f] dark:text-white mb-3 group-hover:text-[#4A90E2] transition-colors">
+                    {relatedService.title}
+                  </h3>
+                  <p className="text-sm text-[#001f3f]/75 dark:text-gray-300 mb-4 line-clamp-2">
+                    {relatedService.description}
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-[#4A90E2] font-semibold text-sm group-hover:gap-3 transition-all">
+                    Learn More
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <CustomButton
+              href="/#services"
+              variant="comic"
+              size="lg"
+              className="text-base md:text-lg px-8 md:px-10 py-4"
+            >
+              View All Services
+            </CustomButton>
+          </div>
         </div>
       </section>
 

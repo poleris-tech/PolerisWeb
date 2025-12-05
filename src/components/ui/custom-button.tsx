@@ -40,7 +40,7 @@ export function CustomButton({
     secondary:
       "bg-gradient-to-r from-cerulean-blue-400 to-cerulean-blue-500 text-cerulean-blue-950 hover:from-cerulean-blue-300 hover:to-cerulean-blue-400 shadow-lg shadow-cerulean-blue-400/30 hover:shadow-cerulean-blue-400/50 hover:scale-105",
     outline:
-      "!bg-transparent border-2 border-[#FDF4E3]/60 !text-white hover:border-[#FDF4E3]/80 hover:!bg-transparent hover:!text-[#252A34] backdrop-blur-xl hover:backdrop-blur-2xl hover:shadow-[0_4px_12px_rgba(253,244,227,0.15)] hover:scale-105",
+      "!bg-transparent border-2 border-[#4A90E2]/60 !text-white hover:border-[#4A90E2] hover:!bg-[#4A90E2] hover:!text-white backdrop-blur-xl hover:backdrop-blur-2xl hover:shadow-[0_4px_12px_rgba(74,144,226,0.3)] hover:scale-105",
     comic:
       "bg-[#4A90E2] text-white border-2 border-[#3B82F6] dark:border-[#3B82F6] hover:bg-[#3B82F6] hover:text-white hover:border-[#3B82F6] active:bg-[#2563EB] active:shadow-none active:translate-y-1 transition-all duration-300 shadow-lg shadow-[#4A90E2]/30 hover:shadow-[#3B82F6]/40 hover:-translate-y-0.5",
     orange:
