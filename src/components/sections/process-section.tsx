@@ -9,10 +9,10 @@ import { SwipeableCards } from "@/components/ui/swipeable-cards";
 
 // Fluent UI Icon paths mapping for each process step
 const PROCESS_ICON_PATHS: Record<string, string> = {
-  "plan": "https://api.iconify.design/fluent/lightbulb-24-filled.svg?color=%23ffffff",
-  "design": "https://api.iconify.design/fluent/design-ideas-24-filled.svg?color=%23ffffff",
-  "develop": "https://api.iconify.design/fluent/code-24-filled.svg?color=%23ffffff",
-  "launch": "https://api.iconify.design/fluent/rocket-24-filled.svg?color=%23ffffff",
+  "plan": "https://api.iconify.design/fluent/lightbulb-24-filled.svg?color=%234A90E2",
+  "design": "https://api.iconify.design/fluent/design-ideas-24-filled.svg?color=%234A90E2",
+  "develop": "https://api.iconify.design/fluent/code-24-filled.svg?color=%234A90E2",
+  "launch": "https://api.iconify.design/fluent/rocket-24-filled.svg?color=%234A90E2",
 };
 
 // Process Icon Component - Displays Fluent UI icons
@@ -87,24 +87,32 @@ export function ProcessSection() {
             <SwipeableCards showControls={false}>
               {PROCESS_STEPS.map((step) => (
                 <div key={step.id} className="group relative h-full">
-                  <div className="relative flex flex-col h-full rounded-xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-5 sm:p-6 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white dark:hover:bg-gray-800 hover:border-indigo-500 dark:hover:border-cyan-400 hover:translate-x-[-6px] hover:translate-y-[-6px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:6px_6px_0px_rgb(99,102,241)] dark:hover:[box-shadow:6px_6px_0px_rgb(34,211,238)]">
+                  {/* Gradient Border Effect */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
 
-                    {/* Icon Container */}
-                    <div className="relative inline-flex self-center mb-4">
-                      <div className="relative flex justify-center items-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 dark:from-cyan-500 dark:to-cyan-600 h-16 w-16 sm:h-20 sm:w-20 shadow-md shadow-indigo-500/20 dark:shadow-cyan-500/20 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:rotate-2 group-hover:shadow-lg group-hover:shadow-indigo-500/30 dark:group-hover:shadow-cyan-500/30 p-3">
-                        <ProcessIcon stepId={step.id} />
+                  {/* Main Card Container */}
+                  <div className="relative flex flex-col h-full rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1 p-6 sm:p-8">
+
+                    {/* Animated Background Gradient */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col h-full">
+                      {/* Icon Container */}
+                      <div className="flex justify-center mb-6">
+                        <div className="transition-transform duration-700 ease-out group-hover:scale-110 w-20 h-20 sm:w-24 sm:h-24">
+                          <ProcessIcon stepId={step.id} />
+                        </div>
                       </div>
+
+                      <h3 className="text-[18px] md:text-[20px] font-black text-[#001f3f] dark:text-white text-center transition-colors duration-300 group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] mb-4 leading-tight">
+                        {step.title}
+                      </h3>
+
+                      <p className="text-[13px] md:text-[14px] text-[#001f3f]/80 dark:text-gray-300 text-center leading-relaxed font-medium">
+                        {step.description}
+                      </p>
                     </div>
-
-                    <h3 className="text-[16px] font-bold text-[#001f3f] dark:text-white text-center transition-colors duration-500 group-hover:text-indigo-600 dark:group-hover:text-cyan-400 mb-3 leading-tight">
-                      {step.title}
-                    </h3>
-
-                    <div className="w-12 h-[1.5px] bg-gray-200 dark:bg-gray-700 mx-auto mb-4 transition-all duration-500 group-hover:w-full group-hover:bg-indigo-500 dark:group-hover:bg-cyan-400"></div>
-
-                    <p className="text-[13px] text-[#001f3f]/70 dark:text-gray-300 text-center leading-relaxed">
-                      {step.description}
-                    </p>
                   </div>
                 </div>
               ))}
@@ -131,24 +139,32 @@ export function ProcessSection() {
               {PROCESS_STEPS.map((step, index) => (
                 <ScrollReveal key={step.id} direction="right" delay={0.1 * (index + 1)} duration={0.6}>
                   <div className="group relative h-full">
-                    <div className="relative flex flex-col h-full rounded-xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-4 xl:p-6 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-white dark:hover:bg-gray-800 hover:border-indigo-500 dark:hover:border-cyan-400 hover:translate-x-[-6px] hover:translate-y-[-6px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:6px_6px_0px_rgb(99,102,241)] dark:hover:[box-shadow:6px_6px_0px_rgb(34,211,238)]">
+                    {/* Gradient Border Effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
 
-                      {/* Icon Container */}
-                      <div className="relative inline-flex self-center mb-3">
-                        <div className="relative flex justify-center items-center rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 dark:from-cyan-500 dark:to-cyan-600 h-14 w-14 xl:h-16 xl:w-16 shadow-md shadow-indigo-500/20 dark:shadow-cyan-500/20 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 group-hover:rotate-2 group-hover:shadow-lg group-hover:shadow-indigo-500/30 dark:group-hover:shadow-cyan-500/30 p-3">
-                          <ProcessIcon stepId={step.id} />
+                    {/* Main Card Container */}
+                    <div className="relative flex flex-col h-full rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1 p-4 xl:p-6">
+
+                      {/* Animated Background Gradient */}
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                      {/* Content */}
+                      <div className="relative z-10 flex flex-col h-full">
+                        {/* Icon Container */}
+                        <div className="flex justify-center mb-4">
+                          <div className="transition-transform duration-700 ease-out group-hover:scale-110 w-16 h-16 xl:w-20 xl:h-20">
+                            <ProcessIcon stepId={step.id} />
+                          </div>
                         </div>
+
+                        <h3 className="text-[16px] xl:text-[18px] font-black text-[#001f3f] dark:text-white text-center transition-colors duration-300 group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] mb-3 leading-tight">
+                          {step.title}
+                        </h3>
+
+                        <p className="text-[12px] xl:text-[13px] text-[#001f3f]/80 dark:text-gray-300 text-center leading-relaxed font-medium">
+                          {step.description}
+                        </p>
                       </div>
-
-                      <h3 className="text-[15px] xl:text-[16px] font-bold text-[#001f3f] dark:text-white text-center transition-colors duration-500 group-hover:text-indigo-600 dark:group-hover:text-cyan-400 mb-2 leading-tight">
-                        {step.title}
-                      </h3>
-
-                      <div className="w-8 h-[1.5px] bg-gray-200 dark:bg-gray-700 mx-auto mb-3 transition-all duration-500 group-hover:w-full group-hover:bg-indigo-500 dark:group-hover:bg-cyan-400"></div>
-
-                      <p className="text-[12px] xl:text-[13px] text-[#001f3f]/70 dark:text-gray-300 text-center leading-relaxed transition-colors duration-500 group-hover:text-[#001f3f] dark:group-hover:text-gray-100">
-                        {step.description}
-                      </p>
                     </div>
                   </div>
                 </ScrollReveal>

@@ -17,10 +17,10 @@ import { Starfield } from "@/components/ui/starfield";
 // Custom Icon paths mapping for each service
 // Using Fluent UI icons from Microsoft
 const ICON_PATHS: Record<string, string> = {
-  "web-design": "https://api.iconify.design/fluent/code-24-filled.svg?color=%23ffffff",
-  "seo": "https://api.iconify.design/fluent/search-24-filled.svg?color=%23ffffff",
-  "ppc": "https://api.iconify.design/fluent/target-arrow-24-filled.svg?color=%23ffffff",
-  "hosting": "https://api.iconify.design/fluent/server-24-filled.svg?color=%23ffffff",
+  "web-design": "https://api.iconify.design/fluent/code-24-filled.svg?color=%234A90E2",
+  "seo": "https://api.iconify.design/fluent/search-24-filled.svg?color=%234A90E2",
+  "ppc": "https://api.iconify.design/fluent/target-arrow-24-filled.svg?color=%234A90E2",
+  "hosting": "https://api.iconify.design/fluent/server-24-filled.svg?color=%234A90E2",
 };
 
 // Service Icon Component - Displays custom uploaded icons
@@ -47,41 +47,75 @@ function ServiceCard({ service, index = 0 }: { service: typeof SERVICES[0]; inde
   return (
     <a
       href={`/${service.id}`}
-      className="group relative h-full flex flex-col p-8 md:p-10 rounded-2xl transition-all duration-500 bg-indigo-500/3 dark:bg-cyan-500/3 backdrop-blur-sm hover:bg-indigo-500/8 dark:hover:bg-cyan-500/8 overflow-hidden block border border-indigo-500/10 dark:border-cyan-500/10 hover:border-indigo-500/30 dark:hover:border-cyan-500/30 hover:shadow-lg hover:-translate-y-1"
+      className="group relative h-full flex flex-col rounded-2xl transition-all duration-500 overflow-hidden"
       style={{
         animation: `reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards`,
         opacity: 0,
         animationDelay: `${index * 0.1}s`,
       }}
     >
-      {/* Icon Container - Centered, Visible */}
-      <div className="flex justify-center mb-4 md:mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
-        <div className="flex justify-center items-center rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 dark:from-cyan-500 dark:to-cyan-600 h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 p-4">
-          <ServiceIcon serviceId={service.id} />
+      {/* Gradient Border Effect */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+
+      {/* Main Card Container */}
+      <div className="relative h-full flex flex-col p-8 md:p-10 rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1">
+
+        {/* Animated Background Gradient */}
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col h-full">
+          {/* Icon Container */}
+          <div className="flex justify-center mb-6 md:mb-8">
+            <div className="transition-transform duration-700 ease-out group-hover:scale-110 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28">
+              <ServiceIcon serviceId={service.id} />
+            </div>
+          </div>
+
+          {/* Title - Enhanced typography */}
+          <h3 className="text-[18px] md:text-[20px] lg:text-[22px] font-black text-[#001f3f] dark:text-white mb-4 md:mb-5 text-center group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] transition-colors duration-300 leading-tight">
+            {service.title}
+          </h3>
+
+          {/* Features List - Improved styling */}
+          <ul className="flex flex-col gap-3 md:gap-3.5 text-[13px] md:text-[14px] lg:text-[15px] text-[#001f3f]/80 dark:text-gray-300 flex-grow mb-6">
+            {service.features.map((feature, idx) => (
+              <li
+                key={idx}
+                className="flex items-start gap-3 group/item transition-all duration-300 hover:translate-x-1"
+                style={{
+                  animation: `fade-in 0.4s ease-out forwards`,
+                  animationDelay: `${index * 0.1 + idx * 0.05}s`,
+                  opacity: 0,
+                }}
+              >
+                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br from-[#FDF4E3] to-[#E6D9CC] dark:from-[#FDF4E3] dark:to-[#E6D9CC] flex items-center justify-center mt-0.5 group-hover/item:scale-110 transition-transform duration-300 shadow-sm">
+                  <svg className="w-3 h-3 text-slate-900" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="leading-relaxed group-hover/item:text-[#001f3f] dark:group-hover/item:text-white transition-colors duration-300 font-medium">
+                  {feature}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Learn More Link - Enhanced interaction */}
+          <div className="flex items-center justify-center gap-2 text-sm md:text-base font-bold text-[#8B7355] dark:text-[#FDF4E3] group-hover:text-[#6B5744] dark:group-hover:text-[#FDF2DB] transition-all duration-300">
+            <span>Learn More</span>
+            <svg
+              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={3}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </div>
         </div>
       </div>
-
-      {/* Title - Centered */}
-      <h3 className="text-[16px] md:text-[18px] font-bold text-[#001f3f] dark:text-white mb-3 md:mb-4 text-center">
-        {service.title}
-      </h3>
-
-      {/* Features List - Left Aligned */}
-      <ul className="flex flex-col gap-2 md:gap-2.5 text-[12px] md:text-[13px] text-[#001f3f]/75 dark:text-gray-300 flex-grow">
-        {service.features.map((feature, idx) => (
-          <li key={idx} className="flex items-start gap-2">
-            <svg className="w-3 h-3 text-indigo-600 dark:text-cyan-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
-
-      {/* Learn More Link */}
-      <span className="mt-6 inline-block text-sm font-semibold text-indigo-600 dark:text-cyan-400 group-hover:text-indigo-700 dark:group-hover:text-cyan-300 transition-colors duration-300">
-        Learn More →
-      </span>
     </a>
   );
 }
