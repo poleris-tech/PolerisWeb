@@ -138,11 +138,13 @@ export function PricingSection() {
         <div className="max-w-3xl mx-auto mb-16 sm:mb-20 md:mb-24 px-4 sm:px-6">
           <ScrollReveal direction="up" delay={0.2} duration={0.6}>
             <div className="group relative">
-              {/* Subtle blue blur background */}
-              <div className="absolute inset-0 bg-cyan-500/5 blur-3xl rounded-2xl"></div>
+              {/* Gradient Border Effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
 
-              <div className="relative rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-indigo-500 dark:hover:border-cyan-400 hover:translate-y-[-6px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:0px_10px_0px_rgba(99,102,241,0.15)] dark:hover:[box-shadow:0px_10px_0px_rgba(34,211,238,0.15)] shadow-md"
+              <div className="relative rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 overflow-hidden transition-all duration-300 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:8px_8px_0px_#4A90E2] group-hover:-translate-x-2 group-hover:-translate-y-2"
               >
+                {/* Animated Background Gradient */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                 {/* Popular Badge */}
                 {PRICING_PLANS[0].popular && (
@@ -152,7 +154,7 @@ export function PricingSection() {
                 )}
 
                 {/* Top Section - Pricing */}
-                <div className="bg-gradient-to-br from-indigo-50/30 to-cyan-50/20 dark:from-gray-800/40 dark:to-gray-800/20 p-6 sm:p-8 md:p-9 border-b border-gray-200 dark:border-gray-700">
+                <div className="relative z-10 bg-gradient-to-br from-indigo-50/30 to-cyan-50/20 dark:from-gray-800/40 dark:to-gray-800/20 p-6 sm:p-8 md:p-9 border-b border-gray-200 dark:border-gray-700">
                   <div className="text-center">
                     {/* H3 Section: 18-20px mobile, 24-28px desktop */}
                     <h3 className="text-[20px] md:text-[24px] font-black text-[#001f3f] dark:text-white mb-6 leading-[1.4] md:leading-[1.3]">
@@ -204,7 +206,7 @@ export function PricingSection() {
                 </div>
 
                 {/* Bottom Section - Features */}
-                <div className="p-6 sm:p-8 md:p-9 bg-white dark:bg-gray-900">
+                <div className="relative z-10 p-6 sm:p-8 md:p-9 bg-white/50 dark:bg-gray-900/50">
                   {/* H3 Section: 16px mobile, 20px desktop */}
                   <h3 className="text-[16px] md:text-[20px] font-bold text-[#001f3f] dark:text-white mb-5 md:mb-6 text-center leading-[1.4] md:leading-[1.3]">
                     Everything You Need Included
@@ -213,15 +215,17 @@ export function PricingSection() {
                   {/* Features Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
                     {PRICING_PLANS[0].features.map((feature, idx) => (
-                      <div key={idx} className="flex items-start gap-3 transition-all duration-300 hover:translate-x-1 group/item">
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-500 flex items-center justify-center transition-all duration-300 mt-0.5 group-hover/item:scale-110 shadow-lg">
-                          <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                      <ScrollReveal key={idx} direction="up" delay={0.05 * idx} duration={0.4}>
+                        <div className="flex items-start gap-3 transition-all duration-300 hover:translate-x-1 group/item">
+                          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-500 flex items-center justify-center transition-all duration-300 mt-0.5 group-hover/item:scale-110 shadow-lg">
+                            <Check className="w-4 h-4 text-white" strokeWidth={3} />
+                          </div>
+                          {/* Body Text: 16px mobile, 18px desktop */}
+                          <span className="text-base md:text-lg text-[#001f3f]/80 dark:text-white/90 group-hover/item:text-[#001f3f] dark:group-hover/item:text-white transition-colors duration-300 font-medium leading-[1.5] md:leading-[1.6]">
+                            {feature}
+                          </span>
                         </div>
-                        {/* Body Text: 16px mobile, 18px desktop */}
-                        <span className="text-base md:text-lg text-[#001f3f]/80 dark:text-white/90 group-hover/item:text-[#001f3f] dark:group-hover/item:text-white transition-colors duration-300 font-medium leading-[1.5] md:leading-[1.6]">
-                          {feature}
-                        </span>
-                      </div>
+                      </ScrollReveal>
                     ))}
                   </div>
 

@@ -243,22 +243,24 @@ export function PriceCalculator() {
             const isSelected = selectedPreset === preset.id;
 
             return (
-              <motion.button
-                key={preset.id}
-                onClick={() => applyPreset(preset)}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
-                aria-selected={isSelected}
-                aria-label={`${preset.name} package: ${preset.description}`}
-                className={`relative p-6 rounded-2xl border-2 transition-all duration-300 text-left ${
-                  isSelected
-                    ? 'bg-white dark:bg-gray-900 border-cyan-400 shadow-lg shadow-cyan-500/20'
-                    : 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-cyan-400 hover:translate-y-[-4px] shadow-lg'
-                }`}
-              >
+              <div key={preset.id} className="group relative">
+                {/* Gradient Border Effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+
+                <motion.button
+                  onClick={() => applyPreset(preset)}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * index }}
+                  aria-selected={isSelected}
+                  aria-label={`${preset.name} package: ${preset.description}`}
+                  className={`relative w-full p-6 rounded-2xl border-2 transition-all duration-300 text-left bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-sm [box-shadow:0px_0px_0px_transparent] ${
+                    isSelected
+                      ? 'border-[#4A90E2] [box-shadow:6px_6px_0px_#4A90E2] -translate-x-1 -translate-y-1'
+                      : 'border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1'
+                  }`}
+                >
                 {/* Badge */}
                 {preset.badge && (
                   <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white ${preset.badgeColor}`}>
@@ -296,7 +298,11 @@ export function PriceCalculator() {
                     <Check className="w-4 h-4 text-white" strokeWidth={3} />
                   </motion.div>
                 )}
-              </motion.button>
+
+                  {/* Animated Background Gradient */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </motion.button>
+              </div>
             );
           })}
         </div>
@@ -311,7 +317,15 @@ export function PriceCalculator() {
           className="space-y-6"
         >
           {/* Number of Pages */}
-          <div className="relative rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-6 hover:border-cyan-400 transition-all duration-300 shadow-lg">
+          <div className="group relative">
+            {/* Gradient Border Effect */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+
+            <div className="relative rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 p-6 transition-all duration-300 shadow-sm group-hover:border-[#4A90E2] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1 [box-shadow:0px_0px_0px_transparent]">
+              {/* Animated Background Gradient */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div className="relative z-10">
             <label className="flex items-center gap-2 text-[#001f3d] dark:text-white font-semibold mb-4">
               <Sparkles className="w-5 h-5 text-cyan-400" />
               Number of Pages
@@ -369,10 +383,20 @@ export function PriceCalculator() {
                 className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"
               />
             </div>
+              </div>
+            </div>
           </div>
 
           {/* Add-ons */}
-          <div className="relative rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-6 hover:border-cyan-400 transition-all duration-300 shadow-lg">
+          <div className="group relative">
+            {/* Gradient Border Effect */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+
+            <div className="relative rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 p-6 transition-all duration-300 shadow-sm group-hover:border-[#4A90E2] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1 [box-shadow:0px_0px_0px_transparent]">
+              {/* Animated Background Gradient */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div className="relative z-10">
             <label className="flex items-center gap-2 text-[#001f3d] dark:text-white font-semibold mb-4">
               <TrendingUp className="w-5 h-5 text-cyan-400" />
               Optional Add-Ons
@@ -432,6 +456,8 @@ export function PriceCalculator() {
                 onToggle={() => toggleAddOn('googleAds')}
               />
             </div>
+              </div>
+            </div>
           </div>
         </motion.div>
 
@@ -442,7 +468,15 @@ export function PriceCalculator() {
           transition={{ delay: 0.4 }}
           className="lg:sticky lg:top-24 h-fit"
         >
-          <div className="relative rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 p-6 sm:p-8 shadow-2xl">
+          <div className="group relative">
+            {/* Gradient Border Effect */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+
+            <div className="relative rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 p-6 sm:p-8 transition-all duration-300 shadow-sm group-hover:border-[#4A90E2] group-hover:[box-shadow:8px_8px_0px_#4A90E2] group-hover:-translate-x-2 group-hover:-translate-y-2 [box-shadow:0px_0px_0px_transparent]">
+              {/* Animated Background Gradient */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div className="relative z-10">
             {/* Sparkle decoration */}
             <div className="absolute top-4 right-4">
               <Sparkles className="w-6 h-6 text-cyan-400 animate-pulse" />
@@ -568,6 +602,8 @@ export function PriceCalculator() {
             <p className="text-[#001f3d]/60 dark:text-white/60 text-xs text-center mt-4">
               Free consultation • No hidden fees • Start today
             </p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

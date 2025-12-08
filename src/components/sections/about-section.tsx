@@ -283,18 +283,32 @@ export function AboutSection() {
               const Icon = item.icon;
               return (
                 <ScrollReveal key={index} direction="up" delay={0.05 * index}>
-                  <div className="group p-5 sm:p-6 rounded-xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 hover:border-[#5c94ff] dark:hover:border-[#5c94ff] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-blue-50 dark:hover:bg-gray-800 hover:translate-x-[-4px] hover:translate-y-[-4px] active:translate-x-[-2px] active:translate-y-[-2px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:4px_4px_0px_#5c94ff] dark:hover:[box-shadow:4px_4px_0px_#5c94ff] active:[box-shadow:2px_2px_0px_#5c94ff]">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-400 to-blue-500 flex items-center justify-center group-hover:scale-105 transition-all duration-500 shadow-sm group-hover:shadow-md">
-                        <Icon className="w-6 h-6 text-white transition-transform duration-500 group-hover:scale-110" />
-                      </div>
-                      <div className="flex-1">
-                        {/* H3 Section: 18-20px mobile, 24px desktop */}
-                        <h3 className="text-[18px] md:text-[20px] font-bold text-[#001f3d] dark:text-white mb-2 leading-[1.4] md:leading-[1.3] group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors duration-500">
+                  <div className="group relative h-full">
+                    {/* Gradient Border Effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+
+                    {/* Main Card Container */}
+                    <div className="relative h-full flex flex-col p-6 sm:p-8 rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1">
+
+                      {/* Animated Background Gradient */}
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                      {/* Content */}
+                      <div className="relative z-10 flex flex-col h-full">
+                        {/* Icon Container */}
+                        <div className="flex justify-center mb-5 md:mb-6">
+                          <div className="transition-transform duration-700 ease-out group-hover:scale-110 w-16 h-16 sm:w-20 sm:h-20">
+                            <Icon className="w-full h-full text-[#4A90E2]" strokeWidth={1.5} />
+                          </div>
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-[18px] md:text-[20px] font-black text-[#001f3d] dark:text-white mb-3 text-center group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] transition-colors duration-300 leading-tight">
                           {item.title}
                         </h3>
-                        {/* Caption/Body Text: 14px mobile, 16px desktop */}
-                        <p className="text-sm md:text-base text-[#001f3d]/70 dark:text-gray-400 leading-[1.4] md:leading-[1.5] group-hover:text-[#001f3d]/90 dark:group-hover:text-gray-300 transition-colors duration-500">
+
+                        {/* Description */}
+                        <p className="text-[13px] md:text-[14px] text-[#001f3d]/80 dark:text-gray-300 text-center leading-relaxed font-medium">
                           {item.description}
                         </p>
                       </div>

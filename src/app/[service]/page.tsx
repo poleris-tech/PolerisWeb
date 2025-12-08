@@ -256,10 +256,21 @@ export default function ServicePage() {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-12">
             {details.whyChoose.map((reason, index) => (
               <ScrollReveal key={index} direction="left" delay={0.1 * (index + 1)}>
-                <div className="p-6 rounded-xl bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 hover:border-[#4A90E2] dark:hover:border-[#4A90E2] transition-colors">
-                  <p className="text-[#001f3f] dark:text-white font-semibold">
-                    {reason}
-                  </p>
+                <div className="group relative h-full">
+                  {/* Gradient Border Effect */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+
+                  {/* Main Card Container */}
+                  <div className="relative h-full flex items-center p-6 rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1">
+
+                    {/* Animated Background Gradient */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    {/* Content */}
+                    <p className="relative z-10 text-[#001f3f] dark:text-white font-semibold group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] transition-colors duration-300">
+                      {reason}
+                    </p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
@@ -389,21 +400,32 @@ export default function ServicePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {SERVICES.filter(s => s.id !== serviceId).map((relatedService, index) => (
               <ScrollReveal key={relatedService.id} direction="up" delay={0.1 * (index + 1)}>
-                <Link
-                  href={`/${relatedService.id}`}
-                  className="group block p-6 rounded-xl bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 hover:border-[#4A90E2] dark:hover:border-[#4A90E2] transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                >
-                  <h3 className="text-xl font-bold text-[#001f3f] dark:text-white mb-3 group-hover:text-[#4A90E2] transition-colors">
-                    {relatedService.title}
-                  </h3>
-                  <p className="text-sm text-[#001f3f]/75 dark:text-gray-300 mb-4 line-clamp-2">
-                    {relatedService.description}
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-[#4A90E2] font-semibold text-sm group-hover:gap-3 transition-all">
-                    Learn More
-                    <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Link>
+                <div className="group relative h-full">
+                  {/* Gradient Border Effect */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+
+                  <Link
+                    href={`/${relatedService.id}`}
+                    className="relative h-full flex flex-col p-6 rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1"
+                  >
+                    {/* Animated Background Gradient */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <h3 className="text-xl font-bold text-[#001f3f] dark:text-white mb-3 group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] transition-colors duration-300">
+                        {relatedService.title}
+                      </h3>
+                      <p className="text-sm text-[#001f3f]/75 dark:text-gray-300 mb-4 line-clamp-2">
+                        {relatedService.description}
+                      </p>
+                      <span className="inline-flex items-center gap-2 text-[#4A90E2] font-semibold text-sm group-hover:gap-3 transition-all">
+                        Learn More
+                        <ArrowRight className="h-4 w-4" />
+                      </span>
+                    </div>
+                  </Link>
+                </div>
               </ScrollReveal>
             ))}
           </div>
