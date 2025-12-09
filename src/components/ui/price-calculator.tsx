@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, Plus, Minus, Calculator, TrendingUp, ArrowRight, Sparkles, Zap, Crown, Rocket, ChevronDown } from 'lucide-react';
 import { CustomButton } from '@/components/ui/custom-button';
+import { ScrollReveal } from '@/components/ui/scroll-reveal';
 
 interface CalculatorState {
   pages: number;
@@ -231,36 +232,29 @@ export function PriceCalculator() {
       </div>
 
       {/* Package Presets */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        className="mb-8 md:mb-12"
-      >
+      <div className="mb-8 md:mb-12">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
           {PACKAGE_PRESETS.map((preset, index) => {
             const Icon = preset.icon;
             const isSelected = selectedPreset === preset.id;
 
             return (
-              <div key={preset.id} className="group relative">
-                {/* Gradient Border Effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+              <ScrollReveal key={preset.id} direction="up" delay={0.1 * index} duration={0.6}>
+                <div className="group relative h-full">
+                  {/* Gradient Border Effect */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
 
-                <motion.button
-                  onClick={() => applyPreset(preset)}
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 * index }}
-                  aria-selected={isSelected}
-                  aria-label={`${preset.name} package: ${preset.description}`}
-                  className={`relative w-full p-6 rounded-2xl border-2 transition-all duration-300 text-left bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-sm [box-shadow:0px_0px_0px_transparent] ${
-                    isSelected
-                      ? 'border-[#4A90E2] [box-shadow:6px_6px_0px_#4A90E2] -translate-x-1 -translate-y-1'
-                      : 'border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1'
-                  }`}
-                >
+                  <motion.button
+                    onClick={() => applyPreset(preset)}
+                    whileTap={{ scale: 0.98 }}
+                    aria-selected={isSelected}
+                    aria-label={`${preset.name} package: ${preset.description}`}
+                    className={`relative w-full h-full p-6 rounded-2xl border-2 transition-all duration-300 text-left bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-sm [box-shadow:0px_0px_0px_transparent] ${
+                      isSelected
+                        ? 'border-[#4A90E2] [box-shadow:6px_6px_0px_#4A90E2] -translate-x-1 -translate-y-1'
+                        : 'border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1'
+                    }`}
+                  >
                 {/* Badge */}
                 {preset.badge && (
                   <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white ${preset.badgeColor}`}>
@@ -303,10 +297,11 @@ export function PriceCalculator() {
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </motion.button>
               </div>
-            );
-          })}
+            </ScrollReveal>
+          );
+        })}
         </div>
-      </motion.div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {/* Left Column: Configuration */}

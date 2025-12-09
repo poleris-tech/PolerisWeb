@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, ReactNode } from "react";
-import { motion, PanInfo, useMotionValue, useTransform } from "framer-motion";
+import { useState, ReactNode, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface SwipeableCardsProps {
@@ -11,74 +11,77 @@ interface SwipeableCardsProps {
 
 /**
  * Swipeable Cards Component
- * Mobile-first swipeable carousel for service cards
+ * Mobile-first carousel using native CSS scroll-snap for butter-smooth performance
+ * No complex animations - just native browser scrolling
  */
 
 export function SwipeableCards({ children, showControls = true }: SwipeableCardsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const SWIPE_CONFIDENCE_THRESHOLD = 5000;
-  const SWIPE_OFFSET_THRESHOLD = 50; // Minimum swipe distance in pixels
+  // Update current index based on scroll position
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
 
-  const swipePower = (offset: number, velocity: number) => {
-    return Math.abs(offset) * velocity;
-  };
+    const handleScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const cardWidth = container.offsetWidth;
+      const newIndex = Math.round(scrollLeft / cardWidth);
+      setCurrentIndex(newIndex);
+    };
 
-  const handleDragEnd = (e: any, { offset, velocity }: PanInfo) => {
-    setIsDragging(false);
-    const swipe = swipePower(offset.x, velocity.x);
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    // Check both swipe power and minimum offset for better responsiveness
-    if (swipe < -SWIPE_CONFIDENCE_THRESHOLD || offset.x < -SWIPE_OFFSET_THRESHOLD) {
-      // Swipe left - next card (infinite loop)
-      setCurrentIndex((currentIndex + 1) % children.length);
-    } else if (swipe > SWIPE_CONFIDENCE_THRESHOLD || offset.x > SWIPE_OFFSET_THRESHOLD) {
-      // Swipe right - previous card (infinite loop)
-      setCurrentIndex((currentIndex - 1 + children.length) % children.length);
+  const scrollToCard = (index: number) => {
+    const card = cardRefs.current[index];
+    if (card) {
+      card.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
     }
   };
 
   const goToNext = () => {
-    setCurrentIndex((currentIndex + 1) % children.length);
+    const nextIndex = Math.min(currentIndex + 1, children.length - 1);
+    scrollToCard(nextIndex);
   };
 
   const goToPrevious = () => {
-    setCurrentIndex((currentIndex - 1 + children.length) % children.length);
+    const prevIndex = Math.max(currentIndex - 1, 0);
+    scrollToCard(prevIndex);
   };
 
   return (
-    <div className="relative w-screen left-1/2 right-1/2 -mx-[50vw] overflow-hidden pb-2">
-      {/* Cards container */}
-      <div className="relative h-full mb-4 px-4 sm:px-0">
-        <motion.div
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.2}
-          dragMomentum={true}
-          onDragStart={() => setIsDragging(true)}
-          onDragEnd={handleDragEnd}
-          animate={{
-            x: `-${currentIndex * 100}%`,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 300,
-            damping: 30,
-            mass: 1,
-          }}
-          className="flex touch-pan-y will-change-transform"
-        >
+    <div className="relative w-full pb-2">
+      {/* Native scroll container with scroll-snap */}
+      <div
+        ref={scrollContainerRef}
+        className="relative mb-4 overflow-x-auto overflow-y-hidden scrollbar-hide snap-x snap-mandatory"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
+        <div className="flex gap-4 px-4 sm:px-0">
           {children.map((child, index) => (
             <div
               key={index}
-              className="min-w-full px-4 sm:px-0"
-              style={{ pointerEvents: isDragging ? "none" : "auto" }}
+              ref={(el) => {
+                cardRefs.current[index] = el;
+              }}
+              className="flex-shrink-0 w-full snap-center snap-always"
             >
               {child}
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Swipe hint (shows on first load) - positioned above dots */}
@@ -104,7 +107,7 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
         {children.map((_, index) => (
           <motion.button
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => scrollToCard(index)}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.95 }}
             className={`transition-all duration-300 rounded-full ${

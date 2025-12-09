@@ -295,7 +295,7 @@ export default function ServicePage() {
           <div className="space-y-6 max-w-3xl mx-auto">
             {details.process.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={0.1 * (index + 1)}>
-                <div className="flex gap-6 p-6 rounded-xl bg-[#FDF4E3]/10 dark:bg-[#FDF4E3]/5 border border-[#FDF4E3]/20 dark:border-[#FDF4E3]/10 hover:bg-[#FDF4E3]/15 dark:hover:bg-[#FDF4E3]/10 transition-colors">
+                <div className="flex gap-6 p-6 rounded-xl bg-gradient-to-r from-[#FDF4E3]/25 to-[#FDF2DB]/25 dark:from-[#FDF4E3]/15 dark:to-[#FDF2DB]/15 border border-[#FDF4E3]/30 dark:border-[#FDF4E3]/20 hover:from-[#FDF4E3]/35 hover:to-[#FDF2DB]/35 dark:hover:from-[#FDF4E3]/25 dark:hover:to-[#FDF2DB]/25 transition-all">
                   <div className="flex-shrink-0">
                     <div className="flex items-center justify-center h-14 w-14 rounded-full bg-gradient-to-r from-[#FDF4E3] to-[#FDF2DB] text-slate-900 font-bold text-xl shadow-md">
                       {index + 1}
