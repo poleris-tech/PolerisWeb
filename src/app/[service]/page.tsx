@@ -170,7 +170,7 @@ export default function ServicePage() {
       <Navigation />
 
       {/* Breadcrumb Navigation */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 pt-28 md:pt-32 lg:pt-36">
+      <div className="container mx-auto px-6 sm:px-6 md:px-8 pt-28 md:pt-32 lg:pt-36">
         <Breadcrumb
           items={[
             {
@@ -183,17 +183,17 @@ export default function ServicePage() {
 
       {/* Hero Section */}
       <section className="relative pt-8 pb-16 md:pt-12 md:pb-24 lg:pt-16 lg:pb-32 bg-gradient-to-br from-white dark:from-gray-950 to-gray-50 dark:to-gray-900 overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        <div className="container mx-auto px-6 sm:px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#001f3f] dark:text-white mb-6 leading-[1.2]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-[#001f3f] dark:text-white mb-6 leading-[1.2]">
               {details.fullDescription}
             </h1>
-            <p className="text-lg md:text-xl text-[#001f3f]/75 dark:text-gray-300 mb-10 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-[#001f3f]/75 dark:text-gray-300 mb-10 leading-relaxed">
               {details.longDescription}
             </p>
             <CustomButton
@@ -211,29 +211,29 @@ export default function ServicePage() {
 
       {/* Benefits Section */}
       <section className="py-16 md:py-24 lg:py-32 bg-white dark:bg-gray-950">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        <div className="container mx-auto px-6 sm:px-6 md:px-8">
           <ScrollReveal direction="up" delay={0.1}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#001f3f] dark:text-white mb-4 text-center">
               Key Benefits
             </h2>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.2}>
-            <p className="text-lg text-[#001f3f]/75 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-[#001f3f]/75 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
               What makes our {service.title.toLowerCase()} stand out from the competition.
             </p>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto px-4 sm:px-0">
             {details.benefits.map((benefit, index) => (
               <ScrollReveal key={index} direction="up" delay={0.1 * (index + 1)}>
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-[#4A90E2] text-white">
-                      <Check className="h-6 w-6" />
+                    <div className="flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-lg bg-[#4A90E2] text-white">
+                      <Check className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
                   </div>
                   <div>
-                    <p className="text-lg font-semibold text-[#001f3f] dark:text-white">
+                    <p className="text-base sm:text-lg font-semibold text-[#001f3f] dark:text-white">
                       {benefit}
                     </p>
                   </div>
@@ -246,14 +246,14 @@ export default function ServicePage() {
 
       {/* Why Choose Section */}
       <section className="py-16 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        <div className="container mx-auto px-6 sm:px-6 md:px-8">
           <ScrollReveal direction="up" delay={0.1}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#001f3f] dark:text-white mb-4 text-center">
               Why Choose Us
             </h2>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-12">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto mt-12 px-4 sm:px-0">
             {details.whyChoose.map((reason, index) => (
               <ScrollReveal key={index} direction="left" delay={0.1 * (index + 1)}>
                 <div className="group relative h-full">
@@ -261,13 +261,13 @@ export default function ServicePage() {
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
 
                   {/* Main Card Container */}
-                  <div className="relative h-full flex items-center p-6 rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1">
+                  <div className="relative h-full flex items-center p-5 sm:p-6 rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1">
 
                     {/* Animated Background Gradient */}
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                     {/* Content */}
-                    <p className="relative z-10 text-[#001f3f] dark:text-white font-semibold group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] transition-colors duration-300">
+                    <p className="relative z-10 text-sm sm:text-base text-[#001f3f] dark:text-white font-semibold group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] transition-colors duration-300 px-3 sm:px-2">
                       {reason}
                     </p>
                   </div>
@@ -280,29 +280,29 @@ export default function ServicePage() {
 
       {/* Process Section */}
       <section className="py-16 md:py-24 lg:py-32 bg-white dark:bg-gray-950">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        <div className="container mx-auto px-6 sm:px-6 md:px-8">
           <ScrollReveal direction="up" delay={0.1}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#001f3f] dark:text-white mb-4 text-center">
               Our Process
             </h2>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.2}>
-            <p className="text-lg text-[#001f3f]/75 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-[#001f3f]/75 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
               How we deliver results, step by step.
             </p>
           </ScrollReveal>
 
-          <div className="space-y-6 max-w-3xl mx-auto">
+          <div className="space-y-4 sm:space-y-6 max-w-3xl mx-auto px-4 sm:px-0">
             {details.process.map((step, index) => (
               <ScrollReveal key={index} direction="up" delay={0.1 * (index + 1)}>
-                <div className="flex gap-6 p-6 rounded-xl bg-gradient-to-r from-[#FDF4E3]/25 to-[#FDF2DB]/25 dark:from-[#FDF4E3]/15 dark:to-[#FDF2DB]/15 border border-[#FDF4E3]/30 dark:border-[#FDF4E3]/20 hover:from-[#FDF4E3]/35 hover:to-[#FDF2DB]/35 dark:hover:from-[#FDF4E3]/25 dark:hover:to-[#FDF2DB]/25 transition-all">
+                <div className="flex gap-4 sm:gap-6 p-5 sm:p-6 rounded-xl bg-gradient-to-r from-[#FDF4E3]/25 to-[#FDF2DB]/25 dark:from-[#FDF4E3]/15 dark:to-[#FDF2DB]/15 border border-[#FDF4E3]/30 dark:border-[#FDF4E3]/20 hover:from-[#FDF4E3]/35 hover:to-[#FDF2DB]/35 dark:hover:from-[#FDF4E3]/25 dark:hover:to-[#FDF2DB]/25 transition-all">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-14 w-14 rounded-full bg-gradient-to-r from-[#FDF4E3] to-[#FDF2DB] text-slate-900 font-bold text-xl shadow-md">
+                    <div className="flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-r from-[#FDF4E3] to-[#FDF2DB] text-slate-900 font-bold text-lg sm:text-xl shadow-md">
                       {index + 1}
                     </div>
                   </div>
-                  <div className="flex-1 pt-2">
-                    <p className="text-lg font-semibold text-[#001f3f] dark:text-white">
+                  <div className="flex-1 pt-2 pr-2">
+                    <p className="text-base sm:text-lg font-semibold text-[#001f3f] dark:text-white">
                       {step}
                     </p>
                   </div>
@@ -315,22 +315,22 @@ export default function ServicePage() {
 
       {/* Pricing Section */}
       <section className="py-16 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        <div className="container mx-auto px-6 sm:px-6 md:px-8">
           <ScrollReveal direction="up" delay={0.1}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#001f3f] dark:text-white mb-4 text-center">
               Simple Pricing
             </h2>
           </ScrollReveal>
 
-          <div className="max-w-2xl mx-auto mt-12 p-8 rounded-2xl bg-white dark:bg-gray-950 border-2 border-[#4A90E2]">
-            <h3 className="text-2xl font-bold text-[#001f3f] dark:text-white mb-6">
+          <div className="max-w-2xl mx-4 sm:mx-auto mt-12 p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-950 border-2 border-[#4A90E2]">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#001f3f] dark:text-white mb-6">
               {PRICING_PLANS[0].name}
             </h3>
             <div className="mb-8">
-              <div className="text-5xl font-black text-[#4A90E2] mb-2">
+              <div className="text-4xl sm:text-5xl font-black text-[#4A90E2] mb-2">
                 ${PRICING_PLANS[0].oneTimePrice}
               </div>
-              <p className="text-[#001f3f]/75 dark:text-gray-300">
+              <p className="text-sm sm:text-base text-[#001f3f]/75 dark:text-gray-300">
                 One-time investment + ${PRICING_PLANS[0].monthlyPrice}/month for hosting & support
               </p>
             </div>
@@ -338,7 +338,7 @@ export default function ServicePage() {
               {PRICING_PLANS[0].features.map((feature, index) => (
                 <li key={index} className="flex gap-3 items-start">
                   <Check className="h-5 w-5 text-[#4A90E2] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#001f3f] dark:text-white">{feature}</span>
+                  <span className="text-sm sm:text-base text-[#001f3f] dark:text-white">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -357,17 +357,17 @@ export default function ServicePage() {
 
       {/* CTA Section */}
       <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-r from-[#4A90E2] to-[#3B82F6] text-white">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 text-center">
+        <div className="container mx-auto px-6 sm:px-6 md:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-6">
               {details.cta}
             </h2>
-            <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            <p className="text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
               Let's discuss how {service.title.toLowerCase()} can help your business grow.
             </p>
             <CustomButton
@@ -385,19 +385,19 @@ export default function ServicePage() {
 
       {/* Related Services Section */}
       <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        <div className="container mx-auto px-6 sm:px-6 md:px-8">
           <ScrollReveal direction="up" delay={0.1}>
             <h2 className="text-3xl md:text-4xl font-black text-[#001f3f] dark:text-white mb-4 text-center">
               Other Services
             </h2>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.2}>
-            <p className="text-lg text-[#001f3f]/75 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-[#001f3f]/75 dark:text-gray-300 text-center mb-12 max-w-2xl mx-auto">
               Discover what else we can do for your business
             </p>
           </ScrollReveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto px-4 sm:px-0">
             {SERVICES.filter(s => s.id !== serviceId).map((relatedService, index) => (
               <ScrollReveal key={relatedService.id} direction="up" delay={0.1 * (index + 1)}>
                 <div className="group relative h-full">
@@ -406,14 +406,14 @@ export default function ServicePage() {
 
                   <Link
                     href={`/${relatedService.id}`}
-                    className="relative h-full flex flex-col p-6 rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1"
+                    className="relative h-full flex flex-col p-5 sm:p-6 rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1"
                   >
                     {/* Animated Background Gradient */}
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
                     {/* Content */}
-                    <div className="relative z-10">
-                      <h3 className="text-xl font-bold text-[#001f3f] dark:text-white mb-3 group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] transition-colors duration-300">
+                    <div className="relative z-10 px-3 sm:px-2">
+                      <h3 className="text-lg sm:text-xl font-bold text-[#001f3f] dark:text-white mb-3 group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] transition-colors duration-300">
                         {relatedService.title}
                       </h3>
                       <p className="text-sm text-[#001f3f]/75 dark:text-gray-300 mb-4 line-clamp-2">

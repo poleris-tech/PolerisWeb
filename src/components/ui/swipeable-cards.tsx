@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 interface SwipeableCardsProps {
   children: ReactNode[];
   showControls?: boolean;
+  showDots?: boolean;
 }
 
 /**
@@ -15,7 +16,7 @@ interface SwipeableCardsProps {
  * No complex animations - just native browser scrolling
  */
 
-export function SwipeableCards({ children, showControls = true }: SwipeableCardsProps) {
+export function SwipeableCards({ children, showControls = true, showDots = true }: SwipeableCardsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -84,8 +85,8 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
         </div>
       </div>
 
-      {/* Swipe hint (shows on first load) - positioned above dots */}
-      {currentIndex === 0 && (
+      {/* Swipe hint (shows on first load) - only if dots are hidden */}
+      {!showDots && currentIndex === 0 && (
         <motion.div
           initial={{ opacity: 1 }}
           animate={{ opacity: [1, 0.6, 1] }}
@@ -103,25 +104,27 @@ export function SwipeableCards({ children, showControls = true }: SwipeableCards
       )}
 
       {/* Navigation dots */}
-      <div className="flex justify-center gap-3 mt-4" role="tablist">
-        {children.map((_, index) => (
-          <motion.button
-            key={index}
-            onClick={() => scrollToCard(index)}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.95 }}
-            className={`transition-all duration-300 rounded-full ${
-              index === currentIndex
-                ? "w-10 h-2.5 bg-gradient-to-r from-cyan-500 to-cyan-600 dark:from-cyan-400 dark:to-cyan-500 shadow-lg shadow-cyan-500/30"
-                : "w-2 h-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"
-            }`}
-            aria-label={`Go to card ${index + 1}`}
-            aria-current={index === currentIndex ? "page" : undefined}
-            role="tab"
-            aria-selected={index === currentIndex}
-          />
-        ))}
-      </div>
+      {showDots && (
+        <div className="flex justify-center gap-3 mt-4" role="tablist">
+          {children.map((_, index) => (
+            <motion.button
+              key={index}
+              onClick={() => scrollToCard(index)}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.95 }}
+              className={`transition-all duration-300 rounded-full ${
+                index === currentIndex
+                  ? "w-10 h-2.5 bg-gradient-to-r from-cyan-500 to-cyan-600 dark:from-cyan-400 dark:to-cyan-500 shadow-lg shadow-cyan-500/30"
+                  : "w-2 h-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"
+              }`}
+              aria-label={`Go to card ${index + 1}`}
+              aria-current={index === currentIndex ? "page" : undefined}
+              role="tab"
+              aria-selected={index === currentIndex}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Arrow controls (optional) */}
       {showControls && (

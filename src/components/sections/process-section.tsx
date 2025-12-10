@@ -5,7 +5,6 @@ import Image from "next/image";
 import { PROCESS_STEPS } from "@/constants/site-data";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Starfield } from "@/components/ui/starfield";
-import { SwipeableCards } from "@/components/ui/swipeable-cards";
 
 // Fluent UI Icon paths mapping for each process step
 const PROCESS_ICON_PATHS: Record<string, string> = {
@@ -81,42 +80,54 @@ export function ProcessSection() {
         </div>
 
         {/* Process Layout - Two Column on Desktop */}
-        <div className="flex justify-center w-full mb-8">
-          {/* Mobile Swipeable Cards - Hidden on MD and above */}
-          <div className="md:hidden w-full max-w-md mx-auto">
-            <SwipeableCards showControls={false}>
-              {PROCESS_STEPS.map((step) => (
-                <div key={step.id} className="group relative h-full">
-                  {/* Gradient Border Effect */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+        <div className="flex justify-center w-full mb-8 overflow-x-hidden">
+          {/* Mobile Vertical List - Hidden on MD and above */}
+          <div className="md:hidden w-full max-w-md mx-auto px-6 overflow-x-hidden">
+            <div className="relative">
+              {/* Vertical connecting line - shows process flow */}
+              <div className="absolute left-[46px] top-[90px] bottom-[90px] w-0.5 bg-gradient-to-b from-[#4A90E2]/30 via-[#3B82F6]/30 to-[#2563EB]/30 dark:from-[#4A90E2]/40 dark:via-[#3B82F6]/40 dark:to-[#2563EB]/40"></div>
 
-                  {/* Main Card Container */}
-                  <div className="relative flex flex-col h-full rounded-2xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1 p-6 sm:p-8">
+              <div className="space-y-6 touch-pan-y">
+                {PROCESS_STEPS.map((step, index) => (
+                  <ScrollReveal key={step.id} direction="up" delay={0.1 * (index + 1)}>
+                    <div className="group relative">
+                      {/* Gradient Border Glow - Always visible */}
+                      <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-[#4A90E2]/10 via-[#3B82F6]/10 to-[#2563EB]/10 dark:from-[#4A90E2]/20 dark:via-[#3B82F6]/20 dark:to-[#2563EB]/20 group-hover:from-[#4A90E2]/30 group-hover:via-[#3B82F6]/30 group-hover:to-[#2563EB]/30 dark:group-hover:from-[#4A90E2]/40 dark:group-hover:via-[#3B82F6]/40 dark:group-hover:to-[#2563EB]/40 transition-all duration-500 blur-lg"></div>
 
-                    {/* Animated Background Gradient */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      {/* Main Card Container - Visible shadow and colorful border by default */}
+                      <div className="relative flex flex-col rounded-2xl bg-white dark:bg-gray-900 backdrop-blur-xl border-2 border-[#4A90E2]/30 dark:border-[#4A90E2]/40 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-lg group-hover:shadow-xl [box-shadow:3px_3px_0px_rgba(74,144,226,0.2)] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1.5 group-hover:-translate-y-1.5 p-6 sm:p-8">
 
-                    {/* Content */}
-                    <div className="relative z-10 flex flex-col h-full">
-                      {/* Icon Container */}
-                      <div className="flex justify-center mb-6">
-                        <div className="transition-transform duration-700 ease-out group-hover:scale-110 w-20 h-20 sm:w-24 sm:h-24">
-                          <ProcessIcon stepId={step.id} />
+                        {/* Animated Background Gradient - Visible by default */}
+                        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#4A90E2]/3 via-[#3B82F6]/3 to-[#2563EB]/3 dark:from-[#4A90E2]/5 dark:via-[#3B82F6]/5 dark:to-[#2563EB]/5 group-hover:from-[#4A90E2]/8 group-hover:via-[#3B82F6]/8 group-hover:to-[#2563EB]/8 dark:group-hover:from-[#4A90E2]/12 dark:group-hover:via-[#3B82F6]/12 dark:group-hover:to-[#2563EB]/12 transition-all duration-500"></div>
+
+                        {/* Content */}
+                        <div className="relative z-10 flex flex-col">
+                          {/* Icon Container - Always visible background */}
+                          <div className="flex justify-center mb-6">
+                            <div className="relative">
+                              {/* Icon background glow - subtle by default */}
+                              <div className="absolute inset-0 bg-gradient-to-br from-[#4A90E2]/20 to-[#3B82F6]/20 rounded-full blur-md group-hover:from-[#4A90E2]/40 group-hover:to-[#3B82F6]/40 group-hover:blur-lg transition-all duration-500"></div>
+
+                              <div className="relative transition-transform duration-700 ease-out group-hover:scale-110 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#4A90E2]/10 to-[#3B82F6]/10 dark:from-[#4A90E2]/15 dark:to-[#3B82F6]/15 group-hover:from-[#4A90E2]/20 group-hover:to-[#3B82F6]/20 p-4 shadow-md group-hover:shadow-xl border border-[#4A90E2]/20 group-hover:border-[#4A90E2]/40">
+                                <ProcessIcon stepId={step.id} />
+                              </div>
+                            </div>
+                          </div>
+
+                          <h3 className="text-[18px] md:text-[20px] font-black text-[#001f3f] dark:text-white text-center transition-all duration-300 mb-4 leading-tight [text-shadow:0_0_20px_rgba(74,144,226,0.1)] group-hover:text-[#4A90E2] dark:group-hover:text-[#4A90E2] group-hover:[text-shadow:none]">
+                            {step.title}
+                          </h3>
+
+                          <p className="text-[13px] md:text-[14px] text-[#001f3f]/80 dark:text-gray-300 text-center leading-relaxed font-medium">
+                            {step.description}
+                          </p>
                         </div>
                       </div>
-
-                      <h3 className="text-[18px] md:text-[20px] font-black text-[#001f3f] dark:text-white text-center transition-colors duration-300 group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] mb-4 leading-tight">
-                        {step.title}
-                      </h3>
-
-                      <p className="text-[13px] md:text-[14px] text-[#001f3f]/80 dark:text-gray-300 text-center leading-relaxed font-medium">
-                        {step.description}
-                      </p>
                     </div>
-                  </div>
-                </div>
-              ))}
-            </SwipeableCards>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Desktop Two Column Layout - Hidden on mobile, visible from MD and above */}
