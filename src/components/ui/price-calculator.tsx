@@ -331,9 +331,9 @@ export function PriceCalculator() {
                 onClick={() => handlePageChange(false)}
                 disabled={state.pages <= 1}
                 aria-label="Decrease number of pages"
-                className="w-12 h-12 rounded-xl bg-cyan-400/20 hover:bg-cyan-400/30 disabled:bg-gray-200 dark:disabled:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
+                className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FDF4E3] to-[#FDF2DB] hover:from-[#FDF2DB] hover:to-[#E6D9CC] disabled:bg-gray-200 dark:disabled:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 shadow-md"
               >
-                <Minus className="w-5 h-5 text-cyan-500" />
+                <Minus className="w-5 h-5 text-[#8B7355]" />
               </button>
 
               <div className="flex-1 text-center">
@@ -363,9 +363,9 @@ export function PriceCalculator() {
                 onClick={() => handlePageChange(true)}
                 disabled={state.pages >= 30}
                 aria-label="Increase number of pages"
-                className="w-12 h-12 rounded-xl bg-cyan-400/20 hover:bg-cyan-400/30 disabled:bg-gray-200 dark:disabled:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95"
+                className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FDF4E3] to-[#FDF2DB] hover:from-[#FDF2DB] hover:to-[#E6D9CC] disabled:bg-gray-200 dark:disabled:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50 flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 shadow-md"
               >
-                <Plus className="w-5 h-5 text-cyan-500" />
+                <Plus className="w-5 h-5 text-[#8B7355]" />
               </button>
             </div>
 

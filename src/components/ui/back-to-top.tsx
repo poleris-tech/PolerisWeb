@@ -58,7 +58,7 @@ export function BackToTop() {
           style={{ willChange: 'opacity, transform' }}
         >
           {/* Main button */}
-          <div className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-cyan-500 dark:bg-cyan-600 text-white shadow-lg shadow-cyan-500/30 dark:shadow-cyan-600/30 hover:shadow-xl hover:shadow-cyan-500/50 dark:hover:shadow-cyan-600/50 transition-all duration-300">
+          <div className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white dark:bg-gray-900 text-[#4A90E2] border-2 border-[#4A90E2]/30 dark:border-[#4A90E2]/40 hover:border-[#4A90E2] dark:hover:border-[#4A90E2] shadow-lg [box-shadow:2px_2px_0px_rgba(74,144,226,0.2)] hover:[box-shadow:4px_4px_0px_#4A90E2] hover:-translate-x-1 hover:-translate-y-1 transition-all duration-300">
 
             {/* Scroll progress ring */}
             <svg className="absolute inset-0 w-full h-full -rotate-90" aria-hidden="true">
@@ -67,7 +67,7 @@ export function BackToTop() {
                 cy="50%"
                 r="44%"
                 fill="none"
-                stroke="rgba(255, 255, 255, 0.2)"
+                stroke="rgba(74, 144, 226, 0.2)"
                 strokeWidth="2"
               />
               <motion.circle
@@ -75,7 +75,7 @@ export function BackToTop() {
                 cy="50%"
                 r="44%"
                 fill="none"
-                stroke="rgba(255, 255, 255, 0.9)"
+                stroke="rgba(74, 144, 226, 0.9)"
                 strokeWidth="2"
                 strokeLinecap="round"
                 initial={{ pathLength: 0 }}

@@ -58,13 +58,10 @@ function ServiceCard({ service, index = 0 }: { service: typeof SERVICES[0]; inde
       <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-[#4A90E2]/10 via-[#3B82F6]/10 to-[#2563EB]/10 dark:from-[#4A90E2]/20 dark:via-[#3B82F6]/20 dark:to-[#2563EB]/20 group-hover:from-[#4A90E2]/30 group-hover:via-[#3B82F6]/30 group-hover:to-[#2563EB]/30 dark:group-hover:from-[#4A90E2]/40 dark:group-hover:via-[#3B82F6]/40 dark:group-hover:to-[#2563EB]/40 transition-all duration-500 blur-xl"></div>
 
       {/* Main Card Container - Visible shadow and colorful border by default */}
-      <div className="relative h-full flex flex-col p-6 sm:p-8 md:p-10 rounded-2xl bg-white dark:bg-gray-900 backdrop-blur-xl border-2 border-[#4A90E2]/30 dark:border-[#4A90E2]/40 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-xl group-hover:shadow-2xl [box-shadow:4px_4px_0px_rgba(74,144,226,0.2)] group-hover:[box-shadow:8px_8px_0px_#4A90E2] group-hover:-translate-x-2 group-hover:-translate-y-2">
+      <div className="relative h-full flex flex-col p-6 sm:p-8 md:p-10 rounded-2xl bg-white dark:bg-gray-900 backdrop-blur-xl border-2 border-[#4A90E2]/30 dark:border-[#4A90E2]/40 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-lg group-hover:shadow-xl [box-shadow:3px_3px_0px_rgba(74,144,226,0.2)] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1.5 group-hover:-translate-y-1.5">
 
         {/* Animated Background Gradient - Visible by default */}
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#4A90E2]/3 via-[#3B82F6]/3 to-[#2563EB]/3 dark:from-[#4A90E2]/5 dark:via-[#3B82F6]/5 dark:to-[#2563EB]/5 group-hover:from-[#4A90E2]/10 group-hover:via-[#3B82F6]/10 group-hover:to-[#2563EB]/10 dark:group-hover:from-[#4A90E2]/15 dark:group-hover:via-[#3B82F6]/15 dark:group-hover:to-[#2563EB]/15 transition-all duration-500"></div>
-
-        {/* Corner accent - subtle by default */}
-        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#4A90E2]/5 to-transparent group-hover:from-[#4A90E2]/15 rounded-tr-2xl transition-all duration-300"></div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col h-full px-3 sm:px-2 md:px-0">
@@ -72,16 +69,16 @@ function ServiceCard({ service, index = 0 }: { service: typeof SERVICES[0]; inde
           <div className="flex justify-center mb-5 sm:mb-6 md:mb-8">
             <div className="relative">
               {/* Icon background glow - subtle by default */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#4A90E2]/10 to-[#3B82F6]/10 rounded-full blur-lg group-hover:from-[#4A90E2]/30 group-hover:to-[#3B82F6]/30 group-hover:blur-xl transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#4A90E2]/20 to-[#3B82F6]/20 rounded-full blur-md group-hover:from-[#4A90E2]/40 group-hover:to-[#3B82F6]/40 group-hover:blur-lg transition-all duration-500"></div>
 
-              <div className="relative transition-all duration-700 ease-out group-hover:scale-110 group-hover:rotate-3 w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#4A90E2]/5 to-[#3B82F6]/5 dark:from-[#4A90E2]/10 dark:to-[#3B82F6]/10 group-hover:from-[#4A90E2]/15 group-hover:to-[#3B82F6]/15 p-3 sm:p-4 shadow-md group-hover:shadow-xl border border-[#4A90E2]/20 group-hover:border-[#4A90E2]/40">
+              <div className="relative transition-transform duration-700 ease-out group-hover:scale-110 w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#4A90E2]/10 to-[#3B82F6]/10 dark:from-[#4A90E2]/15 dark:to-[#3B82F6]/15 group-hover:from-[#4A90E2]/20 group-hover:to-[#3B82F6]/20 p-3 sm:p-4 shadow-md group-hover:shadow-xl border border-[#4A90E2]/20 group-hover:border-[#4A90E2]/40">
                 <ServiceIcon serviceId={service.id} />
               </div>
             </div>
           </div>
 
           {/* Title - More prominent with subtle gradient always */}
-          <h3 className="text-base sm:text-[18px] md:text-[20px] lg:text-[22px] font-black text-[#001f3f] dark:text-white mb-4 md:mb-5 text-center transition-all duration-300 leading-tight [text-shadow:0_0_20px_rgba(74,144,226,0.1)] group-hover:bg-gradient-to-r group-hover:from-[#4A90E2] group-hover:to-[#3B82F6] group-hover:bg-clip-text group-hover:text-transparent group-hover:[text-shadow:none]">
+          <h3 className="text-base sm:text-[18px] md:text-[20px] lg:text-[22px] font-black text-[#001f3f] dark:text-white mb-4 md:mb-5 text-center transition-all duration-300 leading-tight [text-shadow:0_0_20px_rgba(74,144,226,0.1)] group-hover:text-[#4A90E2] dark:group-hover:text-[#4A90E2] group-hover:[text-shadow:none]">
             {service.title}
           </h3>
 

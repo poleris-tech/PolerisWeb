@@ -149,7 +149,7 @@ export function TechStackCarousel() {
                     <div className={`absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500`} />
 
                     {/* Card */}
-                    <div className="relative w-16 h-16 xs:w-18 xs:h-18 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center group-hover:scale-110 group-hover:-translate-y-2 border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
+                    <div className="relative w-16 h-16 xs:w-18 xs:h-18 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-white dark:bg-gray-900 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center group-hover:scale-110 group-hover:-translate-y-2 border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
                       {/* Gradient background on hover */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
