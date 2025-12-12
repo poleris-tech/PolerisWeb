@@ -29,33 +29,23 @@ export const CONTACT_INFO = {
 export const SERVICES: Service[] = [
   {
     id: "web-design",
-    title: "Custom Web Design",
-    description: "100% hand-coded websites built for performance and conversion. No page builders, no bloat.",
+    title: "Website Design",
+    description: "We design visually appealing websites that reflect your brand and engage users.",
     icon: "Code",
     features: [
+      "We design visually appealing websites that reflect your brand and engage users.",
       "Mobile-first responsive design",
       "1-second load times",
       "SEO optimized",
     ],
   },
   {
-    id: "seo",
-    title: "SEO Services",
-    description: "Get found on Google with our proven SEO strategies and optimization techniques.",
-    icon: "Search",
-    features: [
-      "Keyword research & strategy",
-      "On-page optimization",
-      "Technical SEO audit",
-      "Monthly reporting",
-    ],
-  },
-  {
     id: "ppc",
-    title: "Google PPC Ads",
-    description: "Drive targeted traffic with expertly managed pay-per-click advertising campaigns.",
+    title: "Web Development",
+    description: "Our team develops responsive, fast websites using modern web technologies.",
     icon: "Target",
     features: [
+      "Our team develops responsive, fast websites using modern web technologies.",
       "Campaign setup & management",
       "Ad copy creation",
       "Conversion tracking",
@@ -63,11 +53,25 @@ export const SERVICES: Service[] = [
     ],
   },
   {
+    id: "seo",
+    title: "SEO & Optimization",
+    description: "We improve your site's visibility on search engines and optimize site performance.",
+    icon: "Search",
+    features: [
+      "We improve your site's visibility on search engines and optimize site performance.",
+      "Keyword research & strategy",
+      "On-page optimization",
+      "Technical SEO audit",
+      "Monthly reporting",
+    ],
+  },
+  {
     id: "hosting",
-    title: "Website Hosting",
-    description: "Fast, secure hosting with 99.9% uptime guarantee. We handle all the technical details.",
+    title: "UI/UX Design",
+    description: "We create intuitive and user-friendly interfaces that enhance the user experience.",
     icon: "Server",
     features: [
+      "We create intuitive and user-friendly interfaces that enhance the user experience.",
       "Lightning-fast servers",
       "SSL certificates included",
       "Daily backups",

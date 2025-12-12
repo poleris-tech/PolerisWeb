@@ -8,6 +8,10 @@ interface SwipeableCardsProps {
   children: ReactNode[];
   showControls?: boolean;
   showDots?: boolean;
+  autoPlay?: boolean;           // ← Add this
+  autoPlayInterval?: number;
+  loop?: boolean;
+  className?: string;
 }
 
 /**

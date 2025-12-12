@@ -113,21 +113,7 @@ export function HeroSection() {
           {/* Content */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left w-full lg:w-[52%] xl:w-[50%] flex-shrink-0">
 
-            {/* Topper - Caption Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2.5 mb-4 md:mb-5"
-              style={{ willChange: 'opacity, transform' }}
-            >
-              <span className="text-sm md:text-base font-semibold tracking-wider text-cyan-400 uppercase">
-                Custom Designs, Custom Coded
-              </span>
-              <span className="h-px w-10 md:w-12 bg-gradient-to-l from-transparent to-cyan-400"></span>
-            </motion.div>
-
-            {/* Main heading - H1 Standards: Mobile 28-32px, Desktop 42-48px */}
+            {/* Main heading - Updated typography like reference */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -135,17 +121,15 @@ export function HeroSection() {
               className="space-y-4 md:space-y-6"
               style={{ willChange: 'opacity, transform' }}
             >
-              <h1 className="text-[32px] leading-[1.25] md:text-[42px] lg:text-[48px] md:leading-[1.1] font-black text-white">
+              <h1 className="text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] leading-[1.1] font-black text-white">
                 Fast Websites,
                 <br />
-                <span className="bg-gradient-to-r from-cyan-400 via-cyan-300 to-teal-400 bg-clip-text text-transparent">
-                  Real Results.
-                </span>
+                Real Results
               </h1>
 
-              {/* Body Text - Mobile 16px, Desktop 18-20px */}
-              <p className="text-base md:text-lg leading-[1.5] md:leading-[1.6] text-white/80 font-light max-w-xl mx-auto lg:mx-0">
-                Hand-coded for speed. Optimized for results. Build your perfect website with cutting-edge technology and expert craftsmanship.
+              {/* Body Text - Simpler like reference */}
+              <p className="text-lg md:text-xl leading-relaxed text-white/80 font-normal max-w-xl mx-auto lg:mx-0">
+                We help businesses grow with fast, responsive websites
               </p>
             </motion.div>
 
@@ -159,37 +143,20 @@ export function HeroSection() {
             >
               <CustomButton
                 href="#contact"
-                variant="outline"
-                size="lg"
-                className="w-full sm:w-auto text-white text-base md:text-lg px-8 md:px-10 py-4"
-              >
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </CustomButton>
-              <CustomButton
-                href="#services"
                 variant="comic"
                 size="lg"
                 className="w-full sm:w-auto bg-white/10 hover:bg-white/20 border-2 border-white/50 hover:border-white/80 text-white text-base md:text-lg px-8 md:px-10 py-4 backdrop-blur-sm [box-shadow:3px_3px_0px_rgba(255,255,255,0.3)] hover:[box-shadow:3px_3px_0px_rgba(255,255,255,0.5)]"
               >
+                Get Started
+              </CustomButton>
+              <CustomButton
+                href="#services"
+                variant="outline"
+                size="lg"
+                className="w-full sm:w-auto text-white text-base md:text-lg px-8 md:px-10 py-4"
+              >
                 View Services
               </CustomButton>
-            </motion.div>
-
-            {/* Trust Badge */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-8 md:mt-10 flex items-center gap-3 text-sm text-white/70"
-              style={{ willChange: 'opacity' }}
-            >
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 to-teal-500 shadow-lg shadow-cyan-500/30">
-                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <span className="font-medium">100% Custom Code &bull; No Templates</span>
             </motion.div>
           </div>
 

@@ -10,6 +10,7 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Starfield } from "@/components/ui/starfield";
 import { ArrowRight, Check } from "lucide-react";
 
 /**
@@ -183,7 +184,12 @@ export default function ServicePage() {
 
       {/* Hero Section */}
       <section className="relative pt-8 pb-16 md:pt-12 md:pb-24 lg:pt-16 lg:pb-32 bg-gradient-to-br from-white dark:from-gray-950 to-gray-50 dark:to-gray-900 overflow-hidden">
-        <div className="container mx-auto px-6 sm:px-6 md:px-8">
+        {/* Starfield - Only visible in dark mode */}
+        <div className="absolute inset-0 pointer-events-none blur-[1px]">
+          <Starfield count={30} />
+        </div>
+
+        <div className="container relative mx-auto px-6 sm:px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -210,8 +216,13 @@ export default function ServicePage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white dark:bg-gray-950">
-        <div className="container mx-auto px-6 sm:px-6 md:px-8">
+      <section className="relative py-16 md:py-24 lg:py-32 bg-white dark:bg-gray-950 overflow-hidden">
+        {/* Starfield - Only visible in dark mode */}
+        <div className="absolute inset-0 pointer-events-none blur-[1px]">
+          <Starfield count={30} />
+        </div>
+
+        <div className="container relative mx-auto px-6 sm:px-6 md:px-8">
           <ScrollReveal direction="up" delay={0.1}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#001f3f] dark:text-white mb-4 text-center">
               Key Benefits
@@ -245,8 +256,13 @@ export default function ServicePage() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-16 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-6 sm:px-6 md:px-8">
+      <section className="relative py-16 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+        {/* Starfield - Only visible in dark mode */}
+        <div className="absolute inset-0 pointer-events-none blur-[1px]">
+          <Starfield count={30} />
+        </div>
+
+        <div className="container relative mx-auto px-6 sm:px-6 md:px-8">
           <ScrollReveal direction="up" delay={0.1}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#001f3f] dark:text-white mb-4 text-center">
               Why Choose Us
@@ -279,8 +295,13 @@ export default function ServicePage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 md:py-24 lg:py-32 bg-white dark:bg-gray-950">
-        <div className="container mx-auto px-6 sm:px-6 md:px-8">
+      <section className="relative py-16 md:py-24 lg:py-32 bg-white dark:bg-gray-950 overflow-hidden">
+        {/* Starfield - Only visible in dark mode */}
+        <div className="absolute inset-0 pointer-events-none blur-[1px]">
+          <Starfield count={30} />
+        </div>
+
+        <div className="container relative mx-auto px-6 sm:px-6 md:px-8">
           <ScrollReveal direction="up" delay={0.1}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#001f3f] dark:text-white mb-4 text-center">
               Our Process
@@ -314,8 +335,13 @@ export default function ServicePage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-16 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-6 sm:px-6 md:px-8">
+      <section className="relative py-16 md:py-24 lg:py-32 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+        {/* Starfield - Only visible in dark mode */}
+        <div className="absolute inset-0 pointer-events-none blur-[1px]">
+          <Starfield count={30} />
+        </div>
+
+        <div className="container relative mx-auto px-6 sm:px-6 md:px-8">
           <ScrollReveal direction="up" delay={0.1}>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#001f3f] dark:text-white mb-4 text-center">
               Simple Pricing
@@ -384,8 +410,13 @@ export default function ServicePage() {
       </section>
 
       {/* Related Services Section */}
-      <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-6 sm:px-6 md:px-8">
+      <section className="relative py-16 md:py-24 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+        {/* Starfield - Only visible in dark mode */}
+        <div className="absolute inset-0 pointer-events-none blur-[1px]">
+          <Starfield count={30} />
+        </div>
+
+        <div className="container relative mx-auto px-6 sm:px-6 md:px-8">
           <ScrollReveal direction="up" delay={0.1}>
             <h2 className="text-3xl md:text-4xl font-black text-[#001f3f] dark:text-white mb-4 text-center">
               Other Services

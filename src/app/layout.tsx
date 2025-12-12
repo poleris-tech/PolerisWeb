@@ -114,7 +114,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <head>
         {/* Preconnect to external resources for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -126,7 +126,7 @@ export default function RootLayout({
         <SchemaMarkup />
       </head>
       <body
-        className={`${poppins.variable} antialiased bg-white dark:bg-gray-950`}
+        className={`${poppins.variable} antialiased bg-white dark:bg-gray-950 overflow-x-hidden`}
         style={{ fontFamily: 'var(--font-poppins)' }}
       >
         <ReCaptchaProvider>

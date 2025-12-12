@@ -146,12 +146,12 @@ export function TechStackCarousel() {
 
                   <div className="relative">
                     {/* Glow effect */}
-                    <div className={`absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500`} />
+                    <div className={`absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-20 dark:opacity-10 dark:group-hover:opacity-30 blur-xl transition-all duration-500`} />
 
                     {/* Card */}
-                    <div className="relative w-16 h-16 xs:w-18 xs:h-18 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-white dark:bg-gray-900 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center group-hover:scale-110 group-hover:-translate-y-2 border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
+                    <div className="relative w-16 h-16 xs:w-18 xs:h-18 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-white dark:bg-gray-800/80 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg dark:shadow-[0_8px_32px_rgba(59,130,246,0.1)] hover:shadow-2xl dark:hover:shadow-[0_12px_48px_rgba(59,130,246,0.2)] transition-all duration-500 flex items-center justify-center group-hover:scale-110 group-hover:-translate-y-2 border border-gray-200/50 dark:border-blue-500/30 hover:border-gray-300 dark:hover:border-blue-500/50 overflow-hidden">
                       {/* Gradient background on hover */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                      <div className={`absolute inset-0 bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-100 dark:group-hover:opacity-90 transition-opacity duration-500`} />
 
                       {/* Logo */}
                       <div className="relative z-10 w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 transition-all duration-500">
