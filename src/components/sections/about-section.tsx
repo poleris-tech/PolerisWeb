@@ -128,21 +128,15 @@ export function AboutSection() {
           <ScrollReveal direction="down" delay={0.1}>
             {/* Caption Text: 14px mobile, 16px desktop */}
             <div className="inline-flex items-center gap-2.5 mb-4 md:mb-5">
-              <span className="h-px w-10 md:w-12 bg-gradient-to-r from-transparent to-cyan-500"></span>
-              <span className="text-sm md:text-base font-semibold tracking-wider text-cyan-500 dark:text-cyan-400 uppercase">
-                About Us
-              </span>
-              <span className="h-px w-10 md:w-12 bg-gradient-to-l from-transparent to-cyan-500"></span>
+             
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
             {/* H2 Heading: 28-32px mobile, 42-48px desktop */}
             <h2 className="text-[32px] md:text-[42px] lg:text-[48px] font-black mb-6 md:mb-8 leading-[1.25] md:leading-[1.1] text-[#001f3d] dark:text-white">
-              We Build Websites That{' '}
-              <span className="text-cyan-500 dark:text-cyan-400">
-                Perform
-              </span>
+              We Build Websites That {"  "}Perform
+
             </h2>
           </ScrollReveal>
 
@@ -215,11 +209,7 @@ export function AboutSection() {
           <ScrollReveal direction="down" delay={0.1}>
             {/* Caption Text: 14px mobile, 16px desktop */}
             <div className="inline-flex items-center gap-2.5 mb-4 md:mb-5">
-              <span className="h-px w-10 md:w-12 bg-gradient-to-r from-transparent to-cyan-500"></span>
-              <span className="text-sm md:text-base font-semibold tracking-wider text-cyan-500 dark:text-cyan-400 uppercase">
-                Our Values
-              </span>
-              <span className="h-px w-10 md:w-12 bg-gradient-to-l from-transparent to-cyan-500"></span>
+              
             </div>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.2}>

@@ -56,7 +56,7 @@ export function ProcessSection() {
                     </div>
 
                     {/* Card – now has generous internal padding */}
-                    <div className="flex-1 bg-white dark:bg-gray-900 rounded-2xl p-7 shadow-lg border border-gray-200 dark:border-gray-800">
+                    <div className="flex-1 bg-white dark:bg-gray-900/100 rounded-2xl p-7 shadow-lg border border-gray-200 dark:border-gray-800">
                       <h3 className="text-xl font-bold text-[#001f3f] dark:text-white mb-3">
                         {step.title}
                       </h3>
@@ -93,7 +93,7 @@ export function ProcessSection() {
           <div className="grid grid-cols-2 gap-8">
             {PROCESS_STEPS.map((step, i) => (
               <ScrollReveal key={step.id} direction="right" delay={0.15 + i * 0.1}>
-                <div className="group h-full bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-800 hover:border-[#4A90E2]/50 hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div className="group h-full bg-white dark:bg-gray-900/100 rounded-2xl p-8 border border-gray-200 dark:border-gray-800 hover:border-[#4A90E2]/50 hover:shadow-xl transition-all duration-300 flex flex-col">
                   <div className="w-16 h-16 mx-auto mb-6 rounded-xl bg-gradient-to-br from-[#4A90E2]/10 to-blue-500/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <ProcessIcon id={step.id} />
                   </div>
