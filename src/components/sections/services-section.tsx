@@ -33,8 +33,12 @@ function ServiceCard({ service }: { service: typeof SERVICES[0] }) {
   return (
     <Link
       href={`/${service.id}`}
-      className="group block p-6 rounded-2xl bg-white dark:bg-gray-900/100 border border-gray-200 dark:border-gray-800
-                 hover:border-[#4A90E2] hover:shadow-lg transition-all duration-300"
+      className="group relative block p-6 rounded-2xl border border-gray-200 dark:border-gray-700
+                 bg-[#fafafa] dark:bg-gray-800
+                 hover:border-[#4A90E2]/50 hover:shadow-xl transition-all duration-300 z-10"
+      style={{
+        backgroundImage: 'none',
+      }}
     >
       <div className="flex items-start gap-5">
         <ServiceIcon serviceId={service.id} />

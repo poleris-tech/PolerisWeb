@@ -231,16 +231,22 @@ export function AboutSection() {
             const Icon = value.icon;
             return (
               <ScrollReveal key={index} direction={index % 2 === 0 ? 'left' : 'right'} delay={0.1 * index}>
-                <div className="group relative p-6 sm:p-8 rounded-xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 hover:border-[#5c94ff] dark:hover:border-[#5c94ff] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-blue-50 dark:hover:bg-gray-800 hover:translate-x-[-6px] hover:translate-y-[-6px] active:translate-x-[-3px] active:translate-y-[-3px] [box-shadow:0px_0px_0px_transparent] hover:[box-shadow:6px_6px_0px_#5c94ff] dark:hover:[box-shadow:6px_6px_0px_#5c94ff] active:[box-shadow:3px_3px_0px_#5c94ff]">
-                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${value.color} mb-6 shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-500`}>
-                    <Icon className="w-7 h-7 text-white transition-transform duration-500 group-hover:scale-110" />
+                <div className="group relative h-full p-5 sm:p-6 rounded-2xl bg-[#fafafa] dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-[#4A90E2] dark:hover:border-[#4A90E2] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-x-1 hover:-translate-y-1 z-10"
+                     style={{
+                       backgroundImage: 'none',
+                     }}>
+                  {/* Icon Container with Enhanced Styling */}
+                  <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/50 dark:to-gray-800 border-2 border-blue-200 dark:border-blue-800 shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/20 group-hover:scale-110 group-hover:border-blue-400 dark:group-hover:border-blue-500 transition-all duration-300">
+                    <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#4A90E2] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110" strokeWidth={2} />
                   </div>
-                  {/* H3 Section: 18-20px mobile, 24-28px desktop */}
-                  <h3 className="text-[20px] md:text-[24px] font-bold text-[#001f3d] dark:text-white mb-3 leading-[1.4] md:leading-[1.3] group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors duration-500">
+                  
+                  {/* Title */}
+                  <h3 className="text-[17px] md:text-[19px] font-bold text-[#001f3f] dark:text-white mb-3 leading-[1.3] group-hover:text-[#4A90E2] dark:group-hover:text-[#4A90E2] transition-colors duration-300">
                     {value.title}
                   </h3>
-                  {/* Body Text: 16px mobile, 18px desktop */}
-                  <p className="text-base md:text-lg text-[#001f3d]/70 dark:text-gray-400 leading-[1.5] md:leading-[1.6] group-hover:text-[#001f3d]/90 dark:group-hover:text-gray-300 transition-colors duration-500">
+                  
+                  {/* Description */}
+                  <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors duration-300">
                     {value.description}
                   </p>
                 </div>
@@ -251,18 +257,18 @@ export function AboutSection() {
       </div>
 
       {/* Why Choose Us */}
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-12 sm:py-14 md:py-16 lg:py-20">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="relative bg-gradient-to-br from-gray-50 to-blue-50/30 dark:from-gray-900 dark:to-gray-800 py-12 sm:py-14 md:py-16 lg:py-20">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
           <div className="text-center mb-12 md:mb-16">
             <ScrollReveal direction="down" delay={0.1}>
               {/* H2 Heading: 22-24px mobile, 32-36px desktop */}
-              <h2 className="text-[22px] md:text-[32px] lg:text-[36px] font-black text-[#001f3d] dark:text-white mb-4 md:mb-6 leading-[1.3] md:leading-[1.25]">
-                Why Choose <span className="text-cyan-500 dark:text-cyan-400">Poleris Digital</span>
+              <h2 className="text-[24px] md:text-[32px] lg:text-[40px] font-black text-[#001f3f] dark:text-white mb-4 md:mb-6 leading-[1.3] md:leading-[1.25]">
+                Why Choose <span className="text-[#4A90E2] dark:text-[#4A90E2]">Poleris Digital</span>
               </h2>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.2}>
               {/* Body Text: 16px mobile, 18px desktop */}
-              <p className="text-base md:text-lg text-[#001f3d]/70 dark:text-gray-400 max-w-2xl mx-auto leading-[1.5] md:leading-[1.6]">
+              <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-[1.5] md:leading-[1.6]">
                 We're not just another web design agency. Here's what makes us different.
               </p>
             </ScrollReveal>
@@ -274,31 +280,27 @@ export function AboutSection() {
               return (
                 <ScrollReveal key={index} direction="up" delay={0.05 * index}>
                   <div className="group relative h-full">
-                    {/* Gradient Border Effect */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/30 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/20 dark:via-[#FDF2DB]/20 dark:to-[#E6D9CC]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
-
                     {/* Main Card Container */}
-                    <div className="relative h-full flex flex-col p-6 sm:p-8 rounded-2xl bg-white dark:bg-gray-900 backdrop-blur-xl border-2 border-gray-200/50 dark:border-gray-700/50 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm [box-shadow:0px_0px_0px_transparent] group-hover:[box-shadow:6px_6px_0px_#4A90E2] group-hover:-translate-x-1 group-hover:-translate-y-1">
-
-                      {/* Animated Background Gradient */}
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FDF4E3]/30 via-[#FDF2DB]/20 to-[#E6D9CC]/30 dark:from-[#FDF4E3]/10 dark:via-[#FDF2DB]/5 dark:to-[#E6D9CC]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
+                    <div className="relative h-full flex flex-col p-5 sm:p-6 rounded-2xl bg-[#fafafa] dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-x-1 hover:-translate-y-1 z-10"
+                       style={{
+                         backgroundImage: 'none',
+                       }}>
                       {/* Content */}
-                      <div className="relative z-10 flex flex-col h-full">
-                        {/* Icon Container */}
-                        <div className="flex justify-center mb-5 md:mb-6">
-                          <div className="transition-transform duration-700 ease-out group-hover:scale-110 w-16 h-16 sm:w-20 sm:h-20">
-                            <Icon className="w-full h-full text-[#4A90E2]" strokeWidth={1.5} />
+                      <div className="relative z-10 flex flex-col h-full items-center text-center">
+                        {/* Icon Container with Enhanced Background */}
+                        <div className="flex justify-center mb-4">
+                          <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/50 dark:to-gray-800 border-2 border-blue-200 dark:border-blue-800 shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/20 group-hover:scale-110 group-hover:border-blue-400 dark:group-hover:border-blue-500 transition-all duration-300 flex items-center justify-center">
+                            <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#4A90E2] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110" strokeWidth={2} />
                           </div>
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-[18px] md:text-[20px] font-black text-[#001f3d] dark:text-white mb-3 text-center group-hover:text-[#8B7355] dark:group-hover:text-[#FDF4E3] transition-colors duration-300 leading-tight">
+                        <h3 className="text-[17px] md:text-[19px] font-bold text-[#001f3f] dark:text-white mb-3 group-hover:text-[#4A90E2] dark:group-hover:text-[#4A90E2] transition-colors duration-300 leading-tight">
                           {item.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-[13px] md:text-[14px] text-[#001f3d]/80 dark:text-gray-300 text-center leading-relaxed font-medium">
+                        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors duration-300 flex-1">
                           {item.description}
                         </p>
                       </div>
