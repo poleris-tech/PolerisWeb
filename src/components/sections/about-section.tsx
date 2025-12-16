@@ -125,24 +125,16 @@ export function AboutSection() {
       {/* About Header - Standardized */}
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-8 md:pb-12">
         <div className="max-w-4xl mx-auto text-center">
-          <ScrollReveal direction="down" delay={0.1}>
-            {/* Caption Text: 14px mobile, 16px desktop */}
-            <div className="inline-flex items-center gap-2.5 mb-4 md:mb-5">
-             
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal direction="up" delay={0.2}>
+          <ScrollReveal direction="up" delay={0.1}>
             {/* H2 Heading: 28-32px mobile, 42-48px desktop */}
             <h2 className="text-[32px] md:text-[42px] lg:text-[48px] font-black mb-6 md:mb-8 leading-[1.25] md:leading-[1.1] text-[#001f3d] dark:text-white">
-              We Build Websites That {"  "}Perform
-
+              We Build Websites That <span className="text-[#4A90E2]">Perform</span>
             </h2>
           </ScrollReveal>
 
-          <ScrollReveal direction="up" delay={0.3}>
+          <ScrollReveal direction="up" delay={0.2}>
             {/* Body Text: 16px mobile, 18-20px desktop */}
-            <p className="text-base md:text-lg leading-[1.5] md:leading-[1.6] text-[#001f3d]/70 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg leading-[1.5] md:leading-[1.6] text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
               No page builders. No WordPress. Just clean, hand-coded websites
               built for speed, SEO, and conversions.
             </p>
@@ -231,22 +223,21 @@ export function AboutSection() {
             const Icon = value.icon;
             return (
               <ScrollReveal key={index} direction={index % 2 === 0 ? 'left' : 'right'} delay={0.1 * index}>
-                <div className="group relative h-full p-5 sm:p-6 rounded-2xl bg-[#fafafa] dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-[#4A90E2] dark:hover:border-[#4A90E2] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-x-1 hover:-translate-y-1 z-10"
-                     style={{
-                       backgroundImage: 'none',
-                     }}>
-                  {/* Icon Container with Enhanced Styling */}
-                  <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/50 dark:to-gray-800 border-2 border-blue-200 dark:border-blue-800 shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/20 group-hover:scale-110 group-hover:border-blue-400 dark:group-hover:border-blue-500 transition-all duration-300">
-                    <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#4A90E2] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110" strokeWidth={2} />
+                <div className="group relative h-full p-6 sm:p-8 rounded-2xl bg-[#fafafa] dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-[#4A90E2]/50 hover:shadow-lg hover:shadow-[#4A90E2]/10 dark:hover:shadow-[#4A90E2]/20 transition-all duration-300">
+                  {/* Icon Container */}
+                  <div className="mb-5">
+                    <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-[#4A90E2]/10 to-[#4A90E2]/5 dark:from-[#4A90E2]/20 dark:to-[#4A90E2]/10 group-hover:from-[#4A90E2]/20 group-hover:to-[#4A90E2]/10 dark:group-hover:from-[#4A90E2]/30 dark:group-hover:to-[#4A90E2]/20 transition-all duration-300">
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#4A90E2] group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
+                    </div>
                   </div>
-                  
+
                   {/* Title */}
-                  <h3 className="text-[17px] md:text-[19px] font-bold text-[#001f3f] dark:text-white mb-3 leading-[1.3] group-hover:text-[#4A90E2] dark:group-hover:text-[#4A90E2] transition-colors duration-300">
+                  <h3 className="text-lg md:text-xl font-bold text-[#001f3f] dark:text-white mb-3 leading-tight">
                     {value.title}
                   </h3>
-                  
+
                   {/* Description */}
-                  <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors duration-300">
+                  <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                     {value.description}
                   </p>
                 </div>
@@ -279,32 +270,23 @@ export function AboutSection() {
               const Icon = item.icon;
               return (
                 <ScrollReveal key={index} direction="up" delay={0.05 * index}>
-                  <div className="group relative h-full">
-                    {/* Main Card Container */}
-                    <div className="relative h-full flex flex-col p-5 sm:p-6 rounded-2xl bg-[#fafafa] dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 group-hover:border-[#4A90E2] dark:group-hover:border-[#4A90E2] transition-all duration-300 shadow-sm hover:shadow-xl hover:-translate-x-1 hover:-translate-y-1 z-10"
-                       style={{
-                         backgroundImage: 'none',
-                       }}>
-                      {/* Content */}
-                      <div className="relative z-10 flex flex-col h-full items-center text-center">
-                        {/* Icon Container with Enhanced Background */}
-                        <div className="flex justify-center mb-4">
-                          <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/50 dark:to-gray-800 border-2 border-blue-200 dark:border-blue-800 shadow-lg group-hover:shadow-xl group-hover:shadow-blue-500/20 group-hover:scale-110 group-hover:border-blue-400 dark:group-hover:border-blue-500 transition-all duration-300 flex items-center justify-center">
-                            <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#4A90E2] transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110" strokeWidth={2} />
-                          </div>
-                        </div>
-
-                        {/* Title */}
-                        <h3 className="text-[17px] md:text-[19px] font-bold text-[#001f3f] dark:text-white mb-3 group-hover:text-[#4A90E2] dark:group-hover:text-[#4A90E2] transition-colors duration-300 leading-tight">
-                          {item.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors duration-300 flex-1">
-                          {item.description}
-                        </p>
+                  <div className="group relative h-full p-6 sm:p-8 rounded-2xl bg-[#fafafa] dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-[#4A90E2]/50 hover:shadow-lg hover:shadow-[#4A90E2]/10 dark:hover:shadow-[#4A90E2]/20 transition-all duration-300 flex flex-col items-center text-center">
+                    {/* Icon Container */}
+                    <div className="mb-5">
+                      <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-[#4A90E2]/10 to-[#4A90E2]/5 dark:from-[#4A90E2]/20 dark:to-[#4A90E2]/10 group-hover:from-[#4A90E2]/20 group-hover:to-[#4A90E2]/10 dark:group-hover:from-[#4A90E2]/30 dark:group-hover:to-[#4A90E2]/20 transition-all duration-300">
+                        <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#4A90E2] group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
                       </div>
                     </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg md:text-xl font-bold text-[#001f3f] dark:text-white mb-3 leading-tight">
+                      {item.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed flex-1">
+                      {item.description}
+                    </p>
                   </div>
                 </ScrollReveal>
               );

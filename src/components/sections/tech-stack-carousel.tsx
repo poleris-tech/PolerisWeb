@@ -86,29 +86,32 @@ export function TechStackCarousel() {
         backgroundSize: '40px 40px'
       }} />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center gap-4 sm:gap-5">
-          <ScrollReveal direction="down" delay={0.1}>
-            <span className="inline-block text-sm sm:text-base font-semibold tracking-wider text-blue-600 dark:text-cyan-400 uppercase">
-              Powered By
-            </span>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.2}>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white">
-              Cutting-Edge <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Technology</span>
-            </h2>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.3}>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-light leading-relaxed px-4">
-              Industry-leading tools that deliver blazing-fast performance and exceptional user experiences
-            </p>
-          </ScrollReveal>
+      <div className="relative">
+        {/* Header with container */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-12 lg:mb-14 flex flex-col items-center gap-4 sm:gap-5">
+            <ScrollReveal direction="down" delay={0.1}>
+              <span className="inline-block text-sm sm:text-base font-semibold tracking-wider text-blue-600 dark:text-cyan-400 uppercase">
+                Powered By
+              </span>
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={0.2}>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white">
+                Cutting-Edge <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Technology</span>
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal direction="up" delay={0.3}>
+              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-light leading-relaxed px-4">
+                Industry-leading tools that deliver blazing-fast performance and exceptional user experiences
+              </p>
+            </ScrollReveal>
+          </div>
         </div>
 
-        {/* Carousel wrapper */}
+        {/* Carousel wrapper - Full width */}
         <ScrollReveal direction="zoom-in" delay={0.4}>
           <div className="relative py-4" style={{ marginTop: '2rem' }}>
-            {/* Enhanced gradient overlays - smaller on mobile */}
+            {/* Enhanced gradient overlays */}
             <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 lg:w-64 bg-gradient-to-r from-white dark:from-gray-950 via-white dark:via-gray-950 to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-48 lg:w-64 bg-gradient-to-l from-white dark:from-gray-950 via-white dark:via-gray-950 to-transparent z-10 pointer-events-none" />
 
@@ -155,13 +158,19 @@ export function TechStackCarousel() {
 
                       {/* Logo */}
                       <div className="relative z-10 w-10 h-10 xs:w-11 xs:h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 transition-all duration-500">
+                        {/* White background circle for dark logos in dark mode */}
+                        {tech.isDark && (
+                          <div className="absolute inset-0 dark:bg-white dark:rounded-full dark:scale-90 transition-all duration-500 group-hover:scale-0 group-hover:opacity-0" />
+                        )}
                         <Image
                           src={tech.logo}
                           alt={`${tech.name} logo`}
                           fill
                           loading="lazy"
                           className={`object-contain p-1.5 sm:p-2 transition-all duration-500 ${
-                            tech.isDark ? 'group-hover:brightness-0 group-hover:invert' : ''
+                            tech.isDark
+                              ? 'group-hover:brightness-0 group-hover:invert'
+                              : ''
                           }`}
                         />
                       </div>
@@ -175,11 +184,13 @@ export function TechStackCarousel() {
         </ScrollReveal>
 
         {/* Bottom decorative line */}
-        <ScrollReveal direction="zoom-in" delay={0.5}>
-          <div className="mt-8 flex justify-center">
-            <div className="h-1 w-24 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />
-          </div>
-        </ScrollReveal>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="zoom-in" delay={0.5}>
+            <div className="mt-8 flex justify-center">
+              <div className="h-1 w-24 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full" />
+            </div>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );

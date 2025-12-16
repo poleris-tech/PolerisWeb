@@ -209,13 +209,13 @@ export function PriceCalculator() {
       <div className="text-center mb-12">
         <ScrollReveal direction="up">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <h3 className="text-3xl md:text-4xl font-bold text-white">
+            <h3 className="text-3xl md:text-4xl font-bold text-[#001f3d] dark:text-white">
               Calculate Your Custom Price
             </h3>
           </div>
         </ScrollReveal>
         <ScrollReveal direction="up" delay={0.1}>
-          <p className="text-white/80 text-base max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-base max-w-2xl mx-auto">
             Choose a preset package or customize your own. See pricing update in real-time.
           </p>
         </ScrollReveal>

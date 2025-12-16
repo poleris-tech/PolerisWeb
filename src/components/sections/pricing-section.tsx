@@ -1,7 +1,6 @@
 "use client";
 
-import { PRICING_PLANS } from "@/constants/site-data";
-import { Check, ArrowRight } from "lucide-react";
+import { Check } from "lucide-react";
 import { CustomButton } from "@/components/ui/custom-button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Starfield } from "@/components/ui/starfield";
@@ -9,158 +8,208 @@ import { PriceCalculator } from "@/components/ui/price-calculator";
 
 /**
  * Pricing Section Component
- * Displays pricing plans with features and optional add-ons
- * Matches the clean design language of the site
+ * Displays three pricing tiers with modern card design
  */
+
+const PRICING_TIERS = [
+  {
+    name: "Starter",
+    oneTimePrice: 1500,
+    monthlyPrice: 30,
+    features: [
+      "Up to 3 Pages",
+      "Basic SEO Setup",
+      "Mobile Responsive Design",
+      "Standard Support"
+    ],
+    buttonText: "Get Started",
+    popular: false
+  },
+  {
+    name: "Professional",
+    oneTimePrice: 3200,
+    monthlyPrice: 30,
+    features: [
+      "Up to 6 Pages",
+      "SEO-Ready Structure",
+      "Mobile-First Design",
+      "1 Year Priority Support",
+      "Google Analytics Setup",
+      "Contact Form Integration",
+      "100% Hand-Coded"
+    ],
+    buttonText: "Get Started",
+    popular: true
+  },
+  {
+    name: "Enterprise",
+    oneTimePrice: null,
+    monthlyPrice: null,
+    features: [
+      "Unlimited Pages",
+      "Full SEO Optimization",
+      "Advanced Integrations",
+      "Dedicated Support",
+      "Custom Features",
+      "E-commerce Capabilities"
+    ],
+    buttonText: "Contact Us",
+    popular: false
+  }
+];
 
 export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="relative bg-[#001f3d] dark:bg-[#001529] text-white overflow-hidden"
+      className="relative bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 overflow-hidden"
     >
       {/* Starfield - Only visible in dark mode */}
       <Starfield count={50} position="absolute" />
-
-      {/* Wave SVG at top */}
-      <svg
-        className="absolute top-[-3px] left-0 w-full h-auto z-10 pointer-events-none"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 1200 120"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-      >
-        <path
-          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-          className="fill-white dark:fill-gray-950"
-        />
-      </svg>
-
-      {/* Wave SVG at bottom */}
-      <svg
-        className="absolute bottom-[-3px] left-0 w-full h-auto z-10 pointer-events-none"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 1200 120"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ transform: 'scaleY(-1)' }}
-        aria-hidden="true"
-      >
-        <path
-          d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-          className="fill-white dark:fill-gray-950"
-        />
-      </svg>
 
       <div className="container relative z-20 mx-auto px-6 md:px-8 py-20 md:py-28">
         {/* Header Content */}
         <div className="text-center mb-16">
           <ScrollReveal direction="up">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#001f3d] dark:text-white mb-4">
               Simple, Transparent Pricing
-              
             </h2>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto">
-              Everything you need to succeed online. No hidden fees, just honest pricing for exceptional work.
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Choose the perfect plan for your business needs
             </p>
           </ScrollReveal>
         </div>
 
-        {/* Main Pricing Card */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <ScrollReveal direction="up" delay={0.3}>
-            <div className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-[#4A90E2] hover:shadow-xl transition-all duration-300">
-              {/* Popular Badge */}
-              {PRICING_PLANS[0].popular && (
-                <div className="bg-gradient-to-r from-indigo-500 to-cyan-400 text-white text-center py-2 text-sm font-semibold">
-                  Most Popular
-                </div>
-              )}
-
-              {/* Pricing Header */}
-              <div className="p-8 md:p-12 text-center border-b border-gray-200 dark:border-gray-800">
-                <h3 className="text-2xl md:text-3xl font-bold text-[#001f3f] dark:text-white mb-8">
-                  {PRICING_PLANS[0].name}
-                </h3>
-
-                {/* Pricing Display */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 mb-8">
-                  {/* One-time Price */}
-                  <div>
-                    <div className="flex items-baseline justify-center gap-2 mb-2">
-                      <span className="text-5xl md:text-6xl font-bold text-cyan-500">
-                        ${PRICING_PLANS[0].oneTimePrice?.toLocaleString()}
-                      </span>
+        {/* Pricing Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {PRICING_TIERS.map((tier, index) => (
+            <ScrollReveal key={tier.name} direction="up" delay={0.1 * index}>
+              <div className={`relative h-full ${tier.popular ? 'md:-mt-4' : ''}`}>
+                {/* Popular Badge */}
+                {tier.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                    <div className="bg-gradient-to-r from-[#4A90E2] to-cyan-400 text-white px-6 py-1.5 rounded-full text-sm font-semibold shadow-lg">
+                      MOST POPULAR
                     </div>
-                    <p className="text-[#001f3f] dark:text-white font-semibold">One-Time Build</p>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Complete website delivery</p>
                   </div>
+                )}
 
-                  {/* Plus Symbol */}
-                  <div className="text-3xl font-bold text-cyan-500">+</div>
+                {/* Card */}
+                <div className={`relative h-full rounded-3xl overflow-hidden transition-all duration-300 ${
+                  tier.popular
+                    ? 'bg-gradient-to-br from-[#4A90E2] via-[#5BA3F5] to-cyan-400 p-[2px] shadow-2xl shadow-[#4A90E2]/30'
+                    : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-[#4A90E2]/50 hover:shadow-xl'
+                }`}>
+                  <div className={`h-full rounded-3xl ${
+                    tier.popular
+                      ? 'bg-gradient-to-br from-[#4A90E2] via-[#5BA3F5] to-cyan-400 text-white p-8'
+                      : 'bg-white dark:bg-gray-800 p-8'
+                  }`}>
+                    {/* Plan Name */}
+                    <h3 className={`text-3xl font-black mb-6 ${
+                      tier.popular ? 'text-white' : 'text-[#001f3d] dark:text-white'
+                    }`}>
+                      {tier.name}
+                    </h3>
 
-                  {/* Monthly Price */}
-                  <div>
-                    <div className="flex items-baseline justify-center gap-2 mb-2">
-                      <span className="text-4xl md:text-5xl font-bold text-[#001f3f] dark:text-white">
-                        ${PRICING_PLANS[0].monthlyPrice}
-                      </span>
-                      <span className="text-xl text-gray-600 dark:text-gray-400">/mo</span>
+                    {/* Price */}
+                    <div className="mb-6">
+                      {tier.oneTimePrice !== null && tier.monthlyPrice !== null ? (
+                        <div className="space-y-2">
+                          {/* One-time Price */}
+                          <div>
+                            <div className="flex items-baseline gap-1">
+                              <span className={`text-base ${
+                                tier.popular ? 'text-white/90' : 'text-gray-600 dark:text-gray-400'
+                              }`}>$</span>
+                              <span className={`text-4xl md:text-5xl font-black ${
+                                tier.popular ? 'text-white' : 'text-[#001f3d] dark:text-white'
+                              }`}>
+                                {tier.oneTimePrice.toLocaleString()}
+                              </span>
+                            </div>
+                            <p className={`text-xs ${
+                              tier.popular ? 'text-white/70' : 'text-gray-500 dark:text-gray-400'
+                            }`}>one-time</p>
+                          </div>
+
+                          {/* Monthly Price */}
+                          <div className="flex items-baseline gap-2 pt-1">
+                            <span className={`text-xs ${
+                              tier.popular ? 'text-white/70' : 'text-gray-500 dark:text-gray-400'
+                            }`}>+</span>
+                            <span className={`text-xl font-bold ${
+                              tier.popular ? 'text-white' : 'text-[#001f3d] dark:text-white'
+                            }`}>
+                              ${tier.monthlyPrice}/mo
+                            </span>
+                            <span className={`text-xs ${
+                              tier.popular ? 'text-white/70' : 'text-gray-500 dark:text-gray-400'
+                            }`}>hosting</span>
+                          </div>
+                        </div>
+                      ) : (
+                        /* Custom Pricing for Enterprise */
+                        <div className="py-2">
+                          <div className={`text-3xl font-black mb-1 ${
+                            tier.popular ? 'text-white' : 'text-[#001f3d] dark:text-white'
+                          }`}>
+                            Custom
+                          </div>
+                          <p className={`text-xs ${
+                            tier.popular ? 'text-white/70' : 'text-gray-500 dark:text-gray-400'
+                          }`}>Contact for quote</p>
+                        </div>
+                      )}
                     </div>
-                    <p className="text-[#001f3f] dark:text-white font-semibold">Hosting & Support</p>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Includes everything</p>
+
+                    {/* Features */}
+                    <div className="space-y-3 mb-6">
+                      {tier.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-start gap-2.5">
+                          <div className={`flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center mt-0.5 ${
+                            tier.popular
+                              ? 'bg-white/20'
+                              : 'bg-[#4A90E2]/10'
+                          }`}>
+                            <Check className={`w-3 h-3 ${
+                              tier.popular ? 'text-white' : 'text-[#4A90E2]'
+                            }`} strokeWidth={3} />
+                          </div>
+                          <span className={`text-sm leading-snug ${
+                            tier.popular ? 'text-white/90' : 'text-gray-600 dark:text-gray-400'
+                          }`}>
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* CTA Button */}
+                    <CustomButton
+                      href="#contact"
+                      variant="comic"
+                      size="lg"
+                      className={`w-full ${
+                        tier.popular
+                          ? 'bg-white text-[#4A90E2] hover:bg-gray-100 border-white'
+                          : 'bg-transparent text-[#4A90E2] border-[#4A90E2] hover:bg-[#4A90E2] hover:text-white dark:text-[#4A90E2] dark:border-[#4A90E2] dark:hover:bg-[#4A90E2] dark:hover:text-white'
+                      }`}
+                    >
+                      {tier.buttonText}
+                    </CustomButton>
                   </div>
                 </div>
-
-                {/* CTA Button */}
-                <CustomButton
-                  href="?subject=Custom Website Package - Get Started&message=Hi! I'm interested in the Custom Website Package ($3,200 one-time + $30/month). I'd like to discuss my project and get started.#contact"
-                  variant="comic"
-                  size="lg"
-                  className="px-8"
-                >
-                  Get Started Today
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </CustomButton>
               </div>
-
-              {/* Features Section */}
-              <div className="p-8 md:p-12">
-                <h3 className="text-xl font-bold text-[#001f3f] dark:text-white mb-6 text-center">
-                  Everything You Need Included
-                </h3>
-
-                {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-                  {PRICING_PLANS[0].features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3 group/item">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-cyan-500 flex items-center justify-center mt-0.5">
-                        <Check className="w-4 h-4 text-white" strokeWidth={3} />
-                      </div>
-                      <span className="text-base text-gray-600 dark:text-gray-300">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Trust Badge */}
-                <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-800 text-center">
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    <span className="font-semibold text-cyan-500">No hidden fees</span> • <span className="font-semibold text-cyan-500">No surprises</span> • <span className="font-semibold text-cyan-500">Cancel anytime</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          ))}
         </div>
 
         {/* Interactive Price Calculator */}
-        <div className="my-20 sm:my-28">
+        <div className="mt-20 sm:mt-28">
           <PriceCalculator />
         </div>
       </div>
